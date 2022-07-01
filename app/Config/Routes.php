@@ -38,7 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('/home/list', 'Home::list');
 $routes->get('/home/create', 'Home::create');
-$routes->get('/home/edit', 'Home::edit');
+$routes->get('/home/edit/(:num)', 'Home::edit/$1');
 
 /*
  * --------------------------------------------------------------------

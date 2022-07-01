@@ -11,9 +11,9 @@ class Home extends BaseController
         return view('welcome_message');
     }
 
-    public function list()
+    public function list() //List All Data
     {
-        $data = list_all($this->connect, 'blogs');
+        $data = helpers_list_all($this->connect, 'blogs');
 
         echo "<pre>";
         print_r($data);
@@ -31,18 +31,34 @@ class Home extends BaseController
             'description'  => $description,
         ];
 
-        $data = create($this->connect, 'blogs', $data_form);
+        $data = helpers_create($this->connect, 'blogs', $data_form);
 
         if ($data) {
             // redirect();
-        }else {
+        } else {
             // melakukan ap ?
         }
-
     }
 
-    public function edit()
+    public function edit($id = 0)
     {
-        var_dump(123);
+        // $form = $this->request->getVar();
+        // $title = $form['title'];
+
+        $title = 'title 123 edit';
+        $description = 'lorem ipsum 123 edit';
+
+        $data_form = [
+            'title' => $title,
+            'description' => $description,
+        ];
+
+        $data = helpers_edit($this->connect, 'blogs', $id, 'id_blogs', $data_form);
+
+        if ($data) {
+            //Jika data ada kemana
+        } else {
+            //jika tidak ada
+        }
     }
 }
