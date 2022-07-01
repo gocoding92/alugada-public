@@ -13,7 +13,7 @@ class Home extends BaseController
 
     public function list()
     {
-        $data = list_all('blogs');
+        $data = list_all($this->connect, 'blogs');
 
         echo "<pre>";
         print_r($data);
