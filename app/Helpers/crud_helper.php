@@ -21,3 +21,27 @@ if (!function_exists("list_all")) {
         return $allData;
     }
 }
+
+/**
+ * @description Create Data
+ * @author Achmad Rizky <rizky271092@gmail.com>
+ * @date 2022-01-07
+ * @param {connect db} [connect={}]
+ * @param {table} [table=String]
+ * @param {data_form} [data_form=[]]
+ * 
+ * @returns
+ */
+if (!function_exists("create")) {
+    function create($connect = null, $table = '', $data_form = array())
+    {
+        $result = false;
+        if ($connect) {
+            $builder = $connect->table($table); 
+            $result = $builder->insert($data_form);
+        }
+
+        return $result;
+    }
+}
+

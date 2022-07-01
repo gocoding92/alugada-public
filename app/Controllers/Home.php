@@ -21,7 +21,24 @@ class Home extends BaseController
 
     public function create()
     {
-        var_dump(123);
+        // $form = $this->request->getVar();
+
+        $title = 'title 123';
+        $description = 'lorem ipsum 123';
+
+        $data_form = [
+            'title' => $title,
+            'description'  => $description,
+        ];
+
+        $data = create($this->connect, 'blogs', $data_form);
+
+        if ($data) {
+            // redirect();
+        }else {
+            // melakukan ap ?
+        }
+
     }
 
     public function edit()
