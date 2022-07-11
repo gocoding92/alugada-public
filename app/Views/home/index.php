@@ -67,7 +67,65 @@
         font-size: 8px;
         cursor: pointer;
     }
+    .csRwhc {
+      width : 150px;
+      margin: 6px 5px 5px 0px;
     }
+    .oTgHF{
+      border: 0.5px solid rgba(0, 0, 0, 0.1);
+      display: flex;
+      border-radius: 4px;
+      flex-direction: column;
+      box-shadow: rgb(152 152 152 / 20%) 0px 2px 8px 1px;
+    }
+    .izvwwH {
+      position: relative;
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+      margin: 0px;
+      flex: 1 1 0%;
+    }
+    .hxopFq {
+      width: 100%;
+      border-radius: 4px 4px 0px 0px;
+      object-fit: cover;
+      height: 85px;
+    }
+    .cveMns {
+      min-height: 2.5em;
+    }
+    .xqVvp {
+      font-weight: 600;
+      font-size: 0.75rem;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      color: rgb(74, 74, 74);
+      margin: 0.25em 0em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+    .row-card{
+      padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    grid-gap: 15px;
+    gap: 15px;
+    }
+    .ProductCard_productCard__fV4tL {
+    background: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    font-size: 11px;
+    position: relative;
+    box-shadow: 0 4px 10px rgb(0 0 0 / 8%);
+}
   </style>
   <body style="background-color: #f7f7f7">
     <main class="my-0 mx-auto min-h-full max-w-screen-sm">
@@ -75,62 +133,48 @@
         <p>Header</p>
       </header>
       <div id="home-page" class="hIYHVz">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, esse
-          numquam. Accusamus repellendus et magnam alias dolores temporibus
-          totam iusto reiciendis modi porro ullam, atque earum, laudantium
-          dolorum officiis possimus?
-        </p>
-        <br />
-        <br />
+        <div class="row-card">
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2016, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/n9qzfpcwwkyk3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2015, Datsun Go+ Panca</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="ehCkHB">
         <div class="cwwuxL">
