@@ -34,9 +34,24 @@ class Home extends BaseController
         return view('home/index', $data);
     }
 
-    public function detail()
+    public function detail($nolayanan)
     {
-        return view('home/detail');
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+        }
+
+        $judul = $this->modelalugada->layananbynolayanan($nolayanan)['layanan'];
+        $data = [
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            'title'         => $judul,
+            'nolayanan'       =>  $nolayanan,
+            'sublayanan'    => $this->modelalugada->sublayanan(),
+            'jenisiklan'    => $this->modelalugada->jenisiklan(),
+        ];
+        return view('home/detail', $data);
+        
+        // return view('home/detail');
     }
 
 

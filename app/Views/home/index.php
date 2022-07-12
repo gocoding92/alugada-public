@@ -18,12 +18,13 @@
   <main class="container-sm">
     <header class="header display-flex justify-content-between margin-bottom-2">
       <div class="display-flex">
-        <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
+        <img class="img-categories" src="<?= base_url('Image/logo.jpg');?>" alt="semua">
         <p>Alugada</p>
       </div>
       <div class="display-flex">
-        <p>Achmad Rizky</p>
-        <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
+        <p><?= $pengunjung['nama'];?></p>
+        <!-- <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"> -->
+        <img class="img-categories" src="<?= base_url('Image/User/'.$pengunjung['profile']);?>" alt="semua">
       </div>
     </header>
     <div id="home-page" class="row-sm">
@@ -37,7 +38,9 @@
 
       <div class="row-categories">
         <?php foreach ($layanan as $l) : ?>
-          <a href="<?= base_url(); ?>/home/detail/1" class="categories-button" variant="light">
+          <!-- <a href="<?php //echo base_url(); ?>/home/detail/1" class="categories-button" variant="light"> -->
+          <a href="<?= base_url('home/detail/'.$l['nolayanan']);?>" class="categories-button" variant="light">
+
             <div>
               <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
             </div>
@@ -153,7 +156,7 @@
     </div>
     <div class="footer">
       <div class="row-footer">
-        <p>BERANDA</p>
+        <p><a href="<?= base_url('/'); ?>">BERANDA</a></p>
       </div>
       <div class="row-footer">
         <p>TENTANG KAMI</p>

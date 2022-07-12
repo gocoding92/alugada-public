@@ -26,19 +26,26 @@
     </header>
     <div id="home-page" class="row-sm">
       <div class="row-categories">
-        <button class="categories-button" variant="light">
-          <div>
-            <img class="img-categories" src="http://localhost:8080/Image/Layanan/ahli.png" alt="semua">
-          </div>
-          <div class="label-categories">
-            <p>Programmer</p>
-          </div>
-        </button>
+        <?php foreach ($sublayanan as $sl) : ?>
+          <?php if ($sl['nolayanan'] == $nolayanan) { ?>
+            <button class="categories-button" variant="light">
+              <div>
+                <!-- <img class="img-categories" src="http://localhost:8080/Image/Layanan/ahli.png" alt="semua"> -->
+                <img class="img-categories" src="<?= base_url('Image/Layanan/Sublayanan/' . $sl['gambar']); ?>" alt="semua">
+
+              </div>
+              <div class="label-categories">
+                <!-- <p>Programmer</p> -->
+                <p><?= $sl['sublayanan']; ?></p>
+              </div>
+            </button>
+          <?php }; ?>
+        <?php endforeach; ?>
       </div>
     </div>
     <div class="footer">
       <div class="row-footer">
-        <p>BERANDA</p>
+        <p><a href="<?= base_url('/'); ?>">BERANDA</a></p>
       </div>
       <div class="row-footer">
         <p>TENTANG KAMI</p>
