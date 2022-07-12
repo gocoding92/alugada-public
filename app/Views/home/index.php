@@ -24,6 +24,7 @@
       </div>
 
         <div class="row-categories">
+          <!-- // looping -->
           <button class="categories-button" variant="light">
             <div>
               <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
@@ -32,62 +33,7 @@
               Tenaga <br /> Ahli
             </div>
           </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/ProdukBaru.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Tenaga <br /> Terampil
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/sayuran-semua_not-selected.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Property <br /> dijual
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/buah-semua_not-selected.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Property disewakan
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/daging-semua_not-selected.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Kost & <br /> Kontrakan
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Mobil Motor <br /> dijual
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Mobil Motor disewakan
-            </div>
-          </button>
-          <button class="categories-button" variant="light">
-            <div>
-              <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
-            </div>
-            <div class="label-categories">
-              Semua <br /> Layanan
-            </div>
-          </button>
+          <!-- // end looping -->
       </div>
 
         <div class="row-card-layanan">
