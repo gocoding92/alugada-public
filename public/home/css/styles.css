@@ -4,7 +4,7 @@
     min-height: 100%; 
     max-width: 480px;
 }  
-  .hIYHVz {
+  .row-sm {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
     position: relative;
@@ -16,7 +16,7 @@
     padding: 0px 16px 80px;
     min-height: calc(100vh - 60px);
   }
-  .ehCkHB {
+  .footer {
     list-style-type: none;
     display: inline-block;
     border-width: 1px 0px 0px;
@@ -47,24 +47,20 @@
     margin: 0px;
     background-color: rgb(255, 255, 255);
   }
-  .cwwuxL {
+  .row-footer {
       display: inline-block;
       width: 19%;
       font-size: 8px;
       cursor: pointer;
   }
-  .csRwhc {
-    width : 150px;
-    margin: 6px 5px 5px 0px;
-  }
-  .oTgHF{
+  .card-layanan{
     border: 0.5px solid rgba(0, 0, 0, 0.1);
     display: flex;
     border-radius: 4px;
     flex-direction: column;
     box-shadow: rgb(152 152 152 / 20%) 0px 2px 8px 1px;
   }
-  .izvwwH {
+  .card-figure-layanan {
     position: relative;
     display: flex;
     -webkit-box-pack: center;
@@ -74,16 +70,16 @@
     margin: 0px;
     flex: 1 1 0%;
   }
-  .hxopFq {
+  .card-img-layanan {
     width: 100%;
     border-radius: 4px 4px 0px 0px;
     object-fit: cover;
     height: 85px;
   }
-  .cveMns {
+  .row-title-layanan {
     min-height: 2.5em;
   }
-  .xqVvp {
+  .title-layanan {
     font-weight: 600;
     font-size: 0.75rem;
     overflow: hidden;
@@ -94,13 +90,13 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  .row-card{
+  .row-card-layanan{
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
     grid-gap: 15px;
     gap: 15px;
   }
-  .ProductCard_productCard__fV4tL {
+  .card-layanan-list {
   background: #fff;
   border-radius: 10px;
   font-weight: 500;
@@ -119,14 +115,14 @@
 }
 
 
-.CategoriesBar_cat-btn-group__LvhYW{
+.row-categories{
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   max-width: 100%;
   justify-content: space-between;
 }
 
-.CategoriesBar_cat-btn__2Hkun {
+.categories-button {
   max-width: 100%;
   height: 100%;
   font-size: 12px!important;
@@ -140,11 +136,11 @@
   justify-content: flex-start;
 }
 
-.CategoriesBar_cat-btn-icon__2kVqF{
+.img-categories{
   width: 48px;
 }
 
-.CategoriesBar_cat-btn-label__2zV_T{
+.label-categories{
   margin: 8px auto 6px -20px;
   width: 100%;
   font-size: 10px;
