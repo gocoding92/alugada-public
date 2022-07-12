@@ -5,134 +5,82 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-  </head>
 
-  <style>
-    .mx-auto {
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-    .min-h-full {
-      min-height: 100% !important;
-    }
-    .max-w-screen-sm {
-      max-width: 480px !important;
-    }
-    .hIYHVz {
-      --tw-bg-opacity: 1;
-      background-color: rgba(255, 255, 255, var(--tw-bg-opacity));
-      position: relative;
-      max-width: 480px;
-      width: 100%;
-      margin: 0px auto;
-      box-sizing: border-box;
-      /* top: 60px; */
-      padding: 0px 16px 80px;
-      min-height: calc(100vh - 60px);
-    }
-    .ehCkHB {
-      list-style-type: none;
-      display: inline-block;
-      border-width: 1px 0px 0px;
-      border-right-style: initial;
-      border-bottom-style: initial;
-      border-left-style: initial;
-      border-right-color: initial;
-      border-bottom-color: initial;
-      border-left-color: initial;
-      border-image: initial;
-      font-weight: 600;
-      line-height: 13px;
-      text-align: center;
-      vertical-align: middle;
-      transition: all 0.35s ease 0s;
-      text-decoration: none;
-      width: 100%;
-      max-width: 460px;
-      position: fixed;
-      bottom: 0px;
-      left: 50%;
-      transform: translate(-50%);
-      z-index: 2;
-      padding: 10px;
-      font-size: 1em;
-      border-top-style: solid;
-      border-top-color: rgb(222, 222, 222);
-      margin: 0px;
-      background-color: rgb(255, 255, 255);
-    }
-    .cwwuxL {
-        display: inline-block;
-        width: 19%;
-        font-size: 8px;
-        cursor: pointer;
-    }
-    .csRwhc {
-      width : 150px;
-      margin: 6px 5px 5px 0px;
-    }
-    .oTgHF{
-      border: 0.5px solid rgba(0, 0, 0, 0.1);
-      display: flex;
-      border-radius: 4px;
-      flex-direction: column;
-      box-shadow: rgb(152 152 152 / 20%) 0px 2px 8px 1px;
-    }
-    .izvwwH {
-      position: relative;
-      display: flex;
-      -webkit-box-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      align-items: center;
-      margin: 0px;
-      flex: 1 1 0%;
-    }
-    .hxopFq {
-      width: 100%;
-      border-radius: 4px 4px 0px 0px;
-      object-fit: cover;
-      height: 85px;
-    }
-    .cveMns {
-      min-height: 2.5em;
-    }
-    .xqVvp {
-      font-weight: 600;
-      font-size: 0.75rem;
-      overflow: hidden;
-      overflow-wrap: break-word;
-      color: rgb(74, 74, 74);
-      margin: 0.25em 0em;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-    .row-card{
-      padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    grid-gap: 15px;
-    gap: 15px;
-    }
-    .ProductCard_productCard__fV4tL {
-    background: #fff;
-    border-radius: 10px;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
-    font-size: 11px;
-    position: relative;
-    box-shadow: 0 4px 10px rgb(0 0 0 / 8%);
-}
-  </style>
+    <link rel="stylesheet" href="<?= base_url(); ?>/css/home.css">
+
+    <!-- Slick style -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css"/>
+  </head>
   <body style="background-color: #f7f7f7">
-    <main class="my-0 mx-auto min-h-full max-w-screen-sm">
+    <main class="container-sm">
       <header>
         <p>Header</p>
       </header>
       <div id="home-page" class="hIYHVz">
+      <div class="fade">
+        <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107IkanDori15000-l5fsmppo-l5fsr33t.jpg" /></div>
+        <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107Buahserba15000-l5fsiuxd-l5fsunq2.jpg" /></div>
+        <div><img src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/customer-to-agent/01-Web+Banner+-+Customer+to+Mitra+Page+(1).jpg" /></div>
+      </div>
+
+        <div class="CategoriesBar_cat-btn-group__LvhYW">
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light">
+            <div class="CategoriesBar_catBtnImage__1l0Se">
+              <img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
+            </div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Tenaga Ahli
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light">
+            <div class="CategoriesBar_catBtnImage__1l0Se">
+              <img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/ProdukBaru.png" alt="semua">
+            </div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Tenaga Terampil
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light">
+            <div class="CategoriesBar_catBtnImage__1l0Se">
+              <img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/sayuran-semua_not-selected.png" alt="semua">
+            </div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Property dijual
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light">
+            <div class="CategoriesBar_catBtnImage__1l0Se">
+              <img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/buah-semua_not-selected.png" alt="semua">
+            </div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Property disewakan
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light">
+            <div class="CategoriesBar_catBtnImage__1l0Se">
+              <img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/daging-semua_not-selected.png" alt="semua">
+            </div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Kost & Kontrakan
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light"><div class="CategoriesBar_catBtnImage__1l0Se"><img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"></div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Mobil - Motor Dijual
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light"><div class="CategoriesBar_catBtnImage__1l0Se"><img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"></div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Mobil Motor disewakan
+            </div>
+          </button>
+          <button class="CategoriesBar_cat-btn__2Hkun CategoriesBar_categoryButtonActive__5HYRC" variant="light"><div class="CategoriesBar_catBtnImage__1l0Se"><img class="CategoriesBar_cat-btn-icon__2kVqF" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"></div>
+            <div class="CategoriesBar_cat-btn-label__2zV_T">
+              Semua Layanan
+            </div>
+          </button>
+      </div>
+
         <div class="row-card">
           <div class="ProductCard_productCard__fV4tL">
             <div class="oTgHF">
@@ -151,6 +99,66 @@
               </figure>
               <div class="cveMns">
               <span class="xqVvp">2015, Datsun Go+ Panca</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
+              </div>
+            </div>
+          </div>
+          <div class="ProductCard_productCard__fV4tL">
+            <div class="oTgHF">
+              <figure class="izvwwH">
+                <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="hxopFq">
+              </figure>
+              <div class="cveMns">
+              <span class="xqVvp">2017, Daihatsu Ayla</span>
               </div>
             </div>
           </div>
@@ -194,5 +202,27 @@
         </div>
       </div>
     </main>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){       
+          $('.fade').slick({
+              dots: true,
+              infinite: true,
+              speed: 700,
+              autoplay:true,
+              autoplaySpeed: 2000,
+              arrows:false,
+              slidesToShow: 1,
+              slidesToScroll: 1,
+          });
+        });
+</script>
+
   </body>
 </html>
