@@ -30,7 +30,13 @@ class Home extends BaseController
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
 
         ];
+
         return view('home/index', $data);
+    }
+
+    public function detail()
+    {
+        return view('home/detail');
     }
 
 

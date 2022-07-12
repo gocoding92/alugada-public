@@ -37,14 +37,14 @@
 
       <div class="row-categories">
         <?php foreach ($layanan as $l) : ?>
-          <button class="categories-button" variant="light">
+          <a href="<?= base_url(); ?>/home/detail/1" class="categories-button" variant="light">
             <div>
               <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
             </div>
             <div class="label-categories">
               <p><?= $l['layanan']; ?></p>
             </div>
-          </button>
+          </a>
         <?php endforeach; ?>
       </div>
 

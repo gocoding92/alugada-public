@@ -39,6 +39,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/home/list', 'Home::list');
 $routes->get('/home/create', 'Home::create');
 $routes->get('/home/edit/(:num)', 'Home::edit/$1');
+$routes->get('/home/detail/(:num)', 'Home::detail/$1');
 
 /*
  * --------------------------------------------------------------------
