@@ -34,17 +34,18 @@
           <div><img src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/customer-to-agent/01-Web+Banner+-+Customer+to+Mitra+Page+(1).jpg" /></div>
         </div>
       </div>
+
       <div class="row-categories">
-        <!-- // looping -->
-        <button class="categories-button" variant="light">
-          <div>
-            <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
-          </div>
-          <div class="label-categories">
-            Tenaga <br /> Ahli
-          </div>
-        </button>
-        <!-- // end looping -->
+        <?php foreach ($layanan as $l) : ?>
+          <button class="categories-button" variant="light">
+            <div>
+              <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
+            </div>
+            <div class="label-categories">
+              <p><?= $l['layanan']; ?></p>
+            </div>
+          </button>
+        <?php endforeach; ?>
       </div>
 
       <div class="row-card-layanan">
@@ -150,7 +151,6 @@
         </div>
       </div>
     </div>
-    
     <div class="footer">
       <div class="row-footer">
         <p>BERANDA</p>
@@ -159,7 +159,7 @@
         <p>TENTANG KAMI</p>
       </div>
       <div class="row-footer">
-        <p>IKLAN</p>
+        <p>PASANG IKLAN</p>
       </div>
       <div class="row-footer">
         <p>KONTAK KAMI</p>
