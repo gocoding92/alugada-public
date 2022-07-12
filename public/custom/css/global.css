@@ -1,0 +1,22 @@
+.display-flex {
+  display: flex;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+/* margin bottom */
+.margin-bottom-2 {
+  margin-bottom: 2px;
+}
+
+/* position */
+.position-relative {
+    position: relative;
+}
+
+/* top */
+.top10 {
+    top: 10px;
+}

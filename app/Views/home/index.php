@@ -8,6 +8,7 @@
   <title>Home</title>
 
   <link rel="stylesheet" href="<?= base_url(); ?>/home/css/styles.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/global.css">
 
   <!-- Slick style -->
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
@@ -15,32 +16,36 @@
 
 <body style="background-color: #f7f7f7">
   <main class="container-sm">
-    <header>
-      <p>Header</p>
+    <header class="header display-flex justify-content-between margin-bottom-2">
+      <div class="display-flex">
+        <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
+        <p>Alugada</p>
+      </div>
+      <div class="display-flex">
+        <p>Achmad Rizky</p>
+        <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua">
+      </div>
     </header>
     <div id="home-page" class="row-sm">
-      <div class="fade">
-        <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107IkanDori15000-l5fsmppo-l5fsr33t.jpg" /></div>
-        <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107Buahserba15000-l5fsiuxd-l5fsunq2.jpg" /></div>
-        <div><img src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/customer-to-agent/01-Web+Banner+-+Customer+to+Mitra+Page+(1).jpg" /></div>
+      <div class="position-relative top10">
+        <div class="fade">
+          <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107IkanDori15000-l5fsmppo-l5fsr33t.jpg" /></div>
+          <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107Buahserba15000-l5fsiuxd-l5fsunq2.jpg" /></div>
+          <div><img src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/customer-to-agent/01-Web+Banner+-+Customer+to+Mitra+Page+(1).jpg" /></div>
+        </div>
       </div>
 
       <div class="row-categories">
-        <!-- // looping -->
         <?php foreach ($layanan as $l) : ?>
           <button class="categories-button" variant="light">
             <div>
-              <!-- <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"> -->
               <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
-
             </div>
             <div class="label-categories">
               <p><?= $l['layanan']; ?></p>
-              <!-- Tenaga <br /> Ahli -->
             </div>
           </button>
         <?php endforeach; ?>
-        <!-- // end looping -->
       </div>
 
       <div class="row-card-layanan">
