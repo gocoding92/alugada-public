@@ -1,36 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- My CSS -->
-    <link rel="stylesheet" href="/css/styles.css">
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+
+    <link rel="stylesheet" href="<?= base_url(); ?>/home/css/styles.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/iklan/css/styles.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/global.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/component.css">
+
+    <!-- Slick style -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
+
+    <style>
+        @font-face {
+            font-family: myFirstFont;
+            src: url(<?= base_url(); ?>/fonts/Poppins-Regular.ttf);
+        }
+
+        div {
+            font-family: myFirstFont;
+        }
+    </style>
+
 </head>
 
-<body style="background-color: #f7f7f7;">
-    <?php echo $this->include('layout/navbar'); ?>
+<body style="background-color: #f7f7f7; margin: 0px;">
 
-    <!-- // content -->
-    <?= $this->renderSection('content'); ?>
+    <main class="container-sm">
+        <!-- // content -->
+        <?php echo $this->include('layout/header'); ?>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+        <!-- // content -->
+        <?= $this->renderSection('content'); ?>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <!-- // navbar bottom -->
+        <?php echo $this->include('layout/navbar'); ?>
+    </main>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
+
 </body>
 
 </html>
