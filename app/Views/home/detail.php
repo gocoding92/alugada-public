@@ -12,7 +12,7 @@
 
 </head>
 
-<body style="background-color: #f7f7f7">
+<body style="background-color: #f7f7f7; margin: 0px;">
   <main class="container-sm">
     <header class="header display-flex justify-content-between margin-bottom-2">
       <div class="display-flex">
@@ -152,7 +152,7 @@
       </div>
       <div class="row-footer">
         <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
-        <a href="<?= base_url('/'); ?>" class="text-footer-menu">PASANG IKLAN</a>
+        <a href="<?= base_url('/pasang-iklan'); ?>" class="text-footer-menu">PASANG IKLAN</a>
       </div>
       <div class="row-footer">
         <img alt="Kontak Kami" src="<?= base_url(''); ?>/Image/kontakkami.png" class="img-footer-menu"> <br />
