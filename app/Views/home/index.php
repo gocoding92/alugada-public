@@ -18,34 +18,31 @@
   <main class="container-sm">
     <header class="header display-flex justify-content-between margin-bottom-2">
       <div class="display-flex">
-        <img class="img-categories" src="<?= base_url('Image/logo.jpg');?>" alt="semua">
-        <p>Alugada</p>
+        <img class="img-logo" src="<?= base_url('Image/logo.jpg'); ?>" alt="semua">
+        <p class="text-logo">Alugada</p>
       </div>
       <div class="display-flex">
-        <p><?= $pengunjung['nama'];?></p>
-        <!-- <img class="img-categories" src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/categories/v3/semua_produk.png" alt="semua"> -->
-        <img class="img-categories" src="<?= base_url('Image/User/'.$pengunjung['profile']);?>" alt="semua">
+        <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
+        <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['profile']); ?>" alt="semua">
       </div>
     </header>
     <div id="home-page" class="row-sm">
       <div class="position-relative top10">
         <div class="fade">
-          <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107IkanDori15000-l5fsmppo-l5fsr33t.jpg" /></div>
-          <div><img src="https://s3-ap-southeast-1.amazonaws.com/assets.segari.id/banners/it-1107Buahserba15000-l5fsiuxd-l5fsunq2.jpg" /></div>
-          <div><img src="https://s3.ap-southeast-1.amazonaws.com/assets.segari.id/customer-to-agent/01-Web+Banner+-+Customer+to+Mitra+Page+(1).jpg" /></div>
+          <div><img src="https://i.ytimg.com/vi/f_fC54rC9hc/maxresdefault.jpg" /></div>
+          <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkihA1QQqZxNnO83gFHJB3FJdZVOxC-hsYZA&usqp=CAU" /></div>
+          <div><img src="https://i.ytimg.com/vi/vql_cCL-YLE/maxresdefault.jpg" /></div>
         </div>
       </div>
 
       <div class="row-categories">
         <?php foreach ($layanan as $l) : ?>
-          <!-- <a href="<?php //echo base_url(); ?>/home/detail/1" class="categories-button" variant="light"> -->
-          <a href="<?= base_url('home/detail/'.$l['nolayanan']);?>" class="categories-button" variant="light">
-
+          <a href="<?= base_url('home/detail/' . $l['nolayanan']); ?>" class="categories-button text-decoration-none" variant="light">
             <div>
               <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
             </div>
             <div class="label-categories">
-              <p><?= $l['layanan']; ?></p>
+              <p class="text-layanan"><?= $l['layanan']; ?></p>
             </div>
           </a>
         <?php endforeach; ?>
@@ -55,100 +52,96 @@
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
               <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/n9qzfpcwwkyk3-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/1o7n5m7vkp482-ID/image;s=272x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
-              <span class="title-layanan">2015, Datsun Go+ Panca</span>
+              <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/t7czb9junzez2-ID/image;s=272x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
+              <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/lthufxm6p6yi3-ID/image;s=272x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
+              <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/njhu5mu48h393-ID/image;s=272x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
+              <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-layanan-list">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-layanan-list">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-layanan-list">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
-            </div>
-          </div>
-        </div>
-        <div class="card-layanan-list">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img alt="Sedekah Makan Yatim untuk Ratusan Panti Asuhan" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan">2017, Daihatsu Ayla</span>
+              <span class="title-layanan">2016, Daihatsu Ayla</span>
+              <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
+              <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
+                <span class="title-type-layanan">Post : 07-10-2022</span>
+              </div>
             </div>
           </div>
         </div>
@@ -156,19 +149,24 @@
     </div>
     <div class="footer">
       <div class="row-footer">
-        <p><a href="<?= base_url('/'); ?>">BERANDA</a></p>
+        <img alt="Beranda" src="<?= base_url(''); ?>/Image/beranda.png" class="img-footer-menu"> <br />
+        <a href="<?= base_url('/home'); ?>" class="text-footer-menu">BERANDA</a>
       </div>
       <div class="row-footer">
-        <p>TENTANG KAMI</p>
+        <img alt="Tentang Kami" src="<?= base_url(''); ?>/Image/tentangkami.png" class="img-footer-menu"> <br />
+        <a href="<?= base_url('/'); ?>" class="text-footer-menu">TENTANG KAMI</a>
       </div>
       <div class="row-footer">
-        <p>PASANG IKLAN</p>
+        <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
+        <a href="<?= base_url('/'); ?>" class="text-footer-menu">PASANG IKLAN</a>
       </div>
       <div class="row-footer">
-        <p>KONTAK KAMI</p>
+        <img alt="Kontak Kami" src="<?= base_url(''); ?>/Image/kontakkami.png" class="img-footer-menu"> <br />
+        <a href="<?= base_url('/'); ?>" class="text-footer-menu">KONTAK KAMI</a>
       </div>
       <div class="row-footer">
-        <p>PESAN</p>
+        <img alt="Pesan" src="<?= base_url(''); ?>/Image/pesan.png" class="img-footer-menu"> <br />
+        <a href="<?= base_url('/'); ?>" class="text-footer-menu">PESAN</a>
       </div>
     </div>
   </main>
