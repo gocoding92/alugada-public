@@ -1,0 +1,19 @@
+#Target 18-20 / July / 2022
+
+#PUBLIC
+1. Global CSS (done)
+2. Form Category
+    - Tenaga Ahli
+    - Tenaga Terampil
+    - Kost & kontrakan
+    - Property (done)
+    - Mobil & Mobil dijual
+    - Mobil & Mobil disewakan
+3. Kontak Kami
+4. Tentang Kami
+5. Pesan
+
+#ADMIN
+1. CRUD Category
+2. CRUD Detail Category
+3. Login
