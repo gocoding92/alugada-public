@@ -14,6 +14,8 @@
       </a>
     <?php endforeach; ?>
   </div>
-  <?= $this->include('iklan/form/property'); ?>
+
+  <!-- iklan/form/property -->
+  <?=  $this->include('iklan/form/tenaga_ahli'); ?>
 </div>
 <?= $this->endSection(); ?>
