@@ -4,7 +4,7 @@
 <div id="home-page" class="row-sm padding-bottom-90">
   <div class="row-categories">
     <?php foreach ($layanan as $l) : ?>
-      <a href="<?= base_url('pasang-iklan?layanan=' . $l['layanan']); ?>" class="categories-button text-decoration-none" variant="light">
+      <a href="<?= base_url('pasang-iklan/' . $l['layanan']); ?>" class="categories-button text-decoration-none" variant="light">
         <div>
           <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
         </div>
@@ -14,6 +14,8 @@
       </a>
     <?php endforeach; ?>
   </div>
-  <?= $this->include('iklan/form/property'); ?>
+  
+  <?=  $this->include($form); ?>
+  
 </div>
 <?= $this->endSection(); ?>

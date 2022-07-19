@@ -13,9 +13,37 @@ class Iklan extends BaseController
         $this->modelalugada = new ModelAlugada();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
+
+        $this->form = 'iklan/form/tenaga_ahli';
     }
-    public function index()
+    public function index($param = '')
     {
+
+        // <!-- iklan/form/property -->
+        // <!-- iklan/form/tenaga_ahli -->
+        // <!-- iklan/form/tenaga_terampil -->
+        // <!-- iklan/form/kost_kontrakan -->
+        // <!-- iklan/form/property_disewakan -->
+        // <!-- iklan/form/mobil -->
+        // <!-- iklan/form/motor -->
+
+        if ($param) {            
+            // var_dump($param);
+            if ($param == 'Tenaga Ahli') {
+                $this->form = 'iklan/form/tenaga_ahli';
+            }
+            if ($param == 'Tenaga Terampil') {
+                $this->form = 'iklan/form/tenaga_terampil';
+            }
+            if ($param == 'Kost & Kontrakan') {
+                $this->form = 'iklan/form/kost_kontrakan';
+            }
+            if ($param == 'Property dijual' || $param == 'Property disewakan' ) {
+                $this->form = 'iklan/form/property';
+            }
+        }
+
+
 
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
@@ -28,8 +56,9 @@ class Iklan extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
-
+            'form'          => $this->form,
         ];
+
 
         return view('iklan/index', $data);
     }

@@ -44,6 +44,7 @@ $routes->get('/home/edit/(:num)', 'Home::edit/$1');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
 
 $routes->get('/pasang-iklan', 'Iklan::index');
+$routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
 $routes->get('/tentang-kami', 'TentangKami::index');
 $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
