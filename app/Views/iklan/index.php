@@ -16,6 +16,13 @@
   </div>
 
   <!-- iklan/form/property -->
-  <?=  $this->include('iklan/form/tenaga_ahli'); ?>
+  <!-- iklan/form/tenaga_ahli -->
+  <!-- iklan/form/tenaga_terampil -->
+  <!-- iklan/form/kost_kontrakan -->
+  <!-- iklan/form/property_disewakan -->
+  <!-- iklan/form/mobil -->
+  <!-- iklan/form/motor -->
+  
+  <?=  $this->include('iklan/form/motor'); ?>
 </div>
 <?= $this->endSection(); ?>
