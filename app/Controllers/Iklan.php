@@ -28,9 +28,9 @@ class Iklan extends BaseController
         // <!-- iklan/form/motor -->
 
         if ($param) {            
-            // var_dump($param);
-            if ($param == 'Tenaga Ahli') {
-                $this->form = 'iklan/form/tenaga_ahli';
+            var_dump($param);
+            if ($param == 'Mobil & Motor disewakan') {
+                $this->form = 'iklan/form/motor';
             }
             if ($param == 'Tenaga Terampil') {
                 $this->form = 'iklan/form/tenaga_terampil';
@@ -41,6 +41,7 @@ class Iklan extends BaseController
             if ($param == 'Property dijual' || $param == 'Property disewakan' ) {
                 $this->form = 'iklan/form/property';
             }
+            // if ($param == '')
         }
 
 
