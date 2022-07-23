@@ -18,7 +18,8 @@ class Iklan extends BaseController
     }
     public function index($param = '')
     {
-
+// var_dump($param);
+// die;
         // <!-- iklan/form/property -->
         // <!-- iklan/form/tenaga_ahli -->
         // <!-- iklan/form/tenaga_terampil -->
@@ -28,7 +29,9 @@ class Iklan extends BaseController
         // <!-- iklan/form/motor -->
 
         if ($param) {            
-            var_dump($param);
+            // var_dump($param);
+            // die;
+
             if ($param == 'Mobil & Motor disewakan') {
                 $this->form = 'iklan/form/motor';
             }
@@ -49,8 +52,11 @@ class Iklan extends BaseController
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
+            // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
+            // $idpengunjung = $idpengunjung['id']; 
         }
-
+        // var_dump($idpengunjung);
+        // die;
         $data = [
             'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),

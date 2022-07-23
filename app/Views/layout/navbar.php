@@ -15,7 +15,7 @@
     <a href="<?= base_url('/pasang-iklan'); ?>" class="text-footer-menu">
       <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
       PASANG IKLAN
-    </a>
+    </a> 
   </div>
   <div class="row-footer">
     <a href="<?= base_url('/kontak-kami'); ?>" class="text-footer-menu">
