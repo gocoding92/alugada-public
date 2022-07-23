@@ -6,7 +6,7 @@
   <h4 class="margin-left-16"> Silahkan masukkan data anda dengan lengkap </h4>
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Nama Lengkap</label>
+      <label for="" class="font-size-15">Nama</label>
       <input type="text" name="judul_iklan" class="form-control margin-top-6" placeholder="">
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
