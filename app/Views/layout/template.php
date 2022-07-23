@@ -46,6 +46,84 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
 
+
+    <script>
+        function previewgambar() {
+            const gambar = document.querySelector('#gambar');
+            const labelgambar = document.querySelector('.lbl-gambar');
+            const imgpreview = document.querySelector('.img-preview');
+
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+        }
+
+        function previewgambar2() {
+            const gambar = document.querySelector('#gambar2');
+            const labelgambar = document.querySelector('.lbl-gambar2');
+            const imgpreview = document.querySelector('.img-preview2');
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+        }
+
+        function previewgambar3() {
+            const gambar = document.querySelector('#gambar3');
+            const labelgambar = document.querySelector('.lbl-gambar3');
+            const imgpreview = document.querySelector('.img-preview3');
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+        }
+
+        function previewgambar4() {
+            const gambar = document.querySelector('#gambar4');
+            const labelgambar = document.querySelector('.lbl-gambar4');
+            const imgpreview = document.querySelector('.img-preview4');
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+            console.log('gambar');
+        }
+
+        function previewgambar5() {
+            const gambar = document.querySelector('#gambar5');
+            const labelgambar = document.querySelector('.lbl-gambar5');
+            const imgpreview = document.querySelector('.img-preview5');
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+        }
+
+        function previewgambar6() {
+            const gambar = document.querySelector('#gambar6');
+            const labelgambar = document.querySelector('.lbl-gambar6');
+            const imgpreview = document.querySelector('.img-preview6');
+            const filegambar = new FileReader();
+            filegambar.readAsDataURL(gambar.files[0])
+
+            filegambar.onload = function(e) {
+                imgpreview.src = e.target.result;
+            }
+        }
+    </script>
+
+
 </body>
 
 </html>
