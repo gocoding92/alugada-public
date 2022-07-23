@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\ModelAlugada;
 
-class TentangKami extends BaseController
+class LayananKami extends BaseController
 {
     public function __construct()
     {
@@ -31,6 +31,6 @@ class TentangKami extends BaseController
 
         ];
 
-        return view('tentang_kami/index', $data);
+        return view('layanan_kami/index', $data);
     }
 }

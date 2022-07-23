@@ -590,6 +590,9 @@ div {
 .textcolor-white {
   color: #fff !important;
 }
+.textcolor-433e3e {
+  color: #433e3e;
+}
 
 /* display */
 .display-flex {

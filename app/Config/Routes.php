@@ -45,7 +45,7 @@ $routes->get('/home/detail/(:num)', 'Home::detail/$1');
 
 $routes->get('/pasang-iklan', 'Iklan::index');
 $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
-$routes->get('/tentang-kami', 'TentangKami::index');
+$routes->get('/layanan-kami', 'LayananKami::index');
 $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
 
@@ -55,6 +55,9 @@ $routes->get('/verify', 'Auth::verify');
 $routes->get('/data', 'Auth::data');
 
 $routes->get('/profile', 'Profile::index');
+$routes->get('/data-iklan', 'Profile::data_iklan');
+$routes->get('/edit-profile', 'Profile::edit_profile');
+$routes->get('/edit-password', 'Profile::edit_password');
 
 
 /*
