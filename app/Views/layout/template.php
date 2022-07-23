@@ -14,15 +14,12 @@
 
     <!-- Slick style -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
-
+    <!-- Icon style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         @font-face {
             font-family: myFirstFont;
             src: url(<?= base_url(); ?>/fonts/Poppins-Regular.ttf);
-        }
-
-        div {
-            font-family: myFirstFont;
         }
     </style>
 

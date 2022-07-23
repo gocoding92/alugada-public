@@ -17,3 +17,35 @@
 1. CRUD Category
 2. CRUD Detail Category
 3. Login
+
+#HASIL REVISI $ TAMBAHAN
+
+#TENTANG KAMI
+- Berisikan Foto dan Text
+
+#Kontak Kami
+- Form
+    - Nama
+    - Pesan
+- Contact Detail Kantor
+- Maps
+
+#Pesan
+- Jika belum login, maka masuk kelaman Sign Up
+- List data Chat
+
+#Auth
+- Form Login & Form Register
+
+
+#Catatan
+1. Bicarakan Kekurangan Public (dilist)
+2. Bicarakan Kekurangan Admin (dilist)
+3. Fix Category Layanan
+4. Alur dari Auth
+5. Pull Public
+5. Pull Admin
+6. Saran, Tentang Kami => Blog
+
+#Kerjain
+1. Impl Design Profile

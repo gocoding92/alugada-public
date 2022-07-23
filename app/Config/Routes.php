@@ -49,6 +49,12 @@ $routes->get('/tentang-kami', 'TentangKami::index');
 $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
 
+$routes->get('/login', 'Auth::index');
+$routes->get('/register', 'Auth::register');
+$routes->get('/verify', 'Auth::verify');
+
+$routes->get('/profile', 'Profile::index');
+
 
 /*
  * --------------------------------------------------------------------
