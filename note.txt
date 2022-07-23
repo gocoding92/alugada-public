@@ -48,4 +48,36 @@
 6. Saran, Tentang Kami => Blog
 
 #Kerjain
-1. Impl Design Profile
+1. Impl Design 
+
+
+
+#PENDING
+1. LOGO
+2. Pasang Iklan
+
+#RIZKY
+1. IMPLEMENTASI SLIDER DATA API DESIGN ADMIN
+2. FILTER PER-CATEGORY
+3. Layanan Kami
+4. Kontak Kami
+5. Pesan
+6. Impl Design Iklan Anda
+7. Impl Design Edit Profile (OPEN)
+    - Photo
+    - Nama Lengkap
+    - Tanggal Lahir
+    - Gender
+8. Impl Design Edit Password
+    - Password Lama
+    - New Password
+
+#PAK HARTO
+1. VALIDASI JIKA SUDAH LOGIN / BELUM
+    - JIKA PENGUNGJUNG TULISAN LOGIN / REGISTER
+2. Auth Login
+3. Auth Register
+4. Auth Verify
+5. Auth Data
+6. IMPLEMENTASI SLIDER DATA API DESIGN IMPL DATA
+

@@ -6,16 +6,16 @@
     </a>
   </div>
   <div class="row-footer">
-    <a href="<?= base_url('/tentang-kami'); ?>" class="text-footer-menu">
+    <a href="<?= base_url('/layanan-kami'); ?>" class="text-footer-menu">
       <img alt="Tentang Kami" src="<?= base_url(''); ?>/Image/tentangkami.png" class="img-footer-menu"> <br />
-      TENTANG KAMI
+      LAYANAN KAMI
     </a>
   </div>
   <div class="row-footer">
     <a href="<?= base_url('/pasang-iklan'); ?>" class="text-footer-menu">
       <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
       PASANG IKLAN
-    </a> 
+    </a>
   </div>
   <div class="row-footer">
     <a href="<?= base_url('/kontak-kami'); ?>" class="text-footer-menu">
