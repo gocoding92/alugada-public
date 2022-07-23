@@ -68,4 +68,22 @@ class Auth extends BaseController
 
         return view('auth/verify', $data);
     }
+    public function data()
+    {
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+        }
+
+        $data = [
+            'admin'         => $this->admin,
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            'title'         => "Layanan",
+            'layanan'       => $this->modelalugada->layanan(),
+            'jenisiklan'    => $this->modelalugada->jenisiklan(),
+        ];
+
+
+        return view('auth/data', $data);
+    }
 }
