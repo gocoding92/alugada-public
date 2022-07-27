@@ -46,3 +46,22 @@
   background-color: #2a960c;
   border-color: #2a960c;
 }
+
+.mapouter {
+  position: relative;
+  text-align: right;
+  width: 440px;
+  height: 200px;
+}
+
+.gmap_canvas {
+  overflow: hidden;
+  background: none !important;
+  width: 440px;
+  height: 200px;
+}
+
+.gmap_iframe {
+  width: 440px !important;
+  height: 200px !important;
+}

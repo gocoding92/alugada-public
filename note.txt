@@ -81,3 +81,49 @@
 5. Auth Data
 6. IMPLEMENTASI SLIDER DATA API DESIGN IMPL DATA
 
+
+
+
+
+URL PER - CATEGORY FORM
+-----------------------
+
+1. Tenaga Ahli
+    - http://localhost:8080/pasang-iklan/Tenaga%20Ahli
+2. Tenaga Terampil
+    - http://localhost:8080/pasang-iklan/Tenaga%20Terampil
+3. Kost & Kontrakan
+    - http://localhost:8080/pasang-iklan/Kost%20&%20Kontrakan
+4. Property
+    - Rumah
+        -* http://localhost:8080/pasang-iklan/Rumah
+    - Tanah
+        -* http://localhost:8080/pasang-iklan/Tanah
+    - Apartemen
+        -* http://localhost:8080/pasang-iklan/Apartemen
+    - Ruko
+        -* http://localhost:8080/pasang-iklan/Ruko
+    - Bangunan Komersial
+        -* http://localhost:8080/pasang-iklan/Bangunan
+5. Mobil
+    - http://localhost:8080/pasang-iklan/Mobil
+6. Motor
+    - http://localhost:8080/pasang-iklan/Motor
+
+
+
+
+
+
+if ($param == 'Mobil & Motor disewakan') {
+                $this->form = 'iklan/form/motor';
+            }
+            if ($param == 'Tenaga Terampil') {
+                $this->form = 'iklan/form/tenaga_terampil';
+            }
+            if ($param == 'Kost & Kontrakan') {
+                $this->form = 'iklan/form/kost_kontrakan';
+            }
+            if ($param == 'Property dijual' || $param == 'Property disewakan' ) {
+                $this->form = 'iklan/form/property';
+            }
