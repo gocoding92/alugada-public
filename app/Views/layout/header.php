@@ -7,9 +7,16 @@
     </div>
     <div class="display-flex">
         <!-- // validasi. jika sudah login, base url nya / profile (<?= base_url(); ?>/profile) -->
-        <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
-        <a href="<?= base_url(); ?>/login">
-            <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['profile']); ?>" alt="semua">
-        </a>
+        <?php if($pengunjung['nohp'] == 123){?>
+            <a href="<?php echo base_url('login'); ?>">
+                <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
+                <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['gambar']); ?>" alt="semua">
+            </a>            
+        <?php }else{?>
+            <a href="<?php echo base_url('profile'); ?>">
+                <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
+                <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['gambar']); ?>" alt="semua">
+            </a>            
+        <?php };?>
     </div>
 </header>

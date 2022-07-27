@@ -23,15 +23,15 @@ class Home extends BaseController
         }
 
         $data = [
-            'admin'         => $this->admin,
+            // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
-            'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
 
         ];
 
-        return view('home/index', $data);
+        return view('home/indexView', $data);
     }
 
     public function detail($nolayanan)

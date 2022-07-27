@@ -51,13 +51,29 @@ $routes->get('/pesan', 'Pesan::index');
 
 $routes->get('/login', 'Auth::index');
 $routes->get('/register', 'Auth::register');
-$routes->get('/verify', 'Auth::verify');
+$routes->post('/cek-otp', 'Auth::cekotp');
+$routes->post('/verify', 'Auth::verify');
+$routes->post('/simpan-new-user', 'Auth::simpanNewUser');
+$routes->get('/logout', 'Auth::logout');
+$routes->get('/lupa-password', 'Auth::lupa_password');
+$routes->post('/verifikasi-lupa-password', 'Auth::verifikasi_lupa_password');
+$routes->post('/cek-otp-lupa-password', 'Auth::cek_otp_lupa_password');
+$routes->post('/simpan-new-password', 'Auth::simpan_new_password');
+
+
+
+
 $routes->get('/data', 'Auth::data');
 
 $routes->get('/profile', 'Profile::index');
 $routes->get('/data-iklan', 'Profile::data_iklan');
 $routes->get('/edit-profile', 'Profile::edit_profile');
 $routes->get('/edit-password', 'Profile::edit_password');
+$routes->post('/simpan-password-baru', 'Profile::simpan_password_baru');
+$routes->post('/update-user', 'Profile::update_user');
+
+
+
 
 
 /*
