@@ -86,7 +86,7 @@
         <input type="text" name="propinsi" class="form-control">
     </div>
 
-    <?= $this->include('layout/6gambar');?>
+    <?= $this->include('layout/6gambar');?> 
     
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
         <label for="" class="font-size-15">Harga</label>

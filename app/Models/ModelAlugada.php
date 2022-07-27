@@ -95,6 +95,10 @@ class ModelAlugada extends Model
     public function simpannewuser($data){
         return $this->db->table('tbl_user')->insert($data);
     }
+    public function updateuser($id,$data){
+        return $this->db->table('tbl_user')->update($data,['id'=>$id]);
+    }
+
 
     public function jenisiklan(){
         return $this->db->table('tbl_jenisiklan')->get()->getResultArray();
