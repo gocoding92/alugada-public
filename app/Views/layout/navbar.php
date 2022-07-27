@@ -26,7 +26,7 @@
   <div class="row-footer">
     <a href="<?= base_url('/pesan'); ?>" class="text-footer-menu">
       <img alt="Pesan" src="<?= base_url(''); ?>/Image/pesan.png" class="img-footer-menu"> <br />
-      NOTIFICATION
+      PESAN
     </a>
   </div>
 </div>

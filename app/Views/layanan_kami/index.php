@@ -10,43 +10,43 @@
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/ahli.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/ahli.png" alt="semua">
           <p>Tenaga Ahli</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>
       </div>
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/terampil.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/terampil.png" alt="semua">
           <p>Tenaga Terampil</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>
       </div>
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/kostkontrakan.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/kostkontrakan.png" alt="semua">
           <p>Kost & kontrakan</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>
       </div>
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/property.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/property.png" alt="semua">
           <p>Property</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>
       </div>
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/mobil.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/mobil.png" alt="semua">
           <p>Mobil</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>
       </div>
       <div>
-        <div class="">
-          <img class="img-categories" src="<?= base_url(); ?>/Image/Layanan/motor.png" alt="semua">
+        <div class="display-flex">
+          <img class="img-layanan margin-right-10" src="<?= base_url(); ?>/Image/Layanan/motor.png" alt="semua">
           <p>Motor</p>
         </div>
         <p class="font-size-15">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur a mollitia eligendi ipsum fuga, est corporis. </p>

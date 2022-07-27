@@ -104,26 +104,8 @@ URL PER - CATEGORY FORM
     - Ruko
         -* http://localhost:8080/pasang-iklan/Ruko
     - Bangunan Komersial
-        -* http://localhost:8080/pasang-iklan/Bangunan
+        -* http://localhost:8080/pasang-iklan/Bangunan%20Komersial
 5. Mobil
     - http://localhost:8080/pasang-iklan/Mobil
 6. Motor
     - http://localhost:8080/pasang-iklan/Motor
-
-
-
-
-
-
-if ($param == 'Mobil & Motor disewakan') {
-                $this->form = 'iklan/form/motor';
-            }
-            if ($param == 'Tenaga Terampil') {
-                $this->form = 'iklan/form/tenaga_terampil';
-            }
-            if ($param == 'Kost & Kontrakan') {
-                $this->form = 'iklan/form/kost_kontrakan';
-            }
-            if ($param == 'Property dijual' || $param == 'Property disewakan' ) {
-                $this->form = 'iklan/form/property';
-            }

@@ -14,7 +14,8 @@ class Iklan extends BaseController
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
 
-        $this->form = 'iklan/form/tenaga_ahli';
+        // $this->form = 'iklan/form/tenaga_ahli';
+        $this->form = '';
     }
     public function index($param = '')
     {

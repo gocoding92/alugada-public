@@ -15,7 +15,7 @@
     <?php endforeach; ?>
   </div>
 
-  <?= $this->include($form); ?>
+  <?= $form ? $this->include($form) : null; ?>
 
 </div>
 <?= $this->endSection(); ?>

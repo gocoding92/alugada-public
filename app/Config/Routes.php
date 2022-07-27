@@ -48,6 +48,7 @@ $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
 $routes->get('/layanan-kami', 'LayananKami::index');
 $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
+$routes->get('/pesan/detail/(:num)', 'Pesan::detail/$1');
 
 $routes->get('/login', 'Auth::index');
 $routes->get('/register', 'Auth::register');

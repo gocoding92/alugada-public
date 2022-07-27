@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>/iklan/css/styles.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/global.css">
     <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/component.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/custom/colors/colors.css">
 
     <!-- Slick style -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
