@@ -14,8 +14,8 @@
       </a>
     <?php endforeach; ?>
   </div>
-  
-  <?=  $this->include($form); ?>
-  
+
+  <?= $this->include($form); ?>
+
 </div>
-<?= $this->endSection(); ?> 
+<?= $this->endSection(); ?>

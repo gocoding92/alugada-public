@@ -18,8 +18,8 @@ class Iklan extends BaseController
     }
     public function index($param = '')
     {
-// var_dump($param);
-// die;
+        // var_dump($param);
+        // die;
         // <!-- iklan/form/property -->
         // <!-- iklan/form/tenaga_ahli -->
         // <!-- iklan/form/tenaga_terampil -->
@@ -28,12 +28,9 @@ class Iklan extends BaseController
         // <!-- iklan/form/mobil -->
         // <!-- iklan/form/motor -->
 
-        if ($param) {            
-            // var_dump($param);
-            // die;
-
-            if ($param == 'Mobil & Motor disewakan') {
-                $this->form = 'iklan/form/motor';
+        if ($param) {
+            if ($param == 'Tenaga Ahli') {
+                $this->form = 'iklan/form/tenaga_ahli';
             }
             if ($param == 'Tenaga Terampil') {
                 $this->form = 'iklan/form/tenaga_terampil';
@@ -41,13 +38,29 @@ class Iklan extends BaseController
             if ($param == 'Kost & Kontrakan') {
                 $this->form = 'iklan/form/kost_kontrakan';
             }
-            if ($param == 'Property dijual' || $param == 'Property disewakan' ) {
-                $this->form = 'iklan/form/property';
+            if ($param == 'Mobil') {
+                $this->form = 'iklan/form/mobil';
             }
-            // if ($param == '')
+            if ($param == 'Motor') {
+                $this->form = 'iklan/form/motor';
+            }
+            // belum ada view
+            if ($param == 'Rumah') {
+                $this->form = 'iklan/form/rumah';
+            }
+            if ($param == 'Tanah') {
+                $this->form = 'iklan/form/tanah';
+            }
+            if ($param == 'Apartemen') {
+                $this->form = 'iklan/form/apartemen';
+            }
+            if ($param == 'Ruko') {
+                $this->form = 'iklan/form/ruko';
+            }
+            if ($param == 'Bangunan Komersial') {
+                $this->form = 'iklan/form/bangunan_komersial';
+            }
         }
-
-
 
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
