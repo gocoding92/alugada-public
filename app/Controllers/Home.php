@@ -38,7 +38,7 @@ class Home extends BaseController
     {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
+            $nohppengunjung = 123; 
         }
 
         $judul = $this->modelalugada->layananbynolayanan($nolayanan)['layanan'];
@@ -49,7 +49,7 @@ class Home extends BaseController
             'sublayanan'    => $this->modelalugada->sublayanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
         ];
-        return view('home/detail', $data);
+        return view('home/detailView', $data);
         
         // return view('home/detail');
     }

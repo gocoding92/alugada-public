@@ -7,34 +7,21 @@
   <div class="row">
     <form action="<?= base_url('verify') ?>" method="POST">
     <?php csrf_field();?>
-      <!-- <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <label for="" class="font-size-15">No. Handphone <span class="font-size-9"> (Verifikasi Code Whatshapp) </span> </label>
-        <input required type="text" name="nohp" class="form-control margin-top-6" placeholder="Masukkan nomor Handphone anda ..... (08123456789)">
-        <input hidden type="text" name="loginregister" class="form-control margin-top-6" value="0">
-      </div> -->
-
-      <input hidden type="text" name="loginregister" class="form-control margin-top-6" value="0">
-      <!-- Flash data -->
-      <?php if(session()->getFlashdata('pesan')){?>
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
-          <label for="" class="font-size-15">No. Handphone</label>
-          <input required type="text" name="nohp" class="form-control margin-top-6" value="<?= $nohp;?>">
+          <label for="" class="font-size-15">Login/register</label>
+          <input readonly type="text" name="loginregister" class="form-control margin-top-6" value="0">
         </div>
-        <div class="alert alert-success" role="alert">
-          <?php echo session()->getFlashdata('pesan');?>
-        </div>
-      <?php }else{?>
-        <div class="margin-bottom-12 padding-right-46 padding-left-16">
-          <label for="" class="font-size-15">No. Handphone</label>
-          <input required type="text" name="nohp" class="form-control margin-top-6" placeholder="Masukkan nomor Handphone anda ..... (08123456789)">
-        </div>
-      <?php };?>
-      <!-- Batas Flash Data  -->
-
-      <!-- <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <input hidden type="password" name="password" class="form-control margin-top-6" value="abcd1234">
-      </div> -->
-
+        <?php if($nohp){?>
+          <div class="margin-bottom-12 padding-right-46 padding-left-16">
+            <label for="" class="font-size-15">No. Handphone</label>
+            <input required type="text" name="nohp" class="form-control margin-top-6" value="<?= $nohp;?>">
+          </div>
+        <?php }else{?>
+          <div class="margin-bottom-12 padding-right-46 padding-left-16">
+            <label for="" class="font-size-15">No. Handphone</label>
+            <input required type="text" name="nohp" class="form-control margin-top-6">
+          </div>
+        <?php };?>
 
       <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
         <!-- <a href="<?php //echo base_url(); 
