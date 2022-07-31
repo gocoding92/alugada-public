@@ -37,49 +37,68 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // home page
+$routes->get('/logout', 'Auth::logout');
 $routes->get('/', 'Home::index');
-$routes->get('/home/list', 'Home::list');
-$routes->get('/home/create', 'Home::create');
-$routes->get('/home/edit/(:num)', 'Home::edit/$1');
-$routes->get('/home/detail/(:num)', 'Home::detail/$1');
-
-$routes->get('/pasang-iklan', 'Iklan::index');
-$routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
-$routes->get('/layanan-kami', 'LayananKami::index');
-$routes->get('/kontak-kami', 'KontakKami::index');
-$routes->get('/pesan', 'Pesan::index');
 
 $routes->get('/login', 'Auth::index');
+$routes->post('/submit-login', 'Auth::submit_login');
+$routes->get('/submit-login', 'Auth::submit_login');
+
 $routes->get('/register', 'Auth::register');
+$routes->post('/submit-register', 'Auth::submit_register');
+$routes->get('/submit-register', 'Auth::submit_register');
+$routes->get('/otp', 'Auth::otp');
+$routes->post('/submit-otp', 'Auth::submit_otp');
+$routes->get('/data-otp', 'Auth::data_otp');
+$routes->post('/submit-data-user', 'Auth::submit_data_user');
 
-$routes->post('/cek-otp', 'Auth::cekotp');
-$routes->get('/cek-otp', 'Auth::cekotp');
+$routes->get('/edit-password', 'Profile::edit_password');
+$routes->post('/submit-edit-password', 'Profile::submit_edit_password');
 
-$routes->post('/verify', 'Auth::verify');
-$routes->get('/verify', 'Home::index');
+$routes->get('/edit-profile', 'Profile::edit_profile');
+$routes->post('/submit-edit-profile', 'Profile::submit_edit_profile');
 
-
-$routes->post('/simpan-new-user', 'Auth::simpan_new_user');
-$routes->get('/simpan-new-user', 'Home::index');
-
-$routes->get('/logout', 'Auth::logout');
 $routes->get('/lupa-password', 'Auth::lupa_password');
-$routes->post('/verifikasi-lupa-password', 'Auth::verifikasi_lupa_password');
-$routes->post('/cek-otp-lupa-password', 'Auth::cek_otp_lupa_password');
-$routes->post('/simpan-new-password', 'Auth::simpan_new_password');
+$routes->post('/submit-lupa-password', 'Auth::submit_lupa_password');
+$routes->get('/buat-password-baru', 'Auth::buat_password_baru');
+$routes->post('/submit-password-baru', 'Auth::submit_password_baru');
 
 
 
 
-$routes->get('/data', 'Auth::data');
+
+
+
+// $routes->get('/home/list', 'Home::list');
+// $routes->get('/home/create', 'Home::create');
+// $routes->get('/home/edit/(:num)', 'Home::edit/$1');
+// $routes->get('/home/detail/(:num)', 'Home::detail/$1');
+
+// $routes->get('/pasang-iklan', 'Iklan::index');
+// $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
+// $routes->get('/layanan-kami', 'LayananKami::index');
+// $routes->get('/kontak-kami', 'KontakKami::index');
+// $routes->get('/pesan', 'Pesan::index');
+
+
+// $routes->post('/cek-otp', 'Auth::cekotp');
+// $routes->get('/cek-otp', 'Auth::cekotp');
+
+
+
+// $routes->get('/simpan-new-user', 'Home::index');
+
+// $routes->post('/cek-otp-lupa-password', 'Auth::cek_otp_lupa_password');
+// // $routes->post('/simpan-new-password', 'Auth::simpan_new_password');
+
+
+
+
+// $routes->get('/data', 'Auth::data');
 
 $routes->get('/profile', 'Profile::index');
-$routes->get('/data-iklan', 'Profile::data_iklan');
-$routes->get('/edit-profile', 'Profile::edit_profile');
-$routes->get('/edit-password', 'Profile::edit_password');
-$routes->post('/simpan-password-baru', 'Profile::simpan_password_baru');
-$routes->post('/update-user', 'Profile::update_user');
-
+// $routes->get('/data-iklan', 'Profile::data_iklan');
+// $routes->get('/simpan-password-baru', 'Profile::simpan_password_baru');
 
 
 

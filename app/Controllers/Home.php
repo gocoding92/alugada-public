@@ -18,10 +18,11 @@ class Home extends BaseController
     {
 
         $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
+
+        if (!$nohppengunjung) {
             $nohppengunjung = 123;
         }
-
+// var_dump($nohppengunjung);die;
         $data = [
             // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),

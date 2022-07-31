@@ -2,14 +2,14 @@
 
 <?= $this->section('content'); ?>
 <div id="home-page" class="row-sm padding-bottom-90">
-  <h1 class="margin-left-16"> Data User </h1>
+  <h1 class="margin-left-16"><?= $title;?></h1>
   <!-- <h4 class="margin-left-16"> Silahkan masukkan data anda dengan lengkap </h4> -->
 
-    <form action="<?= base_url('simpan-new-password')?>" method="post">
+    <form action="<?= base_url('submit-password-baru')?>" method="post">
       <div class="row">
       <div class="margin-bottom-12 padding-right-46 padding-left-16">
           <label for="nohp" class="font-size-15">No Hp</label>
-          <input required type="text" name="nohp" class="form-control margin-top-6" value="<?= $nohp;?>">
+          <input readonly type="text" name="nohp" class="form-control margin-top-6" value="<?= $nohp;?>">
         </div>
 
         <div class="margin-bottom-12 padding-right-46 padding-left-16">

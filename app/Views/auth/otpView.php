@@ -6,7 +6,7 @@
   <h4 class="margin-left-16"> Masukkan OTP </h4>
   <div class="row">
 
-      <form action="<?= base_url('cek-otp');?>" method="post">
+      <form action="<?= base_url('submit-otp');?>" method="post">
           <div class="margin-bottom-12 padding-right-46 padding-left-16">
             <input type="text" name="nohp" class="form-control margin-top-6" value="<?= $nohp;?>">
             <input type="text" name="otp" class="form-control margin-top-6" value="<?= $otp;?>">

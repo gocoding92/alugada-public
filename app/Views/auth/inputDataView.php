@@ -5,8 +5,13 @@
   <h1 class="margin-left-16"> Data User </h1>
   <!-- <h4 class="margin-left-16"> Silahkan masukkan data anda dengan lengkap </h4> -->
 
-    <form action="<?= base_url('simpan-new-user')?>" method="post">
+    <form action="<?= base_url('submit-data-user')?>" method="post">
       <div class="row">
+        <!-- <div class="margin-bottom-12 padding-right-46 padding-left-16">
+          <label for="nohp" class="font-size-15">No Hp</label>
+          <input required type="text" name="nohp" class="form-control margin-top-6" value="<?php //echo $nohp;?>">
+        </div> -->
+       
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
           <label for="nama" class="font-size-15">Nama</label>
           <input required type="text" name="nama" class="form-control margin-top-6" placeholder="Silahkan masukkan nama anda .....">

@@ -5,11 +5,11 @@
   <!-- <h1 class="margin-left-16"> Profile </h1> -->
   <h4 class="margin-left-16"> Ganti Password </h4>
 
-  <form action="<?= base_url('simpan-password-baru');?>" method = "post">
+  <form action="<?= base_url('submit-edit-password');?>" method = "post">
       <div class="row">
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
           <label for="nohp" class="font-size-15">nohp</label>
-          <input type="text" name="nohp" class="form-control margin-top-6" value="<?= $pengunjung['nohp'];?>">
+          <input readonly type="text" name="nohp" class="form-control margin-top-6" value="<?php echo $pengunjung['nohp'];?>">
         </div>
 
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
