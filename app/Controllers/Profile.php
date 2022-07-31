@@ -30,7 +30,7 @@ class Profile extends BaseController
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
         ];
 
-
+ 
         return view('profile/indexView', $data);
     }
 

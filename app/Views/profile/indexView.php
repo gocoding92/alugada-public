@@ -4,27 +4,42 @@
 <div id="home-page" class="row-sm padding-bottom-90">
   <!-- <h1 class="margin-left-16"> <i class="fa fa-user"></i>&nbsp; <?php //echo $pengunjung['nama'];?> </h1> -->
   <div class="row">
+    <hr />
+    <?php if($pengunjung['role'] == 1){?>
+        <div class="margin-bottom-12 padding-right-46">
+            <a class="text-decoration-none textcolor-433e3e" href="<?= base_url('index-layanan'); ?>">
+              <p1 class="padding-left-16"> <i class="fa fa-list-alt"></i>&nbsp; Tambah Sublayanan</p1>
+            </a>
+        </div>
+    <?php };?>
+    <hr />
     <div class="margin-bottom-12 padding-right-46">
-      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url(); ?>/data-iklan">
-        <h4 class="padding-left-16"> <i class="fa fa-list-alt"></i>&nbsp; Iklan Anda</h4>
+      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url('data-iklan'); ?>">
+        <p1 class="padding-left-16"> <i class="fa fa-list-alt"></i>&nbsp; Iklan Anda</p1>
       </a>
     </div>
     <hr />
     <div class="margin-bottom-12 padding-right-46">
-      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url(); ?>/edit-profile">
-        <h4 class="padding-left-16"> <i class="fa fa-edit"></i>&nbsp; Edit Profile</h4>
+      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url('edit-profile'); ?>">
+        <p1 class="padding-left-16"> <i class="fa fa-edit"></i>&nbsp; Edit Profile</p1>
       </a>
     </div>
     <hr />
     <div class="margin-bottom-12 padding-right-46">
-      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url(); ?>/edit-password">
-        <h4 class="padding-left-16"> <i class="fa fa-pencil"></i>&nbsp; Edit Password</h4>
+      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url('edit-password'); ?>">
+        <p1 class="padding-left-16"> <i class="fa fa-pencil"></i>&nbsp; Edit Password</p1>
+      </a>
+    </div>
+    <hr />
+    <div class="margin-bottom-12 padding-right-46">
+      <a class="text-decoration-none textcolor-433e3e" href="<?= base_url('/'); ?>">
+        <p1 class="padding-left-16"> <i class="fa fa-pencil"></i>&nbsp; Kembali</p1>
       </a>
     </div>
     <hr />
     <div class="margin-bottom-12 padding-right-46">
       <a class="text-decoration-none textcolor-433e3e" href="#">
-        <h4 class="padding-left-16" data-bs-toggle="modal" data-bs-target="#modal-logout"> <i class="fa fa-sign-out"></i>&nbsp; Logout</h4>
+        <p1 class="padding-left-16" data-bs-toggle="modal" data-bs-target="#modal-logout"> <i class="fa fa-sign-out"></i>&nbsp; Logout</p1>
       </a>
     </div>
     <hr />

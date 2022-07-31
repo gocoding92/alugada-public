@@ -12,26 +12,21 @@ class Home extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $this->modelalugada = new ModelAlugada();
         $this->session = \Config\Services::session();
-        $this->admin = 0;   //Bukan Admin
+        // $this->admin = 0;   //Bukan Admin
     }
     public function index()
     {
-
         $nohppengunjung = $this->session->get('nohppengunjung');
-
         if (!$nohppengunjung) {
             $nohppengunjung = 123;
         }
-// var_dump($nohppengunjung);die;
         $data = [
             // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
-
         ];
-
         return view('home/indexView', $data);
     }
 
@@ -40,8 +35,8 @@ class Home extends BaseController
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123; 
-        }
-
+        } 
+echo $nolayanan;die;
         $judul = $this->modelalugada->layananbynolayanan($nolayanan)['layanan'];
         $data = [
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
@@ -52,13 +47,9 @@ class Home extends BaseController
         ];
         return view('home/detailView', $data);
         
-        // return view('home/detail');
     }
 
 
-    // public function index()
-    // {
-    //     return view('home/index');
-    // }
+
 
 }

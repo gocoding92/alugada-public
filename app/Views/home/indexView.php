@@ -20,7 +20,7 @@
           <p class="text-layanan"><?= $l['layanan']; ?></p>
         </div>
       </a>
-    <?php endforeach; ?>
+    <?php endforeach; ?> 
   </div>
 
   <div class="row-card-layanan">

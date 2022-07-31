@@ -52,9 +52,6 @@ $routes->post('/submit-otp', 'Auth::submit_otp');
 $routes->get('/data-otp', 'Auth::data_otp');
 $routes->post('/submit-data-user', 'Auth::submit_data_user');
 
-$routes->get('/edit-password', 'Profile::edit_password');
-$routes->post('/submit-edit-password', 'Profile::submit_edit_password');
-
 $routes->get('/edit-profile', 'Profile::edit_profile');
 $routes->post('/submit-edit-profile', 'Profile::submit_edit_profile');
 
@@ -63,7 +60,17 @@ $routes->post('/submit-lupa-password', 'Auth::submit_lupa_password');
 $routes->get('/buat-password-baru', 'Auth::buat_password_baru');
 $routes->post('/submit-password-baru', 'Auth::submit_password_baru');
 
+$routes->get('/profile', 'Profile::index');
+$routes->get('/edit-password', 'Profile::edit_password');
+$routes->post('/submit-edit-password', 'Profile::submit_edit_password');
 
+$routes->get('/home/detail/(:num)', 'Home::detail/$1');
+
+
+$routes->get('index-layanan','admin::index');
+$routes->get('tambah-sub-layanan/(:num)','admin::tambah_sub_layanan/$1');
+$routes->get('input-sub-layanan/(:num)','admin::input_sub_layanan/$1');
+$routes->post('submit-input-sub-layanan','admin::submit_input_sublayanan');
 
 
 
@@ -72,7 +79,6 @@ $routes->post('/submit-password-baru', 'Auth::submit_password_baru');
 // $routes->get('/home/list', 'Home::list');
 // $routes->get('/home/create', 'Home::create');
 // $routes->get('/home/edit/(:num)', 'Home::edit/$1');
-// $routes->get('/home/detail/(:num)', 'Home::detail/$1');
 
 // $routes->get('/pasang-iklan', 'Iklan::index');
 // $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
@@ -96,7 +102,6 @@ $routes->post('/submit-password-baru', 'Auth::submit_password_baru');
 
 // $routes->get('/data', 'Auth::data');
 
-$routes->get('/profile', 'Profile::index');
 // $routes->get('/data-iklan', 'Profile::data_iklan');
 // $routes->get('/simpan-password-baru', 'Profile::simpan_password_baru');
 

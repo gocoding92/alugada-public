@@ -78,7 +78,7 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_sublayanan')->get()->getResultArray();
     }
-    public function simpantambahsublayanan($data)
+    public function tambahsublayanan($data)
     {
         return $this->db->table('tbl_sublayanan')->insert($data);
     }
@@ -90,7 +90,7 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_sublayanan')->update($data, ['id' => $id]);
     }
-
+ 
     // New User
     public function simpannewuser($data){
         return $this->db->table('tbl_user')->insert($data);
