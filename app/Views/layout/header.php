@@ -2,21 +2,13 @@
     <div class="display-flex">
         <img class="img-logo" src="<?= base_url('Image/logo.jpg'); ?>" alt="semua">
         <a class="text-decoration-none" href="<?= base_url('logout'); ?>">
-            <p class="text-logo">Alugada - Logout</p>
+            <p class="text-logo">Alugada</p>
         </a>
     </div>
     <div class="display-flex">
-        <!-- // validasi. jika sudah login, base url nya / profile (<?= base_url(); ?>/profile) -->
-        <?php if($pengunjung['nohp'] == 123){?>
-            <a href="<?php echo base_url('login'); ?>">
-                <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
-                <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['gambar']); ?>" alt="semua">
-            </a>            
-        <?php }else{?>
-            <a href="<?php echo base_url('profile'); ?>">
-                <p class="text-header-user"><?= $pengunjung['nama']; ?></p>
-                <img class="img-user-header" src="<?= base_url('Image/User/' . $pengunjung['gambar']); ?>" alt="semua">
-            </a>            
-        <?php };?>
+        <p class="text-header-user">Achmad Rizky</p>
+        <a href="<?= base_url(); ?>/login">
+            <img class="img-user-header" src="<?= base_url('Image/default-user.jpeg'); ?>" alt="semua">
+        </a>
     </div>
-</header> 
+</header>

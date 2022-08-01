@@ -75,6 +75,50 @@ $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
 $routes->get('/pesan/detail/(:num)', 'Pesan::detail/$1');
 
+// $routes->get('/home/list', 'Home::list');
+// $routes->get('/home/create', 'Home::create');
+// $routes->get('/home/edit/(:num)', 'Home::edit/$1');
+
+// $routes->get('/pasang-iklan', 'Iklan::index');
+// $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
+// $routes->get('/layanan-kami', 'LayananKami::index');
+// $routes->get('/kontak-kami', 'KontakKami::index');
+// $routes->get('/pesan', 'Pesan::index');
+
+
+// $routes->post('/cek-otp', 'Auth::cekotp');
+// $routes->get('/cek-otp', 'Auth::cekotp');
+
+
+
+// $routes->get('/simpan-new-user', 'Home::index');
+
+// $routes->post('/cek-otp-lupa-password', 'Auth::cek_otp_lupa_password');
+// // $routes->post('/simpan-new-password', 'Auth::simpan_new_password');
+
+
+
+
+// $routes->get('/data', 'Auth::data');
+
+// $routes->get('/data-iklan', 'Profile::data_iklan');
+// $routes->get('/simpan-password-baru', 'Profile::simpan_password_baru');
+
+
+// $routes->get('/home/list', 'Home::list');
+// $routes->get('/home/create', 'Home::create');
+// $routes->get('/home/edit/(:num)', 'Home::edit/$1');
+// $routes->get('/home/detail/(:num)', 'Home::detail/$1');
+
+// $routes->get('/pasang-iklan', 'Iklan::index');
+// $routes->get('/pasang-iklan/(:segment)', 'Iklan::index/$1');
+$routes->get('/layanan-kami', 'LayananKami::index');
+$routes->get('/kontak-kami', 'KontakKami::index');
+$routes->get('/pesan', 'Pesan::index');
+$routes->get('/pesan/detail/(:num)', 'Pesan::detail/$1');
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
