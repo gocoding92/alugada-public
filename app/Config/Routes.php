@@ -75,6 +75,8 @@ $routes->get('/kontak-kami', 'KontakKami::index');
 $routes->get('/pesan', 'Pesan::index');
 $routes->get('/pesan/detail/(:num)', 'Pesan::detail/$1');
 
+$routes->get('/pasang-iklan', 'Iklan::index');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
