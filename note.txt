@@ -109,3 +109,32 @@ URL PER - CATEGORY FORM
     - http://localhost:8080/pasang-iklan/Mobil
 6. Motor
     - http://localhost:8080/pasang-iklan/Motor
+
+
+1. Tenaga Ahli
+    - Engineering
+    - Production
+    - Construction
+    - Marketing
+    - Finance
+    - Computer & Programming
+
+2. Tenaga Terampil
+    - Driver
+    - Sales Promotion Girl / Boy
+    - Babysitter
+    - Perawat Lansia
+    - Asisten Rumah Tangga
+    - Office Boy / Girl
+
+3. Kost & Kontrakan
+
+4. Property
+    - Rumah
+    - Tanah
+    - Apartemen
+    - Ruko
+    - Bangunan Komersial
+5. Mobil
+
+6. Motor
