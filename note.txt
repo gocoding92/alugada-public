@@ -138,3 +138,41 @@ URL PER - CATEGORY FORM
 5. Mobil
 
 6. Motor
+
+
+
+
+1. Ambil Foto Layanan untuk di dashboard
+2. button tenaga ahli di hapus
+3. button tenaga terampil di hapus
+4. button kost dan Kontrakan di hapus
+5. button property (Rumah, tanah, apartemen, ruko, bangunan komersial) di hapus
+6. button Mobil di hapus
+7. button Motor di hapus
+8. Users field nya mengikuti table user
+9. Create dan edit samakan dengan field table layanan
+10. buat table tbl_kontak_kami 
+    1. id_kontak_kami int(11) primary key ai
+    2. nama varchar(100)
+    3. telepon varchar(100)
+    4. email varchar(100)
+    5. alamat text
+    6. pesan text
+    7. created_time date time Current
+
+11. Title disesuaikan dengan site menu 
+
+
+
+#Pak Harto
+1. Jumlah data user pengguna role public
+2. Jumlah Pesan masuk 
+3. Jumlah category layanan
+4. Klik Tenaga ahli mengeluarkan data
+5. Klik Tenaga terampil mengeluarkan data
+6. Klik Kost dan Kontrakan mengeluarkan data
+7. Klik Property (Rumah, tanah, apartemen, ruko, bangunan komersial) mengeluarkan data
+8. Klik Mobil mengeluarkan data
+9. Klik Motor mengeluarkan data
+
+
