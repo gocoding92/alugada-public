@@ -76,9 +76,14 @@ class Iklan extends BaseController
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
-            'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'sublayanan'    => $this->modelalugada->sublayanan(),
             'form'          => $this->form,
         ];
+
+        // echo "<pre>";
+        // var_dump($this->modelalugada->layanan());
+        // var_dump($this->modelalugada->sublayanan());
+        // exit;
 
 
         return view('iklan/index', $data);
