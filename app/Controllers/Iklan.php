@@ -13,52 +13,58 @@ class Iklan extends BaseController
         $this->modelalugada = new ModelAlugada();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
-
-        // $this->form = 'iklan/form/tenaga_ahli';
-        $this->form = '';
     }
     public function index($param = '')
     {
-        // var_dump($param);
-        // die;
-        // <!-- iklan/form/property -->
-        // <!-- iklan/form/tenaga_ahli -->
-        // <!-- iklan/form/tenaga_terampil -->
-        // <!-- iklan/form/kost_kontrakan -->
-        // <!-- iklan/form/property_disewakan -->
-        // <!-- iklan/form/mobil -->
-        // <!-- iklan/form/motor -->
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+            // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
+            // $idpengunjung = $idpengunjung['id']; 
+        }
 
-        if ($param) {
-            if ($param == 'Tenaga Ahli') {
+        $data = [
+            'admin'         => $this->admin,
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            'title'         => "Layanan",
+            'layanan'       => $this->modelalugada->layanan(),
+            'sublayanan'    => $this->modelalugada->sublayanan(),
+        ];
+
+        return view('iklan/index', $data);
+    }
+
+    public function detail($layanan = '', $id_layanan = '', $sublayanan = '', $id_sublayanan = '')
+    {
+        if ($layanan) {
+            if ($layanan == 'Tenaga Ahli') {
                 $this->form = 'iklan/form/tenaga_ahli';
             }
-            if ($param == 'Tenaga Terampil') {
+            if ($layanan == 'Tenaga Terampil') {
                 $this->form = 'iklan/form/tenaga_terampil';
             }
-            if ($param == 'Kost & Kontrakan') {
+            if ($layanan == 'Kost & Kontrakan') {
                 $this->form = 'iklan/form/kost_kontrakan';
             }
-            if ($param == 'Mobil') {
+            if ($layanan == 'Mobil') {
                 $this->form = 'iklan/form/mobil';
             }
-            if ($param == 'Motor') {
+            if ($layanan == 'Motor') {
                 $this->form = 'iklan/form/motor';
             }
-            // belum ada view
-            if ($param == 'Rumah') {
+            if ($sublayanan == 'Rumah') {
                 $this->form = 'iklan/form/rumah';
             }
-            if ($param == 'Tanah') {
+            if ($sublayanan == 'Tanah') {
                 $this->form = 'iklan/form/tanah';
             }
-            if ($param == 'Apartemen') {
+            if ($sublayanan == 'Apartemen') {
                 $this->form = 'iklan/form/apartemen';
             }
-            if ($param == 'Ruko') {
+            if ($sublayanan == 'Ruko') {
                 $this->form = 'iklan/form/ruko';
             }
-            if ($param == 'Bangunan Komersial') {
+            if ($sublayanan == 'Bangunan Komersial') {
                 $this->form = 'iklan/form/bangunan_komersial';
             }
         }
@@ -69,8 +75,7 @@ class Iklan extends BaseController
             // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
             // $idpengunjung = $idpengunjung['id']; 
         }
-        // var_dump($idpengunjung);
-        // die;
+
         $data = [
             'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
@@ -80,12 +85,6 @@ class Iklan extends BaseController
             'form'          => $this->form,
         ];
 
-        // echo "<pre>";
-        // var_dump($this->modelalugada->layanan());
-        // var_dump($this->modelalugada->sublayanan());
-        // exit;
-
-
-        return view('iklan/index', $data);
+        return view('iklan/detail', $data);
     }
 }

@@ -76,6 +76,7 @@ $routes->get('/pesan', 'Pesan::index');
 $routes->get('/pesan/detail/(:num)', 'Pesan::detail/$1');
 
 $routes->get('/pasang-iklan', 'Iklan::index');
+$routes->get('/pasang-iklan/detail/(:any)/(:num)/(:any)/(:num)', 'Iklan::detail/$1/$2/$3/$4');
 
 /*
  * --------------------------------------------------------------------
