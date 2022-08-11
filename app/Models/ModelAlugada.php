@@ -90,27 +90,64 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_sublayanan')->update($data, ['id' => $id]);
     }
- 
+
     // New User
-    public function simpannewuser($data){
+    public function simpannewuser($data)
+    {
         return $this->db->table('tbl_user')->insert($data);
     }
-    public function updateuser($id,$data){
-        return $this->db->table('tbl_user')->update($data,['id'=>$id]);
+    public function updateuser($id, $data)
+    {
+        return $this->db->table('tbl_user')->update($data, ['id' => $id]);
     }
 
 
-    public function jenisiklan(){
+    public function jenisiklan()
+    {
         return $this->db->table('tbl_jenisiklan')->get()->getResultArray();
     }
-    public function tambahjenisiklan($data){
+    public function tambahjenisiklan($data)
+    {
         return $this->db->table('tbl_jenisiklan')->insert($data);
     }
-    public function jenisiklanbyid($id){
-        return $this->db->table('tbl_jenisiklan')->getWhere(['id'=>$id])->getRowArray();
+    public function jenisiklanbyid($id)
+    {
+        return $this->db->table('tbl_jenisiklan')->getWhere(['id' => $id])->getRowArray();
     }
-    public function updatejenisiklan($id,$data){
+    public function updatejenisiklan($id, $data)
+    {
         return $this->db->table('tbl_jenisiklan')->update($data, ['id' => $id]);
     }
+
+    // iklan mobilmotor
+    public function saveMobil($data)
+    {
+        return $this->db->table('tbl_mobil')->insert($data);
+    }
+
+    // Iklan Motor
+    public function saveMotor($data)
+    {
+        return $this->db->table('tbl_motor')->insert($data);
+        // var_dump($query);
+        // exit;
+    }
+
+    // public function save($data)
+    // {
+    //     return $this->db->table('tbl_user')->insert($data);
+    // }
+
+    // public function tambahjenisiklan($data){
+    //     $data = array(
+    //         [
+    //             'name' => $juduliklan,
+    //             'name' => $juduliklan,
+    //             'name' => $juduliklan,
+    //             'name' => $juduliklan,
+    //         ]
+    //     );
+    //     return $this->db->table('tbl_jenisiklan')->insert($data);
+    // }
 
 }
