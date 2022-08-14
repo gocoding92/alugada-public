@@ -80,6 +80,12 @@ $routes->get('/pasang-iklan/detail/(:any)/(:num)/(:any)/(:num)', 'Iklan::detail/
 
 $routes->post('/iklan/save', 'Iklan::save');
 $routes->post('/iklan/savemtr', 'Iklan::savemtr');
+$routes->post('/iklan/saveKostkontrakan', 'Iklan::saveKostkontrakan');
+$routes->post('/iklan/saveTenagaAhli', 'Iklan::saveTenagaAhli');
+$routes->post('/iklan/saveTenagaTerampil', 'Iklan::saveTenagaTerampil');
+
+
+
 
 
 /*

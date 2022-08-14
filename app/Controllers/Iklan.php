@@ -193,4 +193,117 @@ class Iklan extends BaseController
 
         return redirect()->to('/pasang-iklan');
     }
+
+    public function saveKostkontrakan()
+    {
+        $judul_iklan   = $this->request->getVar('judul_iklan');
+        $jumlah_kamar  = $this->request->getVar('jumlah_kamar');
+        $kamar_kosong  = $this->request->getVar('kamar_kosong');
+        $listrik       = $this->request->getVar('listrik');
+        $kamar_mandi   = $this->request->getVar('kamar_mandi');
+        $ac            = $this->request->getVar('ac');
+        $water_heater  = $this->request->getVar('water_heater');
+        $tempat_tidur  = $this->request->getVar('tempat_tidur');
+        $meja_kursi    = $this->request->getVar('meja_kursi');
+        $almari        = $this->request->getVar('almari');
+        $alamat_lokasi = $this->request->getVar('alamat_lokasi');
+        $kecamatan     = $this->request->getVar('kecamatan');
+        $kabupaten     = $this->request->getVar('kabupaten');
+        $provinsi      = $this->request->getVar('provinsi');
+        $harga         = $this->request->getVar('harga');
+        $perbulan      = $this->request->getVar('perbulan');
+
+
+        $data = ([
+            'judul_iklan'  => $judul_iklan,
+            'jumlah_kamar' => $jumlah_kamar,
+            'kamar_kosong' => $kamar_kosong,
+            'listrik'      => $listrik,
+            'kamar_mandi'  => $kamar_mandi,
+            'ac'           => $ac,
+            'water_heater' => $water_heater,
+            'tempat_tidur' => $tempat_tidur,
+            'meja_kursi'   => $meja_kursi,
+            'almari'       => $almari,
+            'alamat_lokasi'=> $alamat_lokasi,
+            'kecamatan'    => $kecamatan,
+            'kabupaten'    => $kabupaten,
+            'provinsi'     => $provinsi,
+            'harga'        => $harga,
+            'perbulan'     => $perbulan,
+        ]);
+
+        $this->modelalugada->saveKost($data);
+
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveTenagaAhli()
+    {
+        $bidang_profesi = $this->request->getVar('bidang_profesi');
+        $nama_lengkap = $this->request->getVar('nama_lengkap');
+        $tanggal_lahir = $this->request->getVar('tanggal_lahir');
+        $pendidikan = $this->request->getVar('pendidikan');
+        $jurusan = $this->request->getVar('jurusan');
+        $pengalaman_kerja = $this->request->getVar('pengalaman_kerja');
+        $domisili = $this->request->getVar('domisili');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $provinsi = $this->request->getVar('provinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $gaji = $this->request->getVar('gaji');
+
+
+
+        $data = ([
+            'bidang_profesi'   => $bidang_profesi,
+            'nama_lengkap'     => $nama_lengkap,
+            'tanggal_lahir'    => $tanggal_lahir,
+            'pendidikan'       => $pendidikan,
+            'jurusan'          => $jurusan,
+            'pengalaman_kerja' => $pengalaman_kerja,
+            'domisili'         => $domisili,
+            'kecamatan'        => $kecamatan,
+            'kabupaten'        => $kabupaten,
+            'provinsi'         => $provinsi,
+            'deskripsi'        => $deskripsi,
+            'gaji'             => $gaji,
+
+        ]);
+
+        $this->modelalugada->saveTenaga_Ahli($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveTenagaTerampil()
+    {
+        $profesi = $this->request->getVar('profesi');
+        $nama_lengkap = $this->request->getVar('nama_lengkap');
+        $tempat_lahir = $this->request->getVar('tempat_lahir');
+        $pendidikan = $this->request->getVar('pendidikan');
+        $pengalaman_kerja = $this->request->getVar('pengalaman_kerja');
+        $domisili = $this->request->getVar('domisili');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $provinsi = $this->request->getVar('provinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $gaji = $this->request->getVar('gaji');
+
+        $data = ([
+            'profesi' => $profesi,
+            'nama_lengkap' => $nama_lengkap,
+            'tempat_lahir' => $tempat_lahir,
+            'pendidikan' => $pendidikan,
+            'pengalaman_kerja' => $pengalaman_kerja,
+            'domisili' => $domisili,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'provinsi' => $provinsi,
+            'deskripsi' => $deskripsi,
+            'gaji' => $gaji,
+        ]);
+
+        $this->modelalugada->saveTenaga_Terampil($data);
+        return redirect()->to('/pasang-iklan');
+    }
 }

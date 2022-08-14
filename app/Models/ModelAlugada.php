@@ -129,25 +129,20 @@ class ModelAlugada extends Model
     public function saveMotor($data)
     {
         return $this->db->table('tbl_motor')->insert($data);
-        // var_dump($query);
-        // exit;
     }
 
-    // public function save($data)
-    // {
-    //     return $this->db->table('tbl_user')->insert($data);
-    // }
+    public function saveKost($data)
+    {
+        return $this->db->table('tbl_kostkontrakan')->insert($data);
+    }
 
-    // public function tambahjenisiklan($data){
-    //     $data = array(
-    //         [
-    //             'name' => $juduliklan,
-    //             'name' => $juduliklan,
-    //             'name' => $juduliklan,
-    //             'name' => $juduliklan,
-    //         ]
-    //     );
-    //     return $this->db->table('tbl_jenisiklan')->insert($data);
-    // }
+    public function saveTenaga_Ahli($data)
+    {
+        return $this->db->table('tbl_tenagaahli')->insert($data);
+    }
 
+    public function saveTenaga_Terampil($data)
+    {
+        return $this->db->table('tbl_tenagaterampil')->insert($data);
+    }
 }
