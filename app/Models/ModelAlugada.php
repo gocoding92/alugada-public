@@ -145,4 +145,27 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_tenagaterampil')->insert($data);
     }
+
+    public function save_Rumah($data)
+    {
+        return $this->db->table('tbl_rumah')->insert($data);
+    }
+
+    public function save_Tanah($data)
+    {
+        return $this->db->table('tbl_tanah')->insert($data);
+    }
+
+    public function save_Apartemen($data)
+    {
+        return $this->db->table('tbl_apartemen')->insert($data);
+    }
+    public function save_Ruko($data)
+    {
+        return $this->db->table('tbl_ruko')->insert($data);
+    }
+    public function save_BangunanKOmersial($data)
+    {
+        return $this->db->table('tbl_bangunankomersial')->insert($data);
+    }
 }

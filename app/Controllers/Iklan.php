@@ -225,7 +225,7 @@ class Iklan extends BaseController
             'tempat_tidur' => $tempat_tidur,
             'meja_kursi'   => $meja_kursi,
             'almari'       => $almari,
-            'alamat_lokasi'=> $alamat_lokasi,
+            'alamat_lokasi' => $alamat_lokasi,
             'kecamatan'    => $kecamatan,
             'kabupaten'    => $kabupaten,
             'provinsi'     => $provinsi,
@@ -277,33 +277,227 @@ class Iklan extends BaseController
 
     public function saveTenagaTerampil()
     {
-        $profesi = $this->request->getVar('profesi');
-        $nama_lengkap = $this->request->getVar('nama_lengkap');
-        $tempat_lahir = $this->request->getVar('tempat_lahir');
-        $pendidikan = $this->request->getVar('pendidikan');
+        $profesi          = $this->request->getVar('profesi');
+        $nama_lengkap     = $this->request->getVar('nama_lengkap');
+        $tempat_lahir     = $this->request->getVar('tempat_lahir');
+        $pendidikan       = $this->request->getVar('pendidikan');
         $pengalaman_kerja = $this->request->getVar('pengalaman_kerja');
-        $domisili = $this->request->getVar('domisili');
-        $kecamatan = $this->request->getVar('kecamatan');
-        $kabupaten = $this->request->getVar('kabupaten');
-        $provinsi = $this->request->getVar('provinsi');
-        $deskripsi = $this->request->getVar('deskripsi');
-        $gaji = $this->request->getVar('gaji');
+        $domisili         = $this->request->getVar('domisili');
+        $kecamatan        = $this->request->getVar('kecamatan');
+        $kabupaten        = $this->request->getVar('kabupaten');
+        $provinsi         = $this->request->getVar('provinsi');
+        $deskripsi        = $this->request->getVar('deskripsi');
+        $gaji             = $this->request->getVar('gaji');
 
         $data = ([
-            'profesi' => $profesi,
-            'nama_lengkap' => $nama_lengkap,
-            'tempat_lahir' => $tempat_lahir,
-            'pendidikan' => $pendidikan,
+            'profesi'          => $profesi,
+            'nama_lengkap'     => $nama_lengkap,
+            'tempat_lahir'     => $tempat_lahir,
+            'pendidikan'       => $pendidikan,
             'pengalaman_kerja' => $pengalaman_kerja,
-            'domisili' => $domisili,
-            'kecamatan' => $kecamatan,
-            'kabupaten' => $kabupaten,
-            'provinsi' => $provinsi,
-            'deskripsi' => $deskripsi,
-            'gaji' => $gaji,
+            'domisili'         => $domisili,
+            'kecamatan'        => $kecamatan,
+            'kabupaten'        => $kabupaten,
+            'provinsi'         => $provinsi,
+            'deskripsi'        => $deskripsi,
+            'gaji'             => $gaji,
         ]);
 
         $this->modelalugada->saveTenaga_Terampil($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveRumah()
+    {
+        $juduliklan    = $this->request->getVar('juduliklan');
+        $luastanah     = $this->request->getVar('luastanah');
+        $luasbangunan  = $this->request->getVar('luasbangunan');
+        $kepemilikan   = $this->request->getVar('kepemilikan');
+        $jumlahlantai  = $this->request->getVar('jumlahlantai');
+        $listrik       = $this->request->getVar('listrik');
+        $ruangtamu     = $this->request->getVar('ruangtamu');
+        $ruangkeluarga = $this->request->getVar('ruangkeluarga');
+        $kamartidur    = $this->request->getVar('kamartidur');
+        $kamarpembantu = $this->request->getVar('kamarpembantu');
+        $kamarmandi    = $this->request->getVar('kamarmandi');
+        $teras         = $this->request->getVar('teras');
+        $taman         = $this->request->getVar('taman');
+        $aksesmobil    = $this->request->getVar('aksesmobil');
+        $garasi        = $this->request->getVar('garasi');
+        $carport       = $this->request->getVar('carport');
+        $lokasi        = $this->request->getVar('lokasi');
+        $kecamatan     = $this->request->getVar('kecamatan');
+        $kabupaten     = $this->request->getVar('kabupaten');
+        $propinsi      = $this->request->getVar('propinsi');
+        $deskripsi     = $this->request->getVar('deskripsi');
+        $harga         = $this->request->getVar('harga');
+
+        $data = ([
+            'juduliklan'    => $juduliklan,
+            'luastanah'     => $luastanah,
+            'luasbangunan'  => $luasbangunan,
+            'kepemilikan'   => $kepemilikan,
+            'jumlahlantai'  => $jumlahlantai,
+            'listrik'       => $listrik,
+            'ruangtamu'     => $ruangtamu,
+            'ruangkeluarga' => $ruangkeluarga,
+            'kamartidur'    => $kamartidur,
+            'kamarpembantu' => $kamarpembantu,
+            'kamarmandi'    => $kamarmandi,
+            'teras'         => $teras,
+            'taman'         => $taman,
+            'aksesmobil'    => $aksesmobil,
+            'garasi'        => $garasi,
+            'carport'       => $carport,
+            'lokasi'        => $lokasi,
+            'kecamatan'     => $kecamatan,
+            'kabupaten'     => $kabupaten,
+            'propinsi'      => $propinsi,
+            'deskripsi'     => $deskripsi,
+            'harga'         => $harga,
+        ]);
+
+        $this->modelalugada->save_Rumah($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveTanah()
+    {
+        $juduliklan = $this->request->getVar('juduliklan');
+        $luastanah = $this->request->getVar('luastanah');
+        $kepemilikan = $this->request->getVar('kepemilikan');
+        $aksesmobil = $this->request->getVar('aksesmobil');
+        $lokasi = $this->request->getVar('lokasi');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $propinsi = $this->request->getVar('propinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $harga = $this->request->getVar('harga');
+
+        $data = ([
+            'juduliklan' => $juduliklan,
+            'luastanah' => $luastanah,
+            'kepemilikan' => $kepemilikan,
+            'aksesmobil' => $aksesmobil,
+            'lokasi' => $lokasi,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'propinsi' => $propinsi,
+            'deskripsi' => $deskripsi,
+            'harga' => $harga,
+        ]);
+
+        $this->modelalugada->save_Tanah($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveApartemen()
+    {
+        $juduliklan = $this->request->getVar('juduliklan');
+        $luas = $this->request->getVar('luas');
+        $kepemilikan = $this->request->getVar('kepemilikan');
+        $bedroom = $this->request->getVar('bedroom');
+        $kamarmandi = $this->request->getVar('kamarmandi');
+        $listrik = $this->request->getVar('listrik');
+        $alamatlokasi = $this->request->getVar('alamatlokasi');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $propinsi = $this->request->getVar('propinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $harga = $this->request->getVar('harga');
+
+        $data = ([
+            'juduliklan' => $juduliklan,
+            'luas' => $luas,
+            'kepemilikan' => $kepemilikan,
+            'bedroom' => $bedroom,
+            'kamarmandi' => $kamarmandi,
+            'listrik' => $listrik,
+            'alamatlokasi' => $alamatlokasi,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'propinsi' => $propinsi,
+            'deskripsi' => $deskripsi,
+            'harga' => $harga,
+        ]);
+
+        $this->modelalugada->save_Apartemen($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveRuko()
+    {
+        $juduliklan = $this->request->getVar('juduliklan');
+        $luastanah = $this->request->getVar('luastanah');
+        $luasbangunan = $this->request->getVar('luasbangunan');
+        $kepemilikan = $this->request->getVar('kepemilikan');
+        $jumlahlantai = $this->request->getVar('jumlahlantai');
+        $listrik = $this->request->getVar('listrik');
+        $kamarmandi = $this->request->getVar('kamarmandi');
+        $carport = $this->request->getVar('carport');
+        $lokasi = $this->request->getVar('lokasi');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $propinsi = $this->request->getVar('propinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $harga = $this->request->getVar('harga');
+
+        $data = ([
+            'juduliklan' => $juduliklan,
+            'luastanah' => $luastanah,
+            'luasbangunan' => $luasbangunan,
+            'kepemilikan' => $kepemilikan,
+            'jumlahlantai' => $jumlahlantai,
+            'listrik' => $listrik,
+            'kamarmandi' => $kamarmandi,
+            'carport' => $carport,
+            'lokasi' => $lokasi,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'propinsi' => $propinsi,
+            'deskripsi' => $deskripsi,
+            'harga' => $harga,
+        ]);
+
+        $this->modelalugada->save_Ruko($data);
+        return redirect()->to('/pasang-iklan');
+    }
+
+    public function saveBangunanKomersial()
+    {
+        $juduliklan = $this->request->getVar('juduliklan');
+        $luastanah = $this->request->getVar('luastanah');
+        $luasbangunan = $this->request->getVar('luasbangunan');
+        $kepemilikan = $this->request->getVar('kepemilikan');
+        $jumlahlantai = $this->request->getVar('jumlahlantai');
+        $listrik = $this->request->getVar('listrik');
+        // $kamarmandi = $this->request->getVar('kamarmandi');
+        $carport = $this->request->getVar('carport');
+        $lokasi = $this->request->getVar('lokasi');
+        $kecamatan = $this->request->getVar('kecamatan');
+        $kabupaten = $this->request->getVar('kabupaten');
+        $propinsi = $this->request->getVar('propinsi');
+        $deskripsi = $this->request->getVar('deskripsi');
+        $harga = $this->request->getVar('harga');
+
+        $data = ([
+            'juduliklan' => $juduliklan,
+            'luastanah' => $luastanah,
+            'luasbangunan' => $luasbangunan,
+            'kepemilikan' => $kepemilikan,
+            'jumlahlantai' => $jumlahlantai,
+            'listrik' => $listrik,
+            // 'kamarmandi' => $kamarmandi,
+            'carport' => $carport,
+            'lokasi' => $lokasi,
+            'kecamatan' => $kecamatan,
+            'kabupaten' => $kabupaten,
+            'propinsi' => $propinsi,
+            'deskripsi' => $deskripsi,
+            'harga' => $harga,
+        ]);
+
+        $this->modelalugada->save_BangunanKomersial($data);
         return redirect()->to('/pasang-iklan');
     }
 }

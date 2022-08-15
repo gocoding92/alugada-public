@@ -83,6 +83,11 @@ $routes->post('/iklan/savemtr', 'Iklan::savemtr');
 $routes->post('/iklan/saveKostkontrakan', 'Iklan::saveKostkontrakan');
 $routes->post('/iklan/saveTenagaAhli', 'Iklan::saveTenagaAhli');
 $routes->post('/iklan/saveTenagaTerampil', 'Iklan::saveTenagaTerampil');
+$routes->post('/iklan/saveRumah', 'Iklan::saveRumah');
+$routes->post('/iklan/saveTanah', 'Iklan::saveTanah');
+$routes->post('/iklan/saveApartemen', 'Iklan::saveApartemen');
+$routes->post('/iklan/saveRuko', 'Iklan::saveRuko');
+$routes->post('/iklan/saveBangunanKomersial', 'Iklan::saveBangunanKomersial');
 
 
 
