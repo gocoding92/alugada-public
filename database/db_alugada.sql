@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 31, 2022 at 03:24 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: localhost
+-- Generation Time: Aug 15, 2022 at 05:13 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -76,6 +76,13 @@ CREATE TABLE `tbl_apartemen` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `tbl_apartemen`
+--
+
+INSERT INTO `tbl_apartemen` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `juduliklan`, `luas`, `kepemilikan`, `bedroom`, `kamarmandi`, `listrik`, `alamatlokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked`, `created_at`, `updated_at`) VALUES
+(1, 0, 0, 0, 'Apartemen Jakarta', 800, 'HGB', 2, 3, 300, 'jakarta', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'apartemen luas', 200000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -119,33 +126,139 @@ CREATE TABLE `tbl_bangunankomersial` (
 --
 
 INSERT INTO `tbl_bangunankomersial` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
-(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 1, 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56');
+(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 1, 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56'),
+(2, 0, 0, 0, 0, 'rumah samudra', 21, 34, 'Lainnya', 2, 3, 2, 'tajur', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'dijual bangunan', 200000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_carikerja`
+-- Table structure for table `tbl_iklancarikerja`
 --
 
-CREATE TABLE `tbl_carikerja` (
+CREATE TABLE `tbl_iklancarikerja` (
   `id` int(11) NOT NULL,
   `idpengiklan` int(11) NOT NULL,
   `nolayanan` int(11) NOT NULL,
+  `nosublayanan` int(11) NOT NULL,
   `namalengkap` varchar(64) NOT NULL,
-  `tanggallahir` datetime NOT NULL,
-  `pendidikan` varchar(8) NOT NULL,
-  `jurusan` varchar(32) NOT NULL,
-  `pengalamankerja` int(2) NOT NULL,
-  `domisilikab` varchar(32) NOT NULL,
-  `domisiliprop` varchar(32) NOT NULL,
-  `areakerja` varchar(32) NOT NULL,
+  `tanggallahir` datetime DEFAULT NULL,
+  `pendidikan` varchar(8) DEFAULT NULL,
+  `jurusan` varchar(32) DEFAULT NULL,
+  `pengalamankerja` int(2) DEFAULT NULL,
+  `domisilikab` varchar(32) DEFAULT NULL,
+  `domisiliprop` varchar(32) DEFAULT NULL,
+  `areakerja` varchar(32) DEFAULT NULL,
+  `gambar1` varchar(64) DEFAULT NULL,
+  `gambar2` varchar(64) DEFAULT NULL,
+  `gambar3` varchar(64) DEFAULT NULL,
+  `gambar4` varchar(64) DEFAULT NULL,
+  `gambar5` varchar(64) DEFAULT NULL,
+  `gambar6` varchar(64) DEFAULT NULL,
+  `is_active` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_iklancarikerja`
+--
+
+INSERT INTO `tbl_iklancarikerja` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `namalengkap`, `tanggallahir`, `pendidikan`, `jurusan`, `pengalamankerja`, `domisilikab`, `domisiliprop`, `areakerja`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `is_active`) VALUES
+(1, 3, 100, 101, 'Didik Nini Thowok', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(2, 2, 200, 201, 'Bambang Gentolet', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(3, 3, 200, 201, 'Dina Mariana', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
+(4, 2, 200, 201, 'Cici paramida', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_iklankost`
+--
+
+CREATE TABLE `tbl_iklankost` (
+  `id` int(11) NOT NULL,
+  `nopengiklan` int(11) NOT NULL,
+  `nolayanan` int(11) NOT NULL,
+  `nosublayanan` int(11) NOT NULL,
+  `juduliklan` int(11) NOT NULL,
+  `is_active` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_iklanmobilmotor`
+--
+
+CREATE TABLE `tbl_iklanmobilmotor` (
+  `id` int(11) NOT NULL,
+  `idpengiklan` int(11) NOT NULL,
+  `nolayanan` int(11) NOT NULL,
+  `nosublayanan` int(11) NOT NULL,
+  `juduliklan` varchar(255) NOT NULL,
+  `is_active` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_iklanmobilmotor`
+--
+
+INSERT INTO `tbl_iklanmobilmotor` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `juduliklan`, `is_active`) VALUES
+(1, 3, 500, 501, 'Dijual Mobil Antik', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_iklanproperty`
+--
+
+CREATE TABLE `tbl_iklanproperty` (
+  `id` int(11) NOT NULL,
+  `idpengiklan` int(11) NOT NULL,
+  `nolayanan` int(5) NOT NULL,
+  `nosublayanan` int(5) NOT NULL,
+  `jenispengiklan` int(2) NOT NULL,
+  `juduliklan` varchar(512) NOT NULL,
+  `luastanah` int(9) NOT NULL,
+  `luasbangunan` int(6) NOT NULL,
+  `kepemilikan` varchar(16) NOT NULL,
+  `jumlahlantai` int(3) NOT NULL,
+  `listrik` int(6) NOT NULL,
+  `ruangtamu` varchar(16) NOT NULL,
+  `ruangkeluarga` varchar(16) NOT NULL,
+  `kamartidur` int(3) NOT NULL,
+  `kamarpembantu` int(2) NOT NULL,
+  `kamarmandi` int(2) NOT NULL,
+  `teras` varchar(16) NOT NULL,
+  `taman` varchar(16) NOT NULL,
+  `aksesmobil` varchar(24) NOT NULL,
+  `garasi` varchar(32) NOT NULL,
+  `carport` varchar(32) NOT NULL,
+  `lokasi` varchar(256) NOT NULL,
+  `kecamatan` varchar(32) NOT NULL,
+  `kabupaten` varchar(32) NOT NULL,
+  `propinsi` varchar(32) NOT NULL,
   `gambar1` varchar(64) NOT NULL,
   `gambar2` varchar(64) NOT NULL,
   `gambar3` varchar(64) NOT NULL,
   `gambar4` varchar(64) NOT NULL,
   `gambar5` varchar(64) NOT NULL,
-  `gambar6` varchar(64) NOT NULL
+  `gambar6` varchar(64) NOT NULL,
+  `deskripsi` varchar(512) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `is_active` int(2) NOT NULL,
+  `checked1` datetime DEFAULT NULL,
+  `checked2` datetime DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_iklanproperty`
+--
+
+INSERT INTO `tbl_iklanproperty` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jenispengiklan`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `ruangtamu`, `ruangkeluarga`, `kamartidur`, `kamarpembantu`, `kamarmandi`, `teras`, `taman`, `aksesmobil`, `garasi`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
+(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 'ada', 'ada', 2, 1, 2, 'ada', 'Tidak ada', 'masuk', '0', '1', 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'Rumah Mungil di tengah kota Yogyakarta', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56'),
+(2, 2, 300, 301, 1, 'Kost Ekslusif di Jakarta Selatan', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, NULL, NULL, NULL, NULL),
+(3, 2, 400, 401, 1, 'Dijual Ruham Besar', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -197,6 +310,45 @@ INSERT INTO `tbl_jenisproperty` (`id`, `jenisproperty`, `gambar`, `url`, `is_act
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_kostkontrakan`
+--
+
+CREATE TABLE `tbl_kostkontrakan` (
+  `id` int(11) NOT NULL,
+  `judul_iklan` varchar(255) NOT NULL,
+  `jumlah_kamar` varchar(255) NOT NULL,
+  `kamar_kosong` varchar(255) NOT NULL,
+  `listrik` varchar(255) NOT NULL,
+  `kamar_mandi` varchar(255) NOT NULL,
+  `ac` varchar(255) NOT NULL,
+  `water_heater` varchar(255) NOT NULL,
+  `tempat_tidur` varchar(255) NOT NULL,
+  `meja_kursi` varchar(255) NOT NULL,
+  `almari` varchar(255) NOT NULL,
+  `alamat_lokasi` text NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `harga` varchar(255) NOT NULL,
+  `perbulan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_kostkontrakan`
+--
+
+INSERT INTO `tbl_kostkontrakan` (`id`, `judul_iklan`, `jumlah_kamar`, `kamar_kosong`, `listrik`, `kamar_mandi`, `ac`, `water_heater`, `tempat_tidur`, `meja_kursi`, `almari`, `alamat_lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `harga`, `perbulan`) VALUES
+(1, 'Kost Kontrakan', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'kontrakan kamar 2', '2', '3', '', '', '', '', '', '', '', 'inkopad', 'tajurhalang', 'bogor', 'jawa barat', '200000', ''),
+(3, 'kos', '2', '4', 'Token tiap kamar/kontrakan', '', '', '', '', '', '', 'sda', 'das', 'sda', 'sad', '200000', ''),
+(4, 'Tempat tidur', '5', '2', 'Gabung rumah induk', 'Kamar mandi dalam', 'Ada', 'Ada', 'Ada', 'Ada', 'Ada', 'inkopad', 'tajurhalang', 'bogor', 'jawa barat', '200000', ''),
+(5, 'Meja', '2', '3', 'Token tiap kamar/kontrakan', 'Diluar / bersama', 'Tidak ada', 'Ada', 'Ada', 'Ada', 'Ada', 'inkopad', 'tajurhalang', 'bogor', 'jawa barat', '200000', 'Per Tahun'),
+(6, '', '', '', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '-- Silahkan Pilih --', '', '', '', '', '', '-- Silahkan Pilih --'),
+(7, '1', '1', '1', 'Token tiap kamar/kontrakan', 'Diluar / bersama', 'Tidak ada', 'Tidak ada', 'Ada', 'Tidak ada', 'Tidak ada', '1', '1', '1', '1', '1', 'Per Bulan');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_layanan`
 --
 
@@ -220,7 +372,83 @@ INSERT INTO `tbl_layanan` (`id`, `nolayanan`, `layanan`, `detaillayanan`, `gamba
 (3, 300, 'Kost & Kontrakan', 'Informasi Rumah Kost & Kontrakan', 'kostkontrakan.png', 'kost', 1),
 (4, 400, 'Property', 'Rumah, Tanah, Apartemen, Ruko', 'property.png', 'property', 1),
 (6, 500, 'Mobil', 'Data mobil', 'mobil.png', 'mobil', 1),
-(7, 600, 'Motor', 'Data Motor', 'motor.png', 'motor', 1);
+(7, 600, 'Motor', 'Data Motor', 'motor.png', 'motor', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mobil`
+--
+
+CREATE TABLE `tbl_mobil` (
+  `id` int(11) NOT NULL,
+  `judul_iklan` varchar(255) NOT NULL,
+  `merk` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `tahun` varchar(255) NOT NULL,
+  `warna` varchar(255) NOT NULL,
+  `plat` varchar(255) NOT NULL,
+  `odometer` varchar(255) NOT NULL,
+  `bahan_bakar` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `gambar1` varchar(255) NOT NULL,
+  `gambar2` varchar(255) NOT NULL,
+  `gambar3` varchar(255) NOT NULL,
+  `gambar5` varchar(255) NOT NULL,
+  `gambar6` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `harga` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_mobil`
+--
+
+INSERT INTO `tbl_mobil` (`id`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar5`, `gambar6`, `deskripsi`, `harga`) VALUES
+(1, 'mobil galardo', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'mobil ', 'avanza 1010', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 'mobil', 'avanza', '2wk', '2010', 'merah', 'rrea1', '1', 'solar', 'inkopad', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', 'dijual', '20000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_motor`
+--
+
+CREATE TABLE `tbl_motor` (
+  `id` int(11) NOT NULL,
+  `judul_iklan` varchar(255) NOT NULL,
+  `merk` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `tahun` varchar(255) NOT NULL,
+  `warna` varchar(255) NOT NULL,
+  `plat` varchar(255) NOT NULL,
+  `odometer` varchar(255) NOT NULL,
+  `bahan_bakar` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `gambar1` varchar(255) NOT NULL,
+  `gambar2` varchar(255) NOT NULL,
+  `gambar3` varchar(255) NOT NULL,
+  `gambar4` varchar(255) NOT NULL,
+  `gambar5` varchar(255) NOT NULL,
+  `gambar6` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `harga` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_motor`
+--
+
+INSERT INTO `tbl_motor` (`id`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`) VALUES
+(1, 'Motor Ninja ', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 'motor mio', 'smile', 'bodong', '2010', 'merah', 'Plm123', '2', 'pertalite', 'inkopad', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'dijual mtr mio dengan surat surat', '200000');
 
 -- --------------------------------------------------------
 
@@ -266,7 +494,8 @@ CREATE TABLE `tbl_ruko` (
 --
 
 INSERT INTO `tbl_ruko` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `kamarmandi`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
-(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 2, 1, 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56');
+(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 2, 1, 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56'),
+(2, 0, 0, 0, 0, 'rumah samudra', 12, 31, 'HGB', 0, 4334, 3, 1, 'tajur', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'Ruko kecil', 200000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -320,7 +549,8 @@ CREATE TABLE `tbl_rumah` (
 --
 
 INSERT INTO `tbl_rumah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jenispengiklan`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `ruangtamu`, `ruangkeluarga`, `kamartidur`, `kamarpembantu`, `kamarmandi`, `teras`, `taman`, `aksesmobil`, `garasi`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
-(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 'ada', 'ada', 2, 1, 2, 'ada', 'Tidak ada', 'masuk', '0', '1', 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'Rumah Mungil di tengah kota Yogyakarta', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56');
+(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 50, 'SHM', 1, 900, 'ada', 'ada', 2, 1, 2, 'ada', 'Tidak ada', 'masuk', '0', '1', 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'defaultrumah.jfif', 'Rumah Mungil di tengah kota Yogyakarta', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56'),
+(4, 0, 0, 0, 0, 'Rumah Luas di daerah yasmin bogor', 80, 100, 'AJB', 4, 800, 'Ada', 'Ada', 4, 2, 2, 'Ada', 'Ada', 'Masuk Mobil', '5', '2', 'Daerah yasmin', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'rumah besar dijual', 200000, 0, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -343,12 +573,12 @@ CREATE TABLE `tbl_sublayanan` (
 --
 
 INSERT INTO `tbl_sublayanan` (`id`, `nolayanan`, `nosublayanan`, `sublayanan`, `gambar`, `url`, `is_active`) VALUES
-(1, 100, 101, 'Engineering', 'engineering.png', 'engineering', 1),
+(1, 100, 101, 'Engineering ', 'engineering.png', 'engineering', 1),
 (2, 200, 201, 'Driver', 'driver.png', 'driver', 1),
-(3, 300, 301, 'Info Kost & Kontrakan', 'kost.png', 'kost-kontrakan', 1),
+(3, 300, 301, 'Kost & Kontrakan', 'kost.jpg', 'kost', 1),
 (4, 400, 401, 'Rumah', 'rumah.png', 'rumah', 1),
 (5, 500, 501, 'Mobil', 'mobil.png', 'Mobil', 1),
-(6, 600, 601, 'Motor', 'motor.png', 'motor', 1),
+(6, 600, 601, 'Motor', 'motor.png', 'motor', 0),
 (16, 100, 102, 'Production', 'production.png', 'production', 1),
 (17, 100, 103, 'Construction', 'construction.png', 'construction', 1),
 (18, 100, 104, 'Finance', 'finance.png', 'finance', 1),
@@ -453,7 +683,71 @@ CREATE TABLE `tbl_tanah` (
 --
 
 INSERT INTO `tbl_tanah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `kepemilikan`, `aksesmobil`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar2`, `gambar3`, `gambar4`, `gambar5`, `gambar6`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
-(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 'SHM', 'masuk', 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56');
+(1, 3, 400, 401, 1, 'Rumah mungil di pusat kota Yogyakarta', 75, 'SHM', 'masuk', 'Semaki - Yogyakarta', 'Semaki', 'Kodya Yogyakarta', 'DIY', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 'default.jfif', 650000000, 1, '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56', '2022-07-14 18:03:56'),
+(2, 0, 0, 0, 0, 'Tanah Liat', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, 0, 0, 0, 0, 'rumah samudra', 89, 'AJB', 'Masuk Mobil', 'tajuur', 'tajurhalang', 'bogor', 'jawa barat', '', '', '', '', '', '', 'tanah luas 1 meter', 200000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tenagaahli`
+--
+
+CREATE TABLE `tbl_tenagaahli` (
+  `id` int(11) NOT NULL,
+  `bidang_profesi` varchar(255) NOT NULL,
+  `nama_lengkap` varchar(255) NOT NULL,
+  `tanggal_lahir` varchar(255) NOT NULL,
+  `pendidikan` varchar(255) NOT NULL,
+  `jurusan` varchar(255) NOT NULL,
+  `pengalaman_kerja` varchar(255) NOT NULL,
+  `domisili` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gaji` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_tenagaahli`
+--
+
+INSERT INTO `tbl_tenagaahli` (`id`, `bidang_profesi`, `nama_lengkap`, `tanggal_lahir`, `pendidikan`, `jurusan`, `pengalaman_kerja`, `domisili`, `kecamatan`, `kabupaten`, `provinsi`, `deskripsi`, `gaji`) VALUES
+(1, 'Production', '', '', '', '', '1 - 3 Tahun', '', '', '', '', '', ''),
+(2, 'Marketing', 'Abdul rahman', '2022-08-04', 'S1', 'Akutansi', '7 Tahun', '', '', '', '', '', ''),
+(3, 'Production', 'achmad sakhoji', '2022-08-19', 'S2', 'Teknik informatika', '3 - 5 Tahun', 'tajurhalang', 'tajurhalang', 'bogor', 'jawa barat', 'menguasai apa yang ingin dikuasai', '40000000'),
+(4, 'Engineering', 'Achmad Rizky S.Kom', '2022-08-16', 'S1', 'Akuntasi', '1 - 3 Tahun', 'Kelurahan', 'Kecamatan', 'Kabupaten', 'Provinsi', 'Deskripsi', '20000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_tenagaterampil`
+--
+
+CREATE TABLE `tbl_tenagaterampil` (
+  `id` int(11) NOT NULL,
+  `profesi` varchar(255) NOT NULL,
+  `nama_lengkap` varchar(255) NOT NULL,
+  `tempat_lahir` varchar(255) NOT NULL,
+  `pendidikan` varchar(255) NOT NULL,
+  `pengalaman_kerja` varchar(255) NOT NULL,
+  `domisili` varchar(255) NOT NULL,
+  `kecamatan` varchar(255) NOT NULL,
+  `kabupaten` varchar(255) NOT NULL,
+  `provinsi` varchar(255) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gaji` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_tenagaterampil`
+--
+
+INSERT INTO `tbl_tenagaterampil` (`id`, `profesi`, `nama_lengkap`, `tempat_lahir`, `pendidikan`, `pengalaman_kerja`, `domisili`, `kecamatan`, `kabupaten`, `provinsi`, `deskripsi`, `gaji`) VALUES
+(1, 'Babysitter', '', '', '', '', '', '', '', '', '', ''),
+(2, 'Babysitter', '', '', '', '', '', '', '', '', '', ''),
+(3, 'Babysitter', 'achmad sakhoji', '2022-08-11', 'SMP', '1 - 3 Tahun', 'tajurhalang', 'tajurhalang', 'bogor', 'jawa barat', 'babysister', '4535');
 
 -- --------------------------------------------------------
 
@@ -515,9 +809,27 @@ ALTER TABLE `tbl_bangunankomersial`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_carikerja`
+-- Indexes for table `tbl_iklancarikerja`
 --
-ALTER TABLE `tbl_carikerja`
+ALTER TABLE `tbl_iklancarikerja`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_iklankost`
+--
+ALTER TABLE `tbl_iklankost`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_iklanmobilmotor`
+--
+ALTER TABLE `tbl_iklanmobilmotor`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_iklanproperty`
+--
+ALTER TABLE `tbl_iklanproperty`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -533,9 +845,27 @@ ALTER TABLE `tbl_jenisproperty`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_kostkontrakan`
+--
+ALTER TABLE `tbl_kostkontrakan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_mobil`
+--
+ALTER TABLE `tbl_mobil`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_motor`
+--
+ALTER TABLE `tbl_motor`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -569,6 +899,18 @@ ALTER TABLE `tbl_tanah`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_tenagaahli`
+--
+ALTER TABLE `tbl_tenagaahli`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_tenagaterampil`
+--
+ALTER TABLE `tbl_tenagaterampil`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -588,19 +930,37 @@ ALTER TABLE `tbl_alugada`
 -- AUTO_INCREMENT for table `tbl_apartemen`
 --
 ALTER TABLE `tbl_apartemen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_bangunankomersial`
 --
 ALTER TABLE `tbl_bangunankomersial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_carikerja`
+-- AUTO_INCREMENT for table `tbl_iklancarikerja`
 --
-ALTER TABLE `tbl_carikerja`
+ALTER TABLE `tbl_iklancarikerja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_iklankost`
+--
+ALTER TABLE `tbl_iklankost`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_iklanmobilmotor`
+--
+ALTER TABLE `tbl_iklanmobilmotor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_iklanproperty`
+--
+ALTER TABLE `tbl_iklanproperty`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_jenisiklan`
@@ -615,28 +975,46 @@ ALTER TABLE `tbl_jenisproperty`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `tbl_kostkontrakan`
+--
+ALTER TABLE `tbl_kostkontrakan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `tbl_mobil`
+--
+ALTER TABLE `tbl_mobil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_motor`
+--
+ALTER TABLE `tbl_motor`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_ruko`
 --
 ALTER TABLE `tbl_ruko`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_rumah`
 --
 ALTER TABLE `tbl_rumah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_sublayanan`
 --
 ALTER TABLE `tbl_sublayanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `tbl_sublayanan99`
@@ -648,7 +1026,19 @@ ALTER TABLE `tbl_sublayanan99`
 -- AUTO_INCREMENT for table `tbl_tanah`
 --
 ALTER TABLE `tbl_tanah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_tenagaahli`
+--
+ALTER TABLE `tbl_tenagaahli`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `tbl_tenagaterampil`
+--
+ALTER TABLE `tbl_tenagaterampil`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

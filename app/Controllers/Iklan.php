@@ -213,7 +213,6 @@ class Iklan extends BaseController
         $harga         = $this->request->getVar('harga');
         $perbulan      = $this->request->getVar('perbulan');
 
-
         $data = ([
             'judul_iklan'  => $judul_iklan,
             'jumlah_kamar' => $jumlah_kamar,
@@ -252,8 +251,6 @@ class Iklan extends BaseController
         $provinsi = $this->request->getVar('provinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $gaji = $this->request->getVar('gaji');
-
-
 
         $data = ([
             'bidang_profesi'   => $bidang_profesi,

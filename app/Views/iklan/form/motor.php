@@ -82,6 +82,8 @@
             <input type="harga" name="harga" class="form-control margin-top-6" placeholder="">
         </div>
 
+        <?php echo $this->include('layout/6gambar'); ?>
+
         <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
             <button type="submit" class="btn btn-primary width-100-percent textcolor-white"> Simpan </button>
         </div>

@@ -50,7 +50,8 @@
             <!-- <input type="text" name="pengalaman_kerja" class="form-control margin-top-6" placeholder=""> -->
             <select name="pengalaman_kerja" class="form-control">
                 <option selected>-- Silahkan pilih --</option>
-                <option>< 1 Tahun</option>
+                <option>
+                    < 1 Tahun</option>
                 <option>1 - 3 Tahun</option>
                 <option>3 - 5 Tahun</option>
                 <option>5 - 7 Tahun</option>
@@ -62,9 +63,9 @@
             <input type="text" name="domisili" class="form-control margin-top-6" placeholder="Kelurahan / Kecamatan">
         </div>
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <label for="" class="font-size-15">Kecamatan</label>
-        <input type="text" name="kecamatan" class="form-control margin-top-6" placeholder="">
-    </div>
+            <label for="" class="font-size-15">Kecamatan</label>
+            <input type="text" name="kecamatan" class="form-control margin-top-6" placeholder="">
+        </div>
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
             <label for="" class="font-size-15">Kabupaten</label>
             <input type="text" name="kabupaten" class="form-control margin-top-6" placeholder="">
@@ -74,23 +75,25 @@
             <input type="text" name="provinsi" class="form-control margin-top-6" placeholder="">
         </div>
 
-        <!-- <?= $this->include('layout/6gambar'); ?> -->
-
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
             <label for="" class="font-size-15">Deskripsi</label>
             <textarea name="deskripsi" class="form-control" placeholder="S1 Ekonomi, brevet A/B/C, English Fluently, Menguasai microsoft office"></textarea>
         </div>
-        <!-- <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <label for="" class="font-size-15">Curiculum Vitae</label>
-        <input type="file" name="curiculum_vitae" class="form-control">
-    </div> -->
+
         <div class="margin-bottom-12 padding-right-46 padding-left-16">
             <label for="" class="font-size-15">Gaji yang diharapkan (Rp / Bulan)</label>
             <input type="number" name="gaji" class="form-control margin-top-6">
         </div>
+
+        <div class="margin-bottom-12 padding-right-46 padding-left-16">
+            <label for="" class="font-size-15">Curiculum Vitae</label>
+            <input type="file" name="curiculum_vitae" class="form-control">
+        </div>
+
+        <?php echo $this->include('layout/6gambar'); ?>
+
         <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
             <button type="submit" class="btn btn-primary width-100-percent textcolor-white"> Simpan </button>
         </div>
-
     </div>
 </form>
