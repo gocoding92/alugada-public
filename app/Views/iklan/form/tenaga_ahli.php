@@ -68,7 +68,7 @@
             <div class="margin-bottom-12">
                 <label for="" class="font-size-14">Bidang Profesi <span class="textcolor-red"> * </span></label>
                 <select name="bidang_profesi" class="form-control width-select margin-top-6">
-                    <option selected>- Pilih Profesi -</option>
+                    <option></option>
                     <option>Engineering</option>
                     <option>Production</option>
                     <option>Project</option>
@@ -89,16 +89,16 @@
     </div> -->
             <div class="margin-bottom-12 margin-right-25">
                 <label for="" class="font-size-14">Nama Lengkap <span class="textcolor-red"> * </span></label>
-                <input type="text" name="nama_lengkap" class="form-control width-input margin-top-6" placeholder="Tulis nama anda">
+                <input type="text" name="nama_lengkap" class="form-control width-input margin-top-6">
             </div>
             <div class="margin-bottom-12 margin-right-25">
                 <label for="" class="font-size-14">Tanggal Lahir <span class="textcolor-red"> * </span></label>
-                <input type="date" name="tanggal_lahir" class="form-control width-input margin-top-6" placeholder="">
+                <input type="date" name="tanggal_lahir" class="form-control width-input margin-top-6">
             </div>
             <div class="margin-bottom-12">
                 <label for="" class="font-size-14">Pendidikan <span class="textcolor-red"> * </span></label>
                 <select name="pendidikan" class="form-control width-select margin-top-6">
-                    <option selected>- Pilih Pendidikan -</option>
+                    <option></option>
                     <option>S1</option>
                     <option>S2</option>
                     <option>S3</option>
@@ -106,12 +106,12 @@
             </div>
             <div class="margin-bottom-12 margin-right-25">
                 <label for="" class="font-size-14">Jurusan</label>
-                <input type="text" name="jurusan" class="form-control width-input margin-top-6" placeholder="Akuntansi/Psikologi/Teknik Mesin/Informatika/Hukum/Dll">
+                <input type="text" name="jurusan" class="form-control width-input margin-top-6">
             </div>
             <div class="margin-bottom-12">
                 <label for="" class="font-size-14">Pengalaman Kerja</label>
                 <select name="pengalaman_kerja" class="form-control width-select width-select margin-top-6">
-                    <option selected>- Pilih Pengalaman Kerja -</option>
+                    <option></option>
                     <option>
                         < 1 Tahun</option>
                     <option>1 - 3 Tahun</option>
@@ -122,7 +122,7 @@
             </div>
             <div class="margin-bottom-12 margin-right-25">
                 <label for="" class="font-size-14">Domisili</label>
-                <input type="text" name="domisili" class="form-control width-input margin-top-6" placeholder="Kelurahan / Kecamatan">
+                <input type="text" name="domisili" class="form-control width-input margin-top-6">
             </div>
             <div class="margin-bottom-12 margin-right-25">
                 <label for="" class="font-size-14">Kecamatan</label>
