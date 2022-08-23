@@ -1,4 +1,4 @@
-<form action="<?= base_url('iklan/saveTenagaAhli'); ?>" method="post">
+<form action="<?= base_url('iklan/saveTenagaAhli'); ?>" method="post" enctype="multipart/form-data">
     <div class="row">
         <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
             <span class="font-size-10 position-relative bottom-16 left-30"> Tenaga Ahli - Engineering </span>
@@ -7,59 +7,61 @@
         <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
             <div class="display-flex width-auto overflow-auto">
-                <div class="margin-bottom-12 select-image">
+                <!-- <div class="margin-bottom-12 select-image">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input id="inputTag" type="file" class="display-none" />
+                        <input id="inputTag" type="file" name="file" class="display-none" />
                         <br />
                         <span id="imageName"></span>
                     </label>
-                </div>
+                </div> -->
 
-                <div class="select-image margin-bottom-12">
-                    <label for="inputTag" class="cursor-pointer font-size-14">
-                        <i class="fa fa-2x fa-camera"></i>
-                        <input id="inputTag" type="file" class="display-none" />
-                        <br />
-                        <span id="imageName"></span>
-                    </label>
-                </div>
+                <?php for ($i = 1; $i <= 6; $i++) : ?>
+                    <div class="select-image margin-bottom-12">
+                        <label for="inputTag" class="cursor-pointer font-size-14">
+                            <i class="fa fa-2x fa-camera"></i>
+                            <input id="inputTag" type="file" name="file<?= $i; ?>" class="display-none" />
+                            <br />
+                            <span id="imageName"></span>
+                        </label>
+                    </div>
+                <?php endfor; ?>
 
-                <div class="select-image margin-bottom-12">
+                <!-- <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
                         <input id="inputTag" type="file" class="display-none" />
                         <br />
                         <span id="imageName"></span>
                     </label>
-                </div>
+                </div> -->
 
-                <div class="select-image margin-bottom-12">
+                <!-- <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
                         <input id="inputTag" type="file" class="display-none" />
                         <br />
                         <span id="imageName"></span>
                     </label>
-                </div>
+                </div> -->
 
-                <div class="select-image margin-bottom-12">
+                <!-- <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
                         <input id="inputTag" type="file" class="display-none" />
                         <br />
                         <span id="imageName"></span>
                     </label>
-                </div>
+                </div> -->
 
-                <div class="select-image margin-bottom-12">
+                <!-- <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
                         <input id="inputTag" type="file" class="display-none" />
                         <br />
                         <span id="imageName"></span>
                     </label>
-                </div>
+                </div> -->
             </div>
         </div>
 

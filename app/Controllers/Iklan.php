@@ -239,6 +239,47 @@ class Iklan extends BaseController
 
     public function saveTenagaAhli()
     {
+        // $image_name_1 = '';
+        // $image_url1 = '';
+        // $image_name_2 = '';
+        // $image_url2 = '';
+
+
+        // if ($_FILES['file1']['name']) {
+        //     $image_1 = $this->request->getFile('file1');
+        //     $image_name_1 = $image_1->getName();
+        //     $image_url1 = base_url() . '/public/' . $image_name_1;
+
+        //     $image = \Config\Services::image()
+        //         ->withFile($image_1)
+        //         ->resize(100, 100, true, 'height')
+        //         ->save(FCPATH . 'public' . $image_name_1);
+        //     $image_1->move(WRITEPATH . 'public');
+        // }
+
+        // if ($_FILES['file2']['name']) {
+        //     $image_2 = $this->request->getFile('file2');
+        //     $image_name_2 = $image_2->getName();
+        //     $image_url2 = base_url() . '/public/' . $image_name_2;
+
+        //     $image = \Config\Services::image()
+        //         ->withFile($image_2)
+        //         ->resize(100, 100, true, 'height')
+        //         ->save(FCPATH . 'public' . $image_name_2);
+        //     $image_2->move(WRITEPATH . 'public');
+        // }
+
+        $data1 = $this->request->getFile('file1');
+        $image_name_1 = $data1->getName();
+        $data1->move(WRITEPATH . 'public');
+
+        $data2 = $this->request->getFile('file2');
+        $image_name_2 = $data2->getName();
+        $data2->move(WRITEPATH . 'public');
+
+        var_dump(WRITEPATH);
+        return;
+
         $bidang_profesi = $this->request->getVar('bidang_profesi');
         $nama_lengkap = $this->request->getVar('nama_lengkap');
         $tanggal_lahir = $this->request->getVar('tanggal_lahir');
