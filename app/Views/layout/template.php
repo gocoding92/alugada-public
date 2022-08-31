@@ -17,6 +17,9 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.css" />
     <!-- Icon style -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- SweetAlert CSS-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <style>
         @font-face {
             font-family: myFirstFont;
@@ -43,6 +46,29 @@
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
+    <?php
+    $alert = false;
+    if ($_GET) {
+        if ($_GET['success_iklan']) {
+            $alert = true;
+        }
+    }
+    ?>
+    <script>
+        $(document).ready(function() {
+            <?php if ($alert) : ?>
+                swal({
+                    icon: "success",
+                    title: "Sukses",
+                    text: "Pasang Iklan di Alugada..",
+                });
+
+                setTimeout(() => {
+                    window.location.href = window.location.pathname;
+                }, 2800);
+            <?php endif; ?>
+        });
+    </script>
 
     <script>
         function previewgambar() {

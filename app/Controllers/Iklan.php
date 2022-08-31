@@ -140,7 +140,7 @@ class Iklan extends BaseController
         ]);
         $this->modelalugada->saveMobil($data);
 
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function savemtr()
@@ -191,7 +191,7 @@ class Iklan extends BaseController
         ]);
         $this->modelalugada->saveMotor($data);
 
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveKostkontrakan()
@@ -234,7 +234,7 @@ class Iklan extends BaseController
 
         $this->modelalugada->saveKost($data);
 
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveTenagaAhli()
@@ -269,16 +269,16 @@ class Iklan extends BaseController
         //     $image_2->move(WRITEPATH . 'public');
         // }
 
-        $data1 = $this->request->getFile('file1');
-        $image_name_1 = $data1->getName();
-        $data1->move(WRITEPATH . 'public');
+        // $data1 = $this->request->getFile('file1');
+        // $image_name_1 = $data1->getName();
+        // $data1->move(WRITEPATH . 'public');
 
-        $data2 = $this->request->getFile('file2');
-        $image_name_2 = $data2->getName();
-        $data2->move(WRITEPATH . 'public');
+        // $data2 = $this->request->getFile('file2');
+        // $image_name_2 = $data2->getName();
+        // $data2->move(WRITEPATH . 'public');
 
-        var_dump(WRITEPATH);
-        return;
+        // var_dump(WRITEPATH);
+        // return;
 
         $bidang_profesi = $this->request->getVar('bidang_profesi');
         $nama_lengkap = $this->request->getVar('nama_lengkap');
@@ -310,7 +310,8 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->saveTenaga_Ahli($data);
-        return redirect()->to('/pasang-iklan');
+
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveTenagaTerampil()
@@ -342,7 +343,8 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->saveTenaga_Terampil($data);
-        return redirect()->to('/pasang-iklan');
+
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveRumah()
@@ -396,7 +398,8 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Rumah($data);
-        return redirect()->to('/pasang-iklan');
+
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveTanah()
@@ -426,7 +429,7 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Tanah($data);
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveApartemen()
@@ -460,7 +463,7 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Apartemen($data);
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveRuko()
@@ -498,7 +501,7 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Ruko($data);
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
     public function saveBangunanKomersial()
@@ -536,6 +539,6 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_BangunanKomersial($data);
-        return redirect()->to('/pasang-iklan');
+        return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 }
