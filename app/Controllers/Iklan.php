@@ -115,6 +115,9 @@ class Iklan extends BaseController
         $deskripsi   = $this->request->getVar('deskripsi');
         $harga       = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/mobil');
 
         $data = ([
             'judul_iklan' => $judul_iklan,
@@ -136,8 +139,8 @@ class Iklan extends BaseController
             // 'gambar5' => $gambar5,
             // 'gambar6' => $gambar6,
             'deskripsi' => $deskripsi,
-            'harga' => $harga
-
+            'harga' => $harga,
+            'image' => $imageName,
         ]);
         $this->modelalugada->saveMobil($data);
 
@@ -167,6 +170,10 @@ class Iklan extends BaseController
         $deskripsi   = $this->request->getVar('deskripsi');
         $harga       = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/motor');
+
         $data = ([
             'judul_iklan' => $judul_iklan,
             'merk' => $merk,
@@ -187,7 +194,8 @@ class Iklan extends BaseController
             // 'gambar5' => $gambar5,
             // 'gambar6' => $gambar6,
             'deskripsi' => $deskripsi,
-            'harga' => $harga
+            'harga' => $harga,
+            'image'  => $imageName,
 
         ]);
         $this->modelalugada->saveMotor($data);
@@ -214,6 +222,10 @@ class Iklan extends BaseController
         $harga         = $this->request->getVar('harga');
         $perbulan      = $this->request->getVar('perbulan');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/kost_kontrakan');
+
         $data = ([
             'judul_iklan'  => $judul_iklan,
             'jumlah_kamar' => $jumlah_kamar,
@@ -231,6 +243,7 @@ class Iklan extends BaseController
             'provinsi'     => $provinsi,
             'harga'        => $harga,
             'perbulan'     => $perbulan,
+            'image'        => $imageName,
         ]);
 
         $this->modelalugada->saveKost($data);
@@ -292,6 +305,10 @@ class Iklan extends BaseController
         $deskripsi        = $this->request->getVar('deskripsi');
         $gaji             = $this->request->getVar('gaji');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_terampil');
+
         $data = ([
             'profesi'          => $profesi,
             'nama_lengkap'     => $nama_lengkap,
@@ -304,6 +321,7 @@ class Iklan extends BaseController
             'provinsi'         => $provinsi,
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
+            'image'            => $imageName,
         ]);
 
         $this->modelalugada->saveTenaga_Terampil($data);
@@ -336,6 +354,10 @@ class Iklan extends BaseController
         $deskripsi     = $this->request->getVar('deskripsi');
         $harga         = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+
         $data = ([
             'juduliklan'    => $juduliklan,
             'luastanah'     => $luastanah,
@@ -359,6 +381,7 @@ class Iklan extends BaseController
             'propinsi'      => $propinsi,
             'deskripsi'     => $deskripsi,
             'harga'         => $harga,
+            'image'         => $imageName,
         ]);
 
         $this->modelalugada->save_Rumah($data);
@@ -379,6 +402,10 @@ class Iklan extends BaseController
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+
         $data = ([
             'juduliklan' => $juduliklan,
             'luastanah' => $luastanah,
@@ -390,6 +417,7 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'image'  => $imageName,
         ]);
 
         $this->modelalugada->save_Tanah($data);
@@ -411,6 +439,10 @@ class Iklan extends BaseController
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+
         $data = ([
             'juduliklan' => $juduliklan,
             'luas' => $luas,
@@ -424,6 +456,7 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'image' => $imageName,
         ]);
 
         $this->modelalugada->save_Apartemen($data);
@@ -447,6 +480,10 @@ class Iklan extends BaseController
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+
         $data = ([
             'juduliklan' => $juduliklan,
             'luastanah' => $luastanah,
@@ -462,6 +499,7 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'image'            => $imageName,
         ]);
 
         $this->modelalugada->save_Ruko($data);
@@ -485,6 +523,10 @@ class Iklan extends BaseController
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
 
+        // validasi required image belum
+        $imageFile = $this->request->getFiles();
+        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+
         $data = ([
             'juduliklan' => $juduliklan,
             'luastanah' => $luastanah,
@@ -500,6 +542,7 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'image' => $imageName,
         ]);
 
         $this->modelalugada->save_BangunanKomersial($data);
