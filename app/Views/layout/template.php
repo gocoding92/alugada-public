@@ -25,6 +25,13 @@
             font-family: myFirstFont;
             src: url(<?= base_url(); ?>/fonts/Poppins-Regular.ttf)
         }
+
+        .upload-img-iklan {
+            width: 85px;
+            border-radius: 4px;
+            margin-left: 6px;
+            height: 70px;
+        }
     </style>
 
 </head>
@@ -71,79 +78,25 @@
     </script>
 
     <script>
-        function previewgambar() {
-            const gambar = document.querySelector('#gambar');
-            const labelgambar = document.querySelector('.lbl-gambar');
-            const imgpreview = document.querySelector('.img-preview');
+        $(function() {
+            // Multiple images preview in browser
+            var imagesPreview = function(input, placeToInsertImagePreview) {
+                if (input.files) {
+                    var filesAmount = input.files.length;
+                    for (i = 0; i < filesAmount; i++) {
+                        var reader = new FileReader();
+                        reader.onload = function(event) {
+                            $($.parseHTML('<img class="upload-img-iklan">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                        }
+                        reader.readAsDataURL(input.files[i]);
+                    }
+                }
+            };
 
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-        }
-
-        function previewgambar2() {
-            const gambar = document.querySelector('#gambar2');
-            const labelgambar = document.querySelector('.lbl-gambar2');
-            const imgpreview = document.querySelector('.img-preview2');
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-        }
-
-        function previewgambar3() {
-            const gambar = document.querySelector('#gambar3');
-            const labelgambar = document.querySelector('.lbl-gambar3');
-            const imgpreview = document.querySelector('.img-preview3');
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-        }
-
-        function previewgambar4() {
-            const gambar = document.querySelector('#gambar4');
-            const labelgambar = document.querySelector('.lbl-gambar4');
-            const imgpreview = document.querySelector('.img-preview4');
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-            console.log('gambar');
-        }
-
-        function previewgambar5() {
-            const gambar = document.querySelector('#gambar5');
-            const labelgambar = document.querySelector('.lbl-gambar5');
-            const imgpreview = document.querySelector('.img-preview5');
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-        }
-
-        function previewgambar6() {
-            const gambar = document.querySelector('#gambar6');
-            const labelgambar = document.querySelector('.lbl-gambar6');
-            const imgpreview = document.querySelector('.img-preview6');
-            const filegambar = new FileReader();
-            filegambar.readAsDataURL(gambar.files[0])
-
-            filegambar.onload = function(e) {
-                imgpreview.src = e.target.result;
-            }
-        }
+            $('#inputTag').on('change', function() {
+                imagesPreview(this, 'div.gallery');
+            });
+        });
     </script>
 
 

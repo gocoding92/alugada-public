@@ -4,17 +4,21 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Tenaga Ahli - Engineering </span>
         </h2>
 
+        <!-- <input type="file" multiple id="gallery-photo-add"> -->
+        <!-- <div class="gallery"></div> -->
+
         <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
             <div class="display-flex width-auto overflow-auto">
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
                 </div>
+                <div class="gallery"></div>
             </div>
         </div>
 
