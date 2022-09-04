@@ -11,11 +11,12 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
                 </div>
+                <div class="gallery display-flex"></div>
             </div>
         </div>
 

@@ -27,7 +27,7 @@
         }
 
         .upload-img-iklan {
-            width: 85px;
+            width: 80px;
             border-radius: 4px;
             margin-left: 6px;
             height: 70px;
@@ -79,8 +79,14 @@
 
     <script>
         $(function() {
+
+            $(this).parent('.inputTag').hide();
+
             // Multiple images preview in browser
             var imagesPreview = function(input, placeToInsertImagePreview) {
+
+                $(".gallery").html("");
+
                 if (input.files) {
                     var filesAmount = input.files.length;
                     for (i = 0; i < filesAmount; i++) {

@@ -18,7 +18,7 @@
                         <span id="imageName"></span>
                     </label>
                 </div>
-                <div class="gallery"></div>
+                <div class="gallery display-flex"></div>
             </div>
         </div>
 
