@@ -176,3 +176,36 @@ URL PER - CATEGORY FORM
 9. Klik Motor mengeluarkan data
 
 
+1. Buat table namanya tbl_rekomendasi_iklan
+- id_rekomendasi_iklan 
+- type_rekomendasi_iklan varchar(50)
+- id_iklan int (11)
+- nama_iklan varchar(255)
+- description text
+- alamat text
+- create_at
+
+2. Buat dummy data di tbl_rekomendasi_iklan sebanyak 4
+- id_rekomendasi_iklan 
+- type_rekomendasi_iklan varchar(50)  =  motor
+- id_iklan int (11) = 3
+- nama_iklan varchar(255) = Daihatsu Ayla 
+- description text = Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311
+- alamat text = Kebayoran Lama, Jakarta Selatan
+- create_at
+
+3. looping data table rekomendasi iklan di halaman home
+4. buat route = 'http://localhost:8080/detail-iklan/motor/1'
+    - $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
+
+5. Tambahkan field nolayanan, sublayanan dan idpengiklan jika belom ada
+    - Tenaga Ahli (Done)
+    - Tenaga Terampil ()
+    - Kost&Kontrakan ()
+    - Rumah ()
+    - Apartemen ()
+    - Ruko ()
+    - BangunanKomersial ()
+    - Tanah ()
+    - Motor
+    - Mobil

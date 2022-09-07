@@ -35,7 +35,7 @@ class Iklan extends BaseController
         return view('iklan/index', $data);
     }
 
-    public function detail($layanan = '', $id_layanan = '', $sublayanan = '', $id_sublayanan = '')
+    public function detail($layanan = '', $no_layanan = '', $sublayanan = '', $no_sublayanan = '')
     {
 
         $this->form = '';
@@ -87,6 +87,8 @@ class Iklan extends BaseController
             'layanan'       => $this->modelalugada->layanan(),
             'sublayanan'    => $this->modelalugada->sublayanan(),
             'form'          => $this->form,
+            'no_layanan'    => $no_layanan,
+            'no_sublayanan'   => $no_sublayanan,
         ];
 
         return view('iklan/detail', $data);
@@ -265,6 +267,8 @@ class Iklan extends BaseController
         $provinsi = $this->request->getVar('provinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $gaji = $this->request->getVar('gaji');
+        $no_layanan = $this->request->getVar('no_layanan');
+        $no_sublayanan = $this->request->getVar('no_sublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -284,6 +288,9 @@ class Iklan extends BaseController
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
             'image'            => $imageName,
+            'nolayanan'        => $no_layanan,
+            'nosublayanan'     => $no_sublayanan,
+            'idpengiklan'     => 1,
         ]);
 
         $this->modelalugada->saveTenaga_Ahli($data);

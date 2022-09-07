@@ -24,7 +24,8 @@
   </div>
 
   <div class="row-card-layanan">
-    <div class="card-layanan-list">
+    
+  <div class="card-layanan-list">
       <div class="card-layanan">
         <figure class="card-figure-layanan">
           <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
@@ -40,6 +41,7 @@
         </div>
       </div>
     </div>
+
     <div class="card-layanan-list">
       <div class="card-layanan">
         <figure class="card-figure-layanan">

@@ -4,49 +4,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Tenaga Ahli - Engineering </span>
         </h2>
 
-        <!-- <input type="file" multiple id="gallery-photo-add"> -->
-        <!-- <div class="gallery"></div> -->
-
-        <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
-            <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
-            <div class="display-flex width-auto overflow-auto">
-                <div class="select-image margin-bottom-12">
-                    <label for="inputTag" class="cursor-pointer font-size-14">
-                        <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
-                        <br />
-                        <span id="imageName"></span>
-                    </label>
-                </div>
-                <div class="gallery display-flex"></div>
-            </div>
-        </div>
-
-        <div class="margin-bottom-12">
-            <label for="" class="font-size-14">Bidang Profesi <span class="textcolor-red"> * </span></label>
-            <select name="bidang_profesi" class="form-control width-select margin-top-6">
-                <option></option>
-                <option>Engineering</option>
-                <option>Production</option>
-                <option>Project</option>
-                <option>Marketing</option>
-                <option>Adm - Finance</option>
-                <option>Medical</option>
-            </select>
-        </div>
-
-        <input type="hidden" name="no_layanan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sublayanan" value="<?= $no_sublayanan; ?>">
-
-        <!-- <div class="margin-bottom-12 margin-right-25">
-            <label for="idpengiklan" class="font-size-14">Id Pengiklan (Id User)</label>
-            <input type="text" name="idpengiklan" class="form-control margin-top-6" value="<?= $pengunjung['id']; ?>">
-        </div> -->
-        <!-- <div class="margin-bottom-12 margin-right-25">
-        <label for="nolayanan" class="font-size-14">No Layanan</label>
-        <input type="text" name="nolayanan" class="form-control margin-top-6" value="<?php //echo $layanan['nolayanan'];
-                                                                                        ?>">
-    </div> -->
+        
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Nama Lengkap <span class="textcolor-red"> * </span></label>
             <input type="text" name="nama_lengkap" class="form-control width-input margin-top-6">
