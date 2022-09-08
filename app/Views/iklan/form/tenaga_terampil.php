@@ -31,6 +31,10 @@
                 <option>Keamanan/Satpam</option>
             </select>
         </div>
+
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
+
         <!-- <div class="margin-bottom-12">
             <label for="idpengiklan" class="font-size-14">Id Pengiklan</label>
             <input readonly type="text" name="idpengiklan" class="form-control width-input margin-top-6" value="<?= $pengunjung['id']; ?>">

@@ -89,6 +89,8 @@ $routes->post('/iklan/saveApartemen', 'Iklan::saveApartemen');
 $routes->post('/iklan/saveRuko', 'Iklan::saveRuko');
 $routes->post('/iklan/saveBangunanKomersial', 'Iklan::saveBangunanKomersial');
 
+$routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
+
 
 
 

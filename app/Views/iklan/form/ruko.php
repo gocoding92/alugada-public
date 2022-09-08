@@ -20,6 +20,8 @@
             </div>
         </div>
 
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
             <input type="text" name="juduliklan" class="form-control width-input margin-top-6" placeholder="">

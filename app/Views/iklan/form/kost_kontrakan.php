@@ -24,6 +24,8 @@
             <label for="" class="font-size-14">Judul Iklan</label>
             <input type="text" name="judul_iklan" class="form-control width-input margin-top-6" placeholder="">
         </div>
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Jumlah Kamar/Kontrakan</label>
             <input type="number" name="jumlah_kamar" class="form-control width-input margin-top-6" placeholder="">

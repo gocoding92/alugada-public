@@ -28,6 +28,8 @@
             <label for="" class="font-size-14">Merk</label>
             <input type="text" name="merk" class="form-control width-input margin-top-6" placeholder="">
         </div>
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Type</label>
             <input type="text" name="type" class="form-control width-input margin-top-6" placeholder="">

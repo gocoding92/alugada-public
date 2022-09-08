@@ -116,6 +116,8 @@ class Iklan extends BaseController
         // $gambar6     = $this->request->getVar('gambar6');
         $deskripsi   = $this->request->getVar('deskripsi');
         $harga       = $this->request->getVar('harga');
+        $nolayanan       = $this->request->getVar('nolayanan');
+        $nosublayanan       = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -142,6 +144,8 @@ class Iklan extends BaseController
             // 'gambar6' => $gambar6,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'nolayanan' => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'image' => $imageName,
         ]);
         $this->modelalugada->saveMobil($data);
@@ -174,6 +178,8 @@ class Iklan extends BaseController
         // $gambar6     = $this->request->getVar('gambar6');
         $deskripsi   = $this->request->getVar('deskripsi');
         $harga       = $this->request->getVar('harga');
+        $nolayanan       = $this->request->getVar('nolayanan');
+        $nosublayanan       = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -200,6 +206,8 @@ class Iklan extends BaseController
             // 'gambar6' => $gambar6,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'nolayanan' => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'image'  => $imageName,
 
         ]);
@@ -228,6 +236,8 @@ class Iklan extends BaseController
         $kabupaten     = $this->request->getVar('kabupaten');
         $provinsi      = $this->request->getVar('provinsi');
         $harga         = $this->request->getVar('harga');
+        $nolayanan     = $this->request->getVar('nolayanan');
+        $nosublayanan  = $this->request->getVar('nosublayanan');
         $perbulan      = $this->request->getVar('perbulan');
 
         // validasi required image belum
@@ -249,6 +259,9 @@ class Iklan extends BaseController
             'kecamatan'    => $kecamatan,
             'kabupaten'    => $kabupaten,
             'provinsi'     => $provinsi,
+            'harga'        => $harga,
+            'nolayanan'    => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'harga'        => $harga,
             'perbulan'     => $perbulan,
             'image'        => $imageName,
@@ -276,8 +289,8 @@ class Iklan extends BaseController
         $provinsi = $this->request->getVar('provinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $gaji = $this->request->getVar('gaji');
-        $no_layanan = $this->request->getVar('no_layanan');
-        $no_sublayanan = $this->request->getVar('no_sublayanan');
+        $no_layanan = $this->request->getVar('nolayanan');
+        $no_sublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -325,6 +338,8 @@ class Iklan extends BaseController
         $provinsi         = $this->request->getVar('provinsi');
         $deskripsi        = $this->request->getVar('deskripsi');
         $gaji             = $this->request->getVar('gaji');
+        $nolayanan        = $this->request->getVar('nolayanan');
+        $nosublayanan     = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -342,6 +357,8 @@ class Iklan extends BaseController
             'provinsi'         => $provinsi,
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
+            'nolayanan'        => $nolayanan,
+            'nosublayanan'     => $nosublayanan,
             'image'            => $imageName,
         ]);
 
@@ -379,6 +396,8 @@ class Iklan extends BaseController
         $propinsi      = $this->request->getVar('propinsi');
         $deskripsi     = $this->request->getVar('deskripsi');
         $harga         = $this->request->getVar('harga');
+        $nolayanan     = $this->request->getVar('nolayanan');
+        $nosublayanan  = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -407,9 +426,11 @@ class Iklan extends BaseController
             'propinsi'      => $propinsi,
             'deskripsi'     => $deskripsi,
             'harga'         => $harga,
+            'nolayanan'     => $nolayanan,
+            'nosublayanan'  => $nosublayanan,
+            'harga'         => $harga,
             'image'         => $imageName,
         ]);
-
         $this->modelalugada->save_Rumah($data);
 
         $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan . ' ' . $jumlahlantai . ' ' . $listrik . ' ' . $ruangtamu . ' ' . $ruangkeluarga . ' ' . $kamartidur . ' ' .
@@ -433,6 +454,8 @@ class Iklan extends BaseController
         $propinsi = $this->request->getVar('propinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
+        $nolayanan = $this->request->getVar('nolayanan');
+        $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -449,6 +472,8 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'nolayanan' => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'image'  => $imageName,
         ]);
 
@@ -475,6 +500,8 @@ class Iklan extends BaseController
         $propinsi = $this->request->getVar('propinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
+        $nolayanan = $this->request->getVar('nolayanan');
+        $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -493,6 +520,8 @@ class Iklan extends BaseController
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
             'harga' => $harga,
+            'nolayanan' => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'image' => $imageName,
         ]);
 
@@ -520,6 +549,8 @@ class Iklan extends BaseController
         $propinsi = $this->request->getVar('propinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
+        $nolayanan = $this->request->getVar('nolayanan');
+        $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -540,6 +571,8 @@ class Iklan extends BaseController
             'propinsi'     => $propinsi,
             'deskripsi'    => $deskripsi,
             'harga'        => $harga,
+            'nolayanan'    => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'image'        => $imageName,
         ]);
 
@@ -567,6 +600,8 @@ class Iklan extends BaseController
         $propinsi = $this->request->getVar('propinsi');
         $deskripsi = $this->request->getVar('deskripsi');
         $harga = $this->request->getVar('harga');
+        $nolayanan = $this->request->getVar('nolayanan');
+        $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
         $imageFile = $this->request->getFiles();
@@ -586,6 +621,9 @@ class Iklan extends BaseController
             'kabupaten' => $kabupaten,
             'propinsi' => $propinsi,
             'deskripsi' => $deskripsi,
+            'harga' => $harga,
+            'nolayanan' => $nolayanan,
+            'nosublayanan' => $nosublayanan,
             'harga' => $harga,
             'image' => $imageName,
         ]);

@@ -24,7 +24,9 @@
             <label for="" class="font-size-14">Judul Iklan</label>
             <input type="text" name="juduliklan" class="form-control width-input margin-top-6" placeholder="">
         </div>
-        <div class="margin-bottom-12 margin-right-25">
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
+     <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Luas Tanah</label>
             <input type="number" name="luastanah" class="form-control width-input margin-top-6" placeholder="">
         </div>
