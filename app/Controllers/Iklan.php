@@ -145,10 +145,10 @@ class Iklan extends BaseController
             'image' => $imageName,
         ]);
         $this->modelalugada->saveMobil($data);
-        $description = $merk . ' ' . $type . ' ' . $tahun. ''. $warna. ''. $plat. ' '. $odometer.''.$bahan_bakar.''. $deskripsi;
+        $description = $merk . ' ' . $type . ' ' . $tahun . '' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('Mobil', 1, $judul_iklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('Mobil', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_mobil');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -204,10 +204,10 @@ class Iklan extends BaseController
 
         ]);
         $this->modelalugada->saveMotor($data);
-        $description = $merk . ' ' . $type . ' ' . $tahun. ''. $warna. ''. $plat. ' '. $odometer.''.$bahan_bakar.''. $deskripsi;
+        $description = $merk . ' ' . $type . ' ' . $tahun . '' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('Motor', 1, $judul_iklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('motor', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_motor');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -255,10 +255,10 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->saveKost($data);
-        $description = $jumlah_kamar . ' ' . $kamar_kosong . ' ' . $listrik. ' '. $kamar_mandi.' '.$ac .''. $water_heater.''.$tempat_tidur.''.$meja_kursi.''. $almari;
+        $description = $jumlah_kamar . ' ' . $kamar_kosong . ' ' . $listrik . ' ' . $kamar_mandi . ' ' . $ac . '' . $water_heater . '' . $tempat_tidur . '' . $meja_kursi . '' . $almari;
         $alamat = $alamat_lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('Kost&Kontrakan', 1, $judul_iklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('Kost&Kontrakan', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_kostkontrakan');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -307,7 +307,7 @@ class Iklan extends BaseController
         $description = $bidang_profesi . ' ' . $tanggal_lahir . ' ' . $pendidikan;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('tenaga_ahli', 1, $nama_lengkap, $description, $alamat, $imageName);
+        $this->saveRekomendasiIklan('tenaga_ahli', 1, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaahli');
 
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
@@ -347,10 +347,10 @@ class Iklan extends BaseController
 
         $this->modelalugada->saveTenaga_Terampil($data);
 
-        $description = $profesi . ' ' . $tempat_lahir . ' ' . $pendidikan. ' '. $pengalaman_kerja;
+        $description = $profesi . ' ' . $tempat_lahir . ' ' . $pendidikan . ' ' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('tenaga_terampil', 1, $nama_lengkap, $description, $alamat, $imageName);
+        $this->saveRekomendasiIklan('tenaga_terampil', 1, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaterampil');
 
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
@@ -411,12 +411,12 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Rumah($data);
-          
-        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan. ' '. $jumlahlantai. ' '. $listrik. ' '. $ruangtamu. ' ' .$ruangkeluarga. ' '. $kamartidur. ' '. 
-        $kamarpembantu. ' '. $kamarmandi. ' '. $teras. ' '.$taman. ' '. $aksesmobil. ' '.$garasi. ' '. $carport.' ' .$deskripsi;
+
+        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan . ' ' . $jumlahlantai . ' ' . $listrik . ' ' . $ruangtamu . ' ' . $ruangkeluarga . ' ' . $kamartidur . ' ' .
+            $kamarpembantu . ' ' . $kamarmandi . ' ' . $teras . ' ' . $taman . ' ' . $aksesmobil . ' ' . $garasi . ' ' . $carport . ' ' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('rumah', 1, $juduliklan, $description, $alamat, $imageName);
+        $this->saveRekomendasiIklan('rumah', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_rumah');
 
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
@@ -453,11 +453,11 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Tanah($data);
-        
+
         $description = $luastanah . ' ' . $kepemilikan . ' ' . $aksesmobil;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('Tanah', 1, $juduliklan, $description, $alamat, $imageName);
+        $this->saveRekomendasiIklan('Tanah', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_tanah');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -497,10 +497,10 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Apartemen($data);
-        $description = $luas . ' ' . $kepemilikan. ''. $bedroom.' '. $kamarmandi . ' '. $listrik.''. $deskripsi;
+        $description = $luas . ' ' . $kepemilikan . '' . $bedroom . ' ' . $kamarmandi . ' ' . $listrik . '' . $deskripsi;
         $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('Apartemen', 1, $juduliklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('Apartemen', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_apartemen');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -544,10 +544,10 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_Ruko($data);
-        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan. ''. $jumlahlantai. ''. $listrik.''.$kamarmandi . ' '. $carport.''. $deskripsi;
+        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan . '' . $jumlahlantai . '' . $listrik . '' . $kamarmandi . ' ' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('ruko', 1, $juduliklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('ruko', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_ruko');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -591,10 +591,10 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->save_BangunanKomersial($data);
-        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan. ''. $jumlahlantai. ''. $listrik. ' '. $carport.''. $deskripsi;
+        $description = $luastanah . ' ' . $luasbangunan . ' ' . $kepemilikan . '' . $jumlahlantai . '' . $listrik . ' ' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('bangunan_komersial', 1, $juduliklan, $description, $alamat, $imageName, $harga);
+        $this->saveRekomendasiIklan('bangunan_komersial', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_bangunankomersial');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -613,7 +613,7 @@ class Iklan extends BaseController
     }
 
 
-    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '')
+    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '', $table_iklan = '')
     {
         $data = ([
             'type_rekomendasi_iklan' => $type_rekomendasi_iklan,
@@ -622,6 +622,7 @@ class Iklan extends BaseController
             'description' => $description,
             'alamat' => $alamat,
             'image' => $imageName,
+            'table_iklan' => $table_iklan,
         ]);
 
         $this->modelalugada->saveRekomendasiIklan($data);
