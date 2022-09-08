@@ -168,4 +168,8 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_bangunankomersial')->insert($data);
     }
+    public function saveRekomendasiIklan($data)
+    {
+        return $this->db->table('tbl_rekomendasi_iklan')->insert($data);
+    }
 }

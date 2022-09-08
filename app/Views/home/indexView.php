@@ -20,108 +20,29 @@
           <p class="text-layanan"><?= $l['layanan']; ?></p>
         </div>
       </a>
-    <?php endforeach; ?> 
+    <?php endforeach; ?>
   </div>
 
   <div class="row-card-layanan">
-    
-  <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
+    <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) : ?>
+      <div class="card-layanan-list">
+        <div class="card-layanan">
+          <figure class="card-figure-layanan">
+            <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
+          </figure>
+          <div class="row-title-layanan">
+            <span class="title-layanan"><?= $tbl_rekomendasi_iklan['nama_iklan']; ?></span>
+            <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
+            <span class="title-type-desc"><?= $tbl_rekomendasi_iklan['description']; ?></span> <br /> <br />
+            <div class="text-footer-layanan">
+              <span class=""><?= $tbl_rekomendasi_iklan['alamat']; ?></span> <br />
+              <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/1o7n5m7vkp482-ID/image;s=272x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/t7czb9junzez2-ID/image;s=272x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/lthufxm6p6yi3-ID/image;s=272x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/njhu5mu48h393-ID/image;s=272x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card-layanan-list">
-      <div class="card-layanan">
-        <figure class="card-figure-layanan">
-          <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/6i5j1nbmmcgm3-ID/image;s=300x0" class="card-img-layanan">
-        </figure>
-        <div class="row-title-layanan">
-          <span class="title-layanan">2016, Daihatsu Ayla</span>
-          <span class="title-type-layanan-border">Mobil & Motor dijual</span> <br /> <br />
-          <span class="title-type-desc">Warna : Merah, Type Mesin : 120 AC, Ban : Tubless, No Mesin : 9i12311...</span> <br /> <br />
-          <div class="text-footer-layanan">
-            <span class="">Kebayoran Lama, Jakarta Selatan</span> <br />
-            <span class="title-type-layanan">Post : 07-10-2022</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
   </div>
+</div>
 </div>
 <?= $this->endSection(); ?>
