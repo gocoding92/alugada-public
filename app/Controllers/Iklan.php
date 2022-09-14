@@ -152,7 +152,7 @@ class Iklan extends BaseController
         $description = $merk . ' ' . $type . ' ' . $tahun . '' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('Mobil', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_mobil');
+        $this->saveRekomendasiIklan('mobil', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_mobil');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -271,7 +271,7 @@ class Iklan extends BaseController
         $description = $jumlah_kamar . ' ' . $kamar_kosong . ' ' . $listrik . ' ' . $kamar_mandi . ' ' . $ac . '' . $water_heater . '' . $tempat_tidur . '' . $meja_kursi . '' . $almari;
         $alamat = $alamat_lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('Kost&Kontrakan', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_kostkontrakan');
+        $this->saveRekomendasiIklan('kost&kontrakan', 1, $judul_iklan, $description, $alamat, $imageName, 'tbl_kostkontrakan');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -482,7 +482,7 @@ class Iklan extends BaseController
         $description = $luastanah . ' ' . $kepemilikan . ' ' . $aksesmobil;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('Tanah', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_tanah');
+        $this->saveRekomendasiIklan('tanah', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_tanah');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -529,7 +529,7 @@ class Iklan extends BaseController
         $description = $luas . ' ' . $kepemilikan . '' . $bedroom . ' ' . $kamarmandi . ' ' . $listrik . '' . $deskripsi;
         $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('Apartemen', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_apartemen');
+        $this->saveRekomendasiIklan('apartemen', 1, $juduliklan, $description, $alamat, $imageName, 'tbl_apartemen');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -664,5 +664,73 @@ class Iklan extends BaseController
         ]);
 
         $this->modelalugada->saveRekomendasiIklan($data);
+    }
+
+    public function detailIklan($nama_iklan = '', $id_master = 0, $id_iklan = 0, $layanan = '')
+    {
+
+        $this->iklan = '';
+        $table = '';
+
+        if ($layanan) {
+            if ($layanan == 'tenaga_ahli') {
+                $this->iklan = 'iklan/detail/component/tenaga_ahli';
+                $table = '';
+            }
+            if ($layanan == 'tenaga_terampil') {
+                $this->iklan = 'iklan/detail/component/tenaga_terampil';
+                $table = '';
+            }
+            if ($layanan == 'kost&kontrakan') {
+                $this->iklan = 'iklan/detail/component/kost_kontrakan';
+                $table = '';
+            }
+            if ($layanan == 'mobil') {
+                $this->iklan = 'iklan/detail/component/mobil';
+                $table = '';
+            }
+            if ($layanan == 'motor') {
+                $this->iklan = 'iklan/detail/component/motor';
+                $table = '';
+            }
+            if ($layanan == 'rumah') {
+                $this->iklan = 'iklan/detail/component/rumah';
+                $table = '';
+            }
+            if ($layanan == 'tanah') {
+                $this->iklan = 'iklan/detail/component/tanah';
+                $table = '';
+            }
+            if ($layanan == 'apartemen') {
+                $this->iklan = 'iklan/detail/component/apartemen';
+                $table = '';
+            }
+            if ($layanan == 'ruko') {
+                $this->iklan = 'iklan/detail/component/ruko';
+                $table = '';
+            }
+            if ($layanan == 'bangunan_komersial') {
+                $this->iklan = 'iklan/detail/component/bangunan_komersial';
+                $table = '';
+            }
+        }
+
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+            // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
+            // $idpengunjung = $idpengunjung['id']; 
+        }
+
+        $data = [
+            'admin'         => $this->admin,
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            'title'         => $nama_iklan,
+            'layanan'       => $this->modelalugada->layanan(),
+            'sublayanan'    => $this->modelalugada->sublayanan(),
+            'detail_iklan'  => $this->iklan,
+        ];
+
+        return view('iklan/detail/index', $data);
     }
 }

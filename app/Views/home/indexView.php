@@ -25,22 +25,24 @@
 
   <div class="row-card-layanan">
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) : ?>
-      <div class="card-layanan-list">
-        <div class="card-layanan">
-          <figure class="card-figure-layanan">
-            <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
-          </figure>
-          <div class="row-title-layanan">
-            <span class="title-layanan"><?= $tbl_rekomendasi_iklan['nama_iklan']; ?></span>
-            <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
-            <span class="title-type-desc"><?= $tbl_rekomendasi_iklan['description']; ?></span> <br /> <br />
-            <div class="text-footer-layanan">
-              <span class=""><?= $tbl_rekomendasi_iklan['alamat']; ?></span> <br />
-              <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span>
+      <a href="<?= base_url('pasang-iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
+        <div class="card-layanan-list">
+          <div class="card-layanan">
+            <figure class="card-figure-layanan">
+              <img alt="" src="https://apollo-singapore.akamaized.net:443/v1/files/bbhtuz5mby343-ID/image;s=300x0" class="card-img-layanan">
+            </figure>
+            <div class="row-title-layanan">
+              <span class="title-layanan"><?= $tbl_rekomendasi_iklan['nama_iklan']; ?></span>
+              <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
+              <span class="title-type-desc"><?= $tbl_rekomendasi_iklan['description']; ?></span> <br /> <br />
+              <div class="text-footer-layanan">
+                <span class=""><?= $tbl_rekomendasi_iklan['alamat']; ?></span> <br />
+                <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </a>
     <?php endforeach; ?>
   </div>
 </div>
