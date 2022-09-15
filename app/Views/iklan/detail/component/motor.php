@@ -4,7 +4,7 @@
         <span class="font-size-10 position-relative bottom-16 left-30"> Motor </span>
     </h2>
 
-    <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
+    <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
         <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
         <div class="display-flex width-auto overflow-auto">
             <div class="select-image margin-bottom-12">
@@ -17,56 +17,68 @@
             </div>
             <div class="gallery display-flex"></div>
         </div>
-    </div>
+    </div> -->
 
     <div class="row">
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
-            <input type="text" name="judul_iklan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['judul_iklan']; ?></p>
+             
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Merk</label>
-            <input type="text" name="merk" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['merk']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Type</label>
-            <input type="text" name="type" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['type']; ?></p>
+           
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Tahun</label>
-            <input type="text" name="tahun" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['tahun']; ?></p>
+          
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Warna</label>
-            <input type="text" name="warna" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['warna']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Plat</label>
-            <input type="text" name="plat" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['plat']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Odometer(km)</label>
-            <input type="text" name="odometer" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['odometer']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Bahan Bakar</label>
-            <input type="text" name="bahan_bakar" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['bahan_bakar']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Lokasi</label>
-            <input type="text" name="lokasi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['lokasi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kecamatan</label>
-            <input type="text" name="kecamatan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kecamatan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kabupaten</label>
-            <input type="text" name="kabupaten" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kabupaten']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Provinsi</label>
-            <input type="text" name="provinsi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['provinsi']; ?></p>
+            
         </div>
         <!-- <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Gambar1</label>
@@ -94,11 +106,11 @@
         </div> -->
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Deskripsi</label>
-            <textarea name="deskripsi" class="form-control width-input"></textarea>
+            <p>Motor nya masih bagus dimahar aja</p>
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Harga</label>
-            <input type="harga" name="harga" class="form-control width-input margin-top-6" placeholder="">
+            <p>20000</p>
         </div>
 
         <div class="margin-bottom-12 margin-top-20">

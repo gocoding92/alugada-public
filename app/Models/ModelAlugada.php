@@ -122,54 +122,89 @@ class ModelAlugada extends Model
     // iklan mobilmotor
     public function saveMobil($data)
     {
-        return $this->db->table('tbl_mobil')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_mobil')->insert($data);
+
+        return $db->insertID();
     }
 
     // Iklan Motor
     public function saveMotor($data)
     {
-        return $this->db->table('tbl_motor')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_motor')->insert($data);
+
+        return $db->insertID();
     }
 
     public function saveKost($data)
     {
-        return $this->db->table('tbl_kostkontrakan')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_kostkontrakan')->insert($data);
+
+        return $db->insertID();
     }
 
     public function saveTenaga_Ahli($data)
     {
-        return $this->db->table('tbl_tenagaahli')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_tenagaahli')->insert($data);
+
+        return $db->insertID();
     }
 
     public function saveTenaga_Terampil($data)
     {
-        return $this->db->table('tbl_tenagaterampil')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_tenagaterampil')->insert($data);
+
+        return $db->insertID();
     }
 
     public function save_Rumah($data)
     {
-        return $this->db->table('tbl_rumah')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_rumah')->insert($data);
+
+        return $db->insertID();
+        
     }
 
     public function save_Tanah($data)
     {
-        return $this->db->table('tbl_tanah')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_tanah')->insert($data);
+
+        return $db->insertID();
     }
 
     public function save_Apartemen($data)
     {
-        return $this->db->table('tbl_apartemen')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_apartemen')->insert($data);
+
+        return $db->insertID();
     }
     public function save_Ruko($data)
     {
-        return $this->db->table('tbl_ruko')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_ruko')->insert($data);
+
+        return $db->insertID();
     }
-    public function save_BangunanKOmersial($data)
+    public function save_BangunanKomersial($data)
     {
-        return $this->db->table('tbl_bangunankomersial')->insert($data);
+        $db = $this->db;
+        $db->table('tbl_bangunankomersial')->insert($data);
+
+        return $db->insertID();
     }
     public function saveRekomendasiIklan($data)
     {
         return $this->db->table('tbl_rekomendasi_iklan')->insert($data);
+    }
+    public function detailIklan($id_iklan, $table, $primarykey)
+    {
+        return $this->db->table($table)->getWhere([$primarykey => $id_iklan])->getRowArray();
     }
 }

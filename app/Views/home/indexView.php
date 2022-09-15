@@ -25,7 +25,7 @@
 
   <div class="row-card-layanan">
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) : ?>
-      <a href="<?= base_url('pasang-iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
+      <a href="<?= base_url('iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
