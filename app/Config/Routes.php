@@ -92,7 +92,122 @@ $routes->post('/iklan/saveBangunanKomersial', 'Iklan::saveBangunanKomersial');
 $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 
 
+// Administrator
+$routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
 
+
+$routes->get('logout', 'AuthController::logout');
+$routes->post('/submit-login', 'AuthController::submit_login'); // <--------- Ok
+$routes->get('/dashboard', 'DashboardController::index');   // <--------- Ok
+
+$routes->get('/edit-layanan', 'EditLayanan::index');
+$routes->get('tambah-layanan', 'EditLayanan::tambah_layanan');
+$routes->post('submit-form-insert-layanan', 'EditLayanan::simpan_tambah_layanan');
+$routes->get('submit-edit-layanan/(:num)', 'EditLayanan::submit_edit_layanan/$1');
+$routes->get('activate-layanan/(:num)', 'EditLayanan::activate_layanan/$1');
+$routes->post('submit-form-edit-layanan', 'EditLayanan::submit_form_edit_layanan');
+
+$routes->get('/edit-sub-layanan', 'EditSubLayanan::index');
+$routes->get('/submit-edit-sub-layanan/(:num)', 'EditSubLayanan::submit_edit_sub_layanan/$1');
+$routes->get('/submit-edit/(:num)', 'EditSubLayanan::form_edit_sub_layanan/$1');
+$routes->post('/submit-form-edit', 'EditSubLayanan::submit_form_edit_sub_layanan');
+$routes->get('/activate-sub-layanan/(:num)/(:num)/(:num)', 'EditSubLayanan::activate_sub_layanan/$1/$2/$3');
+$routes->get('/tambah-sub-layanan/(:num)', 'EditSubLayanan::tambah_sub_layanan/$1');
+$routes->post('/submit-form-insert', 'EditSubLayanan::submit_form_insert_sub_layanan');
+
+
+
+$routes->get('/sample', 'Sample::index');
+$routes->get('/sample/create', 'Sample::create');
+$routes->get('/sample/update', 'Sample::update');
+
+
+
+$routes->get('/home/list', 'Home::list');
+$routes->get('/home/create', 'Home::create');
+$routes->get('/home/edit/(:num)', 'Home::edit/$1');
+
+
+
+$routes->get('/layanan', 'LayananController::index');
+$routes->get('/layanan/create', 'LayananController::create');
+$routes->get('/layanan/update', 'LayananController::update');
+
+$routes->get('/tenaga_terampil', 'Tenaga_terampilController::index');
+$routes->get('/tenaga_terampil/(:any)/(:num)/(:any)/(:num)', 'Tenaga_terampilController::detailTenagaTerampil/$1/$2/$3/$4');
+$routes->get('/tenaga_terampil/create', 'Tenaga_terampilController::create');
+$routes->get('/tenaga_terampil/update', 'Tenaga_terampilController::update');
+$routes->get('/tenaga_terampil/detail/(:num)', 'Tenaga_terampilController::detail/$1');
+
+$routes->get('/tenaga_ahli', 'Tenaga_ahliController::index');
+$routes->get('/tenaga_ahli/(:any)/(:num)/(:any)/(:num)', 'Tenaga_ahliController::detailTenagaAhli/$1/$2/$3/$4');
+// $routes->get('/tenaga_ahli/(:num)', 'Tenaga_ahliController::detailTenagaAhli/$1/$2/$3/$4');
+
+$routes->get('/tenaga_ahli/create', 'Tenaga_ahliController::create');
+$routes->get('/tenaga_ahli/update', 'Tenaga_ahliController::update');
+$routes->get('/tenaga_ahli/detail/(:num)', 'Tenaga_ahliController::detail/$1');
+
+$routes->get('/kost_kontrakan', 'Kost_kontrakanController::index');
+$routes->get('/kost_kontrakan/(:any)/(:num)/(:any)/(:num)', 'Kost_kontrakanController::detailKostKontrakan/$1/$2/$3/$4');
+$routes->get('/kost_kontrakan/create', 'Kost_kontrakanController::create');
+$routes->get('/kost_kontrakan/update', 'Kost_kontrakanController::update');
+$routes->get('/kost_kontrakan/detail/(:num)', 'Kost_kontrakanController::detail/$1');
+
+$routes->get('/mobil', 'MobilController::index');
+$routes->get('/mobil/(:any)/(:num)/(:any)/(:num)', 'MobilController::detailMobil/$1/$2/$3/$4');
+$routes->get('/mobil/create', 'MobilController::create');
+$routes->get('/mobil/update', 'MobilController::update');
+$routes->get('/mobil/detail/(:num)', 'MobilController::detail/$1');
+
+$routes->get('/motor', 'MotorController::index');
+$routes->get('/motor/(:any)/(:num)/(:any)/(:num)', 'MotorController::detailMotor/$1/$2/$3/$4');
+$routes->get('/motor/create', 'MotorController::create');
+$routes->get('/motor/update', 'MotorController::update');
+$routes->get('/motor/detail/(:num)', 'MotorController::detail/$1');
+
+$routes->get('/property', 'PropertyController::index');
+$routes->get('/property/rumah/detail_rumah', 'PropertyController::detail_rumah');
+$routes->get('/property/apartemen', 'PropertyController::apartemen');
+$routes->get('/property/apartemen/detail_apartemen', 'PropertyController::detail_apartemen');
+$routes->get('/property/tanah', 'PropertyController::tanah');
+$routes->get('/property/tanah/detail_tanah', 'PropertyController::detail_tanah');
+$routes->get('/property/ruko', 'PropertyController::ruko');
+$routes->get('/property/ruko/detail_ruko', 'PropertyController::detail_ruko');
+$routes->get('/property/bangunan_komersial', 'PropertyController::bangunan_komersial');
+$routes->get('/property/bangunan_komersial/detail_bangunan', 'PropertyController::detail_bangunan');
+
+$routes->get('/rumah', 'RumahController::index');
+$routes->get('/rumah/detail/(:num)', 'RumahController::detail/$1');
+$routes->get('/rumah/(:any)/(:num)/(:any)/(:num)', 'RumahController::detailRumah/$1/$2/$3/$4');
+
+$routes->get('/tanah', 'TanahController::index');
+$routes->get('/tanah/detail/(:num)', 'TanahController::detail/$1');
+$routes->get('/tanah/(:any)/(:num)/(:any)/(:num)', 'TanahController::detailTanah/$1/$2/$3/$4');
+
+$routes->get('/apartemen', 'ApartemenController::index');
+$routes->get('/apartemen/detail/(:num)', 'ApartemenController::detail/$1');
+$routes->get('/apartemen/(:any)/(:num)/(:any)/(:num)', 'ApartemenController::detailApartemen/$1/$2/$3/$4');
+
+$routes->get('/ruko', 'RukoController::index');
+$routes->get('/ruko/detail/(:num)', 'RukoController::detail/$1');
+$routes->get('/ruko/(:any)/(:num)/(:any)/(:num)', 'RukoController::detailRuko/$1/$2/$3/$4');
+
+$routes->get('/bangunan_komersial', 'BangunanKomersialController::index');
+$routes->get('/bangunan_komersial/detail/(:num)', 'BangunanKomersialController::detail/$1');
+$routes->get('/bangunan_komersial/(:any)/(:num)/(:any)/(:num)', 'BangunanKomersialController::detailBangunanKomersial/$1/$2/$3/$4');
+
+
+$routes->get('/iklan', 'Iklan::index');
+$routes->get('/iklan/create', 'Iklan::create');
+$routes->get('/iklan/update', 'Iklan::update');
+
+$routes->get('/users', 'Users::index');
+$routes->get('/users/create', 'Users::create');
+$routes->get('/users/update', 'Users::update');
+
+$routes->get('/pesan', 'Pesan::index');
+$routes->get('/pesan/create', 'Pesan::create');
+$routes->get('/pesan/update', 'Pesan::update');
 
 
 /*
