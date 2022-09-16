@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
 
 class Users extends BaseController
 {
     public function index()
     {
-        return view('users/index');
+        return view('admin/users/index');
     }
 
     public function create()
     {
-        return view('users/create');
+        return view('admin/users/create');
     }
 
     public function update()
     {
-        return view('users/update');
+        return view('admin/users/update');
     }
 }

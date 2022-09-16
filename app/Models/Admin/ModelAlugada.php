@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use CodeIgniter\Model;
 
@@ -90,16 +90,16 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_sublayanan')->update($data, ['id' => $id]);
     }
 
-    public function iklancarikerja()
-    {
-        return $this->db->table('tbl_iklancarikerja')->get()->getResultArray();
-    }
-    public function iklanproperty()
-    {
-        return $this->db->table('tbl_iklanproperty')->get()->getResultArray();
-    }
-    public function iklanmobilmotor()
-    {
-        return $this->db->table('tbl_iklanmobilmotor')->get()->getResultArray();
-    }
+    // public function iklancarikerja()
+    // {
+    //     return $this->db->table('tbl_iklancarikerja')->get()->getResultArray();
+    // }
+    // public function iklanproperty()
+    // {
+    //     return $this->db->table('tbl_iklanproperty')->get()->getResultArray();
+    // }
+    // public function iklanmobilmotor()
+    // {
+    //     return $this->db->table('tbl_iklanmobilmotor')->get()->getResultArray();
+    // }
 }

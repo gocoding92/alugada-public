@@ -94,11 +94,22 @@ $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 
 // Administrator
 $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
+$routes->get('/administrator-area/dashboard', 'Admin\DashboardController::index');   // <--------- Ok
 
+$routes->get('/administrator-area/users', 'Admin\Users::index');
+$routes->get('/administrator-area/users/create', 'Admin\Users::create');
+$routes->get('/administrator-area/users/update', 'Admin\Users::update');
+
+$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
+$routes->get('/administrator-area/iklan/create', 'Admin\Iklan::create');
+$routes->get('/administrator-area/iklan/update', 'Admin\Iklan::update');
+
+$routes->get('/administrator-area/pesan', 'Admin\Pesan::index');
+$routes->get('/administrator-area/pesan/create', 'Admin\Pesan::create');
+$routes->get('/administrator-area/pesan/update', 'Admin\Pesan::update');
 
 $routes->get('logout', 'AuthController::logout');
 $routes->post('/submit-login', 'AuthController::submit_login'); // <--------- Ok
-$routes->get('/dashboard', 'DashboardController::index');   // <--------- Ok
 
 $routes->get('/edit-layanan', 'EditLayanan::index');
 $routes->get('tambah-layanan', 'EditLayanan::tambah_layanan');
@@ -115,19 +126,13 @@ $routes->get('/activate-sub-layanan/(:num)/(:num)/(:num)', 'EditSubLayanan::acti
 $routes->get('/tambah-sub-layanan/(:num)', 'EditSubLayanan::tambah_sub_layanan/$1');
 $routes->post('/submit-form-insert', 'EditSubLayanan::submit_form_insert_sub_layanan');
 
-
-
 $routes->get('/sample', 'Sample::index');
 $routes->get('/sample/create', 'Sample::create');
 $routes->get('/sample/update', 'Sample::update');
 
-
-
 $routes->get('/home/list', 'Home::list');
 $routes->get('/home/create', 'Home::create');
 $routes->get('/home/edit/(:num)', 'Home::edit/$1');
-
-
 
 $routes->get('/layanan', 'LayananController::index');
 $routes->get('/layanan/create', 'LayananController::create');
@@ -195,19 +200,6 @@ $routes->get('/ruko/(:any)/(:num)/(:any)/(:num)', 'RukoController::detailRuko/$1
 $routes->get('/bangunan_komersial', 'BangunanKomersialController::index');
 $routes->get('/bangunan_komersial/detail/(:num)', 'BangunanKomersialController::detail/$1');
 $routes->get('/bangunan_komersial/(:any)/(:num)/(:any)/(:num)', 'BangunanKomersialController::detailBangunanKomersial/$1/$2/$3/$4');
-
-
-$routes->get('/iklan', 'Iklan::index');
-$routes->get('/iklan/create', 'Iklan::create');
-$routes->get('/iklan/update', 'Iklan::update');
-
-$routes->get('/users', 'Users::index');
-$routes->get('/users/create', 'Users::create');
-$routes->get('/users/update', 'Users::update');
-
-$routes->get('/pesan', 'Pesan::index');
-$routes->get('/pesan/create', 'Pesan::create');
-$routes->get('/pesan/update', 'Pesan::update');
 
 
 /*

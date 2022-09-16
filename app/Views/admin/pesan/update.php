@@ -1,6 +1,6 @@
-<?php echo $this->extend('layout/template'); ?>
+<?php echo $this->extend('admin/layout/template'); ?>
 
-<?php echo $this->section('content'); ?>
+<?php echo $this->section('content-admin'); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

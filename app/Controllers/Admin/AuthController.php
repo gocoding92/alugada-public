@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
 
 use App\Models\ModelAlugada;
 
@@ -15,10 +17,7 @@ class AuthController extends BaseController
 
     public function index()
     {
-
-        var_dump(123);
-        return;
-        return view('auth/loginView');
+        return view('admin/auth/loginView');
     }
 
     public function logout()

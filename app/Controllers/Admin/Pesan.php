@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
 
 class Pesan extends BaseController
 {
     public function index()
     {
-        return view('pesan/index');
+        return view('admin/pesan/index');
     }
 
     public function create()
     {
-        return view('pesan/create');
+        return view('admin/pesan/create');
     }
 
     public function update()
     {
-        return view('pesan/update');
+        return view('admin/pesan/update');
     }
 }

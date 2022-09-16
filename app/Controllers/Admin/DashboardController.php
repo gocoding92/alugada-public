@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-use App\Models\ModelAlugada;
+use App\Controllers\BaseController;
+use App\Models\Admin\ModelAlugada;
 
 class DashboardController extends BaseController
 {
-
-
     public function __construct()
     {
         date_default_timezone_set('Asia/Jakarta');
@@ -23,13 +22,16 @@ class DashboardController extends BaseController
             'layanan'           => $this->modelalugada->layanan(),
             'sublayanan'        => $this->modelalugada->sublayanan(),
             // 'iklancarikerja'    => array(),
-            'iklancarikerja'    => $this->modelalugada->iklancarikerja(),
-            'iklanproperty'    => $this->modelalugada->iklanproperty(),
+            // 'iklancarikerja'    => $this->modelalugada->iklancarikerja(),
+            // 'iklanproperty'    => $this->modelalugada->iklanproperty(),
+            'iklancarikerja'    => array(),
+            'iklanproperty'    => array(),
             // 'iklanproperty'    => array(),
             // 'iklanmobilmotor'    => array(),
-            'iklanmobilmotor'    => $this->modelalugada->iklanmobilmotor(),
+            'iklanmobilmotor'    => array(),
+            // 'iklanmobilmotor'    => $this->modelalugada->iklanmobilmotor(),
         ];
 
-        return view('dashboard/indexView', $data);
+        return view('admin/dashboard/indexView', $data);
     }
 }

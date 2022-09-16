@@ -1,21 +1,23 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
 
 class Iklan extends BaseController
 {
     public function index()
     {
-        return view('iklan/index');
+        return view('admin/iklan/index');
     }
 
     public function create()
     {
-        return view('iklan/create');
+        return view('admin/iklan/create');
     }
 
     public function update()
     {
-        return view('iklan/update');
+        return view('admin/iklan/update');
     }
 }

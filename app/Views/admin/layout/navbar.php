@@ -1,6 +1,6 @@
 <!-- Preloader -->
 <div class="preloader flex-column justify-content-center align-items-center">
-  <img class="animation__shake" src="<?= base_url(); ?>/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  <img class="animation__shake" src="<?= base_url(); ?>/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
 </div>
 
 <!-- Navbar -->
@@ -47,7 +47,7 @@
         <a href="#" class="dropdown-item">
           <!-- Message Start -->
           <div class="media">
-            <img src="<?= base_url(); ?>/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+            <img src="<?= base_url(); ?>/admin/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
             <div class="media-body">
               <h3 class="dropdown-item-title">
                 Brad Diesel
@@ -63,7 +63,7 @@
         <a href="#" class="dropdown-item">
           <!-- Message Start -->
           <div class="media">
-            <img src="<?= base_url(); ?>/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <img src="<?= base_url(); ?>/admin/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
             <div class="media-body">
               <h3 class="dropdown-item-title">
                 John Pierce
@@ -79,7 +79,7 @@
         <a href="#" class="dropdown-item">
           <!-- Message Start -->
           <div class="media">
-            <img src="<?= base_url(); ?>/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+            <img src="<?= base_url(); ?>/admin/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
             <div class="media-body">
               <h3 class="dropdown-item-title">
                 Nora Silvester
@@ -135,7 +135,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
-    <img src="<?= base_url(); ?>/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="<?= base_url(); ?>/admin/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
     <span class="brand-text font-weight-light">Alugada</span>
   </a>
 
@@ -144,7 +144,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="<?= base_url(); ?>/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="<?= base_url(); ?>/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
       </div>
       <div class="info">
         <a href="#" class="d-block">Administrator Area</a>
@@ -172,7 +172,7 @@
           </ul>
         </li> -->
         <li class="nav-item">
-          <a href="<?php echo base_url('/dashboard') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/dashboard') ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -180,7 +180,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/users') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/users') ?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Users / Pengguna
@@ -188,7 +188,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/iklan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/iklan') ?>" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>
               Pasang Iklan
@@ -196,7 +196,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/pesan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/pesan') ?>" class="nav-link">
             <i class="nav-icon fas fa-inbox"></i>
             <p>
               Pesan / Saran Masuk
@@ -205,7 +205,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url('/edit-layanan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/edit-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Kategori Layanan
@@ -224,7 +224,7 @@
           </a>
         </li> -->
         <li class="nav-item">
-          <a href="<?php echo base_url('edit-sub-layanan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/edit-sub-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Kategori Sub Layanan
@@ -232,7 +232,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/sample') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/sample') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Sample
