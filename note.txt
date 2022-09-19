@@ -209,3 +209,11 @@ URL PER - CATEGORY FORM
     - Tanah ()
     - Motor
     - Mobil
+
+    #Task Aman
+1. Setiap "Select Photo" di hapus semua component (Done)
+2. Form Input di hapus di semua component
+3. Form diganti text dibikin static dulu
+4. Query table Get Where contoh keluarin table tenaga_ahli
+5. Validasi Table bedasarkan layanan Get Where
+6. Keluarin data table di setiap component

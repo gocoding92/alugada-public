@@ -18,7 +18,7 @@
                 <div class="gallery display-flex"></div>
             </div>
         </div>
-
+        
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Profesi <span class="textcolor-red"> * </span></label>
             <select name="profesi" class="form-control width-select margin-top-6">

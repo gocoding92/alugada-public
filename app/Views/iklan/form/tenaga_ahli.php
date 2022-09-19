@@ -35,8 +35,8 @@
             </select>
         </div>
 
-        <input type="hidden" name="no_layanan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sublayanan" value="<?= $no_sublayanan; ?>">
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
 
         <!-- <div class="margin-bottom-12 margin-right-25">
             <label for="idpengiklan" class="font-size-14">Id Pengiklan (Id User)</label>

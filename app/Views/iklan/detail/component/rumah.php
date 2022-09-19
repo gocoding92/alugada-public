@@ -4,7 +4,7 @@
         <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
             <span class="font-size-10 position-relative bottom-16 left-30"> Property - Rumah </span>
         </h2>
-
+<!-- 
         <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
             <div class="display-flex width-auto overflow-auto">
@@ -18,122 +18,118 @@
                 </div>
                 <div class="gallery display-flex"></div>
             </div>
-        </div>
+        </div> -->
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
-            <input type="text" name="juduliklan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['juduliklan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Luas Tanah</label>
-            <input type="number" name="luastanah" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['luastanah']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Luas Bangunan</label>
-            <input type="number" name="luasbangunan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['luasbangunan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Kepemilikan</label>
-            <select name="kepemilikan" id="" class="form-control margin-top-6">
-                <option></option>
-                <option>Sertifikat</option>
-                <option>AJB</option>
-                <option>Girik</option>
-                <option>Lainnya</option>
-            </select>
+            <p><?= $dataiklan['kepemilikan']; ?></p>
+           
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Jumlah Lantai</label>
-            <input type="number" name="jumlahlantai" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['jumlahlantai']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Listrik</label>
-            <input type="number" name="listrik" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['listrik']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Ruang Tamu</label>
-            <select name="ruangtamu" id="" class="form-control margin-top-6">
-                <option> </option>
-                <option>Tidak Ada</option>
-                <option>Ada</option>
-            </select>
+            <p><?= $dataiklan['ruangtamu']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Ruang Keluarga</label>
-            <select name="ruangkeluarga" id="" class="form-control margin-top-6">
-                <option> </option>
-                <option>Tidak Ada</option>
-                <option>Ada</option>
-            </select>
+            <p><?= $dataiklan['ruangkeluarga']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kamar Tidur</label>
-            <input type="number" name="kamartidur" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kamartidur']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kamar Pembantu</label>
-            <input type="number" name="kamarpembantu" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kamarpembantu']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kamar Mandi</label>
-            <input type="number" name="kamarmandi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kamarmandi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Teras</label>
-            <select name="teras" id="" class="form-control margin-top-6">
-                <option> </option>
-                <option>Tidak Ada</option>
-                <option>Ada</option>
-            </select>
+            <p><?= $dataiklan['teras']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Taman</label>
-            <select name="taman" id="" class="form-control margin-top-6">
-                <option> </option>
-                <option>Tidak Ada</option>
-                <option>Ada</option>
-            </select>
+            <p><?= $dataiklan['taman']; ?></p>
+
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Akses Mobil</label>
-            <select name="aksesmobil" id="" class="form-control margin-top-6">
-                <option> </option>
-                <option>Tidak Masuk Mobil</option>
-                <option>Masuk Mobil</option>
-            </select>
+            <p><?= $dataiklan['aksesmobil']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Garasi</label>
-            <input type="number" name="garasi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['garasi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Carport</label>
-            <input type="number" name="carport" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['carport']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Alamat Lokasi</label>
-            <textarea name="lokasi" class="form-control width-input margin-top-6"></textarea>
+            <p><?= $dataiklan['lokasi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kecamatan</label>
-            <input type="text" name="kecamatan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kecamatan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kabupaten</label>
-            <input type="text" name="kabupaten" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kabupaten']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Provinsi</label>
-            <input type="text" name="propinsi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['propinsi']; ?></p>
+            
         </div>
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"></textarea>
+            <p><?= $dataiklan['deskripsi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Harga</label>
-            <input type="number" name="harga" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['harga']; ?></p>
+            
         </div>
 
         <div class="margin-bottom-12 margin-top-20">

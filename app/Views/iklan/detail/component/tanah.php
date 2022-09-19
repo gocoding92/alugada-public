@@ -5,7 +5,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Property - Tanah </span>
         </h2>
 
-        <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
+        <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
             <div class="display-flex width-auto overflow-auto">
                 <div class="select-image margin-bottom-12">
@@ -18,58 +18,57 @@
                 </div>
                 <div class="gallery display-flex"></div>
             </div>
-        </div>
+        </div> -->
 
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
-            <input type="text" name="juduliklan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['juduliklan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Luas</label>
-            <input type="number" name="luastanah" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['luastanah']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Kepemilikan</label>
-            <select name="kepemilikan" id="" class="form-control margin-top-6">
-                <option></option>
-                <option>Sertifikat</option>
-                <option>AJB</option>
-                <option>Girik</option>
-                <option>Lainnya</option>
-            </select>
+            <p><?= $dataiklan['kepemilikan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Akses Mobil</label>
-            <select name="aksesmobil" id="" class="form-control margin-top-6">
-                <option></option>
-                <option>Tidak Masuk Mobil</option>
-                <option>Masuk Mobil</option>
-            </select>
+            <p><?= $dataiklan['aksesmobil']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Alamat Lokasi</label>
-            <textarea name="lokasi" class="form-control margin-top-6"></textarea>
+            <p><?= $dataiklan['lokasi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kecamatan</label>
-            <input type="text" name="kecamatan" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['kecamatan']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Kabupaten</label>
-            <input type="text" name="kabupaten" class="form-control width-input margin-top-6" placeholder="">
-        </div>
+            <p><?= $dataiklan['kabupaten']; ?></p>
+            
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Provinsi</label>
-            <input type="text" name="propinsi" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['propinsi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Deskripsi</label>
-            <textarea name="deskripsi" class="form-control"></textarea>
+            <p><?= $dataiklan['deskripsi']; ?></p>
+            
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Harga</label>
-            <input type="number" name="harga" class="form-control width-input margin-top-6" placeholder="">
+            <p><?= $dataiklan['harga']; ?></p>
+           
         </div>
 
         <div class="margin-bottom-12 margin-top-20">
