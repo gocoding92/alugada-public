@@ -35,43 +35,49 @@ class Auth extends BaseController
             $nohppengunjung = 123;
         }
         $nohploginregister = $this->session->get('nohploginregister');
-            $data = [
-                'title'         => "Login",
-                'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                // 'layanan'       => $this->modelalugada->layanan(),
-                'nohp'          => $nohploginregister,
-            ];
-    
+        $data = [
+            'title'         => "Login",
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            // 'layanan'       => $this->modelalugada->layanan(),
+            'nohp'          => $nohploginregister,
+        ];
+
         return view('auth/loginView', $data);
     }
 
-    public function submit_login(){
+    public function submit_login()
+    {
         $nohploginregister = $this->request->getVar('nohp');
         $password = $this->request->getVar('password');
+
         //Cek No Hp terdaftar tidak
         $terdaftar = $this->modelalugada->userbynohp($nohploginregister);
 
         $datalogin = [
             'nohploginregister'     => $nohploginregister
         ];
-        $this->session->set($datalogin);
+        $dataUser = [
+            'data_user'     => $terdaftar
+        ];
 
-        if($terdaftar){ // =============== Jika Terdaftar =========================
+        $this->session->set($datalogin);
+        $this->session->set($dataUser);
+
+        if ($terdaftar) { // =============== Jika Terdaftar =========================
 
             //============ Cek Password ============
-            if($password != $terdaftar['password']){
+            if ($password != $terdaftar['password']) {
                 return redirect()->to('login');
             }
 
-            $datapengunjung =[
+            $datapengunjung = [
                 'nohppengunjung' => $nohploginregister
             ];
             $this->session->set($datapengunjung);
             return redirect()->to('/');
-        }else{
+        } else {
             return redirect()->to('register');
         }
-
     }
 
     public function register()
@@ -81,30 +87,31 @@ class Auth extends BaseController
             $nohppengunjung = 123;
         }
         $nohploginregister = $this->session->get('nohploginregister');
-            $data = [
-                'title'         => "Register",
-                'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                // 'layanan'       => $this->modelalugada->layanan(),
-                'nohp'          => $nohploginregister,
-            ];
-    
+        $data = [
+            'title'         => "Register",
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            // 'layanan'       => $this->modelalugada->layanan(),
+            'nohp'          => $nohploginregister,
+        ];
+
         return view('auth/registerView', $data);
     }
 
-    public function submit_register(){
+    public function submit_register()
+    {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
 
         $nohploginregister = $this->request->getVar('nohp');
-        
+
         $terdaftar = $this->modelalugada->userbynohp($nohploginregister);
-        
-        if($terdaftar){
+
+        if ($terdaftar) {
             return redirect()->to('login');
         }
-        
+
         $datanohpregister = [
             'nohploginregister' => $this->request->getVar('nohp'),
         ];
@@ -113,7 +120,6 @@ class Auth extends BaseController
         $this->_otp();
         $this->session->get('otp');
         return redirect()->to('otp');
-        
     }
 
     //=============================== Generate OTP dan kirim ke user ==========
@@ -126,7 +132,8 @@ class Auth extends BaseController
         $this->session->set($dataotp);
     }
 
-    public function otp(){
+    public function otp()
+    {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
@@ -140,8 +147,7 @@ class Auth extends BaseController
             'otp'           => $this->session->get('otp'),
         ];
 
-    return view('auth/otpView', $data);
-
+        return view('auth/otpView', $data);
     }
 
     // ========================================= Cek OTP =====================
@@ -157,7 +163,7 @@ class Auth extends BaseController
 
         // ===================================== Jika OTP Benar
         if ($otp == $this->session->get('otp')) {
-            if($this->session->get('lupapassword') == 1){
+            if ($this->session->get('lupapassword') == 1) {
                 return redirect()->to('buat-password-baru');
             }
 
@@ -170,7 +176,8 @@ class Auth extends BaseController
         }
     }
 
-    public function data_otp(){
+    public function data_otp()
+    {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
@@ -192,7 +199,7 @@ class Auth extends BaseController
         $nama = $this->request->getVar('nama');
         $nohp = $this->session->get('nohploginregister');
         // echo $nohp;die;
-        
+
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
@@ -221,7 +228,7 @@ class Auth extends BaseController
             'gambar'        => "pengunjung.png"
         ];
         $this->modelalugada->simpannewuser($datauser);
-        
+
         $datasesi = [
             'nohppengunjung' => $nohp,
         ];
@@ -247,7 +254,8 @@ class Auth extends BaseController
         return view('auth/lupaPasswordView', $data);
     }
 
-    public function submit_lupa_password(){
+    public function submit_lupa_password()
+    {
         $data = [
             'nohploginregister'     => $this->request->getvar('nohp'),
             'lupapassword'          => $this->request->getvar('lupapassword'),
@@ -273,15 +281,16 @@ class Auth extends BaseController
             'title'         => "Lupa Password",
             'nohp'          => $nohp,
         ];
-        return view('auth/inputPasswordView',$data);
+        return view('auth/inputPasswordView', $data);
     }
 
-    public function submit_password_baru(){
+    public function submit_password_baru()
+    {
         $nohp       = $this->request->getVar('nohp');
         $password   = $this->request->getVar('password');
         $password1  = $this->request->getVar('confirmpassword');
 
-        if($password != $password1){
+        if ($password != $password1) {
             return redirect()->to('buat-password-baru');
         }
 
@@ -291,9 +300,7 @@ class Auth extends BaseController
             'password'  => $password,
         ];
 
-        $this->modelalugada->updateuser($id,$data);
+        $this->modelalugada->updateuser($id, $data);
         return redirect()->to('/');
     }
-
-
 }
