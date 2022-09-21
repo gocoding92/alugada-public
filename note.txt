@@ -217,3 +217,67 @@ URL PER - CATEGORY FORM
 4. Query table Get Where contoh keluarin table tenaga_ahli
 5. Validasi Table bedasarkan layanan Get Where
 6. Keluarin data table di setiap component
+
+
+
+
+---------------------
+
+
+1. mengubah description iklan
+
+1. Tenaga Ahli
+    - tanggal lahir
+    - pendidikan
+    - jurusan
+    - pengalaman kerja
+2. Tenaga Terampil
+    - tanggal lahir
+    - pendidikan
+    - jurusan
+    - pengalaman kerja
+3. Kost && Kontrakan
+    - jumlah kamar
+    - litrik
+    - kamar kosong
+    - ac
+4. Property
+    - luas tanah
+    - luas bangunan
+    - kepemilikan
+    - jumlah lantai
+5. Mobil
+    - merk 
+    - type
+    - merk 
+    - warna 
+6. Motor
+    - merk 
+    - type
+    - merk 
+    - warna 
+
+2. Isi 1 table 2 data dan fotonya 1 table 2
+
+3. buat table tbl_pesan
+    - id_pesan int auto_increment primark key,
+    - id_user int 11
+    - id_pemilik int 11
+    - created_time
+
+4. Table tbl_pesan_komen
+    - id_pesan_komen int 11 auto_increment 
+    - id_pesan int 11
+    - comment text
+    - created_time
+
+5. submit kontak kami
+
+6. Table tl_kontak_kami
+    - id_kontak_kami int 11 auto_increment primary_key,
+    - nama varchar 255
+    - telepon varchar 255
+    - email varchar 255
+    - alamat text
+    - pesan text
+    - created_time 
