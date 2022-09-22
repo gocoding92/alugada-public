@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\ModelAlugada;
+use App\Models\ModelKontakKami;
+
 
 class KontakKami extends BaseController
 {
@@ -10,6 +12,7 @@ class KontakKami extends BaseController
     {
         date_default_timezone_set('Asia/Jakarta');
         $this->modelalugada = new ModelAlugada();
+        $this->modelkontakkami = new ModelKontakKami();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
     }
@@ -32,5 +35,25 @@ class KontakKami extends BaseController
         ];
 
         return view('kontak_kami/index', $data);
+    }
+
+    public function save()
+    {
+        $nama = $this->request->getVar('nama');
+        $telepon = $this->request->getVar('telepon');
+        $email = $this->request->getVar('email');
+        $alamat = $this->request->getVar('alamat');
+        $pesan = $this->request->getVar('pesan');
+
+        $data = ([
+            'nama' => $nama,
+            'telepon' => $telepon,
+            'email' => $email,
+            'alamat' => $alamat,
+            'pesan' => $pesan,
+        ]);
+
+        $this->modelkontakkami->submitForm($data);
+        return redirect()->to('/');
     }
 }

@@ -224,7 +224,7 @@ URL PER - CATEGORY FORM
 ---------------------
 
 
-1. mengubah description iklan
+1. mengubah description iklan (Done)
 
 1. Tenaga Ahli
     - tanggal lahir
@@ -259,21 +259,21 @@ URL PER - CATEGORY FORM
 
 2. Isi 1 table 2 data dan fotonya 1 table 2
 
-3. buat table tbl_pesan
+3. buat table tbl_pesan (Done)
     - id_pesan int auto_increment primark key,
     - id_user int 11
     - id_pemilik int 11
     - created_time
 
-4. Table tbl_pesan_komen
+4. Table tbl_pesan_komen (Done)
     - id_pesan_komen int 11 auto_increment 
     - id_pesan int 11
     - comment text
     - created_time
 
-5. submit kontak kami
+5. submit kontak kami (Done)
 
-6. Table tl_kontak_kami
+6. Table tl_kontak_kami (Done)
     - id_kontak_kami int 11 auto_increment primary_key,
     - nama varchar 255
     - telepon varchar 255

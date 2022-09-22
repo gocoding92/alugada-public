@@ -34,14 +34,22 @@ class Home extends BaseController
         return view('home/indexView', $data);
     }
 
-    public function detail($nolayanan)
+    public function detail($nolayanan = 0, $nosublayanan = 0)
     {
+
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
-        echo $nolayanan;
-        die;
+
+
+        $sublayanan = $this->modelhome->sublayanan($nolayanan);
+
+        $iklan = $this->modelhome->iklan($nosublayanan);
+        if ($nosublayanan == 0) {
+            $iklan = $this->modelhome->iklanAll($nolayanan);
+        }
+
         $judul = $this->modelalugada->layananbynolayanan($nolayanan)['layanan'];
         $data = [
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
@@ -49,6 +57,8 @@ class Home extends BaseController
             'nolayanan'       =>  $nolayanan,
             'sublayanan'    => $this->modelalugada->sublayanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'sublayanan'    => $sublayanan,
+            'iklan'         => $iklan,
         ];
         return view('home/detailView', $data);
     }

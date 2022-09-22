@@ -39,6 +39,7 @@ $routes->set404Override();
 // home page
 $routes->get('/', 'Home::index');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
+$routes->get('/home/detail/(:num)/(:num)', 'Home::detail/$1/$2');
 
 $routes->get('/logout', 'Auth::logout');
 
@@ -201,6 +202,9 @@ $routes->get('/ruko/(:any)/(:num)/(:any)/(:num)', 'RukoController::detailRuko/$1
 $routes->get('/bangunan_komersial', 'BangunanKomersialController::index');
 $routes->get('/bangunan_komersial/detail/(:num)', 'BangunanKomersialController::detail/$1');
 $routes->get('/bangunan_komersial/(:any)/(:num)/(:any)/(:num)', 'BangunanKomersialController::detailBangunanKomersial/$1/$2/$3/$4');
+
+// Kontak Kami
+$routes->post('/kontak_kami/save', 'KontakKami::save');
 
 
 /*

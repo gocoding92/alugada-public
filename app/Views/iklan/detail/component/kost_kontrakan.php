@@ -102,9 +102,5 @@
             <p><?= $dataiklan['perbulan']; ?></p>
         </div>
 
-        <div class="margin-bottom-12 margin-top-20">
-            <button class="btn btn-primary width-100-percent textcolor-white"> Simpan </button>
-        </div>
-
     </div>
 </form>

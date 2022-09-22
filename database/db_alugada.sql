@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Sep 21, 2022 at 05:04 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.28
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 22 Sep 2022 pada 09.23
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_apartemen`
+-- Struktur dari tabel `tbl_apartemen`
 --
 
 CREATE TABLE `tbl_apartemen` (
@@ -51,10 +51,17 @@ CREATE TABLE `tbl_apartemen` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_apartemen`
+--
+
+INSERT INTO `tbl_apartemen` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `juduliklan`, `luas`, `kepemilikan`, `bedroom`, `kamarmandi`, `listrik`, `alamatlokasi`, `kecamatan`, `kabupaten`, `propinsi`, `image`, `deskripsi`, `harga`, `is_active`, `checked`, `created_at`, `updated_at`) VALUES
+(1, 0, 400, 403, 'Apartemen Tekuk Intan', 4000, 'SHM Strata tittle', 20, 10, 2000, 'Tangerang', 'Tajurhalang', 'Kertajati', 'jawa barat', '[\"1663814312_48d9391d15b92dd48581.jpg\",\"1663814312_74ea0551247a827074c2.jpg\"]', 'Dijual secepatnya', 30000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_bangunankomersial`
+-- Struktur dari tabel `tbl_bangunankomersial`
 --
 
 CREATE TABLE `tbl_bangunankomersial` (
@@ -84,10 +91,17 @@ CREATE TABLE `tbl_bangunankomersial` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_bangunankomersial`
+--
+
+INSERT INTO `tbl_bangunankomersial` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `image`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
+(1, 0, 400, 405, 0, 'Bangunan Komersial Di Kawasan Mandiri', 300, 200, 'SHM Strata tittl', 2000, 200, 3000, 'Bogor', 'Majalengka', 'Bogor', 'jawa barat', '[\"1663814759_3efc5b5605e21e11cbae.jpg\",\"1663814759_e86b3f838c5189442d7f.jpg\"]', 'Disewakan', 2147483647, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_jenisiklan`
+-- Struktur dari tabel `tbl_jenisiklan`
 --
 
 CREATE TABLE `tbl_jenisiklan` (
@@ -97,7 +111,7 @@ CREATE TABLE `tbl_jenisiklan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_jenisiklan`
+-- Dumping data untuk tabel `tbl_jenisiklan`
 --
 
 INSERT INTO `tbl_jenisiklan` (`id`, `jenisiklan`, `is_active`) VALUES
@@ -109,7 +123,31 @@ INSERT INTO `tbl_jenisiklan` (`id`, `jenisiklan`, `is_active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_kostkontrakan`
+-- Struktur dari tabel `tbl_kontak_kami`
+--
+
+CREATE TABLE `tbl_kontak_kami` (
+  `id_kontak_kami` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `telepon` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `alamat` text NOT NULL,
+  `pesan` text NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tbl_kontak_kami`
+--
+
+INSERT INTO `tbl_kontak_kami` (`id_kontak_kami`, `nama`, `telepon`, `email`, `alamat`, `pesan`, `created_time`) VALUES
+(1, 'Abdul Rahman', '085809052137', 'amangokil@gmail.com', 'Komplek Inkopad Blok O5 No 17', 'Apakah Bisa bekerja sama?', '2022-09-22 05:38:19'),
+(2, 'Abdul Rahman', '085809052137', 'amangokil@gmail.com', 'Komplek Inkopad Blok O5 No 17', 'Apakah Bisa bekerja sama?', '2022-09-22 05:38:46');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_kostkontrakan`
 --
 
 CREATE TABLE `tbl_kostkontrakan` (
@@ -136,10 +174,17 @@ CREATE TABLE `tbl_kostkontrakan` (
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_kostkontrakan`
+--
+
+INSERT INTO `tbl_kostkontrakan` (`id`, `nolayanan`, `nosublayanan`, `judul_iklan`, `jumlah_kamar`, `kamar_kosong`, `listrik`, `kamar_mandi`, `ac`, `water_heater`, `tempat_tidur`, `meja_kursi`, `almari`, `alamat_lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `harga`, `perbulan`, `image`, `created_time`) VALUES
+(1, 300, 301, 'Kost Dekat Mall Stadion', '2', '2', 'Token tiap kamar/kontrakan', 'Kamar mandi dalam', 'Ada', 'Ada', 'Ada', 'Ada', 'Ada', 'Jakarta', 'Cibitung', 'kab. Bekasi', 'Jawa Barat', '200000', 'Per Tahun', '[\"1663812534_da7ac70d4516a034313c.jpg\",\"1663812534_fb66d7926721a966f04c.jpg\"]', '2022-09-22 09:08:54');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_layanan`
+-- Struktur dari tabel `tbl_layanan`
 --
 
 CREATE TABLE `tbl_layanan` (
@@ -153,7 +198,7 @@ CREATE TABLE `tbl_layanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_layanan`
+-- Dumping data untuk tabel `tbl_layanan`
 --
 
 INSERT INTO `tbl_layanan` (`id`, `nolayanan`, `layanan`, `detaillayanan`, `gambar`, `url`, `is_active`) VALUES
@@ -167,7 +212,7 @@ INSERT INTO `tbl_layanan` (`id`, `nolayanan`, `layanan`, `detaillayanan`, `gamba
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_mobil`
+-- Struktur dari tabel `tbl_mobil`
 --
 
 CREATE TABLE `tbl_mobil` (
@@ -192,10 +237,17 @@ CREATE TABLE `tbl_mobil` (
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_mobil`
+--
+
+INSERT INTO `tbl_mobil` (`id`, `nolayanan`, `nosublayanan`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `image`, `deskripsi`, `harga`, `created_time`) VALUES
+(1, 500, 501, 'Mobil Avanza', 'Avanza', 'Toyota', '2010', 'Putih', '298 TPLP 890', '140200', 'pertalite', '', 'Tajurhalang', 'Kertajati', 'Jawa Barat', '[\"1663815315_254aac080787301e5426.jpg\",\"1663815315_28adc02f10ed2ce73efd.jpg\"]', 'Dijual Cepat', '170000000', '2022-09-22 09:55:15');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_motor`
+-- Struktur dari tabel `tbl_motor`
 --
 
 CREATE TABLE `tbl_motor` (
@@ -221,14 +273,49 @@ CREATE TABLE `tbl_motor` (
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_motor`
+--
+
+INSERT INTO `tbl_motor` (`id`, `nolayanan`, `nosublayanan`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `image`, `gambar6`, `deskripsi`, `harga`, `created_time`) VALUES
+(1, 600, 601, 'Motor Aerox', 'Yamaha', '2019', '2019', 'Coklat Kesilveran', '290 TPLP 016', '2000', 'pertalite', 'inkopad', 'Tajurhalang', 'Bogor', 'Jawa Barat', '[\"1663815500_03554b25de629b930196.jpg\",\"1663815500_f9f70f6de3b4764e76fd.png\"]', '', 'dijual saja', '400000', '2022-09-22 09:58:20');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rekomendasi_iklan`
+-- Struktur dari tabel `tbl_pesan`
+--
+
+CREATE TABLE `tbl_pesan` (
+  `id_pesan` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_pemilik` int(11) NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_pesan_komen`
+--
+
+CREATE TABLE `tbl_pesan_komen` (
+  `id_pesan_komen` int(11) NOT NULL,
+  `id_pesan` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `created_time` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tbl_rekomendasi_iklan`
 --
 
 CREATE TABLE `tbl_rekomendasi_iklan` (
   `id_rekomendasi_iklan` int(11) NOT NULL,
+  `nolayanan` int(11) NOT NULL,
+  `nosublayanan` int(11) NOT NULL,
   `type_rekomendasi_iklan` varchar(50) NOT NULL,
   `id_iklan` int(11) NOT NULL,
   `nama_iklan` varchar(255) NOT NULL,
@@ -239,10 +326,27 @@ CREATE TABLE `tbl_rekomendasi_iklan` (
   `create_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_rekomendasi_iklan`
+--
+
+INSERT INTO `tbl_rekomendasi_iklan` (`id_rekomendasi_iklan`, `nolayanan`, `nosublayanan`, `type_rekomendasi_iklan`, `id_iklan`, `nama_iklan`, `description`, `alamat`, `image`, `table_iklan`, `create_at`) VALUES
+(1, 100, 101, 'tenaga_ahli', 1, 'Budiman Santoso', 'Bidang Profesi: Engineering Tanggal Lahir : 2022-02-09 Pendidikan :S2JurusanNuclear EngeneeringPengalaman Kerja :1 - 3 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802177_2829bbdb0da81fe252fc.jpg\"]', 'tbl_tenagaahli', '2022-09-22 06:16:17'),
+(2, 100, 106, 'tenaga_ahli', 2, 'Santra Ari', 'Bidang Profesi : Engineering Tanggal Lahir : 2022-09-24Pendidikan : S3JurusanNuclear EngeneeringPengalaman Kerja :3 - 5 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802366_d98873450151c17ec036.jpg\"]', 'tbl_tenagaahli', '2022-09-22 06:19:27'),
+(3, 200, 203, 'tenaga_terampil', 1, 'Saipul Kufron', 'Bidang Profesi : Perawat Jompo/Lansia, Tanggal Lahir : 2004-06-09Pendidikan :SMPPengalaman :1 - 3 Tahun', 'Gang Tengah Majalengka Kertajati Jawa Barat', '[\"1663811908_f3c284ceec7a3e06dcc1.jpg\",\"1663811908_af53f0a8070df5a37333.jpg\"]', 'tbl_tenagaterampil', '2022-09-22 08:58:29'),
+(4, 300, 301, 'kost&kontrakan', 1, 'Kost Dekat Mall Stadion', 'Jumlah Kamar : 2Kamar Kosong : 2 Listrik : Token tiap kamar/kontrakanKamar Mandi : Kamar mandi dalamAC : AdaAdaAdaAdaAda', 'Jakarta Cibitung kab. Bekasi Jawa Barat', '[\"1663812534_da7ac70d4516a034313c.jpg\",\"1663812534_fb66d7926721a966f04c.jpg\"]', 'tbl_kostkontrakan', '2022-09-22 09:08:54'),
+(5, 400, 401, 'rumah', 1, 'Rumah Dekat SPBU', 'Luas Tanah :2000Luas Bangunan :2000 Kepemilikan :SertifikatJumlah Lantai :2 1 Ada Ada 1 2 2 Ada Ada Masuk Mobil 2 1 Silahkan dibeli ', 'Komplek inkopad Majalengka Bogor jawa barat', '[\"1663813643_23ff5f4b68b2114f443e.jpg\",\"1663813643_1bf3725bcf85312832b2.jpg\"]', 'tbl_rumah', '2022-09-22 09:27:23'),
+(6, 400, 402, 'tanah', 1, 'Tanah Lapang', 'Luas Tanah :3000Kepemilikan :SertifikatAkses Mobil :Masuk Mobil', 'Bogor  Tajurhalang Bogor jawa barat', '[\"1663814021_46b87affcf08c7e80440.jpeg\",\"1663814021_a787f08394d03508d151.jpg\"]', 'tbl_tanah', '2022-09-22 09:33:41'),
+(7, 400, 403, 'apartemen', 1, 'Apartemen Tekuk Intan', 'Luas :4000Kepemilikan : SHM Strata tittleBedroom :20Kamar Mandi : 10Listrik : 2000Dijual secepatnya', 'Tangerang Tajurhalang Kertajati jawa barat', '[\"1663814312_48d9391d15b92dd48581.jpg\",\"1663814312_74ea0551247a827074c2.jpg\"]', 'tbl_apartemen', '2022-09-22 09:38:33'),
+(8, 400, 404, 'ruko', 1, 'Ruko besar', 'Luas Tanah : 2000Luas Bangunan :  2000Kepemilikan :Jumlah Lantai :1Listrik :200Kamar Mandi :2Carport :2Disewakan cepat', 'Parung Dekat Kantor Pos Cibitung Kertajati jawa barat', '[\"1663814531_4b4f1d64d5290dd48fa9.jpg\",\"1663814531_110365e259007331778f.jpg\"]', 'tbl_ruko', '2022-09-22 09:42:11'),
+(9, 400, 405, 'bangunan_komersial', 1, 'Bangunan Komersial Di Kawasan Mandiri', 'Luas Tannah : 300Luas Bangunan : 200 Kepemilikan : SHM Strata tittleJumlah Lantai : 2000Listrik :200Carport :3000Disewakan', 'Bogor Majalengka Bogor jawa barat', '[\"1663814759_3efc5b5605e21e11cbae.jpg\",\"1663814759_e86b3f838c5189442d7f.jpg\"]', 'tbl_bangunankomersial', '2022-09-22 09:46:00'),
+(10, 500, 501, 'mobil', 1, 'Mobil Avanza', 'Merk :AvanzaType : ToyotaTahun : 2010Warna : Putih298 TPLP 890 140200pertaliteDijual Cepat', ' Tajurhalang Kertajati Jawa Barat', '[\"1663815315_254aac080787301e5426.jpg\",\"1663815315_28adc02f10ed2ce73efd.jpg\"]', 'tbl_mobil', '2022-09-22 09:55:15'),
+(11, 600, 601, 'motor', 1, 'Motor Aerox', 'Merk : YamahaType : 2019Tahun : 2019Warna : Coklat Kesilveran290 TPLP 016 2000pertalitedijual saja', 'inkopad Tajurhalang Bogor Jawa Barat', '[\"1663815500_03554b25de629b930196.jpg\",\"1663815500_f9f70f6de3b4764e76fd.png\"]', 'tbl_motor', '2022-09-22 09:58:20');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_ruko`
+-- Struktur dari tabel `tbl_ruko`
 --
 
 CREATE TABLE `tbl_ruko` (
@@ -273,10 +377,17 @@ CREATE TABLE `tbl_ruko` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_ruko`
+--
+
+INSERT INTO `tbl_ruko` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `kamarmandi`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `image`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
+(1, 0, 400, 404, 0, 'Ruko besar', 2000, 2000, '', 1, 200, 2, 2, 'Parung Dekat Kantor Pos', 'Cibitung', 'Kertajati', 'jawa barat', '[\"1663814531_4b4f1d64d5290dd48fa9.jpg\",\"1663814531_110365e259007331778f.jpg\"]', 'Disewakan cepat', 300000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_rumah`
+-- Struktur dari tabel `tbl_rumah`
 --
 
 CREATE TABLE `tbl_rumah` (
@@ -315,10 +426,17 @@ CREATE TABLE `tbl_rumah` (
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_rumah`
+--
+
+INSERT INTO `tbl_rumah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jenispengiklan`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `ruangtamu`, `ruangkeluarga`, `kamartidur`, `kamarpembantu`, `kamarmandi`, `teras`, `taman`, `aksesmobil`, `garasi`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `image`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
+(1, 0, 400, 401, 0, 'Rumah Dekat SPBU', 2000, 2000, 'Sertifikat', 2, 1, 'Ada', 'Ada', 1, 2, 2, 'Ada', 'Ada', 'Masuk Mobil', '2', '1', 'Komplek inkopad', 'Majalengka', 'Bogor', 'jawa barat', '[\"1663813643_23ff5f4b68b2114f443e.jpg\",\"1663813643_1bf3725bcf85312832b2.jpg\"]', 'Silahkan dibeli ', 200000, 0, NULL, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_sublayanan`
+-- Struktur dari tabel `tbl_sublayanan`
 --
 
 CREATE TABLE `tbl_sublayanan` (
@@ -332,7 +450,7 @@ CREATE TABLE `tbl_sublayanan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_sublayanan`
+-- Dumping data untuk tabel `tbl_sublayanan`
 --
 
 INSERT INTO `tbl_sublayanan` (`id`, `nolayanan`, `nosublayanan`, `sublayanan`, `gambar`, `url`, `is_active`) VALUES
@@ -341,7 +459,6 @@ INSERT INTO `tbl_sublayanan` (`id`, `nolayanan`, `nosublayanan`, `sublayanan`, `
 (3, 300, 301, 'Kost & Kontrakan', 'kost.jpg', 'kost_kontrakan', 1),
 (4, 400, 401, 'Rumah', 'rumah.png', 'rumah', 1),
 (5, 500, 501, 'Mobil', 'mobil.png', 'mobil', 1),
-(6, 600, 601, 'Motor', 'motor.png', 'motor', 0),
 (16, 100, 102, 'Production', 'production.png', 'tenaga_ahli', 1),
 (17, 100, 103, 'Construction', 'construction.png', 'tenaga_ahli', 1),
 (18, 100, 104, 'Finance', 'finance.png', 'tenaga_ahli', 1),
@@ -359,7 +476,7 @@ INSERT INTO `tbl_sublayanan` (`id`, `nolayanan`, `nosublayanan`, `sublayanan`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tanah`
+-- Struktur dari tabel `tbl_tanah`
 --
 
 CREATE TABLE `tbl_tanah` (
@@ -388,10 +505,17 @@ CREATE TABLE `tbl_tanah` (
   `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_tanah`
+--
+
+INSERT INTO `tbl_tanah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `kepemilikan`, `aksesmobil`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar6`, `image`, `deskripsi`, `harga`, `is_active`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
+(1, 0, 400, 402, 0, 'Tanah Lapang', 3000, 'Sertifikat', 'Masuk Mobil', 'Bogor ', 'Tajurhalang', 'Bogor', 'jawa barat', '', '', '[\"1663814021_46b87affcf08c7e80440.jpeg\",\"1663814021_a787f08394d03508d151.jpg\"]', 'Silahkan Dibeli', 50000000, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tenagaahli`
+-- Struktur dari tabel `tbl_tenagaahli`
 --
 
 CREATE TABLE `tbl_tenagaahli` (
@@ -415,10 +539,18 @@ CREATE TABLE `tbl_tenagaahli` (
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_tenagaahli`
+--
+
+INSERT INTO `tbl_tenagaahli` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `bidang_profesi`, `nama_lengkap`, `tanggal_lahir`, `pendidikan`, `jurusan`, `pengalaman_kerja`, `domisili`, `kecamatan`, `kabupaten`, `provinsi`, `deskripsi`, `gaji`, `image`, `created_time`) VALUES
+(1, 1, 100, 101, 'Engineering', 'Budiman Santoso', '2022-02-09', 'S2', 'Nuclear Engeneering', '1 - 3 Tahun', 'Inkopad', 'Tajurhalang', 'Bogor', 'Jawa Barat', 'Saya bisa juga mengawasi pengoperasian suatu proyek untuk menjamin prosedur keamanan yang ada.', '6000000', '[\"1663802177_2829bbdb0da81fe252fc.jpg\"]', '2022-09-22 06:16:17'),
+(2, 1, 100, 101, 'Engineering', 'Santra Ari', '2022-09-24', 'S3', 'Nuclear Engeneering', '3 - 5 Tahun', 'Inkopad', 'Tajurhalang', 'Bogor', 'Jawa Barat', 'Saya bisa juga mengawasi pengoperasian suatu proyek untuk menjamin prosedur keamanan yang ada.', '', '[\"1663802366_d98873450151c17ec036.jpg\"]', '2022-09-22 06:19:26');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tenagaterampil`
+-- Struktur dari tabel `tbl_tenagaterampil`
 --
 
 CREATE TABLE `tbl_tenagaterampil` (
@@ -440,10 +572,17 @@ CREATE TABLE `tbl_tenagaterampil` (
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tbl_tenagaterampil`
+--
+
+INSERT INTO `tbl_tenagaterampil` (`id`, `nolayanan`, `nosublayanan`, `profesi`, `nama_lengkap`, `tempat_lahir`, `pendidikan`, `pengalaman_kerja`, `domisili`, `kecamatan`, `kabupaten`, `provinsi`, `deskripsi`, `gaji`, `image`, `created_time`) VALUES
+(1, 200, 203, 'Perawat Jompo/Lansia', 'Saipul Kufron', '2004-06-09', 'SMP', '1 - 3 Tahun', 'Gang Tengah', 'Majalengka', 'Kertajati', 'Jawa Barat', 'Sabar Dalam Mengurusi', '7000000', '[\"1663811908_f3c284ceec7a3e06dcc1.jpg\",\"1663811908_af53f0a8070df5a37333.jpg\"]', '2022-09-22 08:58:28');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_user`
+-- Struktur dari tabel `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -467,7 +606,7 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tbl_user`
+-- Dumping data untuk tabel `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id`, `nama`, `tgllahir`, `jeniskelamin`, `nohp`, `email`, `password`, `role`, `norek`, `gopay`, `ovo`, `suspend`, `is_active`, `created_at`, `updated_at`, `perusahaan`, `gambar`) VALUES
@@ -483,185 +622,221 @@ INSERT INTO `tbl_user` (`id`, `nama`, `tgllahir`, `jeniskelamin`, `nohp`, `email
 --
 
 --
--- Indexes for table `tbl_apartemen`
+-- Indeks untuk tabel `tbl_apartemen`
 --
 ALTER TABLE `tbl_apartemen`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_bangunankomersial`
+-- Indeks untuk tabel `tbl_bangunankomersial`
 --
 ALTER TABLE `tbl_bangunankomersial`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_jenisiklan`
+-- Indeks untuk tabel `tbl_jenisiklan`
 --
 ALTER TABLE `tbl_jenisiklan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_kostkontrakan`
+-- Indeks untuk tabel `tbl_kontak_kami`
+--
+ALTER TABLE `tbl_kontak_kami`
+  ADD PRIMARY KEY (`id_kontak_kami`);
+
+--
+-- Indeks untuk tabel `tbl_kostkontrakan`
 --
 ALTER TABLE `tbl_kostkontrakan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_layanan`
+-- Indeks untuk tabel `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_mobil`
+-- Indeks untuk tabel `tbl_mobil`
 --
 ALTER TABLE `tbl_mobil`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_motor`
+-- Indeks untuk tabel `tbl_motor`
 --
 ALTER TABLE `tbl_motor`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_rekomendasi_iklan`
+-- Indeks untuk tabel `tbl_pesan`
+--
+ALTER TABLE `tbl_pesan`
+  ADD PRIMARY KEY (`id_pesan`);
+
+--
+-- Indeks untuk tabel `tbl_pesan_komen`
+--
+ALTER TABLE `tbl_pesan_komen`
+  ADD PRIMARY KEY (`id_pesan_komen`);
+
+--
+-- Indeks untuk tabel `tbl_rekomendasi_iklan`
 --
 ALTER TABLE `tbl_rekomendasi_iklan`
   ADD PRIMARY KEY (`id_rekomendasi_iklan`);
 
 --
--- Indexes for table `tbl_ruko`
+-- Indeks untuk tabel `tbl_ruko`
 --
 ALTER TABLE `tbl_ruko`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_rumah`
+-- Indeks untuk tabel `tbl_rumah`
 --
 ALTER TABLE `tbl_rumah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_sublayanan`
+-- Indeks untuk tabel `tbl_sublayanan`
 --
 ALTER TABLE `tbl_sublayanan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_tanah`
+-- Indeks untuk tabel `tbl_tanah`
 --
 ALTER TABLE `tbl_tanah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_tenagaahli`
+-- Indeks untuk tabel `tbl_tenagaahli`
 --
 ALTER TABLE `tbl_tenagaahli`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_tenagaterampil`
+-- Indeks untuk tabel `tbl_tenagaterampil`
 --
 ALTER TABLE `tbl_tenagaterampil`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_user`
+-- Indeks untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tbl_apartemen`
+-- AUTO_INCREMENT untuk tabel `tbl_apartemen`
 --
 ALTER TABLE `tbl_apartemen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_bangunankomersial`
+-- AUTO_INCREMENT untuk tabel `tbl_bangunankomersial`
 --
 ALTER TABLE `tbl_bangunankomersial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_jenisiklan`
+-- AUTO_INCREMENT untuk tabel `tbl_jenisiklan`
 --
 ALTER TABLE `tbl_jenisiklan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_kostkontrakan`
+-- AUTO_INCREMENT untuk tabel `tbl_kontak_kami`
 --
-ALTER TABLE `tbl_kostkontrakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tbl_kontak_kami`
+  MODIFY `id_kontak_kami` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_layanan`
+-- AUTO_INCREMENT untuk tabel `tbl_kostkontrakan`
+--
+ALTER TABLE `tbl_kostkontrakan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_layanan`
 --
 ALTER TABLE `tbl_layanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `tbl_mobil`
+-- AUTO_INCREMENT untuk tabel `tbl_mobil`
 --
 ALTER TABLE `tbl_mobil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_motor`
+-- AUTO_INCREMENT untuk tabel `tbl_motor`
 --
 ALTER TABLE `tbl_motor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_rekomendasi_iklan`
+-- AUTO_INCREMENT untuk tabel `tbl_pesan`
+--
+ALTER TABLE `tbl_pesan`
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_pesan_komen`
+--
+ALTER TABLE `tbl_pesan_komen`
+  MODIFY `id_pesan_komen` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `tbl_rekomendasi_iklan`
 --
 ALTER TABLE `tbl_rekomendasi_iklan`
-  MODIFY `id_rekomendasi_iklan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rekomendasi_iklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `tbl_ruko`
+-- AUTO_INCREMENT untuk tabel `tbl_ruko`
 --
 ALTER TABLE `tbl_ruko`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_rumah`
+-- AUTO_INCREMENT untuk tabel `tbl_rumah`
 --
 ALTER TABLE `tbl_rumah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_sublayanan`
+-- AUTO_INCREMENT untuk tabel `tbl_sublayanan`
 --
 ALTER TABLE `tbl_sublayanan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `tbl_tanah`
+-- AUTO_INCREMENT untuk tabel `tbl_tanah`
 --
 ALTER TABLE `tbl_tanah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_tenagaahli`
+-- AUTO_INCREMENT untuk tabel `tbl_tenagaahli`
 --
 ALTER TABLE `tbl_tenagaahli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tbl_tenagaterampil`
+-- AUTO_INCREMENT untuk tabel `tbl_tenagaterampil`
 --
 ALTER TABLE `tbl_tenagaterampil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_user`
+-- AUTO_INCREMENT untuk tabel `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;

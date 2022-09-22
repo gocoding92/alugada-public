@@ -27,30 +27,32 @@
   </div>
 
   <h4 class="margin-left-16"> Form Kontak </h4>
-  <div class="row">
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Nama</label>
-      <input type="text" name="judul_iklan" class="form-control margin-top-6" placeholder="">
+  <form action="<?= base_url('kontak_kami/save'); ?>" method="post">
+    <div class="row">
+      <div class="margin-bottom-12 padding-right-46 padding-left-16">
+        <label for="" class="font-size-15">Nama</label>
+        <input type="text" name="nama" class="form-control margin-top-6" placeholder="" required>
+      </div>
+      <div class="margin-bottom-12 padding-right-46 padding-left-16">
+        <label for="" class="font-size-15">Telepon</label>
+        <input type="text" name="telepon" class="form-control margin-top-6" placeholder="" required>
+      </div>
+      <div class="margin-bottom-12 padding-right-46 padding-left-16">
+        <label for="" class="font-size-15">Email</label>
+        <input type="text" name="email" class="form-control margin-top-6" placeholder="" required>
+      </div>
+      <div class="margin-bottom-12 padding-right-46 padding-left-16">
+        <label for="" class="font-size-15">Alamat</label>
+        <textarea name="alamat" class="form-control margin-top-6"require></textarea>
+      </div>
+      <div class="margin-bottom-12 padding-right-46 padding-left-16">
+        <label for="" class="font-size-15">Pesan</label>
+        <textarea name="pesan" class="form-control margin-top-6"required></textarea>
+      </div>
+      <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
+        <button class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
+      </div>
     </div>
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Telepon</label>
-      <input type="text" name="judul_iklan" class="form-control margin-top-6" placeholder="">
-    </div>
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Email</label>
-      <input type="text" name="judul_iklan" class="form-control margin-top-6" placeholder="">
-    </div>
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Alamat</label>
-      <textarea name="merk" class="form-control margin-top-6"></textarea>
-    </div>
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="" class="font-size-15">Pesan</label>
-      <textarea name="merk" class="form-control margin-top-6"></textarea>
-    </div>
-    <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
-      <button class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
-    </div>
-  </div>
+  </form>
 </div>
 <?= $this->endSection(); ?>

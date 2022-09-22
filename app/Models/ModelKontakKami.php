@@ -4,11 +4,11 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ModelHome extends Model
+class ModelKontakKami extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'tbl_rekomendasi_iklan';
-    protected $primaryKey       = 'id_rekomendasi_iklan';
+    protected $table            = 'tbl_kontak_kami';
+    protected $primaryKey       = 'id_kontak_kami';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -40,18 +40,8 @@ class ModelHome extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function sublayanan($nolayanan)
+    Public function submitForm($data)
     {
-        return $this->db->table('tbl_sublayanan')->getWhere(['nolayanan' => $nolayanan])->getResultArray();
-    }
-
-    public function iklan($nosublayanan)
-    {
-        return $this->db->table('tbl_rekomendasi_iklan')->getWhere(['nosublayanan' => $nosublayanan])->getResultArray();
-    }
-
-    public function iklanAll($nolayanan)
-    {
-        return $this->db->table('tbl_rekomendasi_iklan')->getWhere(['nolayanan' => $nolayanan])->getResultArray();
+       return  $this->db->table('tbl_kontak_kami')->insert($data);    
     }
 }
