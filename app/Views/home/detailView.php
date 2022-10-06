@@ -1,17 +1,17 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-
-
-
-
 <div id="home-page" class="row-sm">
-
-
-  <?php foreach ($sublayanan as $value) : ?>
-    <a href="<?= base_url(); ?>/home/detail/<?= $nolayanan; ?>/<?= $value['nosublayanan']; ?>"><?= $value['sublayanan']; ?></a>
-  <?php endforeach; ?>
-
+  <div class="" style="overflow: auto;
+    margin-bottom: 4px;
+    margin-top: 10px;
+    height: 45px;">
+    <?php foreach ($sublayanan as $value) : ?>
+      <div style="width: 100%;">
+        <a style="margin-right: 12px; color: <?= $nosublayanan === $value['nosublayanan'] ? '#2c92e4;' : 'rgb(74, 74, 74)'; ?>" class="text-decoration-none" href="<?= base_url(); ?>/home/detail/<?= $nolayanan; ?>/<?= $value['nosublayanan']; ?>"><?= $value['sublayanan']; ?></a>
+      </div>
+    <?php endforeach; ?>
+  </div>
   <div class="row-card-layanan">
     <?php foreach ($iklan as $tbl_rekomendasi_iklan) :
       $image = json_decode($tbl_rekomendasi_iklan['image']);
@@ -42,6 +42,5 @@
       </a>
     <?php endforeach; ?>
   </div>
-
 </div>
 <?= $this->endSection(); ?>

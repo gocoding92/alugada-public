@@ -42,7 +42,6 @@ class Home extends BaseController
             $nohppengunjung = 123;
         }
 
-
         $sublayanan = $this->modelhome->sublayanan($nolayanan);
 
         $iklan = $this->modelhome->iklan($nosublayanan);
@@ -54,11 +53,12 @@ class Home extends BaseController
         $data = [
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => $judul,
-            'nolayanan'       =>  $nolayanan,
+            'nolayanan'     =>  $nolayanan,
             'sublayanan'    => $this->modelalugada->sublayanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
             'sublayanan'    => $sublayanan,
             'iklan'         => $iklan,
+            'nosublayanan'  => $nosublayanan
         ];
         return view('home/detailView', $data);
     }
