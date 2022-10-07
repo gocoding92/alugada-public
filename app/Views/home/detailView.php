@@ -2,13 +2,22 @@
 
 <?= $this->section('content'); ?>
 <div id="home-page" class="row-sm">
-  <div class="" style="overflow: auto;
-    margin-bottom: 4px;
-    margin-top: 10px;
-    height: 45px;">
+  <div class="" style="
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+    overflow: auto;">
     <?php foreach ($sublayanan as $value) : ?>
-      <div style="width: 100%;">
-        <a style="margin-right: 12px; color: <?= $nosublayanan === $value['nosublayanan'] ? '#2c92e4;' : 'rgb(74, 74, 74)'; ?>" class="text-decoration-none" href="<?= base_url(); ?>/home/detail/<?= $nolayanan; ?>/<?= $value['nosublayanan']; ?>"><?= $value['sublayanan']; ?></a>
+      <div class="1111" style="
+      background-color: <?= $nosublayanan === $value['nosublayanan'] ? '#6b5e5e' : 'red'; ?>;
+      padding: 5px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      margin-right: 8px;">
+        <a style="
+        font-size: 14px;
+        color: white;
+        " class="text-decoration-none" href="<?= base_url(); ?>/home/detail/<?= $nolayanan; ?>/<?= $value['nosublayanan']; ?>"><?= $value['sublayanan']; ?></a>
       </div>
     <?php endforeach; ?>
   </div>
