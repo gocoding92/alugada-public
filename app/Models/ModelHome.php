@@ -54,4 +54,9 @@ class ModelHome extends Model
     {
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere(['nolayanan' => $nolayanan])->getResultArray();
     }
+
+    public function slider()
+    {
+        return $this->db->table('tbl_slider')->get()->getResultArray();
+    }
 }

@@ -23,12 +23,14 @@ class Home extends BaseController
             $nohppengunjung = 123;
         }
         $query = $this->modelhome->findAll();
+        $querySlider = $this->modelhome->slider(); 
         $data = [
             // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'rekomendasi_iklan'       => $query,
+            'slider' => $querySlider
             // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
         ];
         return view('home/indexView', $data);
