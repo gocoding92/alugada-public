@@ -230,6 +230,9 @@
                       <td> <?= $slide['description'] ?></td>
                       <td> <?= $slide['image'] ?></td>
                       <td>
+                        <a href="<?= base_url(''); ?>/administrator-area/edit/<?= $slide['id_slider']; ?>">
+                          <button class="btn btn-primary">Update</button>
+                        </a>
                         <form action="<?= base_url(''); ?>/administrator-area/delete/<?= $slide['id_slider']; ?>" method="post">
                           <input type="hidden" name="id" value=" <?= $slide['id_slider'] ?>">
                           <a href=" <?php  ?>">

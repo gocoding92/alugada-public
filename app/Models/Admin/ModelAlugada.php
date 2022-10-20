@@ -116,4 +116,10 @@ class ModelAlugada extends Model
     {
         $this->db->table('tbl_slider')->insert($data);
     }
+
+    public function editSlider($id)
+    {
+        return $this->db->table('tbl_slider')->getWhere(['id_slider' => $id])->getRowArray();
+    }
+    
 }

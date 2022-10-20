@@ -96,9 +96,11 @@ $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 
 // Administrator
 $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
-$routes->get('/administrator-area/dashboard', 'Admin\DashboardController::index');   // <--------- Ok
+$routes->get('/administrator-area/dashboard/', 'Admin\DashboardController::index');   // <--------- Ok
 $routes->get('/administrator-area/dashboard/create', 'Admin\DashboardController::create');   // <--------- Ok
 $routes->post('/administrator-area/dashboard/createSlider', 'Admin\DashboardController::saveSlider');   // <--------- Ok
+$routes->get('/administrator-area/dashboard/edit/(:num)', 'Admin\DashboardController::edit/$1');   // <--------- Ok
+// $routes->post('/administrator-area/update', 'Admin\DashboardController::update');   // <--------- Ok
 $routes->post('/administrator-area/delete/(:num)', 'Admin\DashboardController::delete/$1');   // <--------- Ok
 
 $routes->get('/administrator-area/users', 'Admin\Users::index');

@@ -47,7 +47,8 @@ class DashboardController extends BaseController
         $id = $this->request->getVar('id');
         $delete = $this->modelalugada->deleteSlider($id);
        
-        redirect()->to('/administrator-area/dashboard/');
+        // redirect()->to('/administrator-area/dashboard/');
+        return redirect()->back();
     }
 
     public function create()
@@ -67,10 +68,17 @@ class DashboardController extends BaseController
         ]);
 
         $this->modelalugada->insertSlider($data);
-
-
-
         return redirect()->to('/administrator-area/dashboard');
+        
+    }
+
+    public function edit($id)
+    {
+        $id_slider = $this->modelalugada->editSlider($id);
+        $data = ([
+            'id' => $id_slider
+        ]);
+        return view("/administrator-area/dashboard/edit", $data);
     }
 
 
