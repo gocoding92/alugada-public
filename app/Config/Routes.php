@@ -41,18 +41,27 @@ $routes->get('/', 'Home::index');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
 $routes->get('/home/detail/(:num)/(:num)', 'Home::detail/$1/$2');
 
+// AUTH 
+$routes->get('/login', 'Auth::index');
+$routes->get('/register', 'Auth::register');
+$routes->post('/auth/submit-register', 'Auth::submit_register');
+
+
+// -------------
+
+
 $routes->get('/logout', 'Auth::logout');
 
-$routes->get('/login', 'Auth::index');
-$routes->post('/submit-login', 'Auth::submit_login');
-$routes->get('/submit-login', 'Auth::submit_login');
-$routes->get('/register', 'Auth::register');
-$routes->post('/submit-register', 'Auth::submit_register');
-$routes->get('/submit-register', 'Auth::submit_register');
-$routes->get('/otp', 'Auth::otp');
-$routes->post('/submit-otp', 'Auth::submit_otp');
-$routes->get('/data-otp', 'Auth::data_otp');
-$routes->post('/submit-data-user', 'Auth::submit_data_user');
+// $routes->get('/login', 'Auth::index');
+// $routes->post('/submit-login', 'Auth::submit_login');
+// $routes->get('/submit-login', 'Auth::submit_login');
+// $routes->get('/register', 'Auth::register');
+// $routes->post('/submit-register', 'Auth::submit_register');
+// $routes->get('/submit-register', 'Auth::submit_register');
+// $routes->get('/otp', 'Auth::otp');
+// $routes->post('/submit-otp', 'Auth::submit_otp');
+// $routes->get('/data-otp', 'Auth::data_otp');
+// $routes->post('/submit-data-user', 'Auth::submit_data_user');
 
 $routes->get('/edit-profile', 'Profile::edit_profile');
 $routes->post('/submit-edit-profile', 'Profile::submit_edit_profile');

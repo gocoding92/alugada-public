@@ -13,163 +13,113 @@ class Auth extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $this->modelalugada = new ModelAlugada();
         $this->session = \Config\Services::session();
-        // $this->admin = 0;   //Bukan Admin
     }
 
 
     public function logout()
     {
         $this->session->remove('nohppengunjung');
+        $this->session->remove('nohploginregister');
+        $this->session->remove('otp');
+        $this->session->remove('nohploginregister');
+        $this->session->remove('password');
+        $this->session->remove('lupapassword');
+
         return redirect()->to('/');
     }
-    public function index()
+
+    public function index()         // User Login +> ke login view
     {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
-
+        $nohploginregister = $this->session->get('nohploginregister');
         $data = [
-            // 'admin'         => $this->admin,
-            'title'         => "Layanan",
+            'title'         => "Login",
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'layanan'       => $this->modelalugada->layanan(),
-            // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            // 'layanan'       => $this->modelalugada->layanan(),
+            'nohp'          => $nohploginregister,
         ];
-
 
         return view('auth/loginView', $data);
     }
+
+    public function submit_login()
+    {
+        $nohploginregister = $this->request->getVar('nohp');
+        $password = $this->request->getVar('password');
+
+        //Cek No Hp terdaftar tidak
+        $terdaftar = $this->modelalugada->userbynohp($nohploginregister);
+
+        $datalogin = [
+            'nohploginregister'     => $nohploginregister
+        ];
+        $dataUser = [
+            'data_user'     => $terdaftar
+        ];
+
+        $this->session->set($datalogin);
+        $this->session->set($dataUser);
+
+        if ($terdaftar) { // =============== Jika Terdaftar =========================
+
+            //============ Cek Password ============
+            if ($password != $terdaftar['password']) {
+                return redirect()->to('login');
+            }
+
+            $datapengunjung = [
+                'nohppengunjung' => $nohploginregister
+            ];
+            $this->session->set($datapengunjung);
+            return redirect()->to('/');
+        } else {
+            return redirect()->to('register');
+        }
+    }
+
     public function register()
     {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
-
+        $nohploginregister = $this->session->get('nohploginregister');
         $data = [
+            'title'         => "Register",
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => "Layanan",
+            // 'layanan'       => $this->modelalugada->layanan(),
+            'nohp'          => $nohploginregister,
         ];
 
         return view('auth/registerView', $data);
     }
 
-    public function verify()
+    public function submit_register()
     {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
 
-        $loginregister = $this->request->getVar('loginregister');
         $nohploginregister = $this->request->getVar('nohp');
 
-        $dataohploginregister = [
-            'nohploginregister' => $nohploginregister,
-        ];
-        $this->session->set($dataohploginregister);
-
-        //Cek No Hp terdaftar belum
         $terdaftar = $this->modelalugada->userbynohp($nohploginregister);
 
-        //Jika User baru Register (Register = 0)
-        if ($loginregister == 0) {
-
-            //Register ternyata sudah terdaftar
-            if ($terdaftar) {
-                // var_dump("Register tapi sudah terdaftar"); die;
-                $this->session->setFlashdata('pesan', 'Nomor anda sudah terdaftar. Silahkan login');
-
-                $data = [
-                    'title'         => "Login",
-                    'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                    'nohp'          => $nohploginregister,
-                ];
-                return view('auth/loginView', $data);
-
-                //Register dan bener belum terdaftar
-            } else {
-            // Register dan bener nomor Belum Terdaftar
-                $this->_otp();
-                $otp = $this->session->get('otp');
-                // var_dump($otp);die;
-                $data = [
-                    'title'         => "Register",
-                    'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                    'otp'          => $otp,
-                    'nohp'         => $this->session->get('nohploginregister'),
-                ];
-                // var_dump("Benar - ".$nohploginregister);die;
-                return view('auth/otpView', $data);
-            }
-
-
-        // =============================== Jika Login
-        } elseif ($loginregister == 1) {
-
-            // =================== Login dan bener Sudah terdaftar ========================
-            if ($terdaftar) {
-                // var_dump("Login dan Sudah Terdaftar"); die;
-                $passwordlogin = $this->request->getVar('password');
-                $passwordtersimpan = $terdaftar['password'];
-
-                //Jika password benar
-                if ($passwordlogin == $passwordtersimpan) {
-                    $datasesi = [
-                        'nohppengunjung'       => $nohploginregister,
-                    ];
-                    $this->session->set($datasesi);
-
-                    $nohppengunjung = $nohploginregister;
-                    $data = [
-                        'title'         => "Register",
-                        'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                        'layanan'       => $this->modelalugada->layanan(),
-                    ];
-                    return view('home/indexView', $data);
-
-                //jika password salah
-                } else {
-                //jika password salah                   
-                    $data = [
-                        'title'         => "Register",
-                        'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                        'layanan'       => $this->modelalugada->layanan(),
-                        'nohp'          => $nohploginregister,
-                    ];
-                    return view('auth/loginView', $data);
-                }
-            // ============ Batas Login dan sudah terdaftar ==========================
-
-
-
-            // =================== Login ternyata Belum terdaftar ===================
-            } else {
-                $this->session->setFlashdata('pesan', 'Nomor anda belum terdaftar. Silahkan daftar');
-
-                $data = [
-                    'title'         => "Register",
-                    'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                    'nohp'          => $nohploginregister,
-                ];
-                return view('auth/registerView', $data);
-            }
+        if ($terdaftar) {
+            return redirect()->to('login');
         }
 
-
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-
-        $data = [
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => "Layanan",
+        $datanohpregister = [
+            'nohploginregister' => $this->request->getVar('nohp'),
         ];
+        $this->session->set($datanohpregister);
 
-
-        return view('auth/verifyView', $data);
+        $this->_otp();
+        $this->session->get('otp');
+        return redirect()->to('otp');
     }
 
     //=============================== Generate OTP dan kirim ke user ==========
@@ -182,8 +132,26 @@ class Auth extends BaseController
         $this->session->set($dataotp);
     }
 
+    public function otp()
+    {
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+        }
+        $nohploginregister = $this->session->get('nohploginregister');
+        $data = [
+            'title'         => "OTP",
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            // 'layanan'       => $this->modelalugada->layanan(),
+            'nohp'          => $nohploginregister,
+            'otp'           => $this->session->get('otp'),
+        ];
+
+        return view('auth/otpView', $data);
+    }
+
     // ========================================= Cek OTP =====================
-    public function cekotp()
+    public function submit_otp()
     {
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
@@ -191,32 +159,82 @@ class Auth extends BaseController
         }
 
         $otp = $this->request->getVar('otp');
-        // $nohp = $this->request->getVar('nohp');
-        $nohp = $this->session->get('nohploginregister');
+        $nohp = $this->request->getVar('nohp');
 
         // ===================================== Jika OTP Benar
         if ($otp == $this->session->get('otp')) {
-            // var_dump("Benar OTP Sama");die;
+            if ($this->session->get('lupapassword') == 1) {
+                return redirect()->to('buat-password-baru');
+            }
 
-            $data = [
-                'title'         => "Register",
-                'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                'nohp'          => $nohp,
-            ];
-            return view('auth/inputDataView', $data);
+            return redirect()->to('data-otp');
 
             // ===================================== Jika OTP Salah
         } else {
-            // var_dump("OTP Salah");die;
 
-            $data = [
-                'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                'title'         => "Layanan",
-                'nohp'          => $nohp,
-                'otp'          => $this->session->get('otp'),
-            ];
-            return view('auth/otpView', $data);
+            return redirect()->to('otp');
         }
+    }
+
+    public function data_otp()
+    {
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+        }
+        $nohp = $this->session->get('nohploginregister');
+
+        $data = [
+            'title'         => "Register",
+            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+            'nohp'          => $nohp,
+        ];
+        return view('auth/inputDataView', $data);
+    }
+
+
+    //=============== Dari inputDataView ===================================
+    public function submit_data_user()
+    {
+        $nama = $this->request->getVar('nama');
+        $nohp = $this->session->get('nohploginregister');
+        // echo $nohp;die;
+
+        $nohppengunjung = $this->session->get('nohppengunjung');
+        if ($nohppengunjung == null) {
+            $nohppengunjung = 123;
+        }
+
+        // Ceck password dan confirm password sama atau tidak
+
+        //Jika password dan confirm password tidak sama
+        if ($this->request->getVar('password') != $this->request->getVar('confirmpassword')) {
+            // var_dump("Password tidak sama");die;
+            $this->session->setFlashdata('pesan', 'Password harus sama');
+            return redirect()->to('data-otp');
+        }
+
+        //Jika password dan confirm password sama
+        //Simpan data
+        $datauser = [
+            'nama'          => $nama,
+            'nohp'          => $nohp,
+            'password'      => $this->request->getVar('password'),
+            'role'          => 10,
+            'suspend'       => 0,
+            'is_active'     => 1,
+            'created_at'    => Time::now(),
+            'updated_at'    => Time::now(),
+            'gambar'        => "pengunjung.png"
+        ];
+        $this->modelalugada->simpannewuser($datauser);
+
+        $datasesi = [
+            'nohppengunjung' => $nohp,
+        ];
+        $this->session->set($datasesi);
+
+        return redirect()->to('/');
     }
 
     public function lupa_password()
@@ -230,177 +248,59 @@ class Auth extends BaseController
         $data = [
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Lupa Password",
+            // 'nohp'          => $nohp
         ];
 
         return view('auth/lupaPasswordView', $data);
     }
-    public function verifikasi_lupa_password()
+
+    public function submit_lupa_password()
     {
-        $nohp = $this->request->getVar('nohp');
-
-        //cekterf=daftar tidak
-        $pengunjung = $this->modelalugada->userbynohp($nohp);
-        if(!$pengunjung){
-            return redirect()->to('lupa-password');
-        }
-
+        $data = [
+            'nohploginregister'     => $this->request->getvar('nohp'),
+            'lupapassword'          => $this->request->getvar('lupapassword'),
+        ];
+        $this->session->set($data);
         $this->_otp();
-        $otp = $this->session->get('otp');
 
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-        $data = [
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => "Lupa Password",
-            'nohp'          => $nohp,
-            'otp'           => $otp,
-        ];
-
-        // var_dump($otp);die;
-        return view('auth/otpLupaPasswordView', $data);
+        return redirect()->to('otp');
     }
 
-    public function cek_otp_lupa_password()
+    public function buat_password_baru()
     {
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-
-        // var_dump("Cek Otp Lupa Password");
-        $otp = $this->request->getVar('otp');
-        $nohp = $this->request->getVar('nohp');
-        $otpsesi = $this->session->get('otp');
-        // var_dump($otp . ' - ' . $nohp . ' - ' . $otpsesi);
-
-        $data = [
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => "Lupa Password",
-            'nohp'          => $nohp,
-            'otp'           => $otp,
-        ];
-
-        if($otp != $otpsesi){
-            return view('auth/otpLupaPasswordView', $data);
-        }
-        // var_dump("OTP Sama");die;
-        return view('auth/inputPasswordView', $data);
-
-    }
-
-    public function simpan_new_password(){
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
         }
 
         $pengunjung = $this->modelalugada->userbynohp($nohppengunjung);
-
-        $nohp = $this->request->getVar('nohp');
-        $password = $this->request->getVar('password');
-        $confirmpassword = $this->request->getVar('confirmpassword');
+        $nohp = $this->session->get('nohploginregister');
 
         $data = [
             'pengunjung'    => $pengunjung,
             'title'         => "Lupa Password",
             'nohp'          => $nohp,
         ];
-        if($password != $confirmpassword){
-            return view('auth/inputPasswordView', $data);           
+        return view('auth/inputPasswordView', $data);
+    }
+
+    public function submit_password_baru()
+    {
+        $nohp       = $this->request->getVar('nohp');
+        $password   = $this->request->getVar('password');
+        $password1  = $this->request->getVar('confirmpassword');
+
+        if ($password != $password1) {
+            return redirect()->to('buat-password-baru');
         }
+
+        $id = $this->modelalugada->userbynohp($nohp)['id'];
 
         $data = [
             'password'  => $password,
         ];
 
-        $pengunjunglupapassword =$this->modelalugada->userbynohp($nohp);
-        $id = $pengunjunglupapassword['id'];
-        // var_dump($id);die;
-        $this->modelalugada->updateuser($id,$data);
+        $this->modelalugada->updateuser($id, $data);
         return redirect()->to('/');
-    }
-
-    //=============== Dari inputDataView ===================================
-    public function simpanNewUser()
-    {
-        // var_dump("Benar simpan new user");die;
-
-        $this->request->getVar('nama');
-        $nohp = $this->request->getVar('nohp');
-
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-
-        // Ceck password dan confirm password sama atau tidak
-
-        //Jika password dan confirm password tidak sama
-        if ($this->request->getVar('password') != $this->request->getVar('confirmpassword')) {
-            // var_dump("Password tidak sama");die;
-            $this->session->setFlashdata('pesan', 'Password harus sama');
-
-            $data = [
-                'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-                'title'         => "Data user",
-                'nohp'          => $nohp,
-            ];
-            return view('auth/inputDataView', $data);
-        }
-
-        //Jika password dan confirm password sama
-        //Simpan data
-        $datauser = [
-            'nama'          => $this->request->getVar('nama'),
-            'nohp'          => $nohp,
-            'password'      => $this->request->getVar('password'),
-            'role'          => 10,
-            'suspend'       => 0,
-            'is_active'     => 1,
-            'created_at'    => Time::now(),
-            'updated_at'    => Time::now(),
-            'gambar'       => "pengunjung.png"
-        ];
-
-        $this->modelalugada->simpannewuser($datauser);
-
-        $datasesi = [
-            'nohppengunjung' => $nohp,
-        ];
-        $this->session->set('$datasesi');
-        $this->session->remove('otp'); // Remove session OTP
-
-        $data = [
-            'pengunjung'    => $this->modelalugada->userbynohp($nohp),
-            'title'         => "Data user",
-            'layanan'       => $this->modelalugada->layanan(),
-
-        ];
-
-
-        return view('home/index', $data);
-        // var_dump($this->request->getVar());
-    }
-
-
-    public function data999()
-    {
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-
-        $data = [
-            'admin'         => $this->admin,
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => "Layanan",
-            'layanan'       => $this->modelalugada->layanan(),
-            'jenisiklan'    => $this->modelalugada->jenisiklan(),
-        ];
-
-
-        return view('auth/data', $data);
     }
 }

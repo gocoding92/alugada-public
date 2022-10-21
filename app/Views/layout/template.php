@@ -20,6 +20,10 @@
     <!-- SweetAlert CSS-->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
+
     <style>
         @font-face {
             font-family: myFirstFont;
@@ -49,9 +53,6 @@
         <?php echo $this->include('layout/navbar'); ?>
     </main>
 
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
     <?php
     $alert = false;
