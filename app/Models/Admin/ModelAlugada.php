@@ -90,6 +90,10 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_sublayanan')->update($data, ['id' => $id]);
     }
 
+    public function readSlider()
+    {
+        return $this->db->table('tbl_slider')->get()->getResultArray();
+    }
     // public function iklancarikerja()
     // {
     //     return $this->db->table('tbl_iklancarikerja')->get()->getResultArray();
@@ -102,4 +106,20 @@ class ModelAlugada extends Model
     // {
     //     return $this->db->table('tbl_iklanmobilmotor')->get()->getResultArray();
     // }
+
+    public function deleteSlider($id)
+    {
+        return $this->db->table("tbl_slider")->where(['id_slider' => $id])->delete();
+    }
+
+    public function insertSlider($data)
+    {
+        $this->db->table('tbl_slider')->insert($data);
+    }
+
+    public function editSlider($id)
+    {
+        return $this->db->table('tbl_slider')->getWhere(['id_slider' => $id])->getRowArray();
+    }
+    
 }

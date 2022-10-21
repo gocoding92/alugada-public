@@ -207,4 +207,6 @@ class ModelAlugada extends Model
     {
         return $this->db->table($table)->getWhere([$primarykey => $id_iklan])->getRowArray();
     }
+
+    
 }

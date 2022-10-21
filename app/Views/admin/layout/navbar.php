@@ -205,6 +205,15 @@
         </li>
 
         <li class="nav-item">
+          <a href="<?php echo base_url('\administrator-area\slider') ?>" class="nav-link">
+            <i class="nav-icon fas fa-list"></i>
+            <p>
+              Slider
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="<?php echo base_url('/administrator-area/edit-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>

@@ -21,7 +21,7 @@
     </div><!-- /.container-fluid -->
   </div>
   <!-- /.content-header -->
-
+   
   <!-- Main content -->
   <section class="content">
     <div class="container-fluid">
@@ -205,8 +205,49 @@
       </div>
 
 
-
-
+        <a href=" <?php base_url() ?>/administrator-area/dashboard/create">
+          <button class="btn btn-primary">Tambah Data</button>
+        </a>     
+        <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <table class="table-bordered">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Image</th>
+                      <th>Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                       <?php $no = 1; ?>
+                     <?php foreach($slider as $slide): ?>
+                    <tr>
+                      <td><?= $no++; ?></td>
+                      <td> <?= $slide['title'] ?></td>
+                      <td> <?= $slide['description'] ?></td>
+                      <td> <?= $slide['image'] ?></td>
+                      <td>
+                        <a href="<?= base_url(''); ?>/administrator-area/edit/<?= $slide['id_slider']; ?>">
+                          <button class="btn btn-primary">Update</button>
+                        </a>
+                        <form action="<?= base_url(''); ?>/administrator-area/delete/<?= $slide['id_slider']; ?>" method="post">
+                          <input type="hidden" name="id" value=" <?= $slide['id_slider'] ?>">
+                          <a href=" <?php  ?>">
+                            <button class="btn btn-danger">Hapus</button>
+                          </a>
+                        </form>
+                      </td>
+                    </tr>
+                  </tbody>
+                  <?php endforeach; ?>
+                </table>
+              </div>
+            </div>
+          </div>
+            
 
 
 
