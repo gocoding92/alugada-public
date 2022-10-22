@@ -53,4 +53,47 @@ class Auth extends BaseController
             return $register;
         }
     }
+
+    public function otp()
+    {
+        return view('auth/otpView');
+    }
+
+    public function submit_otp()
+    {
+        if ($this->request->isAJAX()) {
+            $otp = $this->request->getPost('otp');
+            $no_handphone = $this->request->getPost('no_handphone');
+            $otp = $this->ModelAuth->otp($otp, $no_handphone);
+
+            return $otp;
+        }
+    }
+
+    public function data()
+    {
+        return view('auth/dataView');
+    }
+
+    public function submit_data()
+    {
+        if ($this->request->isAJAX()) {
+            $name = $this->request->getPost('name');
+            $email = $this->request->getPost('email');
+            $no_handphone = $this->request->getPost('no_handphone');
+
+            $data_auth = $this->ModelAuth->data($name, $email, $no_handphone);
+
+            $data = $data_auth[0]['data'];
+            $status = $data_auth[1]['status'];
+            $response = $data_auth[2]['response'];
+
+            // generate session
+            if ($status == 200) {
+                $this->session->set($data);
+            }
+
+            return $response;
+        }
+    }
 }

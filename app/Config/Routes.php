@@ -46,7 +46,10 @@ $routes->get('/login', 'Auth::index');
 $routes->post('/auth/submit-login', 'Auth::submit_login');
 $routes->get('/register', 'Auth::register');
 $routes->post('/auth/submit-register', 'Auth::submit_register');
-
+$routes->get('/otp', 'Auth::otp');
+$routes->post('/auth/submit-otp', 'Auth::submit_otp');
+$routes->get('/auth/data', 'Auth::data');
+$routes->post('/auth/submit-data', 'Auth::submit_data');
 
 // -------------
 

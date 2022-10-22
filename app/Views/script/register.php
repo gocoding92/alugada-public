@@ -7,7 +7,7 @@
 
             if (!no_handphone) {
                 SnackBar({
-                    message: "No. Handphone harus diisi",
+                    message: "No. Handphone harus diisi!",
                     status: "danger",
                     speed: 500,
                     position: "tr"
@@ -35,9 +35,11 @@
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url('layanan-kami'); ?>";
+                            window.location.href = "<?php echo base_url('otp'); ?>";
                         }, 4000);
                     }
+
+                    localStorage.setItem('no_handphone', no_handphone);
                 }
             });
         });
