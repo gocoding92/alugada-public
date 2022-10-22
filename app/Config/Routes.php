@@ -43,6 +43,7 @@ $routes->get('/home/detail/(:num)/(:num)', 'Home::detail/$1/$2');
 
 // AUTH 
 $routes->get('/login', 'Auth::index');
+$routes->post('/auth/submit-login', 'Auth::submit_login');
 $routes->get('/register', 'Auth::register');
 $routes->post('/auth/submit-register', 'Auth::submit_register');
 

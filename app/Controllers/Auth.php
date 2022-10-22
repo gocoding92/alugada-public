@@ -17,19 +17,26 @@ class Auth extends BaseController
 
     public function index()
     {
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-        }
-        $nohploginregister = $this->session->get('nohploginregister');
-        $data = [
-            'title'         => "Login",
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            // 'layanan'       => $this->modelalugada->layanan(),
-            'nohp'          => $nohploginregister,
-        ];
+        return view('auth/loginView');
+    }
 
-        return view('auth/loginView', $data);
+    public function submit_login()
+    {
+        if ($this->request->isAJAX()) {
+            $no_handphone = $this->request->getPost('no_handphone');
+            $login = $this->ModelAuth->login($no_handphone);
+
+            $data = $login[0]['data'];
+            $status = $login[1]['status'];
+            $response = $login[2]['response'];
+
+            // generate session
+            if ($status == 200) {
+                $this->session->set($data);
+            }
+
+            return $response;
+        }
     }
 
     public function register()

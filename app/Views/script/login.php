@@ -16,7 +16,7 @@
             }
 
             $.ajax({
-                url: "<?= base_url('auth/submit-register'); ?>",
+                url: "<?= base_url('auth/submit-login'); ?>",
                 type: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
@@ -35,8 +35,8 @@
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url('layanan-kami'); ?>";
-                        }, 4000);
+                            window.location.href = "<?php echo base_url(); ?>";
+                        }, 2500);
                     }
                 }
             });
