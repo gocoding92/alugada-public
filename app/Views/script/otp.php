@@ -53,7 +53,7 @@
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url('auth/data'); ?>";
+                            window.location.href = "<?php echo base_url('data'); ?>";
                         }, 4000);
 
                     }

@@ -7,6 +7,26 @@
             var email = $("#email").val();
             var no_handphone = localStorage.getItem('no_handphone');
 
+            if (!name) {
+                SnackBar({
+                    message: "Name harus diisi!",
+                    status: "danger",
+                    speed: 500,
+                    position: "tr"
+                });
+                return;
+            }
+
+            if (!email) {
+                SnackBar({
+                    message: "Email harus diisi!",
+                    status: "danger",
+                    speed: 500,
+                    position: "tr"
+                });
+                return;
+            }
+
             $.ajax({
                 url: "<?= base_url('auth/submit-data'); ?>",
                 type: 'POST',
@@ -19,7 +39,12 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
-                    alert('Data profil berhasil dilakukan');
+                    SnackBar({
+                        message: "Data profil berhasil dilakukan",
+                        status: "success",
+                        speed: 500,
+                        position: "tr"
+                    });
 
                     var obj = JSON.parse(data);
 
