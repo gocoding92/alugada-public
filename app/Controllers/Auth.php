@@ -96,4 +96,10 @@ class Auth extends BaseController
             return $response;
         }
     }
+
+    public function logout()
+    {
+        session_destroy();
+        return redirect()->to('/');
+    }
 }

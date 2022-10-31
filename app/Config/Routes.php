@@ -50,11 +50,12 @@ $routes->get('/otp', 'Auth::otp');
 $routes->post('/auth/submit-otp', 'Auth::submit_otp');
 $routes->get('/data', 'Auth::data');
 $routes->post('/auth/submit-data', 'Auth::submit_data');
+$routes->get('/logout', 'Auth::logout');
 
 // -------------
 
 
-$routes->get('/logout', 'Auth::logout');
+// $routes->get('/logout', 'Auth::logout');
 
 // $routes->get('/login', 'Auth::index');
 // $routes->post('/submit-login', 'Auth::submit_login');
