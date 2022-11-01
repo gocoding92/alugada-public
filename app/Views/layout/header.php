@@ -19,11 +19,20 @@ if ($session) {
     <div class="menu">
         <ul>
             <li class="dropdown">
-                <div class="display-flex"">
-                    <p class=" text-header-user"><?= $session->get("nama") ? $session->get("nama") : 'Login / Daftar' ?> <i class="fa fa-chevron-down size"></i></p>
-                    <img class="img-user-header" src="<?= base_url('Image/default-user.jpeg'); ?>" alt="semua">
-                </div>
+                <?php if (!$session->get("nama")) { ?>
+                    <div class="display-flex cursor-pointer margin-right-10" id="login">
+                        <p class=" text-header-user">
+                            Login / Daftar <i class="fa fa-sign-in"></i>
+                        </p>
+                    </div>
+                <?php } ?>
                 <?php if ($session->get("nama")) { ?>
+                    <div class="display-flex cursor-pointer" id="login">
+                        <p class=" text-header-user"><?= $session->get("nama"); ?>
+                            <i class="fa fa-chevron-down size"></i>
+                        </p>
+                        <img class="img-user-header" src="<?= base_url('Image/default-user.jpeg'); ?>" alt="semua">
+                    </div>
                     <ul class="isi-dropdown">
                         <li><a href="#"><i class="fa fa-user"></i>&nbsp;Profil Saya</a></li>
                         <li><a href="#"><i class="fa fa-edit"></i>&nbsp;Ubah Password</a></li>
