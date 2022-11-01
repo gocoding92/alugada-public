@@ -27,7 +27,7 @@ if ($session) {
                     </div>
                 <?php } ?>
                 <?php if ($session->get("nama")) { ?>
-                    <div class="display-flex cursor-pointer" id="login">
+                    <div class="display-flex cursor-pointer">
                         <p class=" text-header-user"><?= $session->get("nama"); ?>
                             <i class="fa fa-chevron-down size"></i>
                         </p>
