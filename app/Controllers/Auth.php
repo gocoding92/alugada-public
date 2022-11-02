@@ -24,14 +24,15 @@ class Auth extends BaseController
     {
         if ($this->request->isAJAX()) {
             $no_handphone = $this->request->getPost('no_handphone');
-            $login = $this->ModelAuth->login($no_handphone);
+            $password = $this->request->getPost('password');
+            $login = $this->ModelAuth->login($no_handphone, $password);
 
             $data = $login[0]['data'];
             $status = $login[1]['status'];
             $response = $login[2]['response'];
 
             // generate session
-            if ($status == 200) {
+            if ($status == 200 && $data) {
                 $this->session->set($data);
             }
 
@@ -80,9 +81,10 @@ class Auth extends BaseController
         if ($this->request->isAJAX()) {
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
             $no_handphone = $this->request->getPost('no_handphone');
 
-            $data_auth = $this->ModelAuth->data($name, $email, $no_handphone);
+            $data_auth = $this->ModelAuth->data($name, $email, $no_handphone, $password);
 
             $data = $data_auth[0]['data'];
             $status = $data_auth[1]['status'];

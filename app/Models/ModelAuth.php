@@ -6,24 +6,27 @@ use CodeIgniter\Model;
 
 class ModelAuth extends Model
 {
-    public function login($no_handphone = 0)
+    public function login($no_handphone = 0, $password = '')
     {
-        $data_user_where = $this->db->table('tbl_user')->getWhere(['nohp' => $no_handphone])->getRowArray();
-        $is_active = $data_user_where['is_active'];
-        $data_user = $this->db->table('tbl_user')->getWhere(['nohp' => $no_handphone])->getResultArray();
+        $data_user_where = $this->db->table('tbl_user')->getWhere(['nohp' => $no_handphone, 'password' => $password])->getRowArray();
+        $data_user = $this->db->table('tbl_user')->getWhere(['nohp' => $no_handphone, 'password' => $password])->getResultArray();
 
-        $message = "No. Handphone tidak cocok, pastikan dengan benar!";
+        $message = "No. Handphone & Password tidak cocok, pastikan dengan benar!";
         $status = 404;
+        $is_active = null;
 
-        // 2 = is_active verified
-        if (count($data_user) == 1 && $is_active == 2) {
-            $message = "No. Handphone cocok, Anda berhasil login";
-            $status = 200;
-        }
+        if ($data_user_where) {
+            $is_active = $data_user_where['is_active'];
+            // 2 = is_active verified
+            if (count($data_user) == 1 && $is_active == 2) {
+                $message = "No. Handphone & Password cocok, Anda berhasil login";
+                $status = 200;
+            }
 
-        // 1 = is_active belum verified
-        if ($is_active == 1) {
-            $message = "Akun anda belum diverifikasi!";
+            // 1 = is_active belum verified
+            if ($is_active == 1) {
+                $message = "Akun anda belum diverifikasi!";
+            }
         }
 
         $response = array("data" => array(
@@ -109,12 +112,13 @@ class ModelAuth extends Model
         return json_encode($response);
     }
 
-    public function data($name = 0, $email = '', $no_handphone = 0)
+    public function data($name = 0, $email = '', $no_handphone = 0, $password = '')
     {
         $data = $this->db->table('tbl_user')->update(
             [
                 'nama' => $name,
                 'email' => $email,
+                'password' => $password,
                 'is_active' => 2
             ],
             [

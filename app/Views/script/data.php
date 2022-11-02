@@ -4,12 +4,23 @@
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
             var name = $("#name").val();
+            var password = $("#password").val();
             var email = $("#email").val();
             var no_handphone = localStorage.getItem('no_handphone');
 
             if (!name) {
                 SnackBar({
                     message: "Name harus diisi!",
+                    status: "danger",
+                    speed: 500,
+                    position: "tr"
+                });
+                return;
+            }
+
+            if (!password) {
+                SnackBar({
+                    message: "Password harus diisi!",
                     status: "danger",
                     speed: 500,
                     position: "tr"
@@ -36,6 +47,7 @@
                 data: {
                     name: name,
                     email: email,
+                    password: password,
                     no_handphone: no_handphone,
                 },
                 success: function(data) {

@@ -9,7 +9,11 @@
       <label for="nohp" class="font-size-13">Masukkan Nomor Handphone <span class="textcolor-red"> *</span></label>
       <input type="text" id="no_handphone" class="form-control margin-top-6" placeholder="08xxx">
     </div>
-    <p class="margin-left-16 margin-right-18 text-align-right">
+    <div class="margin-bottom-12 padding-right-46 padding-left-16">
+      <label for="password" class="font-size-13">Masukkan Password <span class="textcolor-red"> *</span></label>
+      <input type="password" id="password" class="form-control margin-top-6" placeholder="***">
+    </div>
+    <p class=" margin-left-16 margin-right-18 text-align-right">
       <a class="textcolor-303235 font-size-14 text-decoration-none" href="<?php echo base_url('lupa-password'); ?>">Lupa Password ?</a>
     </p>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">

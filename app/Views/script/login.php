@@ -4,10 +4,21 @@
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
             var no_handphone = $("#no_handphone").val();
+            var password = $("#password").val();
 
             if (!no_handphone) {
                 SnackBar({
                     message: "No. Handphone harus diisi!",
+                    status: "danger",
+                    speed: 500,
+                    position: "tr"
+                });
+                return;
+            }
+
+            if (!password) {
+                SnackBar({
+                    message: "Password harus diisi!",
                     status: "danger",
                     speed: 500,
                     position: "tr"
@@ -22,7 +33,9 @@
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 data: {
-                    no_handphone: no_handphone
+                    no_handphone: no_handphone,
+                    password: password,
+
                 },
                 success: function(data) {
                     var obj = JSON.parse(data);
