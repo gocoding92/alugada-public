@@ -56,4 +56,38 @@ class KontakKami extends BaseController
         $this->modelkontakkami->submitForm($data);
         return redirect()->to('/');
     }
+
+    public function submit_kontakkami()
+    {
+        if ($this->request->isAJAX()) {
+            $nama = $this->request->getPost('nama');
+            $telepon = $this->request->getPost('telepon');
+            $email = $this->request->getPost('email');
+            $alamat = $this->request->getPost('alamat');
+            $pesan = $this->request->getPost('pesan');
+
+            $data = ([
+                'nama' => $nama,
+                'telepon' => $telepon,
+                'email' => $email,
+                'alamat' => $alamat,
+                'pesan' => $pesan,
+            ]);
+
+            $kontak_kami = $this->modelkontakkami->form_kontakkami($data);
+
+            // $data = $kontak_kami[0]['data'];
+            // $status = $kontak_kami[1]['status'];
+            // $response = $kontak_kami[2]['response'];
+
+            // // generate session
+            // if ($status == 200 && $data) {
+            //     $this->session->set($data);
+            // }
+
+            // return $response;
+
+            // return redirect()->to('/');
+        }
+    }
 }

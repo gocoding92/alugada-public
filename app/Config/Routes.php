@@ -54,6 +54,9 @@ $routes->get('/logout', 'Auth::logout');
 
 // -------------
 
+$routes->post('kontakkami/submit-kontakkami', 'KontakKami::submit_kontakkami');
+
+
 
 // $routes->get('/logout', 'Auth::logout');
 
