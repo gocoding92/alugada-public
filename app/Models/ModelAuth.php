@@ -62,9 +62,10 @@ class ModelAuth extends Model
         if (count($data_user) == 0) {
             $date = date('d');
             $hour = date('H');
-            // $otp = rand($date . $hour, 9999);
+            $year = date('Y');
+            $otp = rand($date . $hour, $year);
             // sementara karena belum ada WA gateway
-            $otp = 1234;
+            // $otp = 1234;
 
             $data_register = ([
                 'nohp' => $no_handphone,
@@ -75,6 +76,34 @@ class ModelAuth extends Model
             $message = "Register tidak berhasil, Coba submit kembali!";
             $status = 400;
             if ($register) {
+                // send otp whatshapp gateway
+                $curl = curl_init();
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.fonnte.com/send',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => array(
+                        'target' => $no_handphone,
+                        'message' => "*Selamat Datang di Alugada*\r\n \r\n_No. Handphone_ : *" . $no_handphone . "*\r\n_Kode OTP_ : *" . $otp . "*\r\n \r\n_Masukkan kode OTP dengan benar, agar bisa melanjutkan registrasi selanjutnya._",
+                        'url' => 'https://md.fonnte.com/images/wa-logo.png',
+                        'filename' => 'filename',
+                        'schedule' => '0',
+                        'delay' => '2',
+                        'countryCode' => '62',
+                    ),
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: 2D3-nhz3YnAucN2D_Z4E'
+                    ),
+                ));
+
+                $response = curl_exec($curl);
+                curl_close($curl);
+
                 $message = "Register berhasil dilakukan";
                 $status = 200;
             }

@@ -281,3 +281,11 @@ URL PER - CATEGORY FORM
     - alamat text
     - pesan text
     - created_time 
+
+
+*Selamat Datang di Alugada* \r\n \r\n
+
+_No. Handphone_ : *08589521323* \r\n
+_Kode OTP_ : *4321* \r\n \r\n
+
+_Masukkan kode OTP dengan benar, agar bisa melanjutkan registrasi selanjutnya_
