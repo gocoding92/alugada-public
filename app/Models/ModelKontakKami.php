@@ -40,51 +40,35 @@ class ModelKontakKami extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    Public function submitForm($data)
+    public function submitForm($data)
     {
-       return  $this->db->table('tbl_kontak_kami')->insert($data);    
+        return  $this->db->table('tbl_kontak_kami')->insert($data);
     }
 
-    public function form_kontakkami($data)
+    public function form_kontakkami($nama = '', $telepon = '', $email = '', $alamat = '', $pesan = '')
     {
+        $data = ([
+            'nama' => $nama,
+            'telepon' => $telepon,
+            'email' => $email,
+            'alamat' => $alamat,
+            'pesan' => $pesan,
+        ]);
+
         $insert = $this->db->table('tbl_kontak_kami')->insert($data);
 
-        //  $data = ([
-        //     'nama' => $nama,
-        //     'telepon' => $telepon,
-        //     'email' => $email,
-        //     'alamat' => $alamat,
-        //     'pesan' => $pesan,
-        // ]);
-    //     $data_user = $this->db->table('tbl_user')->getWhere(['nama' => $nama, 'telepon' => $telepon, 'email' => $email, 'alamat' => $alamat, 'pesan' => $pesan])->getResultArray();
+        $message = "Gagal input kontak kami, Silahkan ulangi!";
+        $status = 400;
+        if ($insert) {
+            $message = "Input Kontak Kami berhasil dilakukan";
+            $status = 200;
+        }
 
-        // $message = "Data Berhasil";
-        // $status = 404;
-    //     $is_active = null;
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
 
-    //     if ($data_user_where) {
-    //         $is_active = $data_user_where['is_active'];
-    //         // 2 = is_active verified
-    //         if (count($data_user) == 1 && $is_active == 2) {
-    //             $message = "No. Handphone & Password cocok, Anda berhasil login";
-    //             $status = 200;
-    //         }
-
-    //         // 1 = is_active belum verified
-    //         if ($is_active == 1) {
-    //             $message = "Akun anda belum diverifikasi!";
-    //         }
-    //     }
-
-        // $response = array("data" => array(
-        //     array('message' => $message),
-        //     array('status' => $status),
-        // ));
-
-        // return array(
-        //     array('data' => $data_user_where),
-        //     array('status' => $status),
-        //     array('response' => json_encode($response)),
-        // );
+        return json_encode($response);
     }
 }

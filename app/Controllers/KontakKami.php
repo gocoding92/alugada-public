@@ -66,28 +66,9 @@ class KontakKami extends BaseController
             $alamat = $this->request->getPost('alamat');
             $pesan = $this->request->getPost('pesan');
 
-            $data = ([
-                'nama' => $nama,
-                'telepon' => $telepon,
-                'email' => $email,
-                'alamat' => $alamat,
-                'pesan' => $pesan,
-            ]);
+            $kontak_kami = $this->modelkontakkami->form_kontakkami($nama, $telepon, $email, $alamat, $pesan);
 
-            $kontak_kami = $this->modelkontakkami->form_kontakkami($data);
-
-            // $data = $kontak_kami[0]['data'];
-            // $status = $kontak_kami[1]['status'];
-            // $response = $kontak_kami[2]['response'];
-
-            // // generate session
-            // if ($status == 200 && $data) {
-            //     $this->session->set($data);
-            // }
-
-            // return $response;
-
-            // return redirect()->to('/');
+            return $kontak_kami;
         }
     }
 }
