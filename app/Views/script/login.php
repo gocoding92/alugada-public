@@ -39,9 +39,6 @@
                 },
                 success: function(data) {
 
-                    console.log(data);
-            return;
-
                     var obj = JSON.parse(data);
                     SnackBar({
                         message: obj.data[0].message,
