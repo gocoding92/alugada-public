@@ -626,11 +626,17 @@ div {
 }
 
 /* font size */
+.font-size-8 {
+  font-size: 8px;
+}
 .font-size-9 {
   font-size: 9px;
 }
 .font-size-10 {
   font-size: 10px;
+}
+.font-size-11 {
+  font-size: 11px;
 }
 .font-size-12 {
   font-size: 12px;
@@ -696,6 +702,9 @@ div {
 }
 .textcolor-9a9a9a {
   color: #9a9a9a;
+}
+.textcolor-b0b0b0 {
+  color: #b0b0b0;
 }
 
 /* display */

@@ -12,11 +12,19 @@
         min-height: calc(100vh - 60px);
     }
 
-    .row-profil {}
+    .row-profil {
+        padding: 10px 20px 0;
+        background-color: #fcfcfc;
+    }
 
     .img-profil {
         width: 120px;
         height: 120px;
         border-radius: 120px;
+    }
+
+    .position-img-profil {
+        align-self: center;
+        text-align: center;
     }
 </style>
