@@ -82,9 +82,11 @@ class Auth extends BaseController
             $name = $this->request->getPost('name');
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
+            $alamat = $this->request->getPost('alamat');
+            $deskripsi = $this->request->getPost('deskripsi');
             $no_handphone = $this->request->getPost('no_handphone');
 
-            $data_auth = $this->ModelAuth->data($name, $email, $no_handphone, $password);
+            $data_auth = $this->ModelAuth->data($name, $email, $no_handphone, $password, $alamat, $deskripsi);
 
             $data = $data_auth[0]['data'];
             $status = $data_auth[1]['status'];
@@ -104,4 +106,5 @@ class Auth extends BaseController
         session_destroy();
         return redirect()->to('/');
     }
+
 }

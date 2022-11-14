@@ -52,6 +52,7 @@ $routes->get('/otp', 'Auth::otp');
 $routes->post('/submit-otp', 'Auth::submit_otp');
 $routes->get('/data-otp', 'Auth::data_otp');
 $routes->post('/submit-data-user', 'Auth::submit_data_user');
+$routes->post('/submit-data-user', 'Auth::profil_data');
 
 $routes->get('/edit-profile', 'Profile::edit_profile');
 $routes->post('/submit-edit-profile', 'Profile::submit_edit_profile');

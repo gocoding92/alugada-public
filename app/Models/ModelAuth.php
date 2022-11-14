@@ -141,19 +141,24 @@ class ModelAuth extends Model
         return json_encode($response);
     }
 
-    public function data($name = 0, $email = '', $no_handphone = 0, $password = '')
+    public function data($name = 0, $email = '', $no_handphone = 0, $password = '', $alamat = '', $deskripsi = '')
     {
         $data = $this->db->table('tbl_user')->update(
             [
                 'nama' => $name,
                 'email' => $email,
                 'password' => $password,
+                'alamat' => $alamat,
+                'deskripsi' => $deskripsi,
                 'is_active' => 2
             ],
             [
                 'nohp' => $no_handphone
             ]
         );
+
+        // var_dump($deskripsi);
+        // exit;
 
         $message = "Profil data gagal diinput, Silahkan ulangi!";
         $status = 400;
