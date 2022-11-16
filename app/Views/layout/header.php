@@ -34,7 +34,7 @@ if ($session) {
                         <img class="img-user-header" src="<?= base_url('Image/default-user.jpeg'); ?>" alt="semua">
                     </div>
                     <ul class="isi-dropdown">
-                        <li><a href="#"><i class="fa fa-user"></i>&nbsp;Profil</a></li>
+                        <li id="profil"><a href="#"><i class="fa fa-user"></i>&nbsp;Profil</a></li>
                         <!-- <li><a href="#"><i class="fa fa-edit"></i>&nbsp;Password</a></li> -->
                         <li onclick="myFunction()"><a href="#"><i class="fa fa-sign-out"></i>&nbsp;Logout</a></li>
                     </ul>
@@ -53,5 +53,9 @@ if ($session) {
 
     $('#login').click(function() {
         window.location.href = "<?php echo base_url('login'); ?>";
+    });
+
+    $('#profil').click(function() {
+        window.location.href = "<?php echo base_url('profil'); ?>";
     });
 </script>

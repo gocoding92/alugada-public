@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use App\Models\ModelAlugada;
+use App\Models\ModelProfil;
 
 class Profil extends BaseController
 {
@@ -10,14 +10,23 @@ class Profil extends BaseController
     public function __construct()
     {
         date_default_timezone_set('Asia/Jakarta');
-        $this->modelalugada = new ModelAlugada();
+        $this->modelProfil = new ModelProfil();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
 
     }
     public function index($param = '')
     {
-        return view('profil/indexView');
+        $id_user = $this->session->get('id');
+        $result['data_iklan'] = $this->modelProfil->getDataIklan($id_user);
+
+        $result['nama'] = $this->session->get('nama');
+        $result['no_handphone'] = $this->session->get('nohp');
+        $result['deskripsi'] = $this->session->get('deskripsi');
+        $result['deskripsi'] = $this->session->get('deskripsi');
+        $result['alamat'] = $this->session->get('alamat');
+
+        return view('profil/indexView', $result);
     }
 
     public function updateProfil($param = '')
