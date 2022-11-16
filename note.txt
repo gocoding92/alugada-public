@@ -289,3 +289,15 @@ _No. Handphone_ : *08589521323* \r\n
 _Kode OTP_ : *4321* \r\n \r\n
 
 _Masukkan kode OTP dengan benar, agar bisa melanjutkan registrasi selanjutnya_
+
+
+
+di data user field
+1. Alamat
+2. Deskripsi
+3. Image
+
+Edit Profile
+1. Edit Profilenya
+2. Link Edit Password
+

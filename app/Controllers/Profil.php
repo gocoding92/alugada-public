@@ -19,4 +19,14 @@ class Profil extends BaseController
     {
         return view('profil/indexView');
     }
+
+    public function updateProfil($param = '')
+    {
+        return view('profil/updateProfilView');
+    }
+
+    public function updatePassword($param = '')
+    {
+        return view('profil/updatePasswordView');
+    }
 }

@@ -8,7 +8,7 @@
         /* margin: 0px auto; */
         box-sizing: border-box;
         /* top: 60px; */
-        padding: 0px 16px 80px;
+        padding: 0px 0px 80px;
         min-height: calc(100vh - 60px);
     }
 
@@ -26,5 +26,10 @@
     .position-img-profil {
         align-self: center;
         text-align: center;
+        margin-bottom: 16px;
+    }
+
+    .row-profil-iklan {
+        margin: 0px 16px 0px 16px;
     }
 </style>

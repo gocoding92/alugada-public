@@ -54,6 +54,8 @@ $routes->get('/logout', 'Auth::logout');
 
 // PROFILE
 $routes->get('/profil', 'Profil::index');
+$routes->get('/profil/update-profil', 'Profil::updateProfil');
+$routes->get('/profil/change-password', 'Profil::updatePassword');
 
 // KONTAK KAMI
 $routes->post('kontakkami/submit-kontakkami', 'KontakKami::submit_kontakkami');

@@ -7,18 +7,18 @@
 <div id="home-page" class="container-profil padding-bottom-90">
   <div class="row-profil display-flex">
     <div class="position-img-profil">
-      <img class="img-profil" src="https://assets.zoom.us/images/en-us/desktop/generic/virtual-background-green-screen-example.jpg" alt="">
+      <img class="img-profil" src="https://w7.pngwing.com/pngs/86/421/png-transparent-computer-icons-user-profile-set-of-abstract-icon-miscellaneous-monochrome-computer-wallpaper-thumbnail.png" alt="">
       <p class="textcolor-b0b0b0 font-size-8"> Join 12/January/2022 </p>
       <p class="font-size-10">
         Verified
       </p>
-      <a href="" class="text-decoration-none textcolor-433e3e"> <i class="fa fa-edit"></i> Ubah Profil </a>
+      <a href="<?= base_url('/profil/update-profil'); ?>" class="text-decoration-none textcolor-433e3e font-size-13"> <i class="fa fa-edit"></i> Ubah Profil </a>
     </div>
     <div class="margin-left-12">
       <p class="font-size-14 font-weight-bold"> Achmad Rizky </p>
-      <p class="font-size-11"> <i class="fa fa-phone"></i> 085894222865 </p>
-      <p class="font-size-11"> <i class="fa fa-envelope"></i> Kirim Pesan </p>
-      <p class="font-size-11">
+      <p class="font-size-13"> <i class="fa fa-phone"></i> 085894222865 </p>
+      <p class="font-size-13"> <i class="fa fa-envelope"></i> Kirim Pesan </p>
+      <p class="font-size-13">
         📢 Kami menyediakan barang bagus dan tidak mengecewakan,
         jika ada barang tidak puas dikembalikan
       </p>
@@ -27,7 +27,7 @@
       </p>
     </div>
   </div>
-  <div>
+  <div class="row-profil-iklan">
     <h4> Iklan Anda </h4>
     <div class="row-card-layanan">
       <a href="" class="cursor-pointer text-decoration-none">
