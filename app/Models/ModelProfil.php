@@ -78,6 +78,11 @@ class ModelProfil extends Model
             $status = 200;
         }
 
+        if ($password_baru !== $konfirmasi_password) {
+            $message = "Password baru dan Konfirmasi Password tidak sama";
+            $status = 400;
+        }
+
         $response = array("data" => array(
             array('message' => $message),
             array('status' => $status),

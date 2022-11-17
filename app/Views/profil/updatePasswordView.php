@@ -11,11 +11,11 @@
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nohp" class="font-size-13">Masukkan Password Baru <span class="textcolor-red"> *</span></label>
-      <input type="text" id="password_baru" class="form-control margin-top-6" placeholder="08xxx">
+      <input type="password" id="password_baru" class="form-control margin-top-6" placeholder="08xxx">
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nohp" class="font-size-13">Masukkan Konfirmasi Password Baru <span class="textcolor-red"> *</span></label>
-      <input type="text" id="konfirmasi_password" class="form-control margin-top-6" placeholder="08xxx">
+      <input type="password" id="konfirmasi_password" class="form-control margin-top-6" placeholder="08xxx">
     </div>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
       <button id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
