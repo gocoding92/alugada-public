@@ -59,7 +59,7 @@
                 });
                 return;
             }
-            
+
 
             $.ajax({
                 url: "<?= base_url('auth/submit-data'); ?>",
@@ -76,10 +76,6 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
-                    console.log(data);
-                    return;
-
-
                     SnackBar({
                         message: "Data profil berhasil dilakukan",
                         status: "success",
