@@ -157,9 +157,6 @@ class ModelAuth extends Model
             ]
         );
 
-        // var_dump($deskripsi);
-        // exit;
-
         $message = "Profil data gagal diinput, Silahkan ulangi!";
         $status = 400;
 

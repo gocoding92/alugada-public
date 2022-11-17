@@ -57,6 +57,7 @@ $routes->get('/profil', 'Profil::index');
 $routes->get('/profil/update-profil', 'Profil::updateProfil');
 $routes->get('/profil/change-password', 'Profil::updatePassword');
 $routes->post('/profil/update-profil', 'Profil::update_Profil');
+$routes->post('/profil/update-password', 'Profil::update_Password');
 
 
 

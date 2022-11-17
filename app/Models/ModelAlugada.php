@@ -208,41 +208,7 @@ class ModelAlugada extends Model
         return $this->db->table($table)->getWhere([$primarykey => $id_iklan])->getRowArray();
     }
 
-    public function update_profil($nama = '', $email = '', $alamat = '', $deskripsi = '')
-    {
-        $data = $this->db->table('tbl_user')->update(
-            [
-                'nama' => $name,
-                'email' => $email,
-                'alamat' => $alamat,
-                'deskripsi' => $deskripsi,
-            ],
-        );
-
-        // var_dump($deskripsi);
-        // exit;
-
-        $message = "Profil data gagal diinput, Silahkan ulangi!";
-        $status = 400;
-
-        $data_user = array();
-        if ($data) {
-            $message = "Data Profil berhasil dilakukan";
-            $status = 200;
-
-        }
-
-        $response = array("data" => array(
-            array('message' => $message),
-            array('status' => $status),
-        ));
-
-        return array(
-            array('data' => $data_user),
-            array('status' => $status),
-            array('response' => json_encode($response)),
-        );
-    }
+    
 
     
 }

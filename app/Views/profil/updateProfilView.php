@@ -7,22 +7,22 @@
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nama" class="font-size-13">Nama Lengkap</label>
-      <input type="text" id="nama" class="form-control margin-top-6">
+      <input type="text" id="nama" value="<?= $nama; ?>" class="form-control margin-top-6">
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="email" class="font-size-13">Email</label>
-      <input type="email" id="email" class="form-control margin-top-6" >
+      <input type="email" id="email" value="<?= $email; ?>" class="form-control margin-top-6" >
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="alamat" class="font-size-13">Alamat</label>
-      <textarea id="alamat" class="form-control margin-top-6"></textarea>
+      <textarea id="alamat" class="form-control margin-top-6"><?= $alamat; ?></textarea>
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="deskripsi" class="font-size-13">Deskripsi</label>
-      <textarea name="deskripsi" id="deskripsi" class="form-control margin-top-6"></textarea>
+      <textarea name="deskripsi" id="deskripsi" class="form-control margin-top-6"><?= $deskripsi; ?></textarea>
     </div>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
-      <button id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
+      <button id="submit"  class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
     </div>
     </form>
   </div>
