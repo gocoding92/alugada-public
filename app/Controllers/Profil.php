@@ -33,14 +33,23 @@ class Profil extends BaseController
     public function update_profil()
     {
         if ($this->request->isAJAX()) {
-            $nama_lengkap = $this->request->getPost('nama_lengkap');
+            $nama = $this->request->getPost('nama');
             $email = $this->request->getPost('email');
             $alamat = $this->request->getPost('alamat');
             $deskripsi = $this->request->getPost('deskripsi');
 
             $update_profil = $this->modelalugada->update_profil($nama, $email, $alamat, $deskripsi);
+            
+            $data = $update_profil[0]['data'];
+            $status = $update_profil[1]['status'];
+            $response = $update_profil[2]['response'];
 
-            return $update_profil;
+            // generate session
+            if ($status == 200) {
+                $this->session->set($data);
+            }
+
+            return $response;
         }
     }
 }

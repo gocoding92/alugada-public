@@ -6,8 +6,8 @@
   <p class="margin-left-16 font-size-13 textcolor-303235 position-relative top-min14">Silahkan isi data anda dengan lengkap</p>
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
-      <label for="nama_lengkap" class="font-size-13">Nama Lengkap</label>
-      <input type="text" id="nama_lengkap" class="form-control margin-top-6">
+      <label for="nama" class="font-size-13">Nama Lengkap</label>
+      <input type="text" id="nama" class="form-control margin-top-6">
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="email" class="font-size-13">Email</label>
@@ -15,12 +15,10 @@
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="alamat" class="font-size-13">Alamat</label>
-      <!-- <input type="password" id="password" class="form-control margin-top-6" rd"> -->
       <textarea id="alamat" class="form-control margin-top-6"></textarea>
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="deskripsi" class="font-size-13">Deskripsi</label>
-      <!-- <input type="password" id="password" class="form-control margin-top-6" rd"> -->
       <textarea name="deskripsi" id="deskripsi" class="form-control margin-top-6"></textarea>
     </div>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
