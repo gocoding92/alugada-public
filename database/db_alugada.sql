@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 01, 2022 at 09:01 AM
+-- Generation Time: Nov 18, 2022 at 04:12 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.28
 
@@ -143,7 +143,14 @@ CREATE TABLE `tbl_kontak_kami` (
 INSERT INTO `tbl_kontak_kami` (`id_kontak_kami`, `nama`, `telepon`, `email`, `alamat`, `pesan`, `created_time`) VALUES
 (1, 'Abdul Rahman', '085809052137', 'amangokil@gmail.com', 'Komplek Inkopad Blok O5 No 17', 'Apakah Bisa bekerja sama?', '2022-09-22 05:38:19'),
 (2, 'Abdul Rahman', '085809052137', 'amangokil@gmail.com', 'Komplek Inkopad Blok O5 No 17', 'Apakah Bisa bekerja sama?', '2022-09-22 05:38:46'),
-(3, '1', '1', '1', '1', '1', '2022-10-12 13:26:00');
+(3, '1', '1', '1', '1', '1', '2022-10-12 13:26:00'),
+(4, '', '', '', 'komplek inkopad', '', '2022-11-03 20:40:10'),
+(5, '', '', '', '', 'saya tidak mau barang saya pecah\r\n', '2022-11-03 20:41:10'),
+(6, '', '', '', '', 'ajasb', '2022-11-03 20:42:48'),
+(7, 'pajau', '08767', 'aman@gmail.com', 'alamat', 'pesan', '2022-11-03 20:56:04'),
+(8, 'Abdul Rahman edit', '085809052137', 'abdulrahman251201@gmail.com', 'alamat', 'pesan', '2022-11-04 13:57:21'),
+(9, 'aman', '23', 'abdulrahman251201@gmail.com', 'sa', 'sad', '2022-11-04 14:33:16'),
+(10, 'aman', '23', 'abdulrahman251201@gmail.com', 'sa', 'sad', '2022-11-04 14:33:18');
 
 -- --------------------------------------------------------
 
@@ -333,16 +340,16 @@ CREATE TABLE `tbl_rekomendasi_iklan` (
 --
 
 INSERT INTO `tbl_rekomendasi_iklan` (`id_rekomendasi_iklan`, `user_id`, `nolayanan`, `nosublayanan`, `type_rekomendasi_iklan`, `id_iklan`, `nama_iklan`, `description`, `alamat`, `image`, `table_iklan`, `create_at`) VALUES
-(1, 0, 100, 101, 'tenaga_ahli', 1, 'Budiman Santoso', 'Bidang Profesi: Engineering Tanggal Lahir : 2022-02-09 Pendidikan :S2JurusanNuclear EngeneeringPengalaman Kerja :1 - 3 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802177_2829bbdb0da81fe252fc.png\"]', 'tbl_tenagaahli', '2022-09-22 06:16:17'),
-(2, 0, 100, 106, 'tenaga_ahli', 2, 'Santra Ari', 'Bidang Profesi : Engineering Tanggal Lahir : 2022-09-24Pendidikan : S3JurusanNuclear EngeneeringPengalaman Kerja :3 - 5 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802366_d98873450151c17ec036.jpg\"]', 'tbl_tenagaahli', '2022-09-22 06:19:27'),
-(3, 0, 200, 203, 'tenaga_terampil', 1, 'Saipul Kufron', 'Bidang Profesi : Perawat Jompo/Lansia, Tanggal Lahir : 2004-06-09Pendidikan :SMPPengalaman :1 - 3 Tahun', 'Gang Tengah Majalengka Kertajati Jawa Barat', '[\"1663811908_f3c284ceec7a3e06dcc1.jpg\",\"1663811908_af53f0a8070df5a37333.jpg\"]', 'tbl_tenagaterampil', '2022-09-22 08:58:29'),
-(4, 0, 300, 301, 'kost&kontrakan', 1, 'Kost Dekat Mall Stadion', 'Jumlah Kamar : 2Kamar Kosong : 2 Listrik : Token tiap kamar/kontrakanKamar Mandi : Kamar mandi dalamAC : AdaAdaAdaAdaAda', 'Jakarta Cibitung kab. Bekasi Jawa Barat', '[\"1663812534_da7ac70d4516a034313c.jpg\",\"1663812534_fb66d7926721a966f04c.jpg\"]', 'tbl_kostkontrakan', '2022-09-22 09:08:54'),
+(1, 1, 100, 101, 'tenaga_ahli', 1, 'Budiman Santoso', 'Bidang Profesi: Engineering Tanggal Lahir : 2022-02-09 Pendidikan :S2JurusanNuclear EngeneeringPengalaman Kerja :1 - 3 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802177_2829bbdb0da81fe252fc.png\"]', 'tbl_tenagaahli', '2022-09-22 06:16:17'),
+(2, 20, 100, 106, 'tenaga_ahli', 2, 'Santra Ari', 'Bidang Profesi : Engineering Tanggal Lahir : 2022-09-24Pendidikan : S3JurusanNuclear EngeneeringPengalaman Kerja :3 - 5 Tahun', 'Inkopad Tajurhalang Bogor Jawa Barat', '[\"1663802366_d98873450151c17ec036.jpg\"]', 'tbl_tenagaahli', '2022-09-22 06:19:27'),
+(3, 23, 200, 203, 'tenaga_terampil', 1, 'Saipul Kufron', 'Bidang Profesi : Perawat Jompo/Lansia, Tanggal Lahir : 2004-06-09Pendidikan :SMPPengalaman :1 - 3 Tahun', 'Gang Tengah Majalengka Kertajati Jawa Barat', '[\"1663811908_f3c284ceec7a3e06dcc1.jpg\",\"1663811908_af53f0a8070df5a37333.jpg\"]', 'tbl_tenagaterampil', '2022-09-22 08:58:29'),
+(4, 20, 300, 301, 'kost&kontrakan', 1, 'Kost Dekat Mall Stadion', 'Jumlah Kamar : 2Kamar Kosong : 2 Listrik : Token tiap kamar/kontrakanKamar Mandi : Kamar mandi dalamAC : AdaAdaAdaAdaAda', 'Jakarta Cibitung kab. Bekasi Jawa Barat', '[\"1663812534_da7ac70d4516a034313c.jpg\",\"1663812534_fb66d7926721a966f04c.jpg\"]', 'tbl_kostkontrakan', '2022-09-22 09:08:54'),
 (5, 0, 400, 401, 'rumah', 1, 'Rumah Dekat SPBU', 'Luas Tanah :2000Luas Bangunan :2000 Kepemilikan :SertifikatJumlah Lantai :2 1 Ada Ada 1 2 2 Ada Ada Masuk Mobil 2 1 Silahkan dibeli ', 'Komplek inkopad Majalengka Bogor jawa barat', '[\"1663813643_23ff5f4b68b2114f443e.jpg\",\"1663813643_1bf3725bcf85312832b2.jpg\"]', 'tbl_rumah', '2022-09-22 09:27:23'),
 (6, 0, 400, 402, 'tanah', 1, 'Tanah Lapang', 'Luas Tanah :3000Kepemilikan :SertifikatAkses Mobil :Masuk Mobil', 'Bogor  Tajurhalang Bogor jawa barat', '[\"1663814021_46b87affcf08c7e80440.jpeg\",\"1663814021_a787f08394d03508d151.jpg\"]', 'tbl_tanah', '2022-09-22 09:33:41'),
 (7, 0, 400, 403, 'apartemen', 1, 'Apartemen Tekuk Intan', 'Luas :4000Kepemilikan : SHM Strata tittleBedroom :20Kamar Mandi : 10Listrik : 2000Dijual secepatnya', 'Tangerang Tajurhalang Kertajati jawa barat', '[\"1663814312_48d9391d15b92dd48581.jpg\",\"1663814312_74ea0551247a827074c2.jpg\"]', 'tbl_apartemen', '2022-09-22 09:38:33'),
-(8, 0, 400, 404, 'ruko', 1, 'Ruko besar', 'Luas Tanah : 2000Luas Bangunan :  2000Kepemilikan :Jumlah Lantai :1Listrik :200Kamar Mandi :2Carport :2Disewakan cepat', 'Parung Dekat Kantor Pos Cibitung Kertajati jawa barat', '[\"1663814531_4b4f1d64d5290dd48fa9.jpg\",\"1663814531_110365e259007331778f.jpg\"]', 'tbl_ruko', '2022-09-22 09:42:11'),
+(8, 20, 400, 404, 'ruko', 1, 'Ruko besar', 'Luas Tanah : 2000Luas Bangunan :  2000Kepemilikan :Jumlah Lantai :1Listrik :200Kamar Mandi :2Carport :2Disewakan cepat', 'Parung Dekat Kantor Pos Cibitung Kertajati jawa barat', '[\"1663814531_4b4f1d64d5290dd48fa9.jpg\",\"1663814531_110365e259007331778f.jpg\"]', 'tbl_ruko', '2022-09-22 09:42:11'),
 (9, 0, 400, 405, 'bangunan_komersial', 1, 'Bangunan Komersial Di Kawasan Mandiri', 'Luas Tannah : 300Luas Bangunan : 200 Kepemilikan : SHM Strata tittleJumlah Lantai : 2000Listrik :200Carport :3000Disewakan', 'Bogor Majalengka Bogor jawa barat', '[\"1663814759_3efc5b5605e21e11cbae.jpg\",\"1663814759_e86b3f838c5189442d7f.jpg\"]', 'tbl_bangunankomersial', '2022-09-22 09:46:00'),
-(10, 0, 500, 501, 'mobil', 1, 'Mobil Avanza', 'Merk :AvanzaType : ToyotaTahun : 2010Warna : Putih298 TPLP 890 140200pertaliteDijual Cepat', ' Tajurhalang Kertajati Jawa Barat', '[\"1663815315_254aac080787301e5426.jpg\",\"1663815315_28adc02f10ed2ce73efd.jpg\"]', 'tbl_mobil', '2022-09-22 09:55:15'),
+(10, 20, 500, 501, 'mobil', 1, 'Mobil Avanza', 'Merk :AvanzaType : ToyotaTahun : 2010Warna : Putih298 TPLP 890 140200pertaliteDijual Cepat', ' Tajurhalang Kertajati Jawa Barat', '[\"1663815315_254aac080787301e5426.jpg\",\"1663815315_28adc02f10ed2ce73efd.jpg\"]', 'tbl_mobil', '2022-09-22 09:55:15'),
 (11, 0, 600, 601, 'motor', 1, 'Motor Aerox', 'Merk : YamahaType : 2019Tahun : 2019Warna : Coklat Kesilveran290 TPLP 016 2000pertalitedijual saja', 'inkopad Tajurhalang Bogor Jawa Barat', '[\"1663815500_03554b25de629b930196.jpg\",\"1663815500_f9f70f6de3b4764e76fd.png\"]', 'tbl_motor', '2022-09-22 09:58:20');
 
 -- --------------------------------------------------------
@@ -621,6 +628,8 @@ CREATE TABLE `tbl_user` (
   `email` varchar(128) DEFAULT NULL,
   `password` varchar(24) NOT NULL,
   `role` int(11) NOT NULL,
+  `alamat` text NOT NULL,
+  `deskripsi` text NOT NULL,
   `norek` varchar(64) DEFAULT NULL,
   `gopay` varchar(64) DEFAULT NULL,
   `ovo` varchar(64) DEFAULT NULL,
@@ -636,56 +645,16 @@ CREATE TABLE `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id`, `generate_code_verifikasi`, `nama`, `tgllahir`, `jeniskelamin`, `nohp`, `email`, `password`, `role`, `norek`, `gopay`, `ovo`, `suspend`, `is_active`, `created_at`, `updated_at`, `perusahaan`, `gambar`) VALUES
-(7, '1234', 'Achmad Rizky', NULL, NULL, '1234', 'rizky271092@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(8, '1234', 'Asd', NULL, NULL, '4321', 'asd@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(9, '1234', 'Ratih', NULL, NULL, '0101', 'ratih@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(10, '1234', '', NULL, NULL, '1', NULL, '', 0, NULL, NULL, NULL, 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(11, '1234', '', NULL, NULL, '34', NULL, '', 0, NULL, NULL, NULL, 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(12, '1234', 'Achmad Gozali', NULL, NULL, '0858', 'rizky@meenistry.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(13, '1234', 'Asd', NULL, NULL, '0980', 'asd@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(14, '1234', 'Buhari', NULL, NULL, '123456789', 'buhari@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(15, '1234', '', NULL, NULL, '081234', NULL, '', 0, NULL, NULL, NULL, 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(16, '1234', 'Hasan', NULL, NULL, '0858123', 'hasan@gmail.com', '', 0, NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_user_bc`
---
-
-CREATE TABLE `tbl_user_bc` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(64) NOT NULL,
-  `tgllahir` date DEFAULT NULL,
-  `jeniskelamin` varchar(8) DEFAULT NULL,
-  `nohp` varchar(32) NOT NULL,
-  `email` varchar(128) DEFAULT NULL,
-  `password` varchar(24) NOT NULL,
-  `role` int(11) NOT NULL,
-  `norek` varchar(64) DEFAULT NULL,
-  `gopay` varchar(64) DEFAULT NULL,
-  `ovo` varchar(64) DEFAULT NULL,
-  `suspend` int(11) NOT NULL,
-  `is_active` int(11) NOT NULL COMMENT '1 = active belum verified 2 = verified',
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `perusahaan` varchar(255) DEFAULT NULL,
-  `gambar` varchar(128) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_user_bc`
---
-
-INSERT INTO `tbl_user_bc` (`id`, `nama`, `tgllahir`, `jeniskelamin`, `nohp`, `email`, `password`, `role`, `norek`, `gopay`, `ovo`, `suspend`, `is_active`, `created_at`, `updated_at`, `perusahaan`, `gambar`) VALUES
-(1, 'Pakde Harto', NULL, NULL, '08111041381', 'suharto.muh@gmail.com', '1234', 1, NULL, NULL, NULL, 0, 1, '2022-06-23 16:24:43', '2022-06-23 16:24:43', NULL, 'pengunjung.png'),
-(2, 'Login/Daftar', NULL, NULL, '123', NULL, '234234', 10, NULL, NULL, NULL, 0, 1, '2022-06-23 16:27:37', '2022-06-23 16:27:37', NULL, 'pengunjung.png'),
-(3, 'Bambang', '1977-04-11', '', '081310419181', 'bambang@yahoo.com', '1234', 10, NULL, NULL, NULL, 0, 1, '2022-07-11 13:32:08', '2022-07-11 13:32:08', 'Personal', 'foto4.jfif'),
-(19, 'Bambang Gentolet', NULL, NULL, '081110413812', NULL, '1234', 10, NULL, NULL, NULL, 0, 1, '2022-07-30 19:18:51', '2022-07-30 19:18:51', NULL, 'pengunjung.png'),
-(20, 'Didik nini thowok', '2022-07-02', NULL, '081110413819', NULL, '12345', 10, NULL, NULL, NULL, 0, 1, '2022-07-30 19:32:11', '2022-07-30 19:32:11', 'abcd', '__Search-House.png'),
-(21, 'Achmad Rizky', NULL, NULL, '1', NULL, '123', 10, NULL, NULL, NULL, 0, 2, '2022-09-19 15:41:44', '2022-09-19 15:41:44', NULL, 'pengunjung.png'),
-(39, 'Achmad Rizky 1', NULL, NULL, '2', NULL, '123', 10, NULL, NULL, NULL, 0, 1, '2022-09-19 15:41:44', '2022-09-19 15:41:44', NULL, 'pengunjung.png');
+INSERT INTO `tbl_user` (`id`, `generate_code_verifikasi`, `nama`, `tgllahir`, `jeniskelamin`, `nohp`, `email`, `password`, `role`, `alamat`, `deskripsi`, `norek`, `gopay`, `ovo`, `suspend`, `is_active`, `created_at`, `updated_at`, `perusahaan`, `gambar`) VALUES
+(7, '1234', 'Achmad Rizky', NULL, NULL, '1234', 'rizky271092@gmail.com', '', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(9, '1234', 'Ratih', NULL, NULL, '0101', 'ratih@gmail.com', '', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(12, '1234', 'Achmad Gozali', NULL, NULL, '0858', 'rizky@meenistry.com', '1', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(14, '1234', 'Buhari', NULL, NULL, '123456789', 'buhari@gmail.com', '', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(15, '1234', '', NULL, NULL, '081234', NULL, '', 0, '', '0', NULL, NULL, NULL, 0, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(16, '1234', 'Hasan', NULL, NULL, '0858123', 'hasan@gmail.com', '', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(18, '1708', 'Abdul Fajar', NULL, NULL, '08811501574', 'fajar@gmail.com', 'Fajar', 0, 'Komplek Inkopad Blok O5 No 17', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(19, '1893', 'Rizki Kurniawan', NULL, NULL, '085809052137', 'aman@gmail.com', 'iki', 0, 'alamat', 'alamat', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
+(20, '1867', 'Achmad', NULL, NULL, '085894222865', 'rizky271092@gmail.com', '123456', 0, 'Tangerang, Ciledug', 'Toko kami menyediakan, berbagai aneka kebutuhan masak masakan cocok untuk ibu rumah tangga', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -806,12 +775,6 @@ ALTER TABLE `tbl_user`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_user_bc`
---
-ALTER TABLE `tbl_user_bc`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -837,7 +800,7 @@ ALTER TABLE `tbl_jenisiklan`
 -- AUTO_INCREMENT for table `tbl_kontak_kami`
 --
 ALTER TABLE `tbl_kontak_kami`
-  MODIFY `id_kontak_kami` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_kontak_kami` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbl_kostkontrakan`
@@ -927,13 +890,7 @@ ALTER TABLE `tbl_tenagaterampil`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT for table `tbl_user_bc`
---
-ALTER TABLE `tbl_user_bc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
