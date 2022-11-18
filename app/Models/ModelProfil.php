@@ -11,7 +11,7 @@ class ModelProfil extends Model
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere(['user_id' => $id_user])->getResultArray();
     }
 
-    public function update_profil($nama = '', $email = '', $alamat = '', $deskripsi = '',$id_user = '')
+    public function update_profil($nama = '', $email = '', $alamat = '', $deskripsi = '', $id_user = '')
     {
 
         $data_user_default = $this->db->table('tbl_user')->getWhere(['id' => $id_user])->getRowArray();
@@ -22,12 +22,12 @@ class ModelProfil extends Model
                 'email' => $email,
                 'alamat' => $alamat,
                 'deskripsi' => $deskripsi,
-                
+
             ],
             [
                 'id' => $id_user
             ]
-        ); 
+        );
 
         $message = "Profil data gagal diubah, Silahkan ulangi!";
         $status = 400;
@@ -59,21 +59,21 @@ class ModelProfil extends Model
         return $this->db->table('tbl_user')->getWhere(['id' => $id_user])->getRowArray();
     }
 
-    public function update_password($password_lama = '',$password_baru = '', $konfirmasi_password = '', $id_user = '')
+    public function update_password($password_lama = '', $password_baru = '', $konfirmasi_password = '', $no_handphone = '')
     {
         $data = $this->db->table('tbl_user')->update(
             [
                 'password' => $password_baru,
             ],
             [
-                'id' => $id_user
+                'nohp' => $no_handphone
             ]
-        ); 
+        );
 
         $message = "Ubah password gagal dilakukan";
         $status = 400;
 
-        if($data) {
+        if ($data) {
             $message = "Ubah password berhasil dilakukan";
             $status = 200;
         }
@@ -92,6 +92,5 @@ class ModelProfil extends Model
 
         var_dump($data);
         exit;
-
     }
 }

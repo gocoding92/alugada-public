@@ -179,4 +179,103 @@ class ModelAuth extends Model
             array('response' => json_encode($response)),
         );
     }
+
+    public function forget_password($no_handphone = 0, $otp = 0)
+    {
+        $data_user = $this->db->table('tbl_user')->getWhere(
+            [
+                'nohp' => $no_handphone,
+                'is_active' => 2
+            ]
+        )->getResultArray();
+
+        $message = "No. Handphone tidak terdaftar!";
+        $status = 404;
+        if (count($data_user) != 0) {
+            $date = date('d');
+            $hour = date('H');
+            $year = date('Y');
+            $otp = rand($date . $hour, $year);
+            // sementara karena belum ada WA gateway
+            // $otp = 1234;
+
+            $data_forget = ([
+                'generate_code_verifikasi' => $otp,
+            ]);
+            $register = $this->db->table('tbl_user')->insert($data_forget);
+
+            $data = $this->db->table('tbl_user')->update(
+                $data_forget,
+                [
+                    'nohp' => $no_handphone
+                ]
+            );
+
+            $message = "Lupa Password tidak berhasil, Coba submit kembali!";
+            $status = 400;
+            if ($register) {
+                // send otp whatshapp gateway
+                $curl = curl_init();
+                curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.fonnte.com/send',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => array(
+                        'target' => $no_handphone,
+                        'message' => "*Selamat Datang di Alugada*\r\n \r\n_No. Handphone_ : *" . $no_handphone . "*\r\n_Kode OTP_ : *" . $otp . "*\r\n \r\n_Masukkan kode OTP dengan benar, agar bisa melanjutkan registrasi selanjutnya._",
+                        'url' => 'https://md.fonnte.com/images/wa-logo.png',
+                        'filename' => 'filename',
+                        'schedule' => '0',
+                        'delay' => '2',
+                        'countryCode' => '62',
+                    ),
+                    CURLOPT_HTTPHEADER => array(
+                        'Authorization: 2D3-nhz3YnAucN2D_Z4E'
+                    ),
+                ));
+
+                $response = curl_exec($curl);
+                curl_close($curl);
+
+                $message = "Lupa password berhasil dilakukan";
+                $status = 200;
+            }
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
+    }
+
+    public function otp_forget_password($otp = 0, $no_handphone = 0)
+    {
+        $data_user = $this->db->table('tbl_user')->getWhere(
+            [
+                'generate_code_verifikasi' => $otp,
+                'nohp' => $no_handphone
+            ]
+        )->getResultArray();
+
+        $message = "Kode OTP tidak ditemukan!";
+        $status = 400;
+        if (count($data_user) == 1) {
+            $message = "Kode OTP cocok, OTP berhasil dilakukan";
+            $status = 200;
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
+    }
 }

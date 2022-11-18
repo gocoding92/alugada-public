@@ -13,7 +13,7 @@ class Profil extends BaseController
         $this->modelProfil = new ModelProfil();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
-        
+
 
     }
     public function index($param = '')
@@ -41,7 +41,7 @@ class Profil extends BaseController
         $result['deskripsi'] = $data_user['deskripsi'];
 
 
-        
+
         return view('profil/updateProfilView', $result);
     }
 
@@ -60,7 +60,7 @@ class Profil extends BaseController
             $id_user = $this->session->get('id');
 
             $update_profil = $this->modelProfil->update_profil($nama, $email, $alamat, $deskripsi, $id_user);
-            
+
             $data = $update_profil[0]['data'];
             $status = $update_profil[1]['status'];
             $response = $update_profil[2]['response'];
@@ -80,11 +80,16 @@ class Profil extends BaseController
             $password_lama = $this->request->getPost('password_lama');
             $password_baru = $this->request->getPost('password_baru');
             $konfirmasi_password = $this->request->getPost('konfirmasi_password');
-            $id_user = $this->session->get('id');
+            $no_handphone_val = $this->request->getPost('no_handphone');
 
-            $update_password = $this->modelProfil->update_password($password_lama, $password_baru, $konfirmasi_password, $id_user);
+            $no_handphone = $this->session->get('nohp');
+            if ($no_handphone_val) {
+                $no_handphone = $this->request->getPost('no_handphone');
+            }
+
+            $update_password = $this->modelProfil->update_password($password_lama, $password_baru, $konfirmasi_password, $no_handphone);
             session_destroy();
-            
+
             return $update_password;
         }
     }

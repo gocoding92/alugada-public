@@ -4,10 +4,11 @@
             var password_lama = $("#password_lama").val();
             var password_baru = $("#password_baru").val();
             var konfirmasi_password = $("#konfirmasi_password").val();
+            var no_handphone = localStorage.getItem('no_handphone') ? localStorage.getItem('no_handphone') : 0;
 
             $.ajax({
-                url:"<?= base_url('profil/update-password'); ?>",
-                type:"POST",
+                url: "<?= base_url('profil/update-password'); ?>",
+                type: "POST",
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 },
@@ -15,6 +16,7 @@
                     password_lama: password_lama,
                     password_baru: password_baru,
                     konfirmasi_password: konfirmasi_password,
+                    no_handphone: no_handphone,
                 },
                 success: function(data) {
 

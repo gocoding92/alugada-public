@@ -51,6 +51,10 @@ $routes->post('/auth/submit-otp', 'Auth::submit_otp');
 $routes->get('/data', 'Auth::data');
 $routes->post('/auth/submit-data', 'Auth::submit_data');
 $routes->get('/logout', 'Auth::logout');
+$routes->get('/lupa-password', 'Auth::forget_password');
+$routes->post('/auth/submit-forget-password', 'Auth::submit_forget_password');
+$routes->get('/otp-forget-pasword', 'Auth::otp_forget_password');
+$routes->post('/auth/submit-otp-forget-password', 'Auth::submit_otp_forget_password');
 
 // PROFILE
 $routes->get('/profil', 'Profil::index');

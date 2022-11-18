@@ -1,3 +1,10 @@
+<?php
+$url = '/login';
+if (!empty($_SESSION['nohp'])) {
+  $url = '/pasang-iklan';
+}
+?>
+
 <div class="footer">
   <div class="row-footer">
     <a href="<?= base_url('/'); ?>" class="text-footer-menu">
@@ -12,7 +19,7 @@
     </a>
   </div>
   <div class="row-footer">
-    <a href="<?= base_url('/pasang-iklan'); ?>" class="text-footer-menu">
+    <a href="<?= base_url($url); ?>" class="text-footer-menu">
       <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
       PASANG IKLAN
     </a>
@@ -23,10 +30,10 @@
       KONTAK KAMI
     </a>
   </div>
-  <div class="row-footer">
+  <!-- <div class="row-footer">
     <a href="<?= base_url('/pesan'); ?>" class="text-footer-menu">
       <img alt="Pesan" src="<?= base_url(''); ?>/Image/pesan.png" class="img-footer-menu"> <br />
       PESAN
     </a>
-  </div>
+  </div> -->
 </div>

@@ -101,10 +101,41 @@ class Auth extends BaseController
         }
     }
 
+    public function forget_password()
+    {
+        return view('auth/forgetPasswordView');
+    }
+
+    public function submit_forget_password()
+    {
+        if ($this->request->isAJAX()) {
+            $no_handphone = $this->request->getPost('no_handphone');
+            $forget_password = $this->ModelAuth->forget_password($no_handphone);
+
+            return $forget_password;
+        }
+    }
+
+    public function otp_forget_password()
+    {
+        return view('auth/otpForgetPasswordView');
+    }
+
+    public function submit_otp_forget_password()
+    {
+        if ($this->request->isAJAX()) {
+            $otp = $this->request->getPost('otp');
+            $no_handphone = $this->request->getPost('no_handphone');
+            $otp = $this->ModelAuth->otp_forget_password($otp, $no_handphone);
+
+            return $otp;
+        }
+    }
+
+
     public function logout()
     {
         session_destroy();
         return redirect()->to('/');
     }
-
 }

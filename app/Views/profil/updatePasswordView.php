@@ -5,11 +5,12 @@
   <p class="margin-left-16 font-size-18 textcolor-303235  font-weight: 600;">Update Password</p>
   <p class="margin-left-16 font-size-13 textcolor-303235 position-relative top-min14"> <i class="fa fa-edit"></i> Ubah Password</p>
   <div class="row">
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
+    <!-- <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="password" class="font-size-13">Masukkan Password Lama <span class="textcolor-red"> *</span></label>
       <input type="password" id="password_lama" class="form-control margin-top-6" placeholder="***">
-    </div>
-    <div class="margin-bottom-12 padding-right-46 padding-left-16">
+    </div> -->
+    <input type="hidden" id="password_lama" class="form-control margin-top-6" placeholder="***">
+    <div class="margin-bottom-12 padding-right-46 padding-left-16" value="0">
       <label for="nohp" class="font-size-13">Masukkan Password Baru <span class="textcolor-red"> *</span></label>
       <input type="password" id="password_baru" class="form-control margin-top-6" placeholder="08xxx">
     </div>
