@@ -4,7 +4,7 @@
 <div id="home-page" class="row-sm">
   <div class="position-relative top10">
     <div class="fade">
-      <?php foreach($slider as $slider) :?>
+      <?php foreach ($slider as $slider) : ?>
         <div><img src="<?= $slider['image']; ?>" alt=""></div>
       <?php endforeach; ?>
       <!-- <div><img src="https://i.ytimg.com/vi/f_fC54rC9hc/maxresdefault.jpg" /></div>
@@ -39,9 +39,7 @@
       <a href="<?= base_url('iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
         <div class="card-layanan-list">
           <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image[0]; ?>" class="card-img-layanan">
-            </figure>
+
             <div class="row-title-layanan">
               <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
               <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />

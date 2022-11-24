@@ -301,3 +301,17 @@ Edit Profile
 1. Edit Profilenya
 2. Link Edit Password
 
+
+
+
+
+#Catetan Submit File Image
+1. File masuk ke folder
+2. Tambahkan field image 1 s/d 6 (contoh : image_1) tbl masing2 kategori
+3. Field array data controller image 1 s/d 6 ditambahkan 
+4. Tambahkan field image 1 s/d 6 (contoh : image_1) tbl rekomendasi_iklan
+5. ajax di samakan di tenaga ahli
+-*  data: new FormData(this),
+    contentType: false,
+    cache: false,
+    processData: false,

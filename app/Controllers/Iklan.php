@@ -250,7 +250,7 @@ class Iklan extends BaseController
             // 'image'        => $imageName,
         ]);
         $id_iklan = $this->iklan->saveKostKontrakan($data);
-        
+
         $description = 'Jumlah Kamar : ' . $jumlah_kamar . 'Kamar Kosong : ' . $kamar_kosong . ' Listrik : ' . $listrik . 'Kamar Mandi : ' . $kamar_mandi . 'AC : ' . $ac . '' . $water_heater . '' . $tempat_tidur . '' . $meja_kursi . '' . $almari;
         $alamat = $alamat_lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -275,9 +275,15 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
 
-        // validasi required image belum
-        // $imageFile = $this->request->getFiles();
-        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_ahli');
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName1);
+
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName2);
 
         $data = ([
             'bidang_profesi'   => $bidang_profesi,
@@ -296,14 +302,11 @@ class Iklan extends BaseController
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
             'idpengiklan'     => $this->session->get('id'),
+            'path_folder'     => 'tenaga_ahli',
         ]);
 
-        var_dump($data);
-        exit;
-       
-
         $id_iklan = $this->iklan->saveTenagaAhli($data);
-       
+
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -350,7 +353,7 @@ class Iklan extends BaseController
         ]);
 
         $id_iklan = $this->iklan->saveTenagaTerampil($data);
-        
+
         $description = 'Profesi : ' . $profesi . 'Tanggal Lahir :' . $tempat_lahir . 'Pendidikan :' . $pendidikan . 'Pengalaman :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -420,7 +423,7 @@ class Iklan extends BaseController
         ]);
 
         $id_iklan = $this->iklan->saveRumah($data);
-        
+
         $description = 'Luas Tanah :' . $luastanah . 'Luas Bangunan :' . $luasbangunan . ' Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . ' ' . $listrik . ' ' . $ruangtamu . ' ' . $ruangkeluarga . ' ' . $kamartidur . ' ' .
             $kamarpembantu . ' ' . $kamarmandi . ' ' . $teras . ' ' . $taman . ' ' . $aksesmobil . ' ' . $garasi . ' ' . $carport . ' ' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
@@ -464,7 +467,7 @@ class Iklan extends BaseController
             'nosublayanan' => $nosublayanan,
             // 'image'  => $imageName,
         ]);
-        
+
         $id_iklan = $this->iklan->saveTanah($data);
 
         $description = 'Luas Tanah :' . $luastanah . 'Kepemilikan :' . $kepemilikan . 'Akses Mobil :' . $aksesmobil;
@@ -512,7 +515,7 @@ class Iklan extends BaseController
             'nosublayanan' => $nosublayanan,
             // 'image' => $imageName,
         ]);
-        
+
         $id_iklan = $this->iklan->saveApartemen($data);
 
         $description = 'Luas :' . $luas . 'Kepemilikan : ' . $kepemilikan . 'Bedroom :' . $bedroom . 'Kamar Mandi : ' . $kamarmandi . 'Listrik : ' . $listrik . '' . $deskripsi;
@@ -566,7 +569,7 @@ class Iklan extends BaseController
         ]);
 
         $id_iklan = $this->iklan->saveRuko($data);
-    
+
         $description = 'Luas Tanah : ' . $luastanah . 'Luas Bangunan :  ' . $luasbangunan . 'Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . 'Listrik :' . $listrik . 'Kamar Mandi :' . $kamarmandi . 'Carport :' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
@@ -618,7 +621,7 @@ class Iklan extends BaseController
             // 'image' => $imageName,
         ]);
 
-        
+
         $id_iklan = $this->iklan->saveBangunanKomersial($data);
         var_dump($id_iklan);
         exit;
