@@ -302,8 +302,7 @@ class Iklan extends BaseController
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, 'tbl_tenagaahli');
-
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, 'tbl_tenagaahli');
         // $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaahli');
 
     }
@@ -648,7 +647,9 @@ class Iklan extends BaseController
             'user_id' => $user_id,
         ]);
 
-        $this->iklan->saveRekomendasiIklan($data);
+        $rekomendasi_iklan = $this->iklan->saveRekomendasiIklan($data);
+
+        return $rekomendasi_iklan;
     }
 
     public function detailIklan($nama_iklan = '', $id_master = 0, $id_iklan = 0, $layanan = '')

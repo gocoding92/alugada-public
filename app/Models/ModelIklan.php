@@ -14,8 +14,22 @@ class ModelIklan extends Model
         return $db->insertID();
     }
 
-    public function saveRekomendasiIklan($data)
+    public function saveRekomendasiIklan($data = [])
     {
-        return $this->db->table('tbl_rekomendasi_iklan')->insert($data);
+        $rekomendasi_iklan = $this->db->table('tbl_rekomendasi_iklan')->insert($data);
+
+        $message = "Gagal menginput iklan!";
+        $status = 404;
+        if ($rekomendasi_iklan) {
+            $message = "Berhasil menginput iklan!";
+            $status = 200;
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
     }
 }
