@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ModelAlugada;
+use App\Models\ModelIklan;
 use LengthException;
 
 class Iklan extends BaseController
@@ -12,6 +13,7 @@ class Iklan extends BaseController
     {
         date_default_timezone_set('Asia/Jakarta');
         $this->modelalugada = new ModelAlugada();
+        $this->iklan = new ModelIklan();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
     }
@@ -20,8 +22,8 @@ class Iklan extends BaseController
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
-            // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
-            // $idpengunjung = $idpengunjung['id']; 
+            $idpengunjung = 123;
+            $idpengunjung = 123;
         }
 
         $data = [
@@ -37,6 +39,8 @@ class Iklan extends BaseController
 
     public function detail($layanan = '', $no_layanan = '', $sublayanan = '', $no_sublayanan = '')
     {
+
+
         $this->form = '';
 
         if ($layanan) {
@@ -72,11 +76,14 @@ class Iklan extends BaseController
             }
         }
 
+
         $nohppengunjung = $this->session->get('nohppengunjung');
         if ($nohppengunjung == null) {
             $nohppengunjung = 123;
             // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
+            $idpengunjung = 123;
             // $idpengunjung = $idpengunjung['id']; 
+            $idpengunjung = 10;
         }
 
         $data = [
@@ -252,7 +259,6 @@ class Iklan extends BaseController
 
     public function saveTenagaAhli()
     {
-
         $bidang_profesi = $this->request->getVar('bidang_profesi');
         $nama_lengkap = $this->request->getVar('nama_lengkap');
         $tanggal_lahir = $this->request->getVar('tanggal_lahir');
@@ -269,8 +275,8 @@ class Iklan extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_ahli');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_ahli');
 
         $data = ([
             'bidang_profesi'   => $bidang_profesi,
@@ -285,20 +291,21 @@ class Iklan extends BaseController
             'provinsi'         => $provinsi,
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
-            'image'            => $imageName,
+            // 'image'            => $imageName,
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
-            'idpengiklan'     => 1,
+            'idpengiklan'     => $this->session->get('id'),
         ]);
 
-        $id_iklan = $this->modelalugada->saveTenaga_Ahli($data);
+        $id_iklan = $this->iklan->saveTenagaAhli($data);
 
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaahli');
+        $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, 'tbl_tenagaahli');
 
-        return redirect()->to('/pasang-iklan?success_iklan=1');
+        // $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaahli');
+
     }
 
     public function saveTenagaTerampil()
@@ -641,7 +648,7 @@ class Iklan extends BaseController
             'user_id' => $user_id,
         ]);
 
-        $this->modelalugada->saveRekomendasiIklan($data);
+        $this->iklan->saveRekomendasiIklan($data);
     }
 
     public function detailIklan($nama_iklan = '', $id_master = 0, $id_iklan = 0, $layanan = '')
