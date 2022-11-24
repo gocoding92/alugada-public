@@ -120,8 +120,8 @@ class Iklan extends BaseController
         $nosublayanan       = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/mobil');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/mobil');
 
         $data = ([
             'judul_iklan' => $judul_iklan,
@@ -140,9 +140,10 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
-            'image' => $imageName,
+            // 'image' => $imageName,
         ]);
-        $id_iklan = $this->modelalugada->saveMobil($data);
+
+        $id_iklan = $this->iklan->saveMobil($data);
         $description = 'Merk :' . $merk . 'Type : ' . $type . 'Tahun : ' . $tahun . 'Warna : ' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -223,8 +224,8 @@ class Iklan extends BaseController
         $perbulan      = $this->request->getVar('perbulan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/kost_kontrakan');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/kost_kontrakan');
 
         $data = ([
             'judul_iklan'  => $judul_iklan,
@@ -246,10 +247,10 @@ class Iklan extends BaseController
             'nosublayanan' => $nosublayanan,
             'harga'        => $harga,
             'perbulan'     => $perbulan,
-            'image'        => $imageName,
+            // 'image'        => $imageName,
         ]);
-
-        $id_iklan = $this->modelalugada->saveKost($data);
+        $id_iklan = $this->iklan->saveKostKontrakan($data);
+        
         $description = 'Jumlah Kamar : ' . $jumlah_kamar . 'Kamar Kosong : ' . $kamar_kosong . ' Listrik : ' . $listrik . 'Kamar Mandi : ' . $kamar_mandi . 'AC : ' . $ac . '' . $water_heater . '' . $tempat_tidur . '' . $meja_kursi . '' . $almari;
         $alamat = $alamat_lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -297,8 +298,12 @@ class Iklan extends BaseController
             'idpengiklan'     => $this->session->get('id'),
         ]);
 
-        $id_iklan = $this->iklan->saveTenagaAhli($data);
+        var_dump($data);
+        exit;
+       
 
+        $id_iklan = $this->iklan->saveTenagaAhli($data);
+       
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -324,8 +329,8 @@ class Iklan extends BaseController
         $nosublayanan     = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_terampil');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_terampil');
 
         $data = ([
             'profesi'          => $profesi,
@@ -341,15 +346,15 @@ class Iklan extends BaseController
             'gaji'             => $gaji,
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
-            'image'            => $imageName,
+            // 'image'            => $imageName,
         ]);
 
-        $id_iklan = $this->modelalugada->saveTenaga_Terampil($data);
-
+        $id_iklan = $this->iklan->saveTenagaTerampil($data);
+        
         $description = 'Profesi : ' . $profesi . 'Tanggal Lahir :' . $tempat_lahir . 'Pendidikan :' . $pendidikan . 'Pengalaman :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        $this->saveRekomendasiIklan('tenaga_terampil', $id_iklan, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaterampil');
+        // $this->saveRekomendasiIklan('tenaga_terampil', $id_iklan, $nama_lengkap, $description, $alamat, $imageName, 'tbl_tenagaterampil');
 
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
@@ -382,8 +387,8 @@ class Iklan extends BaseController
         $nosublayanan  = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
             'juduliklan'    => $juduliklan,
@@ -411,10 +416,11 @@ class Iklan extends BaseController
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
             'harga'         => $harga,
-            'image'         => $imageName,
+            // 'image'         => $imageName,
         ]);
-        $id_iklan = $this->modelalugada->save_Rumah($data);
 
+        $id_iklan = $this->iklan->saveRumah($data);
+        
         $description = 'Luas Tanah :' . $luastanah . 'Luas Bangunan :' . $luasbangunan . ' Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . ' ' . $listrik . ' ' . $ruangtamu . ' ' . $ruangkeluarga . ' ' . $kamartidur . ' ' .
             $kamarpembantu . ' ' . $kamarmandi . ' ' . $teras . ' ' . $taman . ' ' . $aksesmobil . ' ' . $garasi . ' ' . $carport . ' ' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
@@ -440,8 +446,8 @@ class Iklan extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
             'juduliklan' => $juduliklan,
@@ -456,15 +462,15 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
-            'image'  => $imageName,
+            // 'image'  => $imageName,
         ]);
-
-        $id_iklan = $this->modelalugada->save_Tanah($data);
+        
+        $id_iklan = $this->iklan->saveTanah($data);
 
         $description = 'Luas Tanah :' . $luastanah . 'Kepemilikan :' . $kepemilikan . 'Akses Mobil :' . $aksesmobil;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $alamat, $imageName, 'tbl_tanah');
+        // $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $alamat, $imageName, 'tbl_tanah');
         return redirect()->to('/pasang-iklan?success_iklan=1');
     }
 
@@ -486,8 +492,8 @@ class Iklan extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
             'juduliklan' => $juduliklan,
@@ -504,10 +510,11 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
-            'image' => $imageName,
+            // 'image' => $imageName,
         ]);
+        
+        $id_iklan = $this->iklan->saveApartemen($data);
 
-        $id_iklan = $this->modelalugada->save_Apartemen($data);
         $description = 'Luas :' . $luas . 'Kepemilikan : ' . $kepemilikan . 'Bedroom :' . $bedroom . 'Kamar Mandi : ' . $kamarmandi . 'Listrik : ' . $listrik . '' . $deskripsi;
         $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
@@ -535,8 +542,8 @@ class Iklan extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
             'juduliklan'   => $juduliklan,
@@ -555,10 +562,11 @@ class Iklan extends BaseController
             'harga'        => $harga,
             'nolayanan'    => $nolayanan,
             'nosublayanan' => $nosublayanan,
-            'image'        => $imageName,
+            // 'image'        => $imageName,
         ]);
 
-        $id_iklan = $this->modelalugada->save_Ruko($data);
+        $id_iklan = $this->iklan->saveRuko($data);
+    
         $description = 'Luas Tanah : ' . $luastanah . 'Luas Bangunan :  ' . $luasbangunan . 'Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . 'Listrik :' . $listrik . 'Kamar Mandi :' . $kamarmandi . 'Carport :' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
@@ -586,8 +594,8 @@ class Iklan extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
 
         // validasi required image belum
-        $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
+        // $imageFile = $this->request->getFiles();
+        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
             'juduliklan' => $juduliklan,
@@ -607,10 +615,13 @@ class Iklan extends BaseController
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
             'harga' => $harga,
-            'image' => $imageName,
+            // 'image' => $imageName,
         ]);
 
-        $id_iklan = $this->modelalugada->save_BangunanKomersial($data);
+        
+        $id_iklan = $this->iklan->saveBangunanKomersial($data);
+        var_dump($id_iklan);
+        exit;
         $description = 'Luas Tannah : ' . $luastanah . 'Luas Bangunan : ' . $luasbangunan . ' Kepemilikan : ' . $kepemilikan . 'Jumlah Lantai : ' . $jumlahlantai . 'Listrik :' . $listrik . 'Carport :' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 

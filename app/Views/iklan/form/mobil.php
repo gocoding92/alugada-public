@@ -1,11 +1,10 @@
-<form action="<?= base_url('/iklan/save'); ?>" method="post" enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data">
     <div class="row">
-
         <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
             <span class="font-size-10 position-relative bottom-16 left-30"> Mobil </span>
         </h2>
 
-        <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
+        <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
             <div class="display-flex width-auto overflow-auto">
                 <div class="select-image margin-bottom-12">
@@ -18,7 +17,7 @@
                 </div>
                 <div class="gallery display-flex"></div>
             </div>
-        </div>
+        </div> -->
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
@@ -86,3 +85,5 @@
 
     </div>
 </form>
+
+ <?= $this->include("script/iklan/iklan_mobil"); ?>

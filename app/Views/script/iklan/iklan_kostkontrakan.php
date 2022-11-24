@@ -1,0 +1,61 @@
+<script>
+    $(document).ready(function() {
+        $('form').on('submit', function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                type: 'post',
+                url: '<?= base_url('iklan/saveKostkontrakan'); ?>',
+                data: $('form').serialize(),
+                success: function(data) {
+                    console.log(data);
+                    return;
+                    var obj = JSON.parse(data);
+
+                    alert(obj.data[0].message);
+
+                    if (obj.data[1].status === 200) {
+                        window.setTimeout(function() {
+                            window.location.href = "<?php echo base_url('/pasang-iklan'); ?>";
+                        }, 2500);
+                    }
+                }
+            });
+
+        });
+
+
+        // ---- 1. Submit Register (21/Oktober/2022) ----
+        // $("#submit").click(function() {
+        //     $.ajax({
+        //         url: "<?= base_url('profil/update-profil'); ?>",
+        //         type: 'POST',
+        //         headers: {
+        //             'X-Requested-With': 'XMLHttpRequest'
+        //         },
+        //         data: {
+        //             nama: nama,
+        //             email: email,
+        //             alamat: alamat,
+        //             deskripsi: deskripsi,
+        //         },
+        //         success: function(data) {
+
+        //             console.log(data);
+        //             return;
+        //             // var obj = JSON.parse(data);
+
+        //             // alert(obj.data[0].message);
+
+        //             // if (obj.data[1].status === 200) {
+        //             //     window.setTimeout(function() {
+        //             //         window.location.href = "<?php echo base_url('profil'); ?>";
+        //             //     }, 4000);
+        //             // }
+
+        //         }
+        //     });
+        // });
+
+    });
+</script>
