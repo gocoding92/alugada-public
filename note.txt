@@ -315,3 +315,15 @@ Edit Profile
     contentType: false,
     cache: false,
     processData: false,
+
+
+1. Masuk Ke Folder :
+    - Tenaga Ahli (Done)
+    - Tenaga Terampil (Done)
+    - Property (Tanah) (Done)
+    - Property (Apartemen) (Done)
+    - Property (Ruko) (Done)
+    - Property (Rumah) (Done)
+    - Property (Bangunan Komersial) (Done)
+    - Kost & Kontrakan (Done)
+    - Mobil (Done)

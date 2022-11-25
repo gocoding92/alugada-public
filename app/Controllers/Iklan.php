@@ -119,6 +119,32 @@ class Iklan extends BaseController
         $nolayanan       = $this->request->getVar('nolayanan');
         $nosublayanan       = $this->request->getVar('nosublayanan');
 
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName1);
+        
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/mobil');
@@ -140,10 +166,17 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
+            'image_1'          => $imageName1,
+            'image_2'          => $imageName2,
+            'image_3'          => $imageName3,
+            'image_4'          => $imageName4,
+            'image_5'          => $imageName5,
+            'image_6'          => $imageName6,
             // 'image' => $imageName,
-        ]);
+        ]);        
 
         $id_iklan = $this->iklan->saveMobil($data);
+    
         $description = 'Merk :' . $merk . 'Type : ' . $type . 'Tahun : ' . $tahun . 'Warna : ' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -223,6 +256,32 @@ class Iklan extends BaseController
         $nosublayanan  = $this->request->getVar('nosublayanan');
         $perbulan      = $this->request->getVar('perbulan');
 
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName1);
+        
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/kost&kontrakan', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/kost_kontrakan');
@@ -247,10 +306,19 @@ class Iklan extends BaseController
             'nosublayanan' => $nosublayanan,
             'harga'        => $harga,
             'perbulan'     => $perbulan,
+            'image_1'          => $imageName1,
+            'image_2'          => $imageName2,
+            'image_3'          => $imageName3,
+            'image_4'          => $imageName4,
+            'image_5'          => $imageName5,
+            'image_6'          => $imageName6,
             // 'image'        => $imageName,
         ]);
-        $id_iklan = $this->iklan->saveKostKontrakan($data);
 
+        
+        $id_iklan = $this->iklan->saveKostKontrakan($data);
+        var_dump($id_iklan);
+        exit;
         $description = 'Jumlah Kamar : ' . $jumlah_kamar . 'Kamar Kosong : ' . $kamar_kosong . ' Listrik : ' . $listrik . 'Kamar Mandi : ' . $kamar_mandi . 'AC : ' . $ac . '' . $water_heater . '' . $tempat_tidur . '' . $meja_kursi . '' . $almari;
         $alamat = $alamat_lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -280,11 +348,27 @@ class Iklan extends BaseController
         $imageFile1 = $imageFile['file1'];
         $imageName1 = $imageFile1->getName();
         $imageFile1->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName1);
-
+        
         $imageFile2 = $imageFile['file2'];
         $imageName2 = $imageFile2->getName();
         $imageFile2->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName2);
-
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName6);
+       
         $data = ([
             'bidang_profesi'   => $bidang_profesi,
             'nama_lengkap'     => $nama_lengkap,
@@ -298,12 +382,20 @@ class Iklan extends BaseController
             'provinsi'         => $provinsi,
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
-            // 'image'            => $imageName,
+            'image_1'          => $imageName1,
+            'image_2'          => $imageName2,
+            'image_3'          => $imageName3,
+            'image_4'          => $imageName4,
+            'image_5'          => $imageName5,
+            'image_6'          => $imageName6,
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
             'idpengiklan'     => $this->session->get('id'),
             'path_folder'     => 'tenaga_ahli',
         ]);
+
+        var_dump($data);
+        exit;
 
         $id_iklan = $this->iklan->saveTenagaAhli($data);
 
@@ -330,7 +422,34 @@ class Iklan extends BaseController
         $gaji             = $this->request->getVar('gaji');
         $nolayanan        = $this->request->getVar('nolayanan');
         $nosublayanan     = $this->request->getVar('nosublayanan');
+        
+        $imageFile  = $this->request->getFiles();
+        
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName1);
+        
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/tenaga_terampil', $imageName6);
 
+        
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/tenaga_terampil');
@@ -349,11 +468,18 @@ class Iklan extends BaseController
             'gaji'             => $gaji,
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
-            // 'image'            => $imageName,
+            'image_1'            => $imageName1,
+            'image_2'            => $imageName2,
+            'image_3'            => $imageName3,
+            'image_4'            => $imageName4,
+            'image_5'            => $imageName5,
+            'image_6'            => $imageName6,
         ]);
-
+        
         $id_iklan = $this->iklan->saveTenagaTerampil($data);
-
+        var_dump($id_iklan);
+        exit;
+        
         $description = 'Profesi : ' . $profesi . 'Tanggal Lahir :' . $tempat_lahir . 'Pendidikan :' . $pendidikan . 'Pengalaman :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
@@ -389,6 +515,32 @@ class Iklan extends BaseController
         $nolayanan     = $this->request->getVar('nolayanan');
         $nosublayanan  = $this->request->getVar('nosublayanan');
 
+        $imageFile  = $this->request->getFiles();
+        
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName1);
+        
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
@@ -419,9 +571,15 @@ class Iklan extends BaseController
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
             'harga'         => $harga,
+            'image_1'            => $imageName1,
+            'image_2'            => $imageName2,
+            'image_3'            => $imageName3,
+            'image_4'            => $imageName4,
+            'image_5'            => $imageName5,
+            'image_6'            => $imageName6,
             // 'image'         => $imageName,
         ]);
-
+        
         $id_iklan = $this->iklan->saveRumah($data);
 
         $description = 'Luas Tanah :' . $luastanah . 'Luas Bangunan :' . $luasbangunan . ' Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . ' ' . $listrik . ' ' . $ruangtamu . ' ' . $ruangkeluarga . ' ' . $kamartidur . ' ' .
@@ -448,27 +606,61 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
 
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName1);
+
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
 
         $data = ([
-            'juduliklan' => $juduliklan,
-            'luastanah' => $luastanah,
-            'kepemilikan' => $kepemilikan,
-            'aksesmobil' => $aksesmobil,
-            'lokasi' => $lokasi,
-            'kecamatan' => $kecamatan,
-            'kabupaten' => $kabupaten,
-            'propinsi' => $propinsi,
-            'deskripsi' => $deskripsi,
-            'harga' => $harga,
-            'nolayanan' => $nolayanan,
-            'nosublayanan' => $nosublayanan,
-            // 'image'  => $imageName,
+            'juduliklan'    => $juduliklan,
+            'luastanah'     => $luastanah,
+            'kepemilikan'   => $kepemilikan,
+            'aksesmobil'    => $aksesmobil,
+            'lokasi'        => $lokasi,
+            'kecamatan'     => $kecamatan,
+            'kabupaten'     => $kabupaten,
+            'propinsi'      => $propinsi,
+            'deskripsi'     => $deskripsi,
+            'harga'         => $harga,
+            'nolayanan'     => $nolayanan,
+            'nosublayanan'  => $nosublayanan,
+            'image_1'       => $imageName1,
+            'image_2'       => $imageName2,
+            'image_3'       => $imageName3,
+            'image_4'       => $imageName4,
+            'image_5'       => $imageName5,
+            'image_6'       => $imageName6,
         ]);
-
+        
+        
         $id_iklan = $this->iklan->saveTanah($data);
+        var_dump($id_iklan);
+        exit;
 
         $description = 'Luas Tanah :' . $luastanah . 'Kepemilikan :' . $kepemilikan . 'Akses Mobil :' . $aksesmobil;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
@@ -493,6 +685,30 @@ class Iklan extends BaseController
         $harga = $this->request->getVar('harga');
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName1);
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName6);
 
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
@@ -513,11 +729,18 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
+            'image_1'       => $imageName1,
+            'image_2'       => $imageName2,
+            'image_3'       => $imageName3,
+            'image_4'       => $imageName4,
+            'image_5'       => $imageName5,
+            'image_6'       => $imageName6,
             // 'image' => $imageName,
         ]);
-
+        
+        
         $id_iklan = $this->iklan->saveApartemen($data);
-
+        
         $description = 'Luas :' . $luas . 'Kepemilikan : ' . $kepemilikan . 'Bedroom :' . $bedroom . 'Kamar Mandi : ' . $kamarmandi . 'Listrik : ' . $listrik . '' . $deskripsi;
         $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
@@ -544,6 +767,34 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
 
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName1);
+
+
+        
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
@@ -565,9 +816,15 @@ class Iklan extends BaseController
             'harga'        => $harga,
             'nolayanan'    => $nolayanan,
             'nosublayanan' => $nosublayanan,
+            'image_1'       => $imageName1,
+            'image_2'       => $imageName2,
+            'image_3'       => $imageName3,
+            'image_4'       => $imageName4,
+            'image_5'       => $imageName5,
+            'image_6'       => $imageName6,
             // 'image'        => $imageName,
         ]);
-
+        
         $id_iklan = $this->iklan->saveRuko($data);
 
         $description = 'Luas Tanah : ' . $luastanah . 'Luas Bangunan :  ' . $luasbangunan . 'Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . 'Listrik :' . $listrik . 'Kamar Mandi :' . $kamarmandi . 'Carport :' . $carport . '' . $deskripsi;
@@ -596,6 +853,32 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
 
+        $imageFile  = $this->request->getFiles();
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $imageFile1->getName();
+        $imageFile1->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName1);
+
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $imageFile2->getName();
+        $imageFile2->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName2);
+        
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $imageFile3->getName();
+        $imageFile3->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName3);
+        
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $imageFile4->getName();
+        $imageFile4->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName4);
+        
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $imageFile5->getName();
+        $imageFile5->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName5);
+        
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $imageFile6->getName();
+        $imageFile6->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName6);
+
         // validasi required image belum
         // $imageFile = $this->request->getFiles();
         // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
@@ -618,13 +901,20 @@ class Iklan extends BaseController
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
             'harga' => $harga,
+            'image_1'       => $imageName1,
+            'image_2'       => $imageName2,
+            'image_3'       => $imageName3,
+            'image_4'       => $imageName4,
+            'image_5'       => $imageName5,
+            'image_6'       => $imageName6,
             // 'image' => $imageName,
         ]);
 
-
+        
         $id_iklan = $this->iklan->saveBangunanKomersial($data);
         var_dump($id_iklan);
         exit;
+        
         $description = 'Luas Tannah : ' . $luastanah . 'Luas Bangunan : ' . $luasbangunan . ' Kepemilikan : ' . $kepemilikan . 'Jumlah Lantai : ' . $jumlahlantai . 'Listrik :' . $listrik . 'Carport :' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 

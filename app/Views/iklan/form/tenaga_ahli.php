@@ -7,10 +7,10 @@
 
         <input type="file" name="file1" />
         <input type="file" name="file2" />
-        <!-- <input type="file" name="file3" />
+        <input type="file" name="file3" />
         <input type="file" name="file4" />
         <input type="file" name="file5" />
-        <input type="file" name="file6" /> -->
+        <input type="file" name="file6" />
 
         <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
             <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
@@ -18,7 +18,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file1" type="file" name="file1" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
@@ -26,7 +26,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file2" type="file" name="file2" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
@@ -34,7 +34,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file3" type="file" name="file3" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
@@ -42,7 +42,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file4" type="file" name="file4" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
@@ -50,7 +50,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file5" type="file" name="file5" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>
@@ -58,7 +58,7 @@
                 <div class="select-image margin-bottom-12">
                     <label for="inputTag" class="cursor-pointer font-size-14">
                         <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
+                        <input onchange="previewgambar()" id="file6" type="file" name="file6" class="display-none" multiple required />
                         <br />
                         <span id="imageName"></span>
                     </label>

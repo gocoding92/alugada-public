@@ -3,6 +3,13 @@
         <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
             <span class="font-size-10 position-relative bottom-16 left-30"> Property - Bangunan Komersial</span>
         </h2>
+        
+        <input type="file" name="file1" />
+        <input type="file" name="file2" />
+        <input type="file" name="file3" />
+        <input type="file" name="file4" />
+        <input type="file" name="file5" />
+        <input type="file" name="file6" />
 
 
         <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">

@@ -4,10 +4,16 @@
             e.preventDefault();
 
             $.ajax({
-                type: 'post',
+                type: 'POST',
                 url: '<?= base_url('iklan/saveTenagaTerampil'); ?>',
-                data: $('form').serialize(),
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
                 success: function(data) {
+                    console.log(data);
+
+                    return;
                     var obj = JSON.parse(data);
 
                     alert(obj.data[0].message);
