@@ -172,6 +172,7 @@ class Iklan extends BaseController
             'image_4'          => $imageName4,
             'image_5'          => $imageName5,
             'image_6'          => $imageName6,
+            'path_folder'     => 'mobil',
             // 'image' => $imageName,
         ]);        
 
@@ -312,6 +313,7 @@ class Iklan extends BaseController
             'image_4'          => $imageName4,
             'image_5'          => $imageName5,
             'image_6'          => $imageName6,
+            'path_folder'     => 'kost_kontrakan',
             // 'image'        => $imageName,
         ]);
 
@@ -394,10 +396,10 @@ class Iklan extends BaseController
             'path_folder'     => 'tenaga_ahli',
         ]);
 
-        var_dump($data);
-        exit;
-
+        
         $id_iklan = $this->iklan->saveTenagaAhli($data);
+        var_dump($id_iklan);
+        exit;
 
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
@@ -474,6 +476,7 @@ class Iklan extends BaseController
             'image_4'            => $imageName4,
             'image_5'            => $imageName5,
             'image_6'            => $imageName6,
+            'path_folder'     => 'tenaga_terampil',
         ]);
         
         $id_iklan = $this->iklan->saveTenagaTerampil($data);
@@ -577,7 +580,7 @@ class Iklan extends BaseController
             'image_4'            => $imageName4,
             'image_5'            => $imageName5,
             'image_6'            => $imageName6,
-            // 'image'         => $imageName,
+            'path_folder'     => 'rumah',
         ]);
         
         $id_iklan = $this->iklan->saveRumah($data);
@@ -655,6 +658,7 @@ class Iklan extends BaseController
             'image_4'       => $imageName4,
             'image_5'       => $imageName5,
             'image_6'       => $imageName6,
+            'path_folder'   => 'tanah',
         ]);
         
         
@@ -735,6 +739,7 @@ class Iklan extends BaseController
             'image_4'       => $imageName4,
             'image_5'       => $imageName5,
             'image_6'       => $imageName6,
+            'path_folder'     => 'apartemen',
             // 'image' => $imageName,
         ]);
         
@@ -822,11 +827,13 @@ class Iklan extends BaseController
             'image_4'       => $imageName4,
             'image_5'       => $imageName5,
             'image_6'       => $imageName6,
+            'path_folder'   => 'ruko',
             // 'image'        => $imageName,
         ]);
         
         $id_iklan = $this->iklan->saveRuko($data);
-
+        var_dump($id_iklan);
+        exit;
         $description = 'Luas Tanah : ' . $luastanah . 'Luas Bangunan :  ' . $luasbangunan . 'Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . 'Listrik :' . $listrik . 'Kamar Mandi :' . $kamarmandi . 'Carport :' . $carport . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
@@ -908,6 +915,7 @@ class Iklan extends BaseController
             'image_5'       => $imageName5,
             'image_6'       => $imageName6,
             // 'image' => $imageName,
+            'path_folder'     => 'bangunan_komersial',
         ]);
 
         
