@@ -11,13 +11,9 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
-                    console.log(data);
-
-                    return;
                     var obj = JSON.parse(data);
 
                     alert(obj.data[0].message);
-
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
                             window.location.href = "<?php echo base_url('/pasang-iklan'); ?>";

@@ -28,7 +28,7 @@
     <h4> Iklan Anda </h4>
     <div class="row-card-layanan">
       <?php foreach ($data_iklan as $tbl_rekomendasi_iklan) :
-        $image = json_decode($tbl_rekomendasi_iklan['image']);
+        $image = $tbl_rekomendasi_iklan['image'];
         $nama_iklan = substr($tbl_rekomendasi_iklan['nama_iklan'], 0, 16);
         $nama_iklan_str = strlen($tbl_rekomendasi_iklan['nama_iklan']) > 16 ? '...' : '';
         $description = substr($tbl_rekomendasi_iklan['description'], 0, 50);
