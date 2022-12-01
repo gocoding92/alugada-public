@@ -28,7 +28,7 @@
 
   <div class="row-card-layanan">
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) :
-      $image = json_decode($tbl_rekomendasi_iklan['image']);
+      $image = $tbl_rekomendasi_iklan['image'];
       $nama_iklan = substr($tbl_rekomendasi_iklan['nama_iklan'], 0, 16);
       $nama_iklan_str = strlen($tbl_rekomendasi_iklan['nama_iklan']) > 16 ? '...' : '';
       $description = substr($tbl_rekomendasi_iklan['description'], 0, 50);
@@ -39,7 +39,9 @@
       <a href="<?= base_url('iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
         <div class="card-layanan-list">
           <div class="card-layanan">
-
+              <figure class="card-figure-layanan">
+                <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
+              </figure>
             <div class="row-title-layanan">
               <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
               <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />

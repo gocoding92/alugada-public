@@ -11,7 +11,7 @@ class ModelProfil extends Model
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere(['user_id' => $id_user])->getResultArray();
     }
 
-    public function update_profil($nama = '', $email = '', $alamat = '', $deskripsi = '', $id_user = '')
+    public function update_profil($nama = '', $email = '', $alamat = '', $deskripsi = '', $id_user = '', $imageFile1 = '')
     {
 
         $data_user_default = $this->db->table('tbl_user')->getWhere(['id' => $id_user])->getRowArray();
@@ -22,6 +22,7 @@ class ModelProfil extends Model
                 'email' => $email,
                 'alamat' => $alamat,
                 'deskripsi' => $deskripsi,
+                'gambar' => $imageFile1,
 
             ],
             [

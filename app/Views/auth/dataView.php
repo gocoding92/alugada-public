@@ -11,15 +11,6 @@
       <div class="margin-bottom-12 padding-right-46 padding-left-16">
         <input type="password" id="password" placeholder="Password" class="form-control margin-top-6">
       </div>
-      <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <input type="text" id="email" placeholder="Email" class="form-control margin-top-6">
-      </div>
-      <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <textarea name="alamat" id="alamat" placeholder="Alamat" class="form-control margin-top-6"></textarea>
-      </div>
-      <div class="margin-bottom-12 padding-right-46 padding-left-16">
-        <textarea name="deskripsi" id="deskripsi" placeholder="Deskripsi" class="form-control margin-top-6"></textarea>
-      </div>
       <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
         <button id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
       </div>

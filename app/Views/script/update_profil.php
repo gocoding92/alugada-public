@@ -3,24 +3,17 @@
 
 
         // ---- 1. Submit Register (21/Oktober/2022) ----
-        $("#submit").click(function() {
-            var nama = $("#nama").val();
-            var email = $("#email").val();
-            var alamat = $("#alamat").val();
-            var deskripsi = $("#deskripsi").val();
-            
+        $('form').on('submit', function(e) {
+
+            e.preventDefault();
+
             $.ajax({
                 url: "<?= base_url('profil/update-profil'); ?>",
                 type: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                data: {
-                    nama: nama,
-                    email: email,
-                    alamat: alamat,
-                    deskripsi: deskripsi,
-                },
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
                 success: function(data) {
                     var obj = JSON.parse(data);
 

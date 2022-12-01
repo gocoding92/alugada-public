@@ -25,6 +25,7 @@ class Profil extends BaseController
         $result['no_handphone'] = $this->session->get('nohp');
         $result['deskripsi'] = $this->session->get('deskripsi');
         $result['alamat'] = $this->session->get('alamat');
+        $result['gambar'] = $this->session->get('gambar');
 
         return view('profil/indexView', $result);
     }
@@ -52,26 +53,33 @@ class Profil extends BaseController
 
     public function update_profil()
     {
-        if ($this->request->isAJAX()) {
-            $nama = $this->request->getPost('nama');
-            $email = $this->request->getPost('email');
-            $alamat = $this->request->getPost('alamat');
-            $deskripsi = $this->request->getPost('deskripsi');
-            $id_user = $this->session->get('id');
-
-            $update_profil = $this->modelProfil->update_profil($nama, $email, $alamat, $deskripsi, $id_user);
-
-            $data = $update_profil[0]['data'];
-            $status = $update_profil[1]['status'];
-            $response = $update_profil[2]['response'];
-
-            // generate session
-            if ($status == 200) {
-                $this->session->set($data);
-            }
-
-            return $response;
+        $nama = $this->request->getVar('nama');
+        $email = $this->request->getVar('email');
+        $alamat = $this->request->getVar('alamat');
+        $deskripsi = '';
+        $id_user = $this->session->get('id');
+        $imageFile  = $this->request->getFiles();
+       
+        $imageFile1 = $imageFile['avatar'];
+        $imageName1 = '';
+        if ($imageFile1->isValid()) {
+            $imageName1 = $imageFile1->getName();
+            $imageFile1->move(ROOTPATH . 'public/Image/user', $imageName1);
         }
+
+        $update_profil = $this->modelProfil->update_profil($nama, $email, $alamat, $deskripsi, $id_user, $imageName1);
+
+        $data = $update_profil[0]['data'];
+        $status = $update_profil[1]['status'];
+        $response = $update_profil[2]['response'];
+
+        // generate session
+        if ($status == 200) {
+            $this->session->set($data);
+        }
+
+        return $response;
+        
     }
 
     public function update_Password()
