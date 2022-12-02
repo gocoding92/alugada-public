@@ -80,7 +80,7 @@ class Auth extends BaseController
     {
         if ($this->request->isAJAX()) {
             $name = $this->request->getPost('name');
-            $email = $this->request->getPost('email');
+            $password = $this->request->getPost('password');
             $no_handphone = $this->request->getPost('no_handphone');
 
             $data_auth = $this->ModelAuth->data($name, $no_handphone, $password);

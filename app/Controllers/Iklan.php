@@ -198,7 +198,7 @@ class Iklan extends BaseController
         $description = 'Merk :' . $merk . 'Type : ' . $type . 'Tahun : ' . $tahun . 'Warna : ' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
         $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $judul_iklan = '', $description, $alamat, $imageName, 'tbl_mobil');
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $judul_iklan = '', $description, $alamat, $imageName1, 'tbl_mobil');
     }
 
     public function savemtr()
@@ -377,7 +377,7 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
         $imageFile  = $this->request->getFiles();
-       
+
         $imageFile1 = $imageFile['file1'];
         $imageName1 = '';
         if ($imageFile1->isValid()) {
@@ -459,7 +459,7 @@ class Iklan extends BaseController
         $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
         $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        return $this->saveRekomendasiIklan('tenaga_ahli',$id_iklan, $nama_lengkap, $description, $alamat, $imageName1, 'tbl_tenagaahli');
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, $imageName1, 'tbl_tenagaahli');
     }
 
     public function saveTenagaTerampil()
@@ -871,7 +871,7 @@ class Iklan extends BaseController
         $description = 'Luas :' . $luas . 'Kepemilikan : ' . $kepemilikan . 'Bedroom :' . $bedroom . 'Kamar Mandi : ' . $kamarmandi . 'Listrik : ' . $listrik . '' . $deskripsi;
         $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $juduliklan = '', $description, $alamat,$imageName1, 'tbl_apartemen');
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $juduliklan = '', $description, $alamat, $imageName1, 'tbl_apartemen');
     }
 
     public function saveRuko()

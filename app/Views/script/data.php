@@ -6,27 +6,17 @@
             var name = $("#name").val();
             var password = $("#password").val();
             var email = '';
-            var alamat ='';
+            var alamat = '';
             var deskripsi = '';
             var no_handphone = localStorage.getItem('no_handphone');
 
             if (!name) {
-                SnackBar({
-                    message: "Name harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Name harus diisi!');
                 return;
             }
 
             if (!password) {
-                SnackBar({
-                    message: "Password harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Password harus diisi!');
                 return;
             }
 
@@ -42,15 +32,8 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
-                    console.log(data);
-                    return;
 
-                    SnackBar({
-                        message: "Data profil berhasil dilakukan",
-                        status: "success",
-                        speed: 500,
-                        position: "tr"
-                    });
+                    toastr.success('Data profil berhasil dilakukan');
 
                     var obj = JSON.parse(data);
 

@@ -22,10 +22,6 @@
         <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
         <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
 
-        <!-- <div class="margin-bottom-12">
-            <label for="idpengiklan" class="font-size-14">Id Pengiklan</label>
-            <input readonly type="text" name="idpengiklan" class="form-control width-input margin-top-6" value="">
-        </div> -->
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Nama Lengkap <span class="textcolor-red"> * </span></label>
             <input type="text" name="nama_lengkap" class="form-control width-input margin-top-6">
@@ -82,7 +78,7 @@
         </div>
 
         <div class="margin-bottom-12 margin-top-20">
-            <button type="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
+            <button type="submit" id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
         </div>
 
     </div>

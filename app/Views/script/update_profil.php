@@ -17,12 +17,12 @@
                 success: function(data) {
                     var obj = JSON.parse(data);
 
-                    alert(obj.data[0].message);
-                    
+                    toastr.success(obj.data[0].message);
+
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
                             window.location.href = "<?php echo base_url('profil'); ?>";
-                        }, 4000);
+                        }, 2000);
                     }
 
                 }

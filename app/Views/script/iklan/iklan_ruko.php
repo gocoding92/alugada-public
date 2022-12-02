@@ -3,6 +3,9 @@
         $('form').on('submit', function(e) {
             e.preventDefault();
 
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('iklan/saveRuko'); ?>',
@@ -11,12 +14,13 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
-                    console.log(data);
-
-                    return;
                     var obj = JSON.parse(data);
 
-                    alert(obj.data[0].message);
+                    if (obj.data[1].status === 200) {
+                        toastr.success(obj.data[0].message);
+                    } else {
+                        toastr.error(obj.data[0].message);
+                    }
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
