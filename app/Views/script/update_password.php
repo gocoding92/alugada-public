@@ -6,6 +6,21 @@
             var konfirmasi_password = $("#konfirmasi_password").val();
             var no_handphone = localStorage.getItem('no_handphone') ? localStorage.getItem('no_handphone') : 0;
 
+            if (!password_baru) {
+                toastr.error('Password harus diisi!');
+                return;
+            }
+
+            if (!konfirmasi_password) {
+                toastr.error('Konfirmasi Password harus diisi!');
+                return;
+            }
+
+            if (password_baru !== konfirmasi_password) {
+                toastr.error('Password Baru & Konfirmasi Password tidak sama!');
+                return;
+            }
+
             $.ajax({
                 url: "<?= base_url('profil/update-password'); ?>",
                 type: "POST",
@@ -19,14 +34,14 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
-
                     var obj = JSON.parse(data);
-                    alert(obj.data[0].message);
+
+                    toastr.success(obj.data[0].message);
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
                             window.location.href = "<?php echo base_url('/'); ?>";
-                        }, 4000);
+                        }, 2000);
 
                         localStorage.removeItem('no_handphone');
                     }

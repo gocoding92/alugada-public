@@ -7,26 +7,16 @@
             var no_handphone = localStorage.getItem('no_handphone');
 
             if (!otp) {
-                SnackBar({
-                    message: "Otp harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Otp harus diisi!');
                 return;
             }
 
             if (!no_handphone) {
-                SnackBar({
-                    message: "Data No. Handphone anda hilang, Segera register kembali!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Data No. Handphone anda hilang, Segera register kembali!');
 
                 window.setTimeout(function() {
                     window.location.href = "<?php echo base_url('register'); ?>";
-                }, 4000);
+                }, 2000);
 
                 return;
             }
@@ -44,12 +34,11 @@
                 success: function(data) {
                     var obj = JSON.parse(data);
 
-                    SnackBar({
-                        message: obj.data[0].message,
-                        status: obj.data[1].status === 200 ? "success" : "danger",
-                        speed: 500,
-                        position: "tr"
-                    });
+                    if (obj.data[1].status === 200) {
+                        toastr.success(obj.data[0].message);
+                    } else {
+                        toastr.error(obj.data[0].message);
+                    }
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {

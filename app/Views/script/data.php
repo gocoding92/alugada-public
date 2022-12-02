@@ -5,61 +5,20 @@
         $("#submit").click(function() {
             var name = $("#name").val();
             var password = $("#password").val();
-            var email = $("#email").val();
-            var alamat = $("#alamat").val();
-            var deskripsi = $("#deskripsi").val();
+            var email = '';
+            var alamat = '';
+            var deskripsi = '';
             var no_handphone = localStorage.getItem('no_handphone');
 
             if (!name) {
-                SnackBar({
-                    message: "Name harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Name harus diisi!');
                 return;
             }
 
             if (!password) {
-                SnackBar({
-                    message: "Password harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
+                toastr.error('Password harus diisi!');
                 return;
             }
-
-            if (!email) {
-                SnackBar({
-                    message: "Email harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
-                return;
-            }
-
-            if (!alamat) {
-                SnackBar({
-                    message: "Alamat harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
-                return;
-            }
-
-            if (!deskripsi) {
-                SnackBar({
-                    message: "Deskripsi harus diisi!",
-                    status: "danger",
-                    speed: 500,
-                    position: "tr"
-                });
-                return;
-            }
-
 
             $.ajax({
                 url: "<?= base_url('auth/submit-data'); ?>",
@@ -69,19 +28,12 @@
                 },
                 data: {
                     name: name,
-                    email: email,
                     password: password,
-                    alamat: alamat,
-                    deskripsi: deskripsi,
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
-                    SnackBar({
-                        message: "Data profil berhasil dilakukan",
-                        status: "success",
-                        speed: 500,
-                        position: "tr"
-                    });
+
+                    toastr.success('Data profil berhasil dilakukan');
 
                     var obj = JSON.parse(data);
 

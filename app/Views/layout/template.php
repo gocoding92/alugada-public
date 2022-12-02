@@ -21,15 +21,19 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Alert Notif -->
-    <link rel="stylesheet" href="library/notif/js-snackbar.css?v=1.3" />
+    <!-- <link rel="stylesheet" href="library/notif/js-snackbar.css?v=1.3" /> -->
 
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.11/slick.min.js"></script>
 
     <!-- Alert Notif -->
-    <script src="library/notif/js-snackbar.js?v=1.4"></script>
-    <script src="library/notif/site.js?v=1.0.0"></script>
+    <!-- <script src="library/notif/js-snackbar.js?v=1.4"></script> -->
+    <!-- <script src="library/notif/site.js?v=1.0.0"></script> -->
+
+    <!-- Alert Notif -->
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
 
     <style>
         @font-face {

@@ -141,7 +141,7 @@ class ModelAuth extends Model
         return json_encode($response);
     }
 
-    public function data($name = 0, $email = '', $no_handphone = 0, $password = '', $alamat = '', $deskripsi = '')
+    public function data($name = 0, $no_handphone = 0, $password = '', $email = '', $alamat = '', $deskripsi = '')
     {
         $data = $this->db->table('tbl_user')->update(
             [

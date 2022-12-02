@@ -69,7 +69,7 @@
         </div>
 
         <div class="margin-bottom-12">
-            <button type="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
+            <button type="submit" id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
         </div>
 
     </div>

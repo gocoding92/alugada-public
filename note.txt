@@ -327,3 +327,17 @@ Edit Profile
     - Property (Bangunan Komersial) (Done)
     - Kost & Kontrakan (Done)
     - Mobil (Done)
+
+
+
+1. Save Rekomendasi Iklan Ambil Image Yang Pertama (Done)
+2. Delete data table Iklan (Done)
+3. input data Tenaga Ahli (Done)
+4. session id ditambahkan ditable Masing masih fieldnya id_pengiklan (Done)
+5. Tampilkan Image di dalam Home (Done)
+6. Localhost:8080/data form nya dihapus email. alamat . Deskeripsi (Done)
+7. ditambahkan Imagenya (Halaman Profil) 
+8. Deskripsi Di hapus (Halaman Profil) (Done)
+9. Validasi jika alamat belum diisi '-' dan sudah disi keluarkan alamatnya (Done)
+10. Keluarkan Image jika sudah belum ada keluarkan yang image default. jika ada keluarkan (Done)
+11. Update Profil Data. Deskripsi di hapus (Done)
