@@ -1,23 +1,31 @@
 <?php
 
-namespace App\Controllers;
-use App\Models\ModelSlider;
+namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
+use App\Models\ModelAlugada;
+
 class Slider extends BaseController
 {
-    protected $slider;
+
     public function __construct()
     {
-        $this->slider = new ModelSlider();
+        date_default_timezone_set('Asia/Jakarta');
+        $this->alugada = new ModelAlugada();
+        $this->session = \Config\Services::session();
     }
     public function index()
     {
-        var_dump('aman');
-        exit;
-        $slider = $this->slider->findAll();
-        $data = ([
-            'slider' =>$slider
-        ]);
-        return view('Admin/slider', $data);
+        //
+        // var_dump("Benar");die;
+        $slider = $this->alugada->slider();
+
+        $data=[
+            'slider'    => $this->alugada->slider(),
+        ];
+        return view('admin/slider/index',$data);
     }
-    
+
+
+
 }

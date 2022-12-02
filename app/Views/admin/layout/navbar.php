@@ -19,7 +19,7 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
     <!-- Navbar Search -->
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <div class="navbar-search-block">
         <form class="form-inline">
           <div class="input-group input-group-sm">
@@ -35,7 +35,7 @@
           </div>
         </form>
       </div>
-    </li>
+    </li> -->
 
     <!-- Messages Dropdown Menu -->
     <li class="nav-item dropdown">
@@ -191,7 +191,7 @@
           <a href="<?php echo base_url('/administrator-area/iklan') ?>" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p>
-              Pasang Iklan
+              Iklan Baru
             </p>
           </a>
         </li>
@@ -205,7 +205,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url('\administrator-area\slider') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/slider') ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Slider
@@ -214,10 +214,10 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/edit-layanan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area/layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>
-              Kategori Layanan
+              Layanan
             </p>
           </a>
         </li>
@@ -236,7 +236,7 @@
           <a href="<?php echo base_url('/administrator-area/edit-sub-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Kategori Sub Layanan
+              Sub Layanan
             </p>
           </a>
         </li>

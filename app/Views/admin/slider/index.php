@@ -1,86 +1,68 @@
-<?php echo $this->extend('layout/template'); ?>
+<?php echo $this->extend('admin/layout/template'); ?>
 
-<?php echo $this->section('content'); ?>
+<?php echo $this->section('content-admin'); ?>
 
-
-<?php 
-
-var_dump($slider);
-exit;
-
-?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v1</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
 
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+    <h3>Tambah Layanan</h3>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">
-                            </h3>
-                        </div>
-                        <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Judul Iklan</th>
-                                        <th>Luas Tanah</th>
-                                        <th>Luas Bangunan</th>
-                                        <th>Kepemilikan</th>
-                                        <th>Jumlah Lantai</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1; ?>
-                                    <?php foreach($rumah as $rumahh) : ?>
-                                    <tr>
-                                        <td><?= $no++; ?></td>
-                                        <td><?= $rumahh['juduliklan']; ?></td>
-                                        <td><?= $rumahh['luastanah']; ?></td>
-                                        <td><?= $rumahh['luasbangunan']; ?></td>
-                                        <td><?= $rumahh['kepemilikan']; ?></td>
-                                        <td><?= $rumahh['jumlahlantai']; ?></td>
-                                        <td>
-                                            <a href="<?= base_url(''); ?>/rumah/detail/<?= $rumahh['id']; ?>">
-                                                <span class="right badge badge-primary"><i class="fa fa-edit"></i> Detail</span>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
+    <form action="<?= base_url('simpantambahlayanan');?>" method="post" enctype="multipart/form-data">
+            <?php foreach($slider as $s):?>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label for="title" class="form-label">Title</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="title" name="title" value="<>">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label for="description" class="form-label">description</label>
+                    </div>
+                    <div class="col-4">
+                        <input  type="text" class="form-control" id="description" name="description">
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label for="aktifasi" class="form-label">Aktifasi</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-select" aria-label="Default select example" name="aktifasi">
+                            <option value="1" selected>1 (Aktif)</option>
+                            <option value="1">1 (Aktif)</option>
+                            <option value="0">0 (Tidak Aktif)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-4">
+                        <label for="gambar" class="form-label">Gambar</label>
+                    </div>
+                    <div class="col-3">
+                        <div class="margin-bottom-12 padding-right-46 padding-left-16">
+                                <img src="<?php echo base_url('Image/Layanan/default.png');?>" class="img-preview" style="width:50px" id="img-preview">
+                                <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewgambar()">
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach;?>
 
 
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    </div>
+  </section>
+  
 </div>
 <!-- /.content-wrapper -->
 

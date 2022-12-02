@@ -41,6 +41,12 @@ class ModelAlugada extends Model
     protected $afterDelete    = [];
 
 
+
+    public function slider()
+    {
+        return $this->db->table('tbl_slider')->get()->getResultArray();
+    }
+
     public function userbynohp($nohp)
     {
         return $this->db->table('tbl_user')->getWhere(['nohp' => $nohp])->getRowArray();
@@ -67,9 +73,13 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_layanan')->insert($data);
     }
-    public function updatelayanan($id, $data)
+    public function updatelayananbyid($id, $data)
     {
         return $this->db->table('tbl_layanan')->update($data, ['id' => $id]);
+    }
+    public function updatelayananbynolayanan($nolayanan, $data)
+    {
+        return $this->db->table('tbl_layanan')->update($data, ['nolayanan' => $nolayanan]);
     }
 
 
@@ -161,7 +171,15 @@ class ModelAlugada extends Model
         return $db->insertID();
     }
 
-    public function save_Rumah($data)
+    // Iklan Rumah
+    public function iklanrumah(){
+        return $this->db->table('tbl_rumah')->get()->getResultArray();
+    }
+    public function iklanrumahbyid($id){
+        return $this->db->table('tbl_rumah')->getWhere(['id' => $id])->getRowArray();
+    }
+
+    public function simpanumah($data)
     {
         $db = $this->db;
         $db->table('tbl_rumah')->insert($data);
@@ -169,6 +187,16 @@ class ModelAlugada extends Model
         return $db->insertID();
         
     }
+    public function updaterumah($id, $data)
+    {
+        return $this->db->table('tbl_rumah')->update($data, ['id' => $id]);
+    }
+
+
+
+
+
+    // Batas Iklan Rumah
 
     public function save_Tanah($data)
     {

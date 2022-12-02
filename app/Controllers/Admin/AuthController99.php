@@ -4,7 +4,7 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 
-use App\Models\ModelAlugada;
+use App\Models\ModelAlugada; 
 
 class AuthController extends BaseController
 {

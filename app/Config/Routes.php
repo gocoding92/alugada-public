@@ -36,6 +36,11 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+//Latihan
+$routes->get('/latihan1', 'belajar\Kontainer::index');
+
+
+
 // HOME
 $routes->get('/', 'Home::index');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
@@ -127,7 +132,20 @@ $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 
 
 // Administrator
-$routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
+// $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
+$routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
+$routes->get('/administrator-area/layanan', 'Admin\LayananController::index');
+$routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1');
+$routes->get('/tambahlayanan', 'Admin\LayananController::tambahlayanan'); // <--------- Ok
+$routes->post('/simpantambahlayanan', 'Admin\LayananController::simpantambahlayanan'); // <--------- Ok
+$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
+$routes->get('/detailiklanrumahbaru/(:any)', 'Admin\iklan::detailiklanrumahbaru/$1'); // <--------- Ok
+$routes->get('/acceptiklan/(:any)', 'Admin\iklan::acceptiklan/$1'); // <--------- Ok
+$routes->get('/rejectiklan/(:any)', 'Admin\iklan::rejectiklan/$1'); // <--------- Ok
+$routes->get('/administrator-area/slider', 'Admin\Slider::index');   // <--------- Ok
+
+
+
 $routes->get('/administrator-area/dashboard/', 'Admin\DashboardController::index');   // <--------- Ok
 $routes->get('/administrator-area/dashboard/create', 'Admin\DashboardController::create');   // <--------- Ok
 $routes->post('/administrator-area/dashboard/createSlider', 'Admin\DashboardController::saveSlider');   // <--------- Ok
@@ -139,13 +157,14 @@ $routes->get('/administrator-area/users', 'Admin\Users::index');
 $routes->get('/administrator-area/users/create', 'Admin\Users::create');
 $routes->get('/administrator-area/users/update', 'Admin\Users::update');
 
-$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
+// $routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
 $routes->get('/administrator-area/iklan/create', 'Admin\Iklan::create');
 $routes->get('/administrator-area/iklan/update', 'Admin\Iklan::update');
 
 $routes->get('/administrator-area/pesan', 'Admin\Pesan::index');
 $routes->get('/administrator-area/pesan/create', 'Admin\Pesan::create');
 $routes->get('/administrator-area/pesan/update', 'Admin\Pesan::update');
+
 
 $routes->get('logout', 'AuthController::logout');
 $routes->post('/submit-login', 'AuthController::submit_login'); // <--------- Ok
