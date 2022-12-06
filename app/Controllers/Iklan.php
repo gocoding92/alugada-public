@@ -427,7 +427,6 @@ class Iklan extends BaseController
             $file1->move(ROOTPATH . 'public/Image/file', $fileName1);
         }
 
-
         $data = ([
             'bidang_profesi'   => $bidang_profesi,
             'nama_lengkap'     => $nama_lengkap,
@@ -456,10 +455,9 @@ class Iklan extends BaseController
 
         $id_iklan = $this->iklan->saveTenagaAhli($data);
 
-        $description = 'Bidang profesi : ' . $bidang_profesi . 'Tanggal Lahir : ' . $tanggal_lahir . 'Pendidikan : ' . $pendidikan . 'Jurusan' . $jurusan . 'Pengalaman Kerja :' . $pengalaman_kerja;
-        $alamat = $domisili . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
+        $description = "Bidang Profesi : " . $bidang_profesi . " " . 'Tanggal Lahir :' . " " . $tanggal_lahir . " " . 'Pendidikan :' . " " . $pendidikan . " " . 'Jurusan :' . " " . $jurusan . "";
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $alamat, $imageName1, 'tbl_tenagaahli');
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaahli');
     }
 
     public function saveTenagaTerampil()
