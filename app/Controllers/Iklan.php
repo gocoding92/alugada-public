@@ -16,6 +16,7 @@ class Iklan extends BaseController
         $this->iklan = new ModelIklan();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
+        $this->noWAAdmin = '085894222865';
     }
     public function index($param = '')
     {
@@ -456,6 +457,8 @@ class Iklan extends BaseController
         $id_iklan = $this->iklan->saveTenagaAhli($data);
 
         $description = "Bidang Profesi : " . $bidang_profesi . " " . 'Tanggal Lahir :' . " " . $tanggal_lahir . " " . 'Pendidikan :' . " " . $pendidikan . " " . 'Jurusan :' . " " . $jurusan . "";
+
+        $this->sendNotifWA();
 
         return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaahli');
     }
@@ -1194,5 +1197,35 @@ class Iklan extends BaseController
         ];
 
         return view('iklan/detail/index', $data);
+    }
+
+    public function sendNotifWA()
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.fonnte.com/send',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array(
+                'target' => $this->noWAAdmin,
+                'message' => "*Selamat Datang di Alugada*\r\n\r\n_Notification Baru 'Pasang Iklan'_\r\n_Agar segera di kroscek di halaman admin._\r\n\r\n_Link : https://dev-public.alugada.co.id/administrator-area_",
+                'url' => 'https://md.fonnte.com/images/wa-logo.png',
+                'filename' => 'filename',
+                'schedule' => '0',
+                'delay' => '2',
+                'countryCode' => '62',
+            ),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: 2D3-nhz3YnAucN2D_Z4E'
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        curl_close($curl);
     }
 }

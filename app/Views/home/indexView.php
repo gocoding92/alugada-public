@@ -31,8 +31,8 @@
       $image = $tbl_rekomendasi_iklan['image'];
       $nama_iklan = substr($tbl_rekomendasi_iklan['nama_iklan'], 0, 16);
       $nama_iklan_str = strlen($tbl_rekomendasi_iklan['nama_iklan']) > 16 ? '...' : '';
-      $description = substr($tbl_rekomendasi_iklan['description'], 0, 100);
-      $description_str = strlen($tbl_rekomendasi_iklan['description']) > 100 ? '...' : '';
+      $description = substr($tbl_rekomendasi_iklan['description'], 0, 95);
+      $description_str = strlen($tbl_rekomendasi_iklan['description']) > 95 ? '...' : '';
       $alamat = substr($tbl_rekomendasi_iklan['alamat'], 0, 80);
       $alamat_str = strlen($tbl_rekomendasi_iklan['alamat']) > 80 ? '...' : '';
     ?>
