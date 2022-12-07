@@ -13,7 +13,7 @@
                 <option>Driver</option>
                 <option>Babysitter</option>
                 <option>Perawat Jompo/Lansia</option>
-                <option>Asisten Rumahtangga</option>
+                <option>Asisten Rumah Tangga</option>
                 <option>Office Girl/Boy</option>
                 <option>Keamanan/Satpam</option>
             </select>

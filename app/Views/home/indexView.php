@@ -33,8 +33,8 @@
       $nama_iklan_str = strlen($tbl_rekomendasi_iklan['nama_iklan']) > 16 ? '...' : '';
       $description = substr($tbl_rekomendasi_iklan['description'], 0, 95);
       $description_str = strlen($tbl_rekomendasi_iklan['description']) > 95 ? '...' : '';
-      $alamat = substr($tbl_rekomendasi_iklan['alamat'], 0, 80);
-      $alamat_str = strlen($tbl_rekomendasi_iklan['alamat']) > 80 ? '...' : '';
+      $alamat = substr($tbl_rekomendasi_iklan['alamat'], 0, 15);
+      $alamat_str = strlen($tbl_rekomendasi_iklan['alamat']) > 15 ? '...' : '';
     ?>
       <a href="<?= base_url('iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
         <div class="card-layanan-list">
@@ -46,9 +46,13 @@
               <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
               <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
               <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
-              <span class="title-alamat"> <i class="fa fa-map"></i> <?= $alamat . $alamat_str; ?></span> <br />
-              <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span>
-              <button id="submit" class="btn btn-primary width-100-percent textcolor-white margin-top-7 cursor-pointer"> Detail </button>
+              <div style="position: absolute; bottom: 0;">
+                <div style="position: relative; top: -10px;">
+                  <p class="title-alamat"> <i class="fa fa-map"></i> <?= $alamat . $alamat_str; ?></p>
+                  <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span> <br />
+                  <button id="submit" class="btn btn-primary width-100-percent textcolor-white margin-top-7 cursor-pointer"> Detail </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
