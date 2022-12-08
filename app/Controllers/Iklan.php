@@ -1132,8 +1132,15 @@ class Iklan extends BaseController
         return $rekomendasi_iklan;
     }
 
-    public function detailIklan($id_rekomendasi_iklan = 0, $nama_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
+    public function detailIklan($nama_iklan = 0, $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
     {
+
+        // var_dump($nama_iklan);
+        // var_dump($id_rekomendasi_iklan);
+        // var_dump($id_iklan);
+        // var_dump($type_iklan);
+        // var_dump($table);
+        // exit;
         $result['component_iklan'] = '';
 
         if ($type_iklan == 'tenaga_ahli') {
@@ -1157,6 +1164,10 @@ class Iklan extends BaseController
         } elseif ($type_iklan == 'tenaga_terampil') {
             $result['component_iklan'] = 'iklan/detail/component/tenaga_terampil';
         }
+
+        $result['data_iklan'] = $this->iklan->detailIklan($id_iklan, $table);
+        $result['path_folder'] = $type_iklan;
+        
 
 
 

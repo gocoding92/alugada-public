@@ -29,7 +29,7 @@ class Home extends BaseController
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
-            'rekomendasi_iklan'       => $query,
+            'rekomendasi_iklan' => $query,
             'slider' => $querySlider
             // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
         ];

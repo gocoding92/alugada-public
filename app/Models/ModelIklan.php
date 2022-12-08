@@ -96,4 +96,9 @@ class ModelIklan extends Model
 
         return json_encode($response);
     }
+
+    public function detailIklan($id_iklan, $table)
+    {
+        return $this->db->table($table)->getWhere(['id' => $id_iklan])->getRowArray();
+    }
 }
