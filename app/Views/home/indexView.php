@@ -7,9 +7,6 @@
       <?php foreach ($slider as $slider) : ?>
         <div><img src="<?= $slider['gambar']; ?>" alt=""></div>
       <?php endforeach; ?>
-      <!-- <div><img src="https://i.ytimg.com/vi/f_fC54rC9hc/maxresdefault.jpg" /></div>
-      <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkihA1QQqZxNnO83gFHJB3FJdZVOxC-hsYZA&usqp=CAU" /></div>
-      <div><img src="https://i.ytimg.com/vi/vql_cCL-YLE/maxresdefault.jpg" /></div> -->
     </div>
   </div>
 
@@ -36,7 +33,7 @@
       $alamat = substr($tbl_rekomendasi_iklan['alamat'], 0, 15);
       $alamat_str = strlen($tbl_rekomendasi_iklan['alamat']) > 15 ? '...' : '';
     ?>
-      <a href="<?= base_url('iklan/detail'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>" class="cursor-pointer text-decoration-none">
+      <a href="<?= base_url('iklan/detail-iklan'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['table_iklan']; ?>" class="cursor-pointer text-decoration-none">
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">

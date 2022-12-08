@@ -39,8 +39,6 @@ $routes->set404Override();
 //Latihan
 $routes->get('/latihan1', 'belajar\Kontainer::index');
 
-
-
 // HOME
 $routes->get('/', 'Home::index');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
@@ -68,13 +66,18 @@ $routes->get('/profil/change-password', 'Profil::updatePassword');
 $routes->post('/profil/update-profil', 'Profil::update_Profil');
 $routes->post('/profil/update-password', 'Profil::update_Password');
 
-
-
 // KONTAK KAMI
 $routes->post('kontakkami/submit-kontakkami', 'KontakKami::submit_kontakkami');
 
+// DETAIL IKLAN
+// id rekomendasi iklan
+// nama iklan
+// id iklan
+// type iklan
+// table
+$routes->get('/iklan/detail-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::detailIklan/$1/$2/$3/$4/$5/');
 
-// -------------
+// ---------------------------------------------------------------------------------
 
 
 

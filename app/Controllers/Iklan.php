@@ -1132,86 +1132,57 @@ class Iklan extends BaseController
         return $rekomendasi_iklan;
     }
 
-    public function detailIklan($nama_iklan = '', $id_master = 0, $id_iklan = 0, $layanan = '')
+    public function detailIklan($id_rekomendasi_iklan = 0, $nama_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
     {
-        $this->iklan = '';
-        $table = '';
-        $primarykey = '';
+        $result['component_iklan'] = '';
 
-        if ($layanan) {
-            if ($layanan == 'tenaga_ahli') {
-                $this->iklan = 'iklan/detail/component/tenaga_ahli';
-                $table = 'tbl_tenagaahli';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'tenaga_terampil') {
-                $this->iklan = 'iklan/detail/component/tenaga_terampil';
-                $table = 'tbl_tenagaterampil';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'kost&kontrakan') {
-                $this->iklan = 'iklan/detail/component/kost_kontrakan';
-                $table = 'tbl_kostkontrakan';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'mobil') {
-                $this->iklan = 'iklan/detail/component/mobil';
-                $table = 'tbl_mobil';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'motor') {
-                $this->iklan = 'iklan/detail/component/motor';
-                $table = 'tbl_motor';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'rumah') {
-                $this->iklan = 'iklan/detail/component/rumah';
-                $table = 'tbl_rumah';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'tanah') {
-                $this->iklan = 'iklan/detail/component/tanah';
-                $table = 'tbl_tanah';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'apartemen') {
-                $this->iklan = 'iklan/detail/component/apartemen';
-                $table = 'tbl_apartemen';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'ruko') {
-                $this->iklan = 'iklan/detail/component/ruko';
-                $table = 'tbL_ruko';
-                $primarykey = 'id';
-            }
-            if ($layanan == 'bangunan_komersial') {
-                $this->iklan = 'iklan/detail/component/bangunan_komersial';
-                $table = 'tbl_bangunankomersial';
-                $primarykey = 'id';
-            }
+        if ($type_iklan == 'tenaga_ahli') {
+            $result['component_iklan'] = 'iklan/detail/component/tenaga_ahli';
+        } elseif ($type_iklan == 'mobil') {
+            $result['component_iklan'] = 'iklan/detail/component/mobil';
+        } elseif ($type_iklan == 'motor') {
+            $result['component_iklan'] = 'iklan/detail/component/motor';
+        } elseif ($type_iklan == 'kost&kontrakan') {
+            $result['component_iklan'] = 'iklan/detail/component/kost_kontrakan';
+        } elseif ($type_iklan == 'rumah') {
+            $result['component_iklan'] = 'iklan/detail/component/rumah';
+        } elseif ($type_iklan == 'tanah') {
+            $result['component_iklan'] = 'iklan/detail/component/tanah';
+        } elseif ($type_iklan == 'apartemen') {
+            $result['component_iklan'] = 'iklan/detail/component/apartemen';
+        } elseif ($type_iklan == 'ruko') {
+            $result['component_iklan'] = 'iklan/detail/component/ruko';
+        } elseif ($type_iklan == 'bangunan_komersial') {
+            $result['component_iklan'] = 'iklan/detail/component/bangunan_komersial';
+        } elseif ($type_iklan == 'tenaga_terampil') {
+            $result['component_iklan'] = 'iklan/detail/component/tenaga_terampil';
         }
 
-        $dataiklan = $this->modelalugada->detailIklan($id_iklan, $table, $primarykey);
-        // $dataiklan = $this->modelalugada->detailIklanTenagaTerampil($id_iklan, $table, $primarykey);
+        return view('iklan/detail/index', $result);
 
-        $nohppengunjung = $this->session->get('nohppengunjung');
-        if ($nohppengunjung == null) {
-            $nohppengunjung = 123;
-            // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
-            // $idpengunjung = $idpengunjung['id']; 
-        }
+        // var_dump($component_iklan);
 
-        $data = [
-            'admin'         => $this->admin,
-            'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-            'title'         => $nama_iklan,
-            'layanan'       => $this->modelalugada->layanan(),
-            'sublayanan'    => $this->modelalugada->sublayanan(),
-            'detail_iklan'  => $this->iklan,
-            'dataiklan'     => $dataiklan
-        ];
+        // $dataiklan = $this->modelalugada->detailIklan($id_iklan, $table, $primarykey);
+        // // $dataiklan = $this->modelalugada->detailIklanTenagaTerampil($id_iklan, $table, $primarykey);
 
-        return view('iklan/detail/index', $data);
+        // $nohppengunjung = $this->session->get('nohppengunjung');
+        // if ($nohppengunjung == null) {
+        //     $nohppengunjung = 123;
+        //     // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
+        //     // $idpengunjung = $idpengunjung['id']; 
+        // }
+
+        // $data = [
+        //     'admin'         => $this->admin,
+        //     'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
+        //     'title'         => $nama_iklan,
+        //     'layanan'       => $this->modelalugada->layanan(),
+        //     'sublayanan'    => $this->modelalugada->sublayanan(),
+        //     'detail_iklan'  => $this->iklan,
+        //     'dataiklan'     => $dataiklan
+        // ];
+
+        // return view('iklan/detail/index', $data);
     }
 
     public function sendNotifWA()
