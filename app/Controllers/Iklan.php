@@ -1158,6 +1158,8 @@ class Iklan extends BaseController
             $result['component_iklan'] = 'iklan/detail/component/tenaga_terampil';
         }
 
+
+
         return view('iklan/detail/index', $result);
 
         // var_dump($component_iklan);
