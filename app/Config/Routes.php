@@ -76,6 +76,7 @@ $routes->post('kontakkami/submit-kontakkami', 'KontakKami::submit_kontakkami');
 // type iklan
 // table
 $routes->get('/iklan/detail-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::detailIklan/$1/$2/$3/$4/$5/');
+$routes->get('/iklan/detail-iklan-layanan/(:any)/(:num)', 'Iklan::detailIklanLayanan/$1/$2/');
 
 // ---------------------------------------------------------------------------------
 

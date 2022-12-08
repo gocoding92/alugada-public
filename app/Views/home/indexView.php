@@ -12,7 +12,7 @@
 
   <div class="row-categories">
     <?php foreach ($layanan as $l) : ?>
-      <a href="<?= base_url('home/detail/' . $l['nolayanan']); ?>" class="categories-button text-decoration-none" variant="light">
+      <a href="<?= base_url('iklan/detail-iklan-layanan/' . $l['layanan'] . '/' . $l['nolayanan']); ?>" class="categories-button text-decoration-none" variant="light">
         <div>
           <img class="img-categories" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="semua">
         </div>

@@ -1216,4 +1216,11 @@ class Iklan extends BaseController
         $response = curl_exec($curl);
         curl_close($curl);
     }
+
+    public function detailIklanLayanan($layanan = 0, $id_layanan = '')
+    {
+        $result['data_sub_layanan'] = $this->iklan->getDataIklanSubLayanan($id_layanan);
+
+        return view('iklan/detail-iklan-layanan/index', $result);
+    }
 }

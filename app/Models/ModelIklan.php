@@ -96,4 +96,9 @@ class ModelIklan extends Model
 
         return json_encode($response);
     }
+
+    public function getDataIklanSubLayanan($id_layanan = 0)
+    {
+        return $this->db->table('tbl_sublayanan')->getWhere(['nolayanan' => $id_layanan])->getResultArray();;
+    }
 }
