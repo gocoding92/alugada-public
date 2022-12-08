@@ -70,7 +70,13 @@ class ModelIklan extends Model
 
         return $db->insertID();
     }
+    public function saveMotor($data = [])
+    {
+        $db = $this->db;
+        $db->table('tbl_motor')->insert($data);
 
+        return $db->insertID();
+    }
 
     public function saveRekomendasiIklan($data = [])
     {

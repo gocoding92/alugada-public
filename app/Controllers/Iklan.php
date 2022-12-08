@@ -162,10 +162,6 @@ class Iklan extends BaseController
             $imageFile6->move(ROOTPATH . 'public/Image/iklan/mobil', $imageName6);
         }
 
-        // validasi required image belum
-        // $imageFile = $this->request->getFiles();
-        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/mobil');
-
         $data = ([
             'judul_iklan'  => $judul_iklan,
             'merk'         => $merk,
@@ -191,15 +187,15 @@ class Iklan extends BaseController
             'image_6'      => $imageName6,
             'idpengiklan'  => $this->session->get('id'),
             'path_folder'  => 'mobil',
-            // 'image' => $imageName,
         ]);
 
         $id_iklan = $this->iklan->saveMobil($data);
 
-        $description = 'Merk :' . $merk . 'Type : ' . $type . 'Tahun : ' . $tahun . 'Warna : ' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
-        $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
+        $description = "Merek : " . $merk . " " . 'Type :' . " " . $type . " " . 'Tahun :' . " " . $tahun . " " . 'Warna :' . " " . $warna . " " . 'Deskripsi :' . " " . $deskripsi . "";
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $judul_iklan = '', $description, $alamat, $imageName1, 'tbl_mobil');
+        $this->sendNotifWA();
+
+        return $this->saveRekomendasiIklan('mobil', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_mobil');
     }
 
     public function savemtr()
@@ -220,10 +216,49 @@ class Iklan extends BaseController
         $harga       = $this->request->getVar('harga');
         $nolayanan       = $this->request->getVar('nolayanan');
         $nosublayanan       = $this->request->getVar('nosublayanan');
-
-        // validasi required image belum
         $imageFile = $this->request->getFiles();
-        $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/motor');
+
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = '';
+        if ($imageFile1->isValid()) {
+            $imageName1 = $imageFile1->getName();
+            $imageFile1->move(ROOTPATH . 'public/Image/iklan/motor', $imageName1);
+        }
+
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = '';
+        if ($imageFile2->isValid()) {
+            $imageName2 = $imageFile2->getName();
+            $imageFile2->move(ROOTPATH . 'public/Image/iklan/motor', $imageName2);
+        }
+
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = '';
+        if ($imageFile3->isValid()) {
+            $imageName3 = $imageFile3->getName();
+            $imageFile3->move(ROOTPATH . 'public/Image/iklan/motor', $imageName3);
+        }
+
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = '';
+        if ($imageFile4->isValid()) {
+            $imageName4 = $imageFile4->getName();
+            $imageFile4->move(ROOTPATH . 'public/Image/iklan/motor', $imageName4);
+        }
+
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = '';
+        if ($imageFile5->isValid()) {
+            $imageName5 = $imageFile5->getName();
+            $imageFile5->move(ROOTPATH . 'public/Image/iklan/motor', $imageName5);
+        }
+
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = '';
+        if ($imageFile6->isValid()) {
+            $imageName6 = $imageFile6->getName();
+            $imageFile6->move(ROOTPATH . 'public/Image/iklan/motor', $imageName6);
+        }
 
         $data = ([
             'judul_iklan' => $judul_iklan,
@@ -242,14 +277,23 @@ class Iklan extends BaseController
             'harga' => $harga,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
-            'image'  => $imageName,
-
+            'image_1'          => $imageName1,
+            'image_2'          => $imageName2,
+            'image_3'          => $imageName3,
+            'image_4'          => $imageName4,
+            'image_5'          => $imageName5,
+            'image_6'          => $imageName6,
+            'idpengiklan'     => $this->session->get('id'),
+            'path_folder'     => 'motor',
         ]);
-        $id_iklan = $this->modelalugada->saveMotor($data);
-        $description = 'Merk : ' . $merk . 'Type : ' . $type . 'Tahun : ' . $tahun . 'Warna : ' . $warna . '' . $plat . ' ' . $odometer . '' . $bahan_bakar . '' . $deskripsi;
-        $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $provinsi;
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap = '', $description, $alamat, 'tbl_motor');
+        $id_iklan = $this->iklan->saveMotor($data);
+
+        $description = "Merek : " . $merk . " " . 'Type :' . " " . $type . " " . 'Tahun :' . " " . $tahun . " " . 'Warna :' . " " . $warna . " " . 'Deskripsi :' . " " . $deskripsi . "";
+
+        $this->sendNotifWA();
+
+        return $this->saveRekomendasiIklan('motor', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_motor');
     }
 
     public function saveKostkontrakan()
@@ -664,7 +708,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('rumah', $id_iklan, $juduliklan = '', $description, $lokasi, $imageName1, 'tbl_rumah');
+        return $this->saveRekomendasiIklan('rumah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_rumah');
     }
 
     public function saveTanah()
@@ -756,7 +800,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan = '', $description, $lokasi, $imageName1, 'tbl_tanah');
+        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_tanah');
     }
 
     public function saveApartemen()
@@ -819,10 +863,6 @@ class Iklan extends BaseController
             $imageFile6->move(ROOTPATH . 'public/Image/iklan/apartemen', $imageName6);
         }
 
-        // validasi required image belum
-        // $imageFile = $this->request->getFiles();
-        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
-
         $data = ([
             'juduliklan' => $juduliklan,
             'luas' => $luas,
@@ -846,16 +886,16 @@ class Iklan extends BaseController
             'image_6'       => $imageName6,
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'apartemen',
-            // 'image' => $imageName,
         ]);
 
 
         $id_iklan = $this->iklan->saveApartemen($data);
 
-        $description = 'Luas :' . $luas . 'Kepemilikan : ' . $kepemilikan . 'Bedroom :' . $bedroom . 'Kamar Mandi : ' . $kamarmandi . 'Listrik : ' . $listrik . '' . $deskripsi;
-        $alamat = $alamatlokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
+        $description = "Luas : " . $luas . " " . 'Kepemilikan :' . " " . $kepemilikan . " " . 'Bedroom :' . " " . $bedroom . " " . 'Kamar Mandi :' . " " . $kamarmandi . " " . 'Deskripsi :' . " " . $deskripsi . "";
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $juduliklan = '', $description, $alamat, $imageName1, 'tbl_apartemen');
+        $this->sendNotifWA();
+
+        return $this->saveRekomendasiIklan('apartemen', $id_iklan, $juduliklan, $description, $alamatlokasi, $imageName1, 'tbl_apartemen');
     }
 
     public function saveRuko()
@@ -921,10 +961,6 @@ class Iklan extends BaseController
             $imageFile6->move(ROOTPATH . 'public/Image/iklan/ruko', $imageName6);
         }
 
-        // validasi required image belum
-        // $imageFile = $this->request->getFiles();
-        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
-
         $data = ([
             'juduliklan'   => $juduliklan,
             'luastanah'    => $luastanah,
@@ -950,15 +986,15 @@ class Iklan extends BaseController
             'image_6'       => $imageName6,
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'ruko',
-            // 'image'        => $imageName,
         ]);
 
         $id_iklan = $this->iklan->saveRuko($data);
 
-        $description = 'Luas Tanah : ' . $luastanah . 'Luas Bangunan :  ' . $luasbangunan . 'Kepemilikan :' . $kepemilikan . 'Jumlah Lantai :' . $jumlahlantai . 'Listrik :' . $listrik . 'Kamar Mandi :' . $kamarmandi . 'Carport :' . $carport . '' . $deskripsi;
-        $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
+        $description = "Luas Tanah : " . $luastanah . " " . 'Luas Bangunan :' . " " . $luasbangunan . " " . 'Kepemilikan :' . " " . $kepemilikan . " " . 'Jumlah Lantai :' . " " . $jumlahlantai . " " . 'Deskripsi :' . " " . $deskripsi . "";
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $juduliklan = '', $description, $alamat, $imageName1, 'tbl_ruko');
+        $this->sendNotifWA();
+
+        return $this->saveRekomendasiIklan('ruko', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_ruko');
     }
 
     public function saveBangunanKomersial()
@@ -1024,10 +1060,6 @@ class Iklan extends BaseController
             $imageFile6->move(ROOTPATH . 'public/Image/iklan/bangunan_komersial', $imageName6);
         }
 
-        // validasi required image belum
-        // $imageFile = $this->request->getFiles();
-        // $imageName = $this->uploadImage($imageFile, 'public/Image/iklan/property');
-
         $data = ([
             'juduliklan' => $juduliklan,
             'luastanah' => $luastanah,
@@ -1059,11 +1091,11 @@ class Iklan extends BaseController
 
         $id_iklan = $this->iklan->saveBangunanKomersial($data);
 
+        $description = "Luas Tanah : " . $luastanah . " " . 'Luas Bangunan :' . " " . $luasbangunan . " " . 'Kepemilikan :' . " " . $kepemilikan . " " . 'Jumlah Lantai :' . " " . $jumlahlantai . " " . 'Deskripsi :' . " " . $deskripsi . "";
 
-        $description = 'Luas Tannah : ' . $luastanah . 'Luas Bangunan : ' . $luasbangunan . ' Kepemilikan : ' . $kepemilikan . 'Jumlah Lantai : ' . $jumlahlantai . 'Listrik :' . $listrik . 'Carport :' . $carport . '' . $deskripsi;
-        $alamat = $lokasi . ' ' . $kecamatan . ' ' . $kabupaten . ' ' . $propinsi;
+        $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $juduliklan = '', $description, $alamat, $imageName1, 'tbl_bangunankomersial');
+        return $this->saveRekomendasiIklan('bangunan_komersial', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_bangunankomersial');
     }
 
     public function uploadImage($imageFile = [], $path = '')
