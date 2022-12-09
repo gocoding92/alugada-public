@@ -101,4 +101,9 @@ class ModelIklan extends Model
     {
         return $this->db->table('tbl_sublayanan')->getWhere(['nolayanan' => $id_layanan])->getResultArray();;
     }
+
+    public function detailIklan($id_iklan, $table)
+    {
+        return $this->db->table($table)->getWhere(['id' => $id_iklan])->getRowArray();
+    }
 }
