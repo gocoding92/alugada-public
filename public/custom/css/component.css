@@ -47,6 +47,11 @@
   border-color: #2a960c;
 }
 
+.btn-danger {
+  background-color: red;
+  border-color: red;
+}
+
 .mapouter {
   position: relative;
   text-align: right;
