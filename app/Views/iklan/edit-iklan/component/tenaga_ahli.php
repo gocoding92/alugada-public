@@ -53,7 +53,7 @@
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Nama Lengkap <span class="textcolor-red"> * </span></label>
-            <input type="text" value="<?= $data_iklan['nama_lengkap']; ?>" nama_lengkap" class="form-control width-input margin-top-6">
+            <input type="text" value="<?= $data_iklan['nama_lengkap']; ?>" class="form-control width-input margin-top-6">
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Tanggal Lahir <span class="textcolor-red"> * </span></label>
