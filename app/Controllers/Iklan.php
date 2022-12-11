@@ -1200,6 +1200,8 @@ class Iklan extends BaseController
     {
         $result['data_sub_layanan'] = $this->iklan->getDataIklanSubLayanan($id_layanan);
         $result['data_iklan'] = $this->iklan->getDataIklanLayanan($id_layanan, $id_sub_layanan);
+        $result['id_sub_layanan'] = $id_sub_layanan;
+        $result['layanan'] = $layanan;
 
         return view('iklan/detail-iklan-layanan/index', $result);
     }

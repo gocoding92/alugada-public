@@ -3,17 +3,21 @@
 <?= $this->section('content'); ?>
 
 <div id="home-page" class="row-sm">
-  <div style="display: flex; overflow: scroll;">
-    <?php foreach ($data_sub_layanan as $val) : ?>
-      <div class="cursor-pointer" variant="light" style="width: 30%">
-        <div>
-          <img class="img-categories" src="<?= base_url('Image/Layanan/Sublayanan/' . $val['gambar']); ?>" alt="semua">
+  <div>
+    <div class="display-flex">
+      <?php foreach ($data_sub_layanan as $val) :
+        $url_detail = $layanan . '/' . $val['nolayanan'] . '/' . $val['nosublayanan'];
+      ?>
+        <div class="cursor-pointer" style="width: 400px" variant="light" onclick="filterSublayanan('<?= $url_detail; ?>');">
+          <div>
+            <img class="img-categories" src="<?= base_url('Image/Layanan/Sublayanan/' . $val['gambar']); ?>" alt="semua">
+          </div>
+          <div class="">
+            <p style="font-size: 10px;"><?= $val['sublayanan']; ?></p>
+          </div>
         </div>
-        <div class="">
-          <p style="font-size: 10px;"><?= $val['sublayanan']; ?></p>
-        </div>
-      </div>
-    <?php endforeach; ?>
+      <?php endforeach; ?>
+    </div>
   </div>
 
 
@@ -51,5 +55,11 @@
     <?php endforeach; ?>
   </div>
 </div>
+
+<script>
+  function filterSublayanan(url_detail) {
+    window.location.href = `<?php echo base_url('iklan/detail-iklan-layanan'); ?>/${url_detail}`;
+  }
+</script>
 
 <?= $this->endSection(); ?>
