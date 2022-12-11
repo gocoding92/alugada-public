@@ -114,4 +114,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_tenaga_terampil"); ?>
+<?= $this->include("script/edit-iklan/iklan_tenaga_terampil"); ?>

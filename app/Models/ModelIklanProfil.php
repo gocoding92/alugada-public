@@ -17,6 +17,17 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
+    public function UpdatedTenagaTerampil($data = [], $id_rekomendasi_iklan = 0)
+    {
+        $data = $this->db->table('tbl_tenagaterampil')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
+
+        return $data;
+    }
     public function saveTenagaTerampil($data = [])
     {
         $db = $this->db;
