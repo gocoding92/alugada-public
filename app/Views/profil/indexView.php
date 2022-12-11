@@ -36,23 +36,27 @@
 
         $url_detail = $tbl_rekomendasi_iklan['nama_iklan'] . '/' . $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] . '/' . $tbl_rekomendasi_iklan['id_iklan'] . '/' . $tbl_rekomendasi_iklan['type_rekomendasi_iklan'] . '/' . $tbl_rekomendasi_iklan['table_iklan'];
       ?>
-        <div class="card-layanan-list" style="height: 442px;">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
-              <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
-              <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
-              <div class="text-align-right">
-                <i onclick="detailIklan('<?= $url_detail; ?>');" style="font-size: 18px" class="fa fa-eye cursor-pointer margin-right-10"></i>
-                <i onclick="editIklan();" style="font-size: 18px" class="fa fa-edit cursor-pointer margin-right-10"></i>
-                <i onclick="deleteIklan();" style="font-size: 18px" class="fa fa-trash cursor-pointer margin-right-10"></i>
+
+        <!-- 1 = active iklan -->
+        <?php if ($tbl_rekomendasi_iklan['is_active'] == 1) : ?>
+          <div class="card-layanan-list" style="height: 442px;">
+            <div class="card-layanan">
+              <figure class="card-figure-layanan">
+                <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
+              </figure>
+              <div class="row-title-layanan">
+                <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
+                <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
+                <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
+                <div class="text-align-right">
+                  <i onclick="detailIklan('<?= $url_detail; ?>');" style="font-size: 18px" class="fa fa-eye cursor-pointer margin-right-10"></i>
+                  <i onclick="editIklan('<?= $url_detail; ?>');" style="font-size: 18px" class="fa fa-edit cursor-pointer margin-right-10"></i>
+                  <i onclick="deleteIklan();" style="font-size: 18px" class="fa fa-trash cursor-pointer margin-right-10"></i>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php endif; ?>
       <?php endforeach; ?>
     </div>
   </div>
@@ -62,8 +66,8 @@
       window.location.href = `<?php echo base_url('iklan/detail-iklan'); ?>/${url_detail}`;
     }
 
-    function editIklan() {
-      console.log('edit iklan');
+    function editIklan(url_detail) {
+      window.location.href = `<?php echo base_url('iklan/edit-iklan'); ?>/${url_detail}`;
     }
 
     function deleteIklan() {

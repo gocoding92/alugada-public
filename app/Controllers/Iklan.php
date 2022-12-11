@@ -1134,13 +1134,6 @@ class Iklan extends BaseController
 
     public function detailIklan($nama_iklan = 0, $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
     {
-
-        // var_dump($nama_iklan);
-        // var_dump($id_rekomendasi_iklan);
-        // var_dump($id_iklan);
-        // var_dump($type_iklan);
-        // var_dump($table);
-        // exit;
         $result['component_iklan'] = '';
 
         if ($type_iklan == 'tenaga_ahli') {
@@ -1167,35 +1160,8 @@ class Iklan extends BaseController
 
         $result['data_iklan'] = $this->iklan->detailIklan($id_iklan, $table);
         $result['path_folder'] = $type_iklan;
-        
-
-
 
         return view('iklan/detail/index', $result);
-
-        // var_dump($component_iklan);
-
-        // $dataiklan = $this->modelalugada->detailIklan($id_iklan, $table, $primarykey);
-        // // $dataiklan = $this->modelalugada->detailIklanTenagaTerampil($id_iklan, $table, $primarykey);
-
-        // $nohppengunjung = $this->session->get('nohppengunjung');
-        // if ($nohppengunjung == null) {
-        //     $nohppengunjung = 123;
-        //     // $idpengunjung = $this->modelalugada->layananbynohp($nohppengunjung);
-        //     // $idpengunjung = $idpengunjung['id']; 
-        // }
-
-        // $data = [
-        //     'admin'         => $this->admin,
-        //     'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
-        //     'title'         => $nama_iklan,
-        //     'layanan'       => $this->modelalugada->layanan(),
-        //     'sublayanan'    => $this->modelalugada->sublayanan(),
-        //     'detail_iklan'  => $this->iklan,
-        //     'dataiklan'     => $dataiklan
-        // ];
-
-        // return view('iklan/detail/index', $data);
     }
 
     public function sendNotifWA()
@@ -1233,5 +1199,43 @@ class Iklan extends BaseController
         $result['data_sub_layanan'] = $this->iklan->getDataIklanSubLayanan($id_layanan);
 
         return view('iklan/detail-iklan-layanan/index', $result);
+    }
+
+    public function editIklan($nama_iklan = 0, $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
+    {
+
+        $result['component_iklan'] = '';
+
+        if ($type_iklan == 'tenaga_ahli') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/tenaga_ahli';
+        } elseif ($type_iklan == 'mobil') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/mobil';
+        } elseif ($type_iklan == 'motor') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/motor';
+        } elseif ($type_iklan == 'kost&kontrakan') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/kost_kontrakan';
+        } elseif ($type_iklan == 'rumah') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/rumah';
+        } elseif ($type_iklan == 'tanah') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/tanah';
+        } elseif ($type_iklan == 'apartemen') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/apartemen';
+        } elseif ($type_iklan == 'ruko') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/ruko';
+        } elseif ($type_iklan == 'bangunan_komersial') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/bangunan_komersial';
+        } elseif ($type_iklan == 'tenaga_terampil') {
+            $result['component_iklan'] = 'iklan/edit-iklan/component/tenaga_terampil';
+        }
+
+        $result['data_iklan'] = $this->iklan->detailIklan($id_iklan, $table);
+
+        $result['id_rekomendasi_iklan'] = $id_rekomendasi_iklan;
+        $result['id_iklan'] = $id_iklan;
+        $result['no_layanan'] = $result['data_iklan']['nolayanan'];
+        $result['no_sub_layanan'] = $result['data_iklan']['nosublayanan'];
+        $result['path_folder'] = $type_iklan;
+
+        return view('iklan/edit-iklan/index', $result);
     }
 }
