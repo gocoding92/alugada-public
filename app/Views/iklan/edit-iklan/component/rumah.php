@@ -34,8 +34,8 @@
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
         <input type="hidden" name="id_iklan" value="<?= $id_iklan; ?>">
-        <input type="hidden" name="id_iklan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sub_layanan" value="<?= $no_sub_layanan; ?>">
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sub_layanan; ?>">
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
@@ -53,10 +53,10 @@
             <label for="" class="font-size-14">Kepemilikan</label>
             <select name="kepemilikan" id="" class="form-control margin-top-6">
                 <option></option>
-                <option  <?= $data_iklan['kepemilikan'] == 'Sertifikat' ? 'selected': null;?>>Sertifikat</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'AJB' ? 'selected': null;?>>AJB</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'Girik' ? 'selected': null;?>>Girik</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected': null;?>>Lainnya</option>
+                <option <?= $data_iklan['kepemilikan'] == 'Sertifikat' ? 'selected' : null; ?>>Sertifikat</option>
+                <option <?= $data_iklan['kepemilikan'] == 'AJB' ? 'selected' : null; ?>>AJB</option>
+                <option <?= $data_iklan['kepemilikan'] == 'Girik' ? 'selected' : null; ?>>Girik</option>
+                <option <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected' : null; ?>>Lainnya</option>
             </select>
         </div>
         <div class="margin-bottom-12 margin-right-25">
@@ -65,22 +65,22 @@
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Listrik</label>
-            <input type="number" name="listrik"  value="<?= $data_iklan['listrik']; ?>" class="form-control width-input margin-top-6" placeholder="">
+            <input type="number" name="listrik" value="<?= $data_iklan['listrik']; ?>" class="form-control width-input margin-top-6" placeholder="">
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Ruang Tamu</label>
             <select name="ruangtamu" id="" class="form-control margin-top-6">
                 <option> </option>
-                <option <?= $data_iklan['ruangtamu'] == 'Tidak Ada' ? 'selected': null;?>>Tidak Ada</option>
-                <option <?= $data_iklan['ruangtamu'] == 'Ada' ? 'selected': null;?>>Ada</option>
+                <option <?= $data_iklan['ruangtamu'] == 'Tidak Ada' ? 'selected' : null; ?>>Tidak Ada</option>
+                <option <?= $data_iklan['ruangtamu'] == 'Ada' ? 'selected' : null; ?>>Ada</option>
             </select>
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Ruang Keluarga</label>
             <select name="ruangkeluarga" id="" class="form-control margin-top-6">
                 <option> </option>
-                <option <?= $data_iklan['ruangkeluarga'] == 'Tidak Ada' ? 'selected': null;?>>Tidak Ada</option>
-                <option <?= $data_iklan['ruangkeluarga'] == 'Ada' ? 'selected': null;?>>Ada</option>
+                <option <?= $data_iklan['ruangkeluarga'] == 'Tidak Ada' ? 'selected' : null; ?>>Tidak Ada</option>
+                <option <?= $data_iklan['ruangkeluarga'] == 'Ada' ? 'selected' : null; ?>>Ada</option>
             </select>
         </div>
         <div class="margin-bottom-12 margin-right-25">
@@ -99,24 +99,24 @@
             <label for="" class="font-size-14">Teras</label>
             <select name="teras" id="" class="form-control margin-top-6">
                 <option> </option>
-                <option <?= $data_iklan['teras'] == 'Tidak Ada' ? 'selected': null;?>>Tidak Ada</option>
-                <option <?= $data_iklan['teras'] == 'Ada' ? 'selected': null;?>>Ada</option>
+                <option <?= $data_iklan['teras'] == 'Tidak Ada' ? 'selected' : null; ?>>Tidak Ada</option>
+                <option <?= $data_iklan['teras'] == 'Ada' ? 'selected' : null; ?>>Ada</option>
             </select>
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Taman</label>
             <select name="taman" id="" class="form-control margin-top-6">
                 <option> </option>
-                <option <?= $data_iklan['taman'] == 'Tidak Ada' ? 'selected': null;?>>Tidak Ada</option>
-                <option <?= $data_iklan['taman'] == 'Ada' ? 'selected': null;?>>Ada</option>
+                <option <?= $data_iklan['taman'] == 'Tidak Ada' ? 'selected' : null; ?>>Tidak Ada</option>
+                <option <?= $data_iklan['taman'] == 'Ada' ? 'selected' : null; ?>>Ada</option>
             </select>
         </div>
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Akses Mobil</label>
             <select name="aksesmobil" id="" class="form-control margin-top-6">
                 <option> </option>
-                <option <?= $data_iklan['aksesmobil'] == 'Tidak Masuk Mobil' ? 'selected': null;?>>Tidak Masuk Mobil</option>
-                <option <?= $data_iklan['aksesmobil'] == 'Masuk Mobil' ? 'selected': null;?>>Masuk Mobil</option>
+                <option <?= $data_iklan['aksesmobil'] == 'Tidak Masuk Mobil' ? 'selected' : null; ?>>Tidak Masuk Mobil</option>
+                <option <?= $data_iklan['aksesmobil'] == 'Masuk Mobil' ? 'selected' : null; ?>>Masuk Mobil</option>
             </select>
         </div>
         <div class="margin-bottom-12 margin-right-25">

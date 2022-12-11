@@ -35,8 +35,8 @@
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
         <input type="hidden" name="id_iklan" value="<?= $id_iklan; ?>">
-        <input type="hidden" name="id_iklan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sub_layanan" value="<?= $no_sub_layanan; ?>">
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sub_layanan; ?>">
 
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Bidang Profesi <span class="textcolor-red"> * </span></label>
@@ -53,7 +53,7 @@
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Nama Lengkap <span class="textcolor-red"> * </span></label>
-            <input type="text" value="<?= $data_iklan['nama_lengkap']; ?>" class="form-control width-input margin-top-6">
+            <input type="text" name="nama_lengkap" value="<?= $data_iklan['nama_lengkap']; ?>" class="form-control width-input margin-top-6">
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Tanggal Lahir <span class="textcolor-red"> * </span></label>
@@ -121,4 +121,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_tenaga_ahli"); ?>
+<?= $this->include("script/edit-iklan/iklan_tenaga_ahli"); ?>

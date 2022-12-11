@@ -34,8 +34,8 @@
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
         <input type="hidden" name="id_iklan" value="<?= $id_iklan; ?>">
-        <input type="hidden" name="id_iklan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sub_layanan" value="<?= $no_sub_layanan; ?>">
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sub_layanan; ?>">
 
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Profesi <span class="textcolor-red"> * </span></label>
@@ -71,7 +71,8 @@
             <label for="" class="font-size-14">Pengalaman Kerja</label>
             <select name="pengalaman_kerja" class="form-control  width-select margin-top-6">
                 <option selected> </option>
-                <option <?= $data_iklan['pengalaman_kerja'] == '< 1 Tahun' ? 'selected' : null; ?>>< 1 Tahun</option>
+                <option <?= $data_iklan['pengalaman_kerja'] == '< 1 Tahun' ? 'selected' : null; ?>>
+                    < 1 Tahun</option>
                 <option <?= $data_iklan['pengalaman_kerja'] == '1 - 3 Tahun' ? 'selected' : null; ?>>1 - 3 Tahun</option>
                 <option <?= $data_iklan['pengalaman_kerja'] == '3 - 5 Tahun' ? 'selected' : null; ?>>3 - 5 Tahun</option>
                 <option <?= $data_iklan['pengalaman_kerja'] == '5 Tahun' ? 'selected' : null; ?>>5 Tahun</option>

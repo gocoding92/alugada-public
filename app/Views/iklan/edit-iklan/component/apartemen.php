@@ -34,10 +34,8 @@
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
         <input type="hidden" name="id_iklan" value="<?= $id_iklan; ?>">
-        <input type="hidden" name="id_iklan" value="<?= $no_layanan; ?>">
-        <input type="hidden" name="no_sub_layanan" value="<?= $no_sub_layanan; ?>">
-
-
+        <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
+        <input type="hidden" name="nosublayanan" value="<?= $no_sub_layanan; ?>">
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
@@ -51,9 +49,9 @@
             <label for="" class="font-size-14">Kepemilikan</label>
             <select name="kepemilikan" id="" class="form-control margin-top-6">
                 <option></option>
-                <option  <?= $data_iklan['kepemilikan'] == 'SHM Strata tittle' ? 'selected': null; ?>>SHM Strata tittle</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'HGB' ? 'selected': null; ?>>HGB</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected': null; ?>>Lainnya</option>
+                <option <?= $data_iklan['kepemilikan'] == 'SHM Strata tittle' ? 'selected' : null; ?>>SHM Strata tittle</option>
+                <option <?= $data_iklan['kepemilikan'] == 'HGB' ? 'selected' : null; ?>>HGB</option>
+                <option <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected' : null; ?>>Lainnya</option>
             </select>
         </div>
         <div class="margin-bottom-12 margin-right-25">

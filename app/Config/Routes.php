@@ -135,6 +135,17 @@ $routes->post('/iklan/saveBangunanKomersial', 'Iklan::saveBangunanKomersial');
 
 $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 
+$routes->post('/edit-iklan/save', 'IklanProfil::save');
+$routes->post('/edit-iklan/savemtr', 'IklanProfil::savemtr');
+$routes->post('/edit-iklan/saveKostkontrakan', 'IklanProfil::saveKostkontrakan');
+$routes->post('/edit-iklan/saveTenagaAhli', 'IklanProfil::saveTenagaAhli');
+$routes->post('/edit-iklan/saveTenagaTerampil', 'IklanProfil::saveTenagaTerampil');
+$routes->post('/edit-iklan/saveRumah', 'IklanProfil::saveRumah');
+$routes->post('/edit-iklan/saveTanah', 'IklanProfil::saveTanah');
+$routes->post('/edit-iklan/saveApartemen', 'IklanProfil::saveApartemen');
+$routes->post('/edit-iklan/saveRuko', 'IklanProfil::saveRuko');
+$routes->post('/edit-iklan/saveBangunanKomersial', 'IklanProfil::saveBangunanKomersial');
+
 
 // Administrator
 // $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
