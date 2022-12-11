@@ -54,9 +54,9 @@
             <label for="" class="font-size-14">Kepemilikan</label>
             <select name="kepemilikan" id="" class="form-control margin-top-6">
                 <option></option>
-                <option  <?= $data_iklan['kepemilikan'] == 'SHM Strata tittle' ? 'selected': null;?>>SHM Strata tittle</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'HGB' ? 'selected': null;?>>HGB</option>
-                <option  <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected': null;?>>Lainnya</option>
+                <option  <?= $data_iklan['kepemilikan'] == 'SHM Strata tittle' ? 'selected': null; ?>>SHM Strata tittle</option>
+                <option  <?= $data_iklan['kepemilikan'] == 'HGB' ? 'selected': null; ?>>HGB</option>
+                <option  <?= $data_iklan['kepemilikan'] == 'Lainnya' ? 'selected': null; ?>>Lainnya</option>
             </select>
         </div>
         <div class="margin-bottom-12 margin-right-25">
