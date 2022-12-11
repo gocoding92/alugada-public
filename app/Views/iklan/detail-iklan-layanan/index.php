@@ -3,23 +3,21 @@
 <?= $this->section('content'); ?>
 
 <div id="home-page" class="row-sm">
-  <div>
-    <div class="display-flex">
-      <?php foreach ($data_sub_layanan as $val) :
-        $url_detail = $layanan . '/' . $val['nolayanan'] . '/' . $val['nosublayanan'];
-      ?>
-        <div class="cursor-pointer" style="width: 400px" variant="light" onclick="filterSublayanan('<?= $url_detail; ?>');">
-          <div>
-            <img class="img-categories" src="<?= base_url('Image/Layanan/Sublayanan/' . $val['gambar']); ?>" alt="semua">
-          </div>
-          <div class="">
-            <p style="font-size: 10px;"><?= $val['sublayanan']; ?></p>
-          </div>
-        </div>
-      <?php endforeach; ?>
-    </div>
-  </div>
+  <div class="row-categories">
+    <?php foreach ($data_sub_layanan as $l) :
 
+      $url_detail = $layanan . '/' . $l['nolayanan'] . '/' . $l['nosublayanan'];
+    ?>
+      <a onclick="filterSublayanan('<?= $url_detail; ?>');" href="#" class="categories-button text-decoration-none" variant="light">
+        <div>
+          <img class="img-categories" src="<?= base_url('Image/Layanan/Sublayanan/' . $l['gambar']); ?>" alt="semua">
+        </div>
+        <div class="label-categories">
+          <p class="text-layanan"><?= $l['sublayanan']; ?></p>
+        </div>
+      </a>
+    <?php endforeach; ?>
+  </div>
 
   <div class="row-card-layanan">
     <?php foreach ($data_iklan as $tbl_rekomendasi_iklan) :
