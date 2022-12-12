@@ -10,13 +10,13 @@
     <div class="container-fluid">
         <h3>Tambah Layanan</h3>
 
-        <form action="<?= base_url('simpantambahlayanan');?>" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('simpaneditlayanan'.'/'.$layanan['nolayanan']);?>" method="post" enctype="multipart/form-data">
             <div class="row mb-2">
                 <div class="col-4">
                     <label for="nolayanan" class="form-label">Nomor Layanan</label>
                 </div>
                 <div class="col-3">
-                    <input readonly type="text" class="form-control" id="nolayanan" name="nolayanan" value="<?= $nolayananbaru?>">
+                    <input readonly type="text" class="form-control" id="nolayanan" name="nolayanan" value="<?= $layanan['nolayanan']?>">
                 </div>
             </div>
             <div class="row mb-2">
@@ -24,7 +24,7 @@
                     <label for="Layanan" class="form-label">Layanan</label>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control " id="layanan" name="layanan">
+                    <input type="text" class="form-control " id="layanan" name="layanan" value="<?= $layanan['layanan']?>">
                     <!-- <div class="invalid-feedback">
                         <?php //echo $validation->getError('layanan');?>
                     </div> -->
@@ -38,7 +38,7 @@
                     <label for="DetailLayanan" class="form-label">Detail Layanan</label>
                 </div>
                 <div class="col-4">
-                    <input  type="text" class="form-control" id="detaillayanan" name="detaillayanan">
+                    <input  type="text" class="form-control" id="detaillayanan" name="detaillayanan" value="<?= $layanan['detaillayanan'];?>">
                 </div>
             </div>
 
@@ -47,27 +47,7 @@
                     <label for="url" class="form-label">URL</label>
                 </div>
                 <div class="col-4">
-                    <input type="text" class="form-control" id="url" name="url" placeholder="Link URL ....">
-                </div>
-            </div>
-            <!-- <div class="row mb-2">
-                <div class="col-4">
-                    <label for="aktifasi" class="form-label">Aktifasi</label>
-                </div>
-                <div class="col-4">
-                    <input type="text" class="form-control" id="aktifasi" name="aktifasi" placeholder="1 = Aktif ; 0 = Tidak aktif">
-                </div>
-            </div> -->
-            <div class="row mb-2">
-                <div class="col-4">
-                    <label for="aktifasi" class="form-label">Aktifasi</label>
-                </div>
-                <div class="col-4">
-                    <select class="form-select" aria-label="Default select example" name="aktifasi">
-                        <option value="1" selected>1 (Aktif)</option>
-                        <option value="1">1 (Aktif)</option>
-                        <option value="0">0 (Tidak Aktif)</option>
-                    </select>
+                    <input type="text" class="form-control" id="url" name="url" value="<?= $layanan['url']?>">
                 </div>
             </div>
 
@@ -77,7 +57,7 @@
                 </div>
                 <div class="col-3">
                     <div class="margin-bottom-12 padding-right-46 padding-left-16">
-                            <img src="<?php echo base_url('Image/Layanan/default.png');?>" class="img-preview" style="width:50px" id="img-preview">
+                            <img src="<?php echo base_url('Image/Layanan/'.$layanan['gambar']);?>" class="img-preview" style="width:50px" id="img-preview">
                             <input type="file" class="form-control" id="gambar" name="gambar" onchange="previewgambar()">
                     </div>
                 </div>

@@ -47,6 +47,10 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_slider')->get()->getResultArray();
     }
 
+    public function rekomendasiiklan(){
+        return $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
+    }
+
     public function userbynohp($nohp)
     {
         return $this->db->table('tbl_user')->getWhere(['nohp' => $nohp])->getRowArray();
@@ -110,6 +114,26 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_user')->update($data, ['id' => $id]);
     }
+
+
+    //IKLAN
+    public function iklanahlibyid($id)
+    {
+        return $this->db->table('tbl_tenagaahli')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function updateahli($id, $data)
+    {
+        return $this->db->table('tbl_tenagaahli')->update($data, ['id' => $id]);
+    }
+    public function updaterekom($id, $data)
+    {
+        // var_dump($id);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->update($data, ['id_rekomendasi_iklan' => $id]);
+    }
+
+
+
+
 
 
     public function jenisiklan()

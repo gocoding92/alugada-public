@@ -31,7 +31,7 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">
-                <a href="<?= base_url('tambahlayanan'); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Layanan</a>
+              <a href="<?php echo base_url('tambahlayanan'); ?>" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Layanan Test</a>
               </h3>
             </div>
             <div class="card-body">
@@ -59,7 +59,7 @@
                             <td><?= $l['url'];?></td>
                             <td><?= $l['is_active'];?></td>
                             <td>
-                            <a href="<?= base_url(''); ?>/iklan/update">
+                            <a href="<?= base_url('editlayanan'.'/'.$l['nolayanan']); ?>">
                                 <span class="right badge badge-primary"><i class="fa fa-edit"></i> Edit</span>
                             </a>
                             <?php if($l['is_active']){?>
@@ -84,5 +84,10 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+
+
+
+
 
 <?php echo $this->endSection(); ?>

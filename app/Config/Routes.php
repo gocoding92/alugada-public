@@ -134,14 +134,22 @@ $routes->get('/detail-iklan/(:any)/(:num)', 'DetailIklan::index/$1/$2');
 // Administrator
 // $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
 $routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
-$routes->get('/administrator-area/layanan', 'Admin\LayananController::index');
-$routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1');
+$routes->get('/administrator-area/layanan', 'Admin\LayananController::index');// <--------- Ok
+$routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1');// <--------- Ok
 $routes->get('/tambahlayanan', 'Admin\LayananController::tambahlayanan'); // <--------- Ok
 $routes->post('/simpantambahlayanan', 'Admin\LayananController::simpantambahlayanan'); // <--------- Ok
-$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
-$routes->get('/detailiklanrumahbaru/(:any)', 'Admin\iklan::detailiklanrumahbaru/$1'); // <--------- Ok
-$routes->get('/acceptiklan/(:any)', 'Admin\iklan::acceptiklan/$1'); // <--------- Ok
-$routes->get('/rejectiklan/(:any)', 'Admin\iklan::rejectiklan/$1'); // <--------- Ok
+$routes->get('/editlayanan/(:any)', 'Admin\LayananController::editlayanan/$1'); // <--------- Ok
+$routes->post('/simpaneditlayanan/(:any)', 'Admin\LayananController::simpaneditlayanan/$1'); // <--------- Ok
+
+$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');// <--------- Ok
+$routes->get('/detailiklanbaru', 'Admin\iklan::detailiklanbaru'); // <--------- Ok
+$routes->get('/detailiklanahli/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklanahli/$1/$2/$3'); // <--------- Ok
+
+
+
+
+$routes->get('/acceptiklan/(:any)/(:any)/(:any)', 'Admin\iklan::acceptiklanahli/$1/$2/$3'); // <--------- Ok
+$routes->get('/rejectiklan/(:any)/(:any)/(:any).', 'Admin\iklan::rejectiklanahli/$1/$2/$3'); // <--------- Ok
 $routes->get('/administrator-area/slider', 'Admin\Slider::index');   // <--------- Ok
 
 
@@ -170,7 +178,7 @@ $routes->get('logout', 'AuthController::logout');
 $routes->post('/submit-login', 'AuthController::submit_login'); // <--------- Ok
 
 $routes->get('/edit-layanan', 'EditLayanan::index');
-$routes->get('tambah-layanan', 'EditLayanan::tambah_layanan');
+// $routes->get('tambah-layanan', 'EditLayanan::tambah_layanan');
 $routes->post('submit-form-insert-layanan', 'EditLayanan::simpan_tambah_layanan');
 $routes->get('submit-edit-layanan/(:num)', 'EditLayanan::submit_edit_layanan/$1');
 $routes->get('activate-layanan/(:num)', 'EditLayanan::activate_layanan/$1');
