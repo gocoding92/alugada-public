@@ -3,6 +3,10 @@
 
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
+
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             var otp = $("#otp").val();
             var no_handphone = localStorage.getItem('no_handphone');
 

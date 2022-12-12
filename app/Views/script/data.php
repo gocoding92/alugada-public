@@ -3,6 +3,10 @@
 
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
+
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             var name = $("#name").val();
             var password = $("#password").val();
             var email = '';

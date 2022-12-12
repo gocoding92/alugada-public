@@ -3,8 +3,11 @@
 
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
-            var no_handphone = $("#no_handphone").val();
 
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
+            var no_handphone = $("#no_handphone").val();
 
             if (!no_handphone) {
                 toastr.error('No. Handphone harus diisi!');

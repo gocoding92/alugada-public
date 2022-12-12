@@ -7,6 +7,9 @@
 
             e.preventDefault();
 
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             $.ajax({
                 url: "<?= base_url('profil/update-profil'); ?>",
                 type: 'POST',

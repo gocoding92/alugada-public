@@ -3,6 +3,10 @@
 
         // ---- 1. Submit Register (21/Oktober/2022) ----
         $("#submit").click(function() {
+
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             var no_handphone = $("#no_handphone").val();
 
             if (!no_handphone) {
