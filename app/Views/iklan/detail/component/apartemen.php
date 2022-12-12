@@ -1,72 +1,64 @@
-<form action="<?= base_url('iklan/saveApartemen'); ?>" method="post" enctype="multipart/form-data">
-    <div class="row">
-
-        <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
-            <span class="font-size-10 position-relative bottom-16 left-30"> Property - Apartemen </span>
-        </h2>
-
-        <!-- <div class="border3-solid-ced4da margin-bottom-6 border-radius-5">
-            <legend class="font-size-10 textcolor-9a9a9a margin-top-4 margin-bottom-8">Select photos (Up to photos 6) Min 1 <span class="textcolor-red"> * </span></legend>
-            <div class="display-flex width-auto overflow-auto">
-                <div class="select-image margin-bottom-12">
-                    <label for="inputTag" class="cursor-pointer font-size-14">
-                        <i class="fa fa-2x fa-camera"></i>
-                        <input onchange="previewgambar()" id="inputTag" type="file" name="file[]" class="display-none" multiple required />
-                        <br />
-                        <span id="imageName"></span>
-                    </label>
-                </div>
-                <div class="gallery display-flex"></div>
-            </div>
-        </div> -->
-
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Judul Iklan</label>
-            <p><?= $dataiklan['juduliklan']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Luas</label>
-            <p><?= $dataiklan['luas']; ?></p>
-        <div class="margin-bottom-12">
-            <label for="" class="font-size-14">Kepemilikan</label>
-            <p><?= $dataiklan['kepemilikan']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Bedroom</label>
-            <p><?= $dataiklan['bedroom']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Kamar Mandi</label>
-            <p><?= $dataiklan['kamarmandi']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Listrik</label>
-            <p><?= $dataiklan['listrik']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Alamat Lokasi</label>
-            <p><?= $dataiklan['alamatlokasi']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Kecamatan</label>
-            <p><?= $dataiklan['kecamatan']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Kabupaten</label>
-            <p><?= $dataiklan['kabupaten']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Provinsi</label>
-            <p><?= $dataiklan['propinsi']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Deskripsi</label>
-            <p><?= $dataiklan['deskripsi']; ?></p>
-        </div>
-        <div class="margin-bottom-12 margin-right-25">
-            <label for="" class="font-size-14">Harga</label>
-            <p><?= $dataiklan['harga']; ?></p>
-        </div>
-
+<div>
+    <div class="margin-bottom-12">
+        <h2><i class="fa fa-user"></i> <?= $data_iklan['juduliklan'] ?></h2>
+        <p class="deskripsi-detail-iklan"><i class="fa fa-edit"></i> <?= $data_iklan['deskripsi']; ?></p>
     </div>
-</form>
+    <h3> <i class="fa fa-info"></i> Info Kami </h3>
+</div>
+
+<hr />
+
+<div class="display-flex">
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Luas Tanah</label>
+        <p class="font-size-16"><?= $data_iklan['luas']; ?></p>
+    </div>
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Kepemilikan</label>
+        <p class="font-size-16"><?= $data_iklan['kepemilikan']; ?></p>
+    </div>
+</div>
+
+<div class="display-flex">
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Bedroom</label>
+        <p class="font-size-16"><?= $data_iklan['bedroom']; ?></p>
+    </div>
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Kamar Mandi</label>
+        <p class="font-size-16"><?= $data_iklan['kamarmandi']; ?></p>
+    </div>
+</div>
+
+<div class="display-flex">
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">listrik</label>
+        <p class="font-size-16"><?= $data_iklan['listrik']; ?></p>
+    </div>
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Alamat</label>
+        <p class="font-size-16"><?= $data_iklan['alamatlokasi']; ?></p>
+    </div>
+</div>
+
+<div class="display-flex">
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Kecamatan</label>
+        <p class="font-size-16"><?= $data_iklan['kecamatan']; ?></p>
+    </div>
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Kabupaten</label>
+        <p class="font-size-16"><?= $data_iklan['kabupaten']; ?></p>
+    </div>
+</div>
+
+<div class="display-flex">
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Provinsi</label>
+        <p class="font-size-16"><?= $data_iklan['propinsi']; ?></p>
+    </div>
+    <div class="margin-bottom-12 width-50-percent">
+        <label class="label-detail-iklan" for="" class="font-size-18">Harga</label>
+        <p class="font-size-16">Rp. <?= number_format($data_iklan['harga']); ?></p>
+    </div>
+</div>

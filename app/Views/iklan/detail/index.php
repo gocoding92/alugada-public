@@ -1,16 +1,37 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-<div id="home-page" class="row-sm">
-  <div class="position-relative top10">
-    <div class="fade">
-      <div><img src="https://i.ytimg.com/vi/f_fC54rC9hc/maxresdefault.jpg" /></div>
-      <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkihA1QQqZxNnO83gFHJB3FJdZVOxC-hsYZA&usqp=CAU" /></div>
-      <div><img src="https://i.ytimg.com/vi/vql_cCL-YLE/maxresdefault.jpg" /></div>
-    </div>
-  </div>
 
-  <?= $detail_iklan ? $this->include($detail_iklan) : null; ?>
+<?= $this->include('iklan/css/styles'); ?>
+
+<div>
+  <div class="fade">
+    <?php if ($data_iklan['image_1']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_1']; ?>" /></div>
+    <?php endif; ?>
+    <?php if ($data_iklan['image_2']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_2']; ?>" /></div>
+    <?php endif; ?>
+    <?php if ($data_iklan['image_3']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_3']; ?>" /></div>
+    <?php endif; ?>
+    <?php if ($data_iklan['image_4']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_4']; ?>" /></div>
+    <?php endif; ?>
+    <?php if ($data_iklan['image_5']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_5']; ?>" /></div>
+    <?php endif; ?>
+    <?php if ($data_iklan['image_6']) : ?>
+      <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_6']; ?>" /></div>
+    <?php endif; ?>
+  </div>
+</div>
+
+<div id="home-page" class="row-sm">
+  <?= $component_iklan ? $this->include($component_iklan) : null; ?>
+  <div>
+    <img class="icon-wa-detail-iklan" src="<?= base_url('Image/wa.png') ?>" />
+  </div>
 </div>
 
 <?= $this->endSection(); ?>

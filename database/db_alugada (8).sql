@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.3
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 02, 2022 at 09:26 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.29
+-- Host: localhost
+-- Generation Time: Dec 12, 2022 at 05:18 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,8 @@ INSERT INTO `tbl_apartemen` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `
 (1, 0, 400, 403, 'Apartemen Tekuk Intan', 4000, 'SHM Strata tittle', 20, 10, 2000, 'Tangerang', 'Tajurhalang', 'Kertajati', 'jawa barat', '[\"1663814312_48d9391d15b92dd48581.jpg\",\"1663814312_74ea0551247a827074c2.jpg\"]', '', '', '', '', '', '', 'Dijual secepatnya', 30000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 0, 400, 403, '', 0, '', 0, 0, 0, '', '', '', '', 'Screenshot (39).png', 'latihan7_8.png', 'latihan7_7.png', 'latihan7_6.png', 'latihan7_5.png', 'latihan7_4.png', '', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 0, 400, 403, '', 0, '', 0, 0, 0, '', '', '', '', 'Screenshot (39).png', 'latihan7_8.png', 'latihan7_7.png', 'latihan7_6.png', 'latihan7_5.png', 'latihan7_4.png', '', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(4, 28, 400, 403, '', 0, '', 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'apartemen', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(4, 28, 400, 403, '', 0, '', 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'apartemen', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 28, 400, 403, 'Apartemen Murah Meriah', 30, 'HGB', 30, 20, 10, 'Kebun Jeruk', 'Sasak Panjang', 'Bogor', 'DKI Jakarta', '0224-org-asing-punya-apartemen-s-20210224072141.jpeg', '', '', '', '', '', 'apartemen', 'Apartemen murah, kamar 2 dan halaman luas', 4000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -115,7 +116,8 @@ CREATE TABLE `tbl_bangunankomersial` (
 INSERT INTO `tbl_bangunankomersial` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `luasbangunan`, `kepemilikan`, `jumlahlantai`, `listrik`, `carport`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `path_folder`, `deskripsi`, `harga`, `is_active`, `suspend`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
 (1, 0, 400, 405, 0, 'Bangunan Komersial Di Kawasan Mandiri', 300, 200, 'SHM Strata tittl', 2000, 200, 3000, 'Bogor', 'Majalengka', 'Bogor', 'jawa barat', '[\"1663814759_3efc5b5605e21e11cbae.jpg\",\"1663814759_e86b3f838c5189442d7f.jpg\"]', '', '', '', '', '', '', 'Disewakan', 2147483647, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 0, 400, 405, 0, '', 0, 0, '', 0, 0, 0, '', '', '', '', 'latihan7_1.png', 'latihan7_2.png', 'latihan7_3.png', 'latihan7_4.png', 'latihan7_5.png', 'latihan7_6.png', '', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 28, 400, 405, 0, '', 0, 0, '', 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'bangunan_komersial', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3, 28, 400, 405, 0, '', 0, 0, '', 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'bangunan_komersial', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 28, 400, 405, 0, 'Bangunan Kokoh 3 Lantai', 200, 222, 'HGB', 20, 20, 30, 'Jakarta Barat', 'Sasak Panjang', 'Tajurhalang', 'DKI Jakarta', '0224-org-asing-punya-apartemen-s-20210224072141.jpeg', '', '', '', '', '', 'bangunan_komersial', 'Bangunan Kokoh tempat strategis', 300000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,8 @@ INSERT INTO `tbl_kostkontrakan` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan
 (1, 0, 300, 301, 'Kost Dekat Mall Stadion', '2', '2', 'Token tiap kamar/kontrakan', 'Kamar mandi dalam', 'Ada', 'Ada', 'Ada', 'Ada', 'Ada', 'Jakarta', 'Cibitung', 'kab. Bekasi', 'Jawa Barat', '200000', 'Per Tahun', '[\"1663812534_da7ac70d4516a034313c.jpg\",\"1663812534_fb66d7926721a966f04c.jpg\"]', '', '', '', '', '', '', 0, 0, '2022-09-22 09:08:54'),
 (2, 0, 300, 301, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Intro YouTube Gaya Hidup Minimalisme Krem dan Hijau.png', 'alam.jpg', 'senja 1.jpg', 'ruko.jpg', 'senja.jpg', 'pexels-photo-3683735.webp', '', 0, 0, '2022-11-26 01:11:01'),
 (3, 0, 300, 301, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'Intro YouTube Gaya Hidup Minimalisme Krem dan Hijau.png', 'alam.jpg', 'senja 1.jpg', 'ruko.jpg', 'senja.jpg', 'pexels-photo-3683735.webp', '', 0, 0, '2022-11-26 01:11:56'),
-(4, 28, 300, 301, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'kost_kontrakan', 0, 0, '2022-12-02 09:50:12');
+(4, 28, 300, 301, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'kost_kontrakan', 0, 0, '2022-12-02 09:50:12'),
+(5, 28, 300, 301, 'Kontrakan Murah 700 Ribu', '2', '2', 'Token tiap kamar/kontrakan', 'Diluar / bersama', 'Ada', 'Ada', 'Ada', 'Ada', 'Ada', 'Graha Sentana, Jl. Warung Buncit Raya N0.2, Jl. Warung Buncit Raya No.2, RT.3/RW.2, Duren Tiga, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12740', 'Sasak Panjang', 'Bogor', 'Jawa Barat', '700000', 'Per Bulan', 'k1.jpeg', '', '', '', '', '', 'kost_kontrakan', 0, 0, '2022-12-07 08:54:38');
 
 -- --------------------------------------------------------
 
@@ -294,7 +297,8 @@ INSERT INTO `tbl_mobil` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `judu
 (2, 0, 500, 501, '', '', '', '', '', '', '', '', '', '', '', '', '099382600_1579095950-nature-3616194_1920.jpg', 'alam.jpg', 'jakaet.jpg', 'senja 1.jpg', 'Untitled.png', 'jeans.jpg', '', '', '', 0, 0, '2022-11-26 02:14:02'),
 (3, 28, 500, 501, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'mobil', '', '', 0, 0, '2022-12-02 09:57:08'),
 (4, 28, 500, 501, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'mobil', '', '', 0, 0, '2022-12-02 09:57:26'),
-(5, 28, 500, 501, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'mobil', '', '', 0, 0, '2022-12-02 09:58:10');
+(5, 28, 500, 501, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'mobil', '', '', 0, 0, '2022-12-02 09:58:10'),
+(6, 28, 500, 501, 'Mobil Dijual Cepat', 'Honda', 'Type 2022', '2000', 'Merah', '1020292 AB', '30', 'Pertamina', 'Jakarta Selatan', 'Sasak Panjang', 'Kabupaten', 'Jawa Barat', 'mobil.jpeg', '', '', '', '', '', 'mobil', 'Mobil yang ramah lingkungan', '4000000', 0, 0, '2022-12-08 09:36:43');
 
 -- --------------------------------------------------------
 
@@ -304,6 +308,7 @@ INSERT INTO `tbl_mobil` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `judu
 
 CREATE TABLE `tbl_motor` (
   `id` int(11) NOT NULL,
+  `idpengiklan` int(11) NOT NULL,
   `nolayanan` int(5) NOT NULL,
   `nosublayanan` int(5) NOT NULL,
   `judul_iklan` varchar(255) NOT NULL,
@@ -318,10 +323,17 @@ CREATE TABLE `tbl_motor` (
   `kecamatan` varchar(255) NOT NULL,
   `kabupaten` varchar(255) NOT NULL,
   `provinsi` varchar(255) NOT NULL,
-  `image` text NOT NULL,
-  `gambar6` varchar(255) NOT NULL,
+  `image_1` text NOT NULL,
+  `image_2` text NOT NULL,
+  `image_3` text NOT NULL,
+  `image_4` text NOT NULL,
+  `image_5` text NOT NULL,
+  `image_6` text NOT NULL,
   `deskripsi` text NOT NULL,
   `harga` varchar(255) NOT NULL,
+  `path_folder` varchar(100) NOT NULL,
+  `is_active` int(11) NOT NULL,
+  `suspend` int(11) NOT NULL,
   `created_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -329,8 +341,8 @@ CREATE TABLE `tbl_motor` (
 -- Dumping data for table `tbl_motor`
 --
 
-INSERT INTO `tbl_motor` (`id`, `nolayanan`, `nosublayanan`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `image`, `gambar6`, `deskripsi`, `harga`, `created_time`) VALUES
-(1, 600, 601, 'Motor Aerox', 'Yamaha', '2019', '2019', 'Coklat Kesilveran', '290 TPLP 016', '2000', 'pertalite', 'inkopad', 'Tajurhalang', 'Bogor', 'Jawa Barat', '[\"1663815500_03554b25de629b930196.jpg\",\"1663815500_f9f70f6de3b4764e76fd.png\"]', '', 'dijual saja', '400000', '2022-09-22 09:58:20');
+INSERT INTO `tbl_motor` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `judul_iklan`, `merk`, `type`, `tahun`, `warna`, `plat`, `odometer`, `bahan_bakar`, `lokasi`, `kecamatan`, `kabupaten`, `provinsi`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `deskripsi`, `harga`, `path_folder`, `is_active`, `suspend`, `created_time`) VALUES
+(1, 28, 600, 406, 'Motor N - Max', 'Honda', 'Kawasaki', '2022', 'Merah', '1020292 AB', '30', 'Pertamina', 'Puskesmas kecamatan Tebet', 'Sasak Panjang', 'Kabupaten', 'Tangerang Kota', 'motor.jpeg', '', '', '', '', '', 'Motor ramah lingkungan', '3000000', 'motor', 0, 0, '2022-12-08 10:26:21');
 
 -- --------------------------------------------------------
 
@@ -390,20 +402,19 @@ CREATE TABLE `tbl_rekomendasi_iklan` (
 --
 
 INSERT INTO `tbl_rekomendasi_iklan` (`id_rekomendasi_iklan`, `user_id`, `nolayanan`, `nosublayanan`, `type_rekomendasi_iklan`, `id_iklan`, `nama_iklan`, `description`, `alamat`, `image`, `path_folder`, `table_iklan`, `create_at`, `is_active`, `suspend`, `checked`, `id_checker`, `keterangan_suspend`) VALUES
-(1, 20, 0, 0, 'tenaga_ahli', 1, 'Achmad Rizky', 'Bidang profesi : EngineeringTanggal Lahir : 2022-07-07Pendidikan : S1JurusanTeknik InformatikaPengalaman Kerja :1 - 3 Tahun', 'Bogor kemang bogor Jawa Barat', 'hal - l.jpg', '', 'tbl_tenagaahli', '2022-12-01 14:13:44', 0, 0, 0, 0, ''),
-(2, 28, 0, 0, 'tenaga_ahli', 2, '', 'Bidang profesi : Tanggal Lahir : Pendidikan : JurusanPengalaman Kerja :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_tenagaahli', '2022-12-02 09:42:17', 0, 0, 0, 0, ''),
-(3, 28, 0, 0, 'tenaga_ahli', 3, '', 'Bidang profesi : Tanggal Lahir : Pendidikan : JurusanPengalaman Kerja :', '   ', '', '', 'tbl_tenagaahli', '2022-12-02 09:43:24', 0, 0, 0, 0, ''),
-(4, 28, 0, 0, 'tenaga_ahli', 4, '', 'Bidang profesi : Tanggal Lahir : Pendidikan : JurusanPengalaman Kerja :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_tenagaahli', '2022-12-02 09:43:41', 0, 0, 0, 0, ''),
-(5, 28, 0, 0, 'tenaga_ahli', 5, '', 'Bidang profesi : Tanggal Lahir : Pendidikan : JurusanPengalaman Kerja :', '   ', 'img2.jpeg', '', 'tbl_tenagaahli', '2022-12-02 09:44:05', 0, 0, 0, 0, ''),
-(6, 28, 0, 0, 'tenaga_ahli', 5, '', 'Profesi : Tanggal Lahir :Pendidikan :Pengalaman :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_tenagaterampil', '2022-12-02 09:47:35', 0, 0, 0, 0, ''),
-(7, 28, 0, 0, 'tenaga_ahli', 4, '', 'Jumlah Kamar : Kamar Kosong :  Listrik : Kamar Mandi : AC : ', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_kostkontrakan', '2022-12-02 09:50:12', 0, 0, 0, 0, ''),
-(8, 28, 0, 0, 'tenaga_ahli', 7, '', 'Luas Tanah :Luas Bangunan : Kepemilikan :Jumlah Lantai :            ', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_rumah', '2022-12-02 09:51:49', 0, 0, 0, 0, ''),
-(9, 28, 0, 0, 'tenaga_ahli', 3, '', 'Luas Tanah :Kepemilikan :Akses Mobil :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_tanah', '2022-12-02 09:53:00', 0, 0, 0, 0, ''),
-(10, 28, 0, 0, 'tenaga_ahli', 4, '', 'Luas :Kepemilikan : Bedroom :Kamar Mandi : Listrik : ', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_apartemen', '2022-12-02 09:53:43', 0, 0, 0, 0, ''),
-(11, 28, 0, 0, 'tenaga_ahli', 7, '', 'Luas Tanah : Luas Bangunan :  Kepemilikan :Jumlah Lantai :Listrik :Kamar Mandi :Carport :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_ruko', '2022-12-02 09:54:28', 0, 0, 0, 0, ''),
-(12, 28, 0, 0, 'tenaga_ahli', 3, '', 'Luas Tannah : Luas Bangunan :  Kepemilikan : Jumlah Lantai : Listrik :Carport :', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_bangunankomersial', '2022-12-02 09:55:34', 0, 0, 0, 0, ''),
-(13, 28, 0, 0, 'tenaga_ahli', 5, '', 'Merk :Type : Tahun : Warna :  ', '   ', '2022-08-05 10.41.18.jpg', '', 'tbl_mobil', '2022-12-02 09:58:10', 0, 0, 0, 0, ''),
-(14, 28, 0, 0, 'tenaga_ahli', 6, 'Achmad', 'Bidang profesi : ProductionTanggal Lahir : 2022-12-02Pendidikan : S1JurusanSI TeknikPengalaman Kerja :< 1 Tahun', 'Jakarta Sasak Panjang Tajurhalang DKI Jakarta', 'Activities-01.png', '', 'tbl_tenagaahli', '2022-12-02 14:30:41', 0, 0, 0, 0, '');
+(1, 28, 100, 101, 'tenaga_ahli', 1, 'Achmad Rizky', 'Bidang Profesi : Marketing Tanggal Lahir : 1992-10-08 Pendidikan : S1 Jurusan : Teknik Informatika', 'Tangerang, Indonesia', '2022-portrait-matt-1.jpg.600x600_q75_autocrop_crop-smart_upscale.jpg', '', 'tbl_tenagaahli', '2022-12-06 14:16:47', 1, 0, 0, 0, ''),
+(2, 28, 100, 102, 'tenaga_ahli', 2, 'Ratih Merdika', 'Bidang Profesi : Production Tanggal Lahir : 1989-10-17 Pendidikan : S1 Jurusan : S1 Akuntasi', 'Jakarta Tenggara', '97f9005b-883e-4020-a3e9-c9c543e77a46.jpeg', '', 'tbl_tenagaahli', '2022-12-06 14:36:34', 1, 0, 0, 0, ''),
+(3, 28, 200, 201, 'tenaga_terampil', 6, 'Nadiem Karim', 'Profesi : Driver Tanggal Lahir : 2022-12-08 Pendidikan : SMA Pengalaman : < 1 Tahun Tempat Lahir : Jakarta', 'Bekasi Timur', 'ojek1.jpg', '', 'tbl_tenagaterampil', '2022-12-07 08:47:17', 1, 0, 0, 0, ''),
+(4, 28, 0, 0, 'kost&kontrakan', 5, 'aa', 'Jumlah Kamar : 2 Kamar Kosong : 2 Listrik : Token tiap kamar/kontrakan Kamar Mandi : Diluar / bersama', 'Graha Sentana, Jl. Warung Buncit Raya N0.2, Jl. Warung Buncit Raya No.2, RT.3/RW.2, Duren Tiga, Kec. Pancoran, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12740', 'k1.jpeg', '', 'tbl_kostkontrakan', '2022-12-07 08:54:38', 1, 0, 0, 0, ''),
+(5, 28, 0, 0, 'tenaga_terampil', 7, 'Rosiana Pertiwi', 'Profesi : Asisten Rumah Tangga Tanggal Lahir : 2022-12-14 Pendidikan : SMP Pengalaman : 1 - 3 Tahun Tempat Lahir : 2022-12-14', 'Pamulang Barat', 'bo3bB2m4fj83k7CJob92QE.jpeg', '', 'tbl_tenagaterampil', '2022-12-07 09:24:35', 1, 0, 0, 0, ''),
+(6, 28, 0, 0, 'rumah', 8, 'aa', 'Luas Tanah : 20 Luas Bangunan : 30 Kepemilikan : Girik Jumlah Lantai : 20', 'Jakarta Selatan', '1.jpeg', '', 'tbl_rumah', '2022-12-07 09:34:38', 1, 0, 0, 0, ''),
+(7, 28, 0, 0, 'rumah', 9, 'aa', 'Luas Tanah : 30 Luas Bangunan : 20 Kepemilikan : AJB Jumlah Lantai : 20 Listrik : 20 Kamar Tidur : 20', 'Jakarta Barat', 'k1.jpeg', '', 'tbl_rumah', '2022-12-07 09:39:05', 1, 0, 0, 0, ''),
+(8, 28, 0, 0, 'tanah', 4, 'aa', 'Luas Tanah : 20 Kepemilikan : AJB Akses Mobil : Masuk Mobil Deskripsi : Tanah dekat lapangan', 'Bogor Utara', 'tanah.jpeg', '', 'tbl_tanah', '2022-12-07 09:46:22', 1, 0, 0, 0, ''),
+(9, 28, 0, 0, 'apartemen', 5, 'Apartemen Murah Meriah', 'Luas : 30 Kepemilikan : HGB Bedroom : 30 Kamar Mandi : 20 Deskripsi : Apartemen murah, kamar 2 dan halaman luas', 'Kebun Jeruk', '0224-org-asing-punya-apartemen-s-20210224072141.jpeg', '', 'tbl_apartemen', '2022-12-08 08:54:25', 1, 0, 0, 0, ''),
+(11, 28, 0, 0, 'ruko', 8, 'Ruko Dijual Cepat', 'Luas Tanah : 30 Luas Bangunan : 20 Kepemilikan : SHM Strata tittle Jumlah Lantai : 2 Deskripsi : Ruko tempat yang strategis', 'Jakarta Selatan', 'Ruko-Graha-Mulia-99-Jakarta-Selatan-Indonesia.jpeg', '', 'tbl_ruko', '2022-12-08 09:01:27', 1, 0, 0, 0, ''),
+(13, 28, 0, 0, 'bangunan_komersial', 5, 'Bangunan Kokoh 3 Lantai', 'Luas Tanah : 200 Luas Bangunan : 222 Kepemilikan : HGB Jumlah Lantai : 20 Deskripsi : Bangunan Kokoh tempat strategis', 'Jakarta Barat', '0224-org-asing-punya-apartemen-s-20210224072141.jpeg', '', 'tbl_bangunankomersial', '2022-12-08 09:21:12', 1, 0, 0, 0, ''),
+(14, 28, 0, 0, 'mobil', 6, 'Mobil Dijual Cepat', 'Merek : Honda Type : Type 2022 Tahun : 2000 Warna : Merah Deskripsi : Mobil yang ramah lingkungan', 'Jakarta Selatan', 'mobil.jpeg', '', 'tbl_mobil', '2022-12-08 09:36:43', 1, 0, 0, 0, ''),
+(16, 28, 0, 0, 'motor', 1, 'Motor N - Max', 'Merek : Honda Type : Kawasaki Tahun : 2022 Warna : Merah Deskripsi : Motor ramah lingkungan', 'Puskesmas kecamatan Tebet', 'motor.jpeg', '', 'tbl_motor', '2022-12-08 10:26:21', 1, 0, 0, 0, '');
 
 -- --------------------------------------------------------
 
@@ -420,7 +431,7 @@ CREATE TABLE `tbl_ruko` (
   `juduliklan` varchar(512) NOT NULL,
   `luastanah` int(9) NOT NULL,
   `luasbangunan` int(6) NOT NULL,
-  `kepemilikan` varchar(16) NOT NULL,
+  `kepemilikan` varchar(100) NOT NULL,
   `jumlahlantai` int(3) NOT NULL,
   `listrik` int(6) NOT NULL,
   `kamarmandi` int(2) NOT NULL,
@@ -457,7 +468,8 @@ INSERT INTO `tbl_ruko` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `juals
 (4, 0, 400, 404, 0, 'Ruko 4 pintu', 200, 200, 'SHM Strata tittl', 2, 2, 2, 2, 'Kemang', 'kemang', 'Kemang', 'jawa barat', 'alam - Copy.jpg', 'alam.jpg', 99382600, 'Circle-icons-profile.svg.png', 'Untitled.png', 'senja.jpg', '', 'Silahkan di survei', 2000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (5, 0, 400, 404, 0, 'Ruko 4 pintu', 200, 200, 'SHM Strata tittl', 2, 2, 2, 2, 'Kemang', 'kemang', 'Kemang', 'jawa barat', 'alam - Copy.jpg', 'alam.jpg', 99382600, 'Circle-icons-profile.svg.png', 'Untitled.png', 'senja.jpg', '', 'Silahkan di survei', 2000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 0, 400, 404, 0, 'Ruko 4 pintu', 200, 200, 'SHM Strata tittl', 2, 2, 2, 2, 'Kemang', 'kemang', 'Kemang', 'jawa barat', 'alam - Copy.jpg', 'alam.jpg', 99382600, 'Circle-icons-profile.svg.png', 'Untitled.png', 'senja.jpg', '', 'Silahkan di survei', 2000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 28, 400, 404, 0, '', 0, 0, '', 0, 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', 0, '', '', '', 'ruko', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(7, 28, 400, 404, 0, '', 0, 0, '', 0, 0, 0, 0, '', '', '', '', '2022-08-05 10.41.18.jpg', '', 0, '', '', '', 'ruko', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, 28, 400, 404, 0, 'Ruko Dijual Cepat', 30, 20, 'SHM Strata tittl', 2, 22, 3, 22, 'Jakarta Selatan', 'Sasak Panjang', 'Tajurhalang', 'DKI Jakarta', 'Ruko-Graha-Mulia-99-Jakarta-Selatan-Indonesia.jpeg', '', 0, '', '', '', 'ruko', 'Ruko tempat yang strategis', 3000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -518,7 +530,9 @@ INSERT INTO `tbl_rumah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jeni
 (4, 0, 400, 401, 0, '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, NULL, NULL, NULL),
 (5, 0, 400, 401, 0, '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, NULL, NULL, NULL),
 (6, 0, 400, 401, 0, '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', 'latihan7_1.png', 'latihan7_2.png', 'latihan7_3.png', 'latihan7_4.png', 'latihan7_5.png', 'latihan7_7.png', '', '', 0, 0, 0, NULL, NULL, NULL),
-(7, 28, 400, 401, 0, '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'rumah', '', 0, 0, 0, NULL, NULL, NULL);
+(7, 28, 400, 401, 0, '', 0, 0, '', 0, 0, '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'rumah', '', 0, 0, 0, NULL, NULL, NULL),
+(8, 28, 400, 401, 0, 'Rumah Jual Cepat', 20, 30, 'Girik', 20, 20, 'Ada', 'Ada', 2, 1, 1, 'Ada', 'Ada', 'Masuk Mobil', '2', '3', 'Jakarta Selatan', 'Sasak Panjang', 'Kabupaten', 'Bogor', '1.jpeg', '', '', '', '', '', 'rumah', 'Deskripsi', 2147483647, 0, 0, NULL, NULL, NULL),
+(9, 28, 400, 401, 0, 'Rumah Elastis', 30, 20, 'AJB', 20, 20, 'Ada', 'Ada', 20, 2, 1, 'Ada', 'Ada', 'Masuk Mobil', '2', '1', 'Jakarta Barat', 'Sasak Panjang', 'Kabupaten', 'Bogor', 'k1.jpeg', '', '', '', '', '', 'rumah', 'Ruma elastis cocok untuk keluarga', 2147483647, 0, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -581,7 +595,8 @@ INSERT INTO `tbl_sublayanan` (`id`, `nolayanan`, `nosublayanan`, `sublayanan`, `
 (25, 400, 402, 'Tanah', 'tanah.png', 'tanah', 1),
 (26, 400, 403, 'Apartemen', 'apartemen.png', 'apartemen', 1),
 (27, 400, 404, 'Ruko', 'ruko.png', 'ruko', 1),
-(28, 400, 405, 'Bangunan Komersial', 'komersial.png', 'bangunan_komersial', 1);
+(28, 400, 405, 'Bangunan Komersial', 'komersial.png', 'bangunan_komersial', 1),
+(32, 600, 406, 'Motor', 'motor.png', 'motor', 1);
 
 -- --------------------------------------------------------
 
@@ -629,7 +644,8 @@ CREATE TABLE `tbl_tanah` (
 INSERT INTO `tbl_tanah` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `jualsewa`, `juduliklan`, `luastanah`, `kepemilikan`, `aksesmobil`, `lokasi`, `kecamatan`, `kabupaten`, `propinsi`, `gambar1`, `gambar6`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `path_folder`, `deskripsi`, `harga`, `is_active`, `suspend`, `checked1`, `checked2`, `created_at`, `updated_at`) VALUES
 (1, 0, 400, 402, 0, 'Tanah Lapang', 3000, 'Sertifikat', 'Masuk Mobil', 'Bogor ', 'Tajurhalang', 'Bogor', 'jawa barat', '', '', '[\"1663814021_46b87affcf08c7e80440.jpeg\",\"1663814021_a787f08394d03508d151.jpg\"]', '', '', '', '', '', '', 'Silahkan Dibeli', 50000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (2, 0, 400, 402, 0, '', 0, '', '', '', '', '', '', '', '', 'latihan7_2.png', 'latihan7_1.png', 'latihan7_4.png', 'latihan7_5.png', 'Screenshot (1).png', 'Screenshot (4).png', '', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(3, 28, 400, 402, 0, '', 0, '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tanah', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(3, 28, 400, 402, 0, '', 0, '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tanah', '', 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, 28, 400, 402, 0, 'Tanah Di Jual', 20, 'AJB', 'Masuk Mobil', 'Bogor Utara', 'Sasak Panjang', 'Kabupaten', 'Bogor', '', '', 'tanah.jpeg', '', '', '', '', '', 'tanah', 'Tanah dekat lapangan', 3000000, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -672,12 +688,8 @@ CREATE TABLE `tbl_tenagaahli` (
 --
 
 INSERT INTO `tbl_tenagaahli` (`id`, `idpengiklan`, `nolayanan`, `nosublayanan`, `bidang_profesi`, `nama_lengkap`, `tanggal_lahir`, `pendidikan`, `jurusan`, `pengalaman_kerja`, `domisili`, `kecamatan`, `kabupaten`, `provinsi`, `deskripsi`, `gaji`, `image_1`, `image_2`, `image_3`, `image_4`, `image_5`, `image_6`, `path_folder`, `curiculum_vitae`, `is_active`, `suspend`, `created_time`) VALUES
-(1, 20, 100, 101, 'Engineering', 'Achmad Rizky', '2022-07-07', 'S1', 'Teknik Informatika', '1 - 3 Tahun', 'Bogor', 'kemang', 'bogor', 'Jawa Barat', 'S1 Teknik Informatika', '10000000', 'hal - l.jpg', '2.jpg', '', '', '', '', 'tenaga_ahli', 'Klementino Mingga_191011401779_pertemuan 5.pdf', 0, 0, '2022-12-01 14:13:44'),
-(2, 28, 100, 101, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tenaga_ahli', '', 0, 0, '2022-12-02 09:42:17'),
-(3, 28, 100, 101, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'tenaga_ahli', 'aman.pdf', 0, 0, '2022-12-02 09:43:24'),
-(4, 28, 100, 101, '', '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tenaga_ahli', 'aman.pdf', 0, 0, '2022-12-02 09:43:41'),
-(5, 28, 100, 101, '', '', '', '', '', '', '', '', '', '', '', '', 'img2.jpeg', '2022-08-05 10.41.18.jpg', '', '', '', '', 'tenaga_ahli', 'CamScanner 07-11-2022 15.52.pdf', 0, 0, '2022-12-02 09:44:05'),
-(6, 28, 100, 101, 'Production', 'Achmad', '2022-12-02', 'S1', 'SI Teknik', '< 1 Tahun', 'Jakarta', 'Sasak Panjang', 'Tajurhalang', 'DKI Jakarta', 'S1 Teknik Informatika', '1200000', 'Activities-01.png', 'Activities-02.png', 'Activities-03.png', 'Activities-07.png', 'Activities-04.png', 'Activities-17.png', 'tenaga_ahli', 'ADA KAMAR KOST KOSONG.docx', 0, 0, '2022-12-02 14:30:41');
+(1, 28, 100, 101, 'Marketing', 'Achmad Rizky', '1992-10-08', 'S1', 'Teknik Informatika', '3 - 5 Tahun', 'Tangerang, Indonesia', 'Sasak Panjang', 'Tajurhalang', 'Tangerang Kota', 'Menguasai HTML, CSS, PHP, Javacript, ReactJS', '7000000', '2022-portrait-matt-1.jpg.600x600_q75_autocrop_crop-smart_upscale.jpg', '', '', '', '', '', 'tenaga_ahli', 'CV Rizky.pdf', 0, 0, '2022-12-06 14:16:47'),
+(2, 28, 100, 101, 'Production', 'Ratih Merdika', '1989-10-17', 'S1', 'Akuntasi', '3 - 5 Tahun', 'Jakarta Tenggara', 'Tenggarong', 'Muncul Selatan', 'Jawa Timur', 'S1 Mampu pengoparsian komputer office', '3000000', '97f9005b-883e-4020-a3e9-c9c543e77a46.jpeg', '97f9005b-883e-4020-a3e9-c9c543e77a46.jpeg', '', '', '', '', 'tenaga_ahli', 'CV Rizky.pdf', 0, 0, '2022-12-06 14:36:34');
 
 -- --------------------------------------------------------
 
@@ -722,7 +734,9 @@ INSERT INTO `tbl_tenagaterampil` (`id`, `idpengiklan`, `nolayanan`, `nosublayana
 (2, 0, 200, 201, '', '', '', '', '', '', '', '', '', '', '', 'latihan7_5.png', 'latihan7_6.png', 'latihan7_7.png', 'Screenshot (4).png', 'Screenshot (3).png', 'Screenshot (24).png', '', 0, 0, '2022-11-25 20:16:38'),
 (3, 0, 200, 201, 'Perawat Jompo/Lansia', 'mas fikri', '2022-11-20', 'SD', '5 Tahun', 'Bogor', 'kemang', 'Bogor', 'Jawa Barat', 'Sabar', '200000', '099382600_1579095950-nature-3616194_1920.jpg', 'alam.jpg', 'Circle-icons-profile.svg.png', 'Circle-icons-profile.svg.png', 'download.jpg', 'Untitled.png', 'tenaga_terampil', 0, 0, '2022-11-26 13:22:06'),
 (4, 0, 200, 201, 'Perawat Jompo/Lansia', 'mas fikri', '2022-11-20', 'SD', '5 Tahun', 'Bogor', 'kemang', 'Bogor', 'Jawa Barat', 'Sabar', '200000', '099382600_1579095950-nature-3616194_1920.jpg', 'alam.jpg', 'Circle-icons-profile.svg.png', 'Circle-icons-profile.svg.png', 'download.jpg', 'Untitled.png', 'tenaga_terampil', 0, 0, '2022-11-26 13:22:08'),
-(5, 28, 200, 201, '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tenaga_terampil', 0, 0, '2022-12-02 09:47:35');
+(5, 28, 200, 201, '', '', '', '', '', '', '', '', '', '', '', '2022-08-05 10.41.18.jpg', '', '', '', '', '', 'tenaga_terampil', 0, 0, '2022-12-02 09:47:35'),
+(6, 28, 200, 201, 'Driver', 'Nadiem Karim', '2022-12-08', 'SMA', '< 1 Tahun', 'Bekasi Timur', 'Laladon', 'Bekasi Simular', 'Jawa Barat', 'Pengalaman 3 Tahun menjadi ojke online, membuat saya jaog naik motor', '4000000', 'ojek1.jpg', '', '', '', '', '', 'tenaga_terampil', 0, 0, '2022-12-07 08:47:17'),
+(7, 28, 200, 204, 'Asisten Rumahtangga', 'Rosiana Pertiwi', '2022-12-14', 'SMP', '1 - 3 Tahun', 'Pamulang Barat', 'Kecamatan', 'DKI Jakarta', 'Jawa Barat', '3 Tahun pengalaman menjadi asisten rumah tangga', '4000000', 'bo3bB2m4fj83k7CJob92QE.jpeg', '', '', '', '', '', 'tenaga_terampil', 0, 0, '2022-12-07 09:24:35');
 
 -- --------------------------------------------------------
 
@@ -766,7 +780,7 @@ INSERT INTO `tbl_user` (`id`, `generate_code_verifikasi`, `nama`, `tgllahir`, `j
 (16, '1234', 'Hasan', NULL, NULL, '0858123', 'hasan@gmail.com', '', 0, '', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
 (18, '1708', 'Abdul Fajar', NULL, NULL, '08811501574', 'fajar@gmail.com', 'Fajar', 0, 'Komplek Inkopad Blok O5 No 17', '0', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
 (19, '1893', 'Rizki Kurniawan', NULL, NULL, '085809052137', 'aman@gmail.com', 'iki', 0, 'alamat', 'alamat', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, NULL),
-(28, '221', 'Achmad Rizky', NULL, NULL, '085894222865', 'rizky@meenistry.com', '1', 0, 'Komplek Inkopad, Parung Bogor', '', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2022-08-05 10.41.18.jpg');
+(28, '221', 'Achmad Rizky', NULL, NULL, '085894222865', 'rizky@meenistry.com', '1', 0, 'Komplek Inkopad, Parung Bogor', '', NULL, NULL, NULL, 0, 2, '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, 'ojek1.jpg');
 
 --
 -- Indexes for dumped tables
@@ -894,13 +908,13 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_apartemen`
 --
 ALTER TABLE `tbl_apartemen`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_bangunankomersial`
 --
 ALTER TABLE `tbl_bangunankomersial`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_jenisiklan`
@@ -918,7 +932,7 @@ ALTER TABLE `tbl_kontak_kami`
 -- AUTO_INCREMENT for table `tbl_kostkontrakan`
 --
 ALTER TABLE `tbl_kostkontrakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_layanan`
@@ -930,7 +944,7 @@ ALTER TABLE `tbl_layanan`
 -- AUTO_INCREMENT for table `tbl_mobil`
 --
 ALTER TABLE `tbl_mobil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_motor`
@@ -954,19 +968,19 @@ ALTER TABLE `tbl_pesan_komen`
 -- AUTO_INCREMENT for table `tbl_rekomendasi_iklan`
 --
 ALTER TABLE `tbl_rekomendasi_iklan`
-  MODIFY `id_rekomendasi_iklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_rekomendasi_iklan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_ruko`
 --
 ALTER TABLE `tbl_ruko`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_rumah`
 --
 ALTER TABLE `tbl_rumah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_slider`
@@ -978,25 +992,25 @@ ALTER TABLE `tbl_slider`
 -- AUTO_INCREMENT for table `tbl_sublayanan`
 --
 ALTER TABLE `tbl_sublayanan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tbl_tanah`
 --
 ALTER TABLE `tbl_tanah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_tenagaahli`
 --
 ALTER TABLE `tbl_tenagaahli`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_tenagaterampil`
 --
 ALTER TABLE `tbl_tenagaterampil`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

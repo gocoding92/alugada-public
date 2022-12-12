@@ -70,7 +70,13 @@ class ModelIklan extends Model
 
         return $db->insertID();
     }
+    public function saveMotor($data = [])
+    {
+        $db = $this->db;
+        $db->table('tbl_motor')->insert($data);
 
+        return $db->insertID();
+    }
 
     public function saveRekomendasiIklan($data = [])
     {
@@ -89,5 +95,26 @@ class ModelIklan extends Model
         ));
 
         return json_encode($response);
+    }
+
+    public function getDataIklanSubLayanan($id_layanan = 0)
+    {
+        return $this->db->table('tbl_sublayanan')->getWhere(['nolayanan' => $id_layanan])->getResultArray();;
+    }
+
+    public function detailIklan($id_iklan, $table)
+    {
+        return $this->db->table($table)->getWhere(['id' => $id_iklan])->getRowArray();
+    }
+
+    public function getDataIklanLayanan($id_layanan = 0, $id_sub_layanan = 0)
+    {
+        $where_sub_layanan = ['nolayanan' => $id_layanan, 'is_active' => 1];
+
+        if ($id_sub_layanan) {
+            $where_sub_layanan = ['nolayanan' => $id_layanan, 'nosublayanan' => $id_sub_layanan, 'is_active' => 1];
+        }
+
+        return $this->db->table('tbl_rekomendasi_iklan')->getWhere($where_sub_layanan)->getResultArray();;
     }
 }

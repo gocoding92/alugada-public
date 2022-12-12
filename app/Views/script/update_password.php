@@ -1,6 +1,10 @@
 <script>
     $(document).ready(function() {
         $("#submit").click(function() {
+
+            $('#submit').html('Loading...');
+            $('#submit').prop('disabled', true);
+
             var password_lama = $("#password_lama").val();
             var password_baru = $("#password_baru").val();
             var konfirmasi_password = $("#konfirmasi_password").val();
