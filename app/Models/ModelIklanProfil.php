@@ -17,18 +17,6 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    // public function S($data = [], $id_rekomendasi_iklan = 0)
-    // {
-
-    //     $data = $this->db->table('tbl_tenagaterampil')->update(
-    //         $data,
-    //         [
-    //             'id' => $id_iklan_rekomendasi
-    //         ]
-    //     );
-
-    //     return $data;
-    // }
     public function saveTenagaTerampil($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_tenagaterampil')->update(
@@ -42,23 +30,26 @@ class ModelIklanProfil extends Model
     }
     public function saveTanah($data = [], $id_rekomendasi_iklan = 0)
     {
-        var_dump(123);
-        exit;
         $data = $this->db->table('tbl_tanah')->update(
             $data,
             [
-                'id' => $id_iklan_rekomendasi
+                'id' => $id_rekomendasi_iklan
             ]
         );
 
         return $data;
     }
-    public function saveRuko($data = [])
+    public function saveRuko($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_ruko')->insert($data);
+        $data = $this->db->table('tbl_ruko')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
+
     }
     public function saveRumah($data = [])
     {
@@ -73,19 +64,27 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function saveApartemen($data = [])
+    public function saveApartemen($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_apartemen')->insert($data);
+        $data = $this->db->table('tbl_apartemen')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveBangunanKomersial($data = [])
+    public function saveBangunanKomersial($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_bangunankomersial')->insert($data);
+        $data = $this->db->table('tbl_bangunankomersial')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
 
     public function saveMobil($data = [])

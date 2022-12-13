@@ -8,12 +8,14 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveApartemen'); ?>',
+                url: '<?= base_url('edit-iklan/saveApartemen'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
                 processData: false,
                 success: function(data) {
+                    console.log(data);
+                    return;
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {

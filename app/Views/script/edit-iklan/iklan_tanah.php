@@ -14,8 +14,6 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
-                    console.log(data);
-                    return;
 
                     var obj = JSON.parse(data);
 
@@ -60,7 +58,7 @@
 
         //             // if (obj.data[1].status === 200) {
         //             //     window.setTimeout(function() {
-        //             //         window.location.href = "<?php echo base_url('profil'); ?>";
+        //             //         window.location.href = "";
         //             //     }, 4000);
         //             // }
 
