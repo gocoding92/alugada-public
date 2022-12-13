@@ -17,7 +17,19 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function UpdatedTenagaTerampil($data = [], $id_rekomendasi_iklan = 0)
+    // public function S($data = [], $id_rekomendasi_iklan = 0)
+    // {
+
+    //     $data = $this->db->table('tbl_tenagaterampil')->update(
+    //         $data,
+    //         [
+    //             'id' => $id_iklan_rekomendasi
+    //         ]
+    //     );
+
+    //     return $data;
+    // }
+    public function saveTenagaTerampil($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_tenagaterampil')->update(
             $data,
@@ -28,19 +40,18 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function saveTenagaTerampil($data = [])
+    public function saveTanah($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_tenagaterampil')->insert($data);
+        var_dump(123);
+        exit;
+        $data = $this->db->table('tbl_tanah')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
-    }
-    public function saveTanah($data = [])
-    {
-        $db = $this->db;
-        $db->table('tbl_tanah')->insert($data);
-
-        return $db->insertID();
+        return $data;
     }
     public function saveRuko($data = [])
     {
@@ -51,10 +62,16 @@ class ModelIklanProfil extends Model
     }
     public function saveRumah($data = [])
     {
-        $db = $this->db;
-        $db->table('tbl_rumah')->insert($data);
+        var_dump(123);
+        exit;
+        $data = $this->db->table('tbl_rumah')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
     public function saveApartemen($data = [])
     {

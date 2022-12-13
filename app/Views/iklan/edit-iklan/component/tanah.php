@@ -97,4 +97,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_tanah"); ?>
+<?= $this->include("script/edit-iklan/iklan_tanah"); ?>

@@ -513,20 +513,21 @@ class IklanProfil extends BaseController
             'idpengiklan'        => $this->session->get('id'),
             'path_folder'        => 'tenaga_terampil',
         ]);
-        
 
-        $id_iklan = $this->iklan->UpdatedTenagaTerampil($data, $id_iklan_rekomendasi);
-        var_dump($id_iklan);
-        exit;
+        $this->iklan->saveTenagaTerampil($data, $id_iklan_rekomendasi);
+       
         $description = "Profesi : " . $profesi . " " . 'Tanggal Lahir :' . " " . $tempat_lahir . " " . 'Pendidikan :' . " " . $pendidikan . " " . 'Pengalaman :' . " " . $pengalaman_kerja . " " . 'Tempat Lahir :' . " " . $tempat_lahir . "";
 
         $this->sendNotifWA($id_rekomendasi_iklan);
 
-        return $this->saveRekomendasiIklan('tenaga_terampil', $id_rekomendasi_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaterampil', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('tenaga_terampil', $id_rekomendasi_iklan, $nama_lengkap, $description, $domisili, 'tbl_tenagaterampil', $nolayanan, $nosublayanan, $id_rekomendasi_iklan);
     }
 
     public function saveRumah()
     {
+        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');
+        $id_iklan_rekomendasi = $this->request->getVar('id_iklan');
+
         $juduliklan    = $this->request->getVar('juduliklan');
         $luastanah     = $this->request->getVar('luastanah');
         $luasbangunan  = $this->request->getVar('luasbangunan');
@@ -554,47 +555,47 @@ class IklanProfil extends BaseController
 
         $imageFile  = $this->request->getFiles();
 
-        $imageFile1 = $imageFile['file1'];
-        $imageName1 = '';
-        if ($imageFile1->isValid()) {
-            $imageName1 = $imageFile1->getName();
-            $imageFile1->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName1);
-        }
+        // $imageFile1 = $imageFile['file1'];
+        // $imageName1 = '';
+        // if ($imageFile1->isValid()) {
+        //     $imageName1 = $imageFile1->getName();
+        //     $imageFile1->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName1);
+        // }
 
-        $imageFile2 = $imageFile['file2'];
-        $imageName2 = '';
-        if ($imageFile2->isValid()) {
-            $imageName2 = $imageFile2->getName();
-            $imageFile2->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName2);
-        }
+        // $imageFile2 = $imageFile['file2'];
+        // $imageName2 = '';
+        // if ($imageFile2->isValid()) {
+        //     $imageName2 = $imageFile2->getName();
+        //     $imageFile2->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName2);
+        // }
 
-        $imageFile3 = $imageFile['file3'];
-        $imageName3 = '';
-        if ($imageFile3->isValid()) {
-            $imageName3 = $imageFile3->getName();
-            $imageFile3->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName3);
-        }
+        // $imageFile3 = $imageFile['file3'];
+        // $imageName3 = '';
+        // if ($imageFile3->isValid()) {
+        //     $imageName3 = $imageFile3->getName();
+        //     $imageFile3->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName3);
+        // }
 
-        $imageFile4 = $imageFile['file4'];
-        $imageName4 = '';
-        if ($imageFile4->isValid()) {
-            $imageName4 = $imageFile4->getName();
-            $imageFile4->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName4);
-        }
+        // $imageFile4 = $imageFile['file4'];
+        // $imageName4 = '';
+        // if ($imageFile4->isValid()) {
+        //     $imageName4 = $imageFile4->getName();
+        //     $imageFile4->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName4);
+        // }
 
-        $imageFile5 = $imageFile['file5'];
-        $imageName5 = '';
-        if ($imageFile5->isValid()) {
-            $imageName5 = $imageFile5->getName();
-            $imageFile5->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName5);
-        }
+        // $imageFile5 = $imageFile['file5'];
+        // $imageName5 = '';
+        // if ($imageFile5->isValid()) {
+        //     $imageName5 = $imageFile5->getName();
+        //     $imageFile5->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName5);
+        // }
 
-        $imageFile6 = $imageFile['file6'];
-        $imageName6 = '';
-        if ($imageFile6->isValid()) {
-            $imageName6 = $imageFile6->getName();
-            $imageFile6->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName6);
-        }
+        // $imageFile6 = $imageFile['file6'];
+        // $imageName6 = '';
+        // if ($imageFile6->isValid()) {
+        //     $imageName6 = $imageFile6->getName();
+        //     $imageFile6->move(ROOTPATH . 'public/Image/iklan/rumah', $imageName6);
+        // }
 
         $data = ([
             'juduliklan'    => $juduliklan,
@@ -622,17 +623,19 @@ class IklanProfil extends BaseController
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
             'harga'         => $harga,
-            'image_1'       => $imageName1,
-            'image_2'       => $imageName2,
-            'image_3'       => $imageName3,
-            'image_4'       => $imageName4,
-            'image_5'       => $imageName5,
-            'image_6'       => $imageName6,
+            // 'image_1'       => $imageName1,
+            // 'image_2'       => $imageName2,
+            // 'image_3'       => $imageName3,
+            // 'image_4'       => $imageName4,
+            // 'image_5'       => $imageName5,
+            // 'image_6'       => $imageName6,
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'rumah',
         ]);
-
-        $id_iklan = $this->iklan->saveRumah($data);
+        
+        $id_iklan = $this->iklan->saveRumah($data, $id_iklan_rekomendasi);
+        var_dump($id_iklan);
+        exit;
 
         $description = "Luas Tanah : " . $luastanah . " " . 'Luas Bangunan :' . " " . $luasbangunan . " " . 'Kepemilikan :' . " " . $kepemilikan . " " . 'Jumlah Lantai :' . " " . $jumlahlantai . " " . 'Listrik :' . " " . $listrik . " " . 'Kamar Tidur :' . " " . $kamartidur . " " . 'Kamar Pembantu :' . " " . $kamarpembantu . "";
 
@@ -643,6 +646,9 @@ class IklanProfil extends BaseController
 
     public function saveTanah()
     {
+        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');
+        $id_iklan_rekomendasi = $this->request->getVar('id_iklan');
+
         $juduliklan = $this->request->getVar('juduliklan');
         $luastanah = $this->request->getVar('luastanah');
         $kepemilikan = $this->request->getVar('kepemilikan');
@@ -658,47 +664,47 @@ class IklanProfil extends BaseController
 
         $imageFile  = $this->request->getFiles();
 
-        $imageFile1 = $imageFile['file1'];
-        $imageName1 = '';
-        if ($imageFile1->isValid()) {
-            $imageName1 = $imageFile1->getName();
-            $imageFile1->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName1);
-        }
+        // $imageFile1 = $imageFile['file1'];
+        // $imageName1 = '';
+        // if ($imageFile1->isValid()) {
+        //     $imageName1 = $imageFile1->getName();
+        //     $imageFile1->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName1);
+        // }
 
-        $imageFile2 = $imageFile['file2'];
-        $imageName2 = '';
-        if ($imageFile2->isValid()) {
-            $imageName2 = $imageFile2->getName();
-            $imageFile2->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName2);
-        }
+        // $imageFile2 = $imageFile['file2'];
+        // $imageName2 = '';
+        // if ($imageFile2->isValid()) {
+        //     $imageName2 = $imageFile2->getName();
+        //     $imageFile2->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName2);
+        // }
 
-        $imageFile3 = $imageFile['file3'];
-        $imageName3 = '';
-        if ($imageFile3->isValid()) {
-            $imageName3 = $imageFile3->getName();
-            $imageFile3->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName3);
-        }
+        // $imageFile3 = $imageFile['file3'];
+        // $imageName3 = '';
+        // if ($imageFile3->isValid()) {
+        //     $imageName3 = $imageFile3->getName();
+        //     $imageFile3->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName3);
+        // }
 
-        $imageFile4 = $imageFile['file4'];
-        $imageName4 = '';
-        if ($imageFile4->isValid()) {
-            $imageName4 = $imageFile4->getName();
-            $imageFile4->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName4);
-        }
+        // $imageFile4 = $imageFile['file4'];
+        // $imageName4 = '';
+        // if ($imageFile4->isValid()) {
+        //     $imageName4 = $imageFile4->getName();
+        //     $imageFile4->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName4);
+        // }
 
-        $imageFile5 = $imageFile['file5'];
-        $imageName5 = '';
-        if ($imageFile5->isValid()) {
-            $imageName5 = $imageFile5->getName();
-            $imageFile5->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName5);
-        }
+        // $imageFile5 = $imageFile['file5'];
+        // $imageName5 = '';
+        // if ($imageFile5->isValid()) {
+        //     $imageName5 = $imageFile5->getName();
+        //     $imageFile5->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName5);
+        // }
 
-        $imageFile6 = $imageFile['file6'];
-        $imageName6 = '';
-        if ($imageFile6->isValid()) {
-            $imageName6 = $imageFile6->getName();
-            $imageFile6->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName6);
-        }
+        // $imageFile6 = $imageFile['file6'];
+        // $imageName6 = '';
+        // if ($imageFile6->isValid()) {
+        //     $imageName6 = $imageFile6->getName();
+        //     $imageFile6->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName6);
+        // }
 
         $data = ([
             'juduliklan'    => $juduliklan,
@@ -713,18 +719,19 @@ class IklanProfil extends BaseController
             'harga'         => $harga,
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
-            'image_1'       => $imageName1,
-            'image_2'       => $imageName2,
-            'image_3'       => $imageName3,
-            'image_4'       => $imageName4,
-            'image_5'       => $imageName5,
-            'image_6'       => $imageName6,
+            // 'image_1'       => $imageName1,
+            // 'image_2'       => $imageName2,
+            // 'image_3'       => $imageName3,
+            // 'image_4'       => $imageName4,
+            // 'image_5'       => $imageName5,
+            // 'image_6'       => $imageName6,
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'tanah',
         ]);
 
-
-        $id_iklan = $this->iklan->saveTanah($data);
+        
+        
+        $id_iklan = $this->iklan->saveTanah($data, $id_iklan_rekomendasi);
 
         $description = "Luas Tanah : " . $luastanah . " " . 'Kepemilikan :' . " " . $kepemilikan . " " . 'Akses Mobil :' . " " . $aksesmobil . " " . 'Deskripsi :' . " " . $deskripsi . "";
 

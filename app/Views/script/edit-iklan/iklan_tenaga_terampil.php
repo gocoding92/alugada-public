@@ -14,8 +14,6 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
-                    console.log(data);
-                    return;
 
                     var obj = JSON.parse(data);
 
