@@ -101,4 +101,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_mobil"); ?>
+<?= $this->include("script/edit-iklan/iklan_mobil"); ?>

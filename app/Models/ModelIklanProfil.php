@@ -51,14 +51,12 @@ class ModelIklanProfil extends Model
         return $data;
 
     }
-    public function saveRumah($data = [])
+    public function saveRumah($data = [], $id_rekomendasi_iklan = 0)
     {
-        var_dump(123);
-        exit;
         $data = $this->db->table('tbl_rumah')->update(
             $data,
             [
-                'id' => $id_iklan_rekomendasi
+                'id' => $id_rekomendasi_iklan
             ]
         );
 
@@ -87,26 +85,38 @@ class ModelIklanProfil extends Model
         return $data;
     }
 
-    public function saveMobil($data = [])
+    public function saveMobil($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_mobil')->insert($data);
+        $data = $this->db->table('tbl_mobil')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveKostKontrakan($data = [])
+    public function saveKostKontrakan($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_kostkontrakan')->insert($data);
+        $data = $this->db->table('tbl_kostkontrakan')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveMotor($data = [])
+    public function saveMotor($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_motor')->insert($data);
+        $data = $this->db->table('tbl_motor')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
 
     public function saveRekomendasiIklan($data = [], $id_rekomendasi_iklan = 0)
