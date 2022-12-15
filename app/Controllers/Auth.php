@@ -129,6 +129,28 @@ class Auth extends BaseController
         }
     }
 
+    public function lockscreen(){
+        return view('lockscreen/lockScreenView');
+    }
+
+    public function submit_lockscreen(){
+        if ($this->request->isAJAX()) {
+            $password = $this->request->getPost('password');
+            $lockscreen = $this->ModelAuth->lockscreen($password);
+
+            $data = $lockscreen[0]['data'];
+            $status = $lockscreen[1]['status'];
+            $response = $lockscreen[2]['response'];
+
+            // generate session
+            if ($status == 200 && $data) {
+                $this->session->set($data);
+            }
+
+            return $response;
+        }
+    }
+
 
     public function logout()
     {

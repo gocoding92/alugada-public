@@ -278,4 +278,34 @@ class ModelAuth extends Model
 
         return json_encode($response);
     }
+
+    public function lockscreen($password)
+    {
+        $data_user_where = $this->db->table('tbl_user')->getWhere(['password' => $password])->getRowArray();
+        $data_user = $this->db->table('tbl_user')->getWhere(['password' => $password])->getResultArray();
+
+        $message = "Password tidak cocok, pastikan dengan benar!";
+        $status = 404;
+
+        if ($data_user_where) {
+            if (count($data_user) == 1) {
+                $message = "Password cocok, Anda berhasil login";
+                $status = 200;
+            }
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return array(
+            array('data' => $data_user_where),
+            array('status' => $status),
+            array('response' => json_encode($response)),
+        );
+
+    }
+
+    
 }
