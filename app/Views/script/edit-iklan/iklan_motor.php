@@ -8,7 +8,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/savemtr'); ?>',
+                url: '<?= base_url('edit-iklan/savemtr'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,

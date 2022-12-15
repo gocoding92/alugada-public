@@ -8,12 +8,13 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveRuko'); ?>',
+                url: '<?= base_url('edit-iklan/saveRuko'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
                 processData: false,
                 success: function(data) {
+        
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {

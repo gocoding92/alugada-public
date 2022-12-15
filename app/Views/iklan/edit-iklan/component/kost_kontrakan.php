@@ -145,4 +145,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_kostkontrakan") ?>
+<?= $this->include("script/edit-iklan/iklan_kostkontrakan") ?>

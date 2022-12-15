@@ -106,4 +106,4 @@
 
 <?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?= $this->include("script/iklan/iklan_bangunan_komersial") ?>
+<?= $this->include("script/edit-iklan/iklan_bangunan_komersial") ?>
