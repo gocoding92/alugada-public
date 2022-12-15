@@ -28,80 +28,79 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function saveTanah($data = [], $id_rekomendasi_iklan = 0)
+    public function saveTanah($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_tanah')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
     }
-    public function saveRuko($data = [], $id_rekomendasi_iklan = 0)
+    public function saveRuko($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_ruko')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
-
     }
-    public function saveRumah($data = [], $id_rekomendasi_iklan = 0)
+    public function saveRumah($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_rumah')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
     }
-    public function saveApartemen($data = [], $id_rekomendasi_iklan = 0)
+    public function saveApartemen($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_apartemen')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
     }
-    public function saveBangunanKomersial($data = [], $id_rekomendasi_iklan = 0)
+    public function saveBangunanKomersial($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_bangunankomersial')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
     }
 
-    public function saveMobil($data = [], $id_rekomendasi_iklan = 0)
+    public function saveMobil($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_mobil')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
         return $data;
     }
-    public function saveKostKontrakan($data = [], $id_rekomendasi_iklan = 0)
+    public function saveKostKontrakan($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_kostkontrakan')->update(
             $data,
             [
-                'id' => $id_rekomendasi_iklan
+                'id' => $id_iklan_rekomendasi
             ]
         );
 
