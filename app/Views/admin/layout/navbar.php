@@ -144,10 +144,11 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="<?= base_url(); ?>/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="<?php echo base_url(); ?>/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <!-- <img src="<?php //echo base_url('Image/User/'.$user['gambar']); ?>" class="img-circle elevation-2" alt="User Image"> -->
       </div>
       <div class="info">
-        <a href="#" class="d-block">Administrator Area</a>
+        <a href="#" class="d-block">Namaku</a>
       </div>
     </div>
 
@@ -171,22 +172,22 @@
             </li>
           </ul>
         </li> -->
-        <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/dashboard') ?>" class="nav-link">
+        <!-- <li class="nav-item">
+          <a href="<?php //echo base_url('/administrator-area/dashboard') ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
             </p>
           </a>
-        </li>
-        <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/users') ?>" class="nav-link">
+        </li> -->
+        <!-- <li class="nav-item">
+          <a href="<?php //echo base_url('/administrator-area/users') ?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Users / Pengguna
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="<?php echo base_url('/administrator-area/iklan') ?>" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
@@ -214,7 +215,7 @@
         </li>
 
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/layanan') ?>" class="nav-link">
+          <a href="<?php echo base_url('/admin-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Layanan
@@ -224,7 +225,7 @@
 
 
         <!-- <li class="nav-item">
-          <a href="<?php echo base_url('edit-layanan') ?>" class="nav-link">
+          <a href="<?php //echo base_url('edit-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Edit Layanan
@@ -232,23 +233,23 @@
             </p>
           </a>
         </li> -->
-        <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/edit-sub-layanan') ?>" class="nav-link">
+        <!-- <li class="nav-item">
+          <a href="<?php //echo base_url('/admin-sub-layanan') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
-              Sub Layanan
+              Sub Layanan tidak dipake
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/sample') ?>" class="nav-link">
+          <a href="<?php //echo base_url('/administrator-area/sample') ?>" class="nav-link">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Sample
               <span class="right badge badge-danger">CRUD</span>
             </p>
           </a>
-        </li>
+        </li> -->
 
 
 

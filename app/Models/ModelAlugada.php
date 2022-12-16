@@ -50,7 +50,18 @@ class ModelAlugada extends Model
     public function rekomendasiiklan(){
         return $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
     }
+    public function updaterekom($id, $data)
+    {
+        // var_dump($id);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->update($data, ['id_rekomendasi_iklan' => $id]);
+    }
 
+
+    // Table User
+    public function user()
+    {
+        return $this->db->table('tbl_user')->get()->getResultArray();
+    }
     public function userbynohp($nohp)
     {
         return $this->db->table('tbl_user')->getWhere(['nohp' => $nohp])->getRowArray();
@@ -59,6 +70,17 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_user')->getWhere(['id' => $id])->getRowArray();
     }
+    public function simpannewuser($data)
+    {
+        return $this->db->table('tbl_user')->insert($data);
+    }
+    public function updateuser($id, $data)
+    {
+        return $this->db->table('tbl_user')->update($data, ['id' => $id]);
+    }
+    // Batas Tabel User 
+
+
 
     // Layanan
     public function layanan()
@@ -100,24 +122,25 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_sublayanan')->getWhere(['id' => $id])->getRowArray();
     }
-    public function updatesublayanan($id, $data)
+    public function sublayananbynosublayanan($no)
+    {
+        return $this->db->table('tbl_sublayanan')->getWhere(['nosublayanan' => $no])->getRowArray();
+    }
+    public function updatesublayananbyid($id, $data)
     {
         return $this->db->table('tbl_sublayanan')->update($data, ['id' => $id]);
     }
-
-    // New User
-    public function simpannewuser($data)
+    public function updatesublayananbynosub($nosub, $data)
     {
-        return $this->db->table('tbl_user')->insert($data);
-    }
-    public function updateuser($id, $data)
-    {
-        return $this->db->table('tbl_user')->update($data, ['id' => $id]);
+        return $this->db->table('tbl_sublayanan')->update($data, ['nosublayanan' => $nosub]);
     }
 
 
     //IKLAN
-    public function iklanahlibyid($id)
+    public function ahli(){
+        return $this->db->table('tbl_tenagaahli')->get()->getResultArray();
+    }
+    public function ahlibyid($id)
     {
         return $this->db->table('tbl_tenagaahli')->getWhere(['id' => $id])->getRowArray();
     }
@@ -125,11 +148,154 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_tenagaahli')->update($data, ['id' => $id]);
     }
-    public function updaterekom($id, $data)
-    {
-        // var_dump($id);die;
-        return $this->db->table('tbl_rekomendasi_iklan')->update($data, ['id_rekomendasi_iklan' => $id]);
+
+    public function terampil(){
+        return $this->db->table('tbl_tenagaterampil')->get()->getResultArray();
     }
+    public function updateterampil($id, $data)
+    {
+        return $this->db->table('tbl_tenagaterampil')->update($data, ['id' => $id]);
+    }
+    public function terampilbyid($id)
+    {
+        return $this->db->table('tbl_tenagaterampil')->getWhere(['id' => $id])->getRowArray();
+    }
+
+    public function kost(){
+        return $this->db->table('tbl_kostkontrakan')->get()->getResultArray();
+    }
+    public function updatekost($id,$data){
+        return $this->db->table('tbl_kostkontrakan')->update($data, ['id' => $id]);
+    }
+    public function kostbyid($id)
+    {
+        return $this->db->table('tbl_kostkontrakan')->getWhere(['id' => $id])->getRowArray();
+    }
+
+    // Iklan Rumah
+    public function rumah(){
+        return $this->db->table('tbl_rumah')->get()->getResultArray();
+    }
+    public function rumahbyid($id){
+        return $this->db->table('tbl_rumah')->getWhere(['id' => $id])->getRowArray();
+    }
+
+    public function simpanrumah($data)
+    {
+        return $this->table('tbl_rumah')->insert($data);
+        
+    }
+    public function updaterumah($id, $data)
+    {
+        return $this->db->table('tbl_rumah')->update($data, ['id' => $id]);
+    }
+
+    // Iklan Tanah
+    public function tanah(){
+        return $this->db->table('tbl_tanah')->get()->getResultArray();
+    }
+    public function tanahbyid($id){
+        return $this->db->table('tbl_tanah')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpantanah($data)
+    {
+        return $this->table('tbl_tanah')->insert($data);
+        
+    }
+    public function updatetanah($id, $data)
+    {
+        return $this->db->table('tbl_tanah')->update($data, ['id' => $id]);
+    }
+
+    // Iklan apartemen
+    public function apartemen(){
+        return $this->db->table('tbl_apartemen')->get()->getResultArray();
+    }
+    public function apartemenbyid($id){
+        return $this->db->table('tbl_apartemen')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpanapartemen($data)
+    {
+        return $this->table('tbl_apartemen')->insert($data);
+        
+    }
+    public function updateapartemen($id, $data)
+    {
+        return $this->db->table('tbl_apartemen')->update($data, ['id' => $id]);
+    }
+
+    // Iklan ruko
+    public function ruko(){
+        return $this->db->table('tbl_ruko')->get()->getResultArray();
+    }
+    public function rukobyid($id){
+        return $this->db->table('tbl_ruko')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpanruko($data)
+    {
+        return $this->table('tbl_ruko')->insert($data);
+        
+    }
+    public function updateruko($id, $data)
+    {
+        return $this->db->table('tbl_ruko')->update($data, ['id' => $id]);
+    }
+
+    // Iklan komersial
+    public function komersial(){
+        return $this->db->table('tbl_bangunankomersial')->get()->getResultArray();
+    }
+    public function komersialbyid($id){
+        return $this->db->table('tbl_bangunankomersial')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpankomersial($data)
+    {
+        return $this->table('tbl_bangunankomersial')->insert($data);
+    }
+    public function updatekomersial($id, $data)
+    {
+        return $this->db->table('tbl_bangunankomersial')->update($data, ['id' => $id]);
+    }
+
+    // Iklan mobil
+    public function mobil(){
+        return $this->db->table('tbl_mobil')->get()->getResultArray();
+    }
+    public function mobilbyid($id){
+        return $this->db->table('tbl_mobil')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpanmobil($data)
+    {
+        return $this->table('tbl_mobil')->insert($data);
+    }
+    public function updatemobil($id, $data)
+    {
+        return $this->db->table('tbl_mobil')->update($data, ['id' => $id]);
+    }
+
+    // Iklan motor
+    public function motor(){
+        return $this->db->table('tbl_motor')->get()->getResultArray();
+    }
+    public function motorbyid($id){
+        return $this->db->table('tbl_motor')->getWhere(['id' => $id])->getRowArray();
+    }
+    public function simpanmotor($data)
+    {
+        return $this->table('tbl_motor')->insert($data);
+    }
+    public function updatemotor($id, $data)
+    {
+        return $this->db->table('tbl_motor')->update($data, ['id' => $id]);
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -153,68 +319,9 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_jenisiklan')->update($data, ['id' => $id]);
     }
 
-    // iklan mobilmotor
-    public function saveMobil($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_mobil')->insert($data);
 
-        return $db->insertID();
-    }
 
-    // Iklan Motor
-    public function saveMotor($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_motor')->insert($data);
 
-        return $db->insertID();
-    }
-
-    public function saveKost($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_kostkontrakan')->insert($data);
-
-        return $db->insertID();
-    }
-
-    public function saveTenaga_Ahli($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_tenagaahli')->insert($data);
-
-        return $db->insertID();
-    }
-
-    public function saveTenaga_Terampil($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_tenagaterampil')->insert($data);
-
-        return $db->insertID();
-    }
-
-    // Iklan Rumah
-    public function iklanrumah(){
-        return $this->db->table('tbl_rumah')->get()->getResultArray();
-    }
-    public function iklanrumahbyid($id){
-        return $this->db->table('tbl_rumah')->getWhere(['id' => $id])->getRowArray();
-    }
-
-    public function simpanumah($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_rumah')->insert($data);
-
-        return $db->insertID();
-        
-    }
-    public function updaterumah($id, $data)
-    {
-        return $this->db->table('tbl_rumah')->update($data, ['id' => $id]);
-    }
 
 
 
@@ -222,35 +329,6 @@ class ModelAlugada extends Model
 
     // Batas Iklan Rumah
 
-    public function save_Tanah($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_tanah')->insert($data);
-
-        return $db->insertID();
-    }
-
-    public function save_Apartemen($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_apartemen')->insert($data);
-
-        return $db->insertID();
-    }
-    public function save_Ruko($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_ruko')->insert($data);
-
-        return $db->insertID();
-    }
-    public function save_BangunanKomersial($data)
-    {
-        $db = $this->db;
-        $db->table('tbl_bangunankomersial')->insert($data);
-
-        return $db->insertID();
-    }
     public function saveRekomendasiIklan($data)
     {
         return $this->db->table('tbl_rekomendasi_iklan')->insert($data);

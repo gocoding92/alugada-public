@@ -5,8 +5,12 @@
   <div class="position-relative top10">
     <div class="fade">
       <?php foreach ($slider as $slider) : ?>
-        <div><img src="<?= $slider['gambar']; ?>" alt=""></div>
-      <?php endforeach; ?>
+        <div><img src="<?php echo $slider['gambar']; ?>" alt=""></div>
+        <!-- <div>
+          <img src="<?php //echo $slider['gambar'];?>" alt="">
+        </div> -->
+      <p><?php //echo $slider['gambar']; die;?></p>
+        <?php endforeach; ?>
     </div>
   </div>
 

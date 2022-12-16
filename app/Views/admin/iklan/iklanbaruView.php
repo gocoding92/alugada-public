@@ -41,16 +41,14 @@
             <tr>
               <?php if ($r['checked'] == 0 or $r['checked'] == "" or $r['checked'] == NULL) { ?>
                 <th scope="row"><?= $r['id_rekomendasi_iklan']; ?></th>
-                <!-- <td><input readonly type="text" name="user_id" value="<?php //echo $r['user_id']; 
-                                                                            ?>"></td> -->
                 <td>
-                  <p><?= $r['id_rekomendasi_iklan']; ?></p>
+                  <p><?= $r['user_id']; ?></p>
                 </td>
-                <td><input type="text" name="nolayanan" value="<?php echo $r['nolayanan']; ?>"></td>
-                <td><input type="text" name="nosublayanan" value="<?php echo $r['nosublayanan']; ?>"></td>
-                <td><input readonly type="text" name="id_iklan" value="<?= $r['id_iklan']; ?>"></td>
-                <td><input readonly type="text" name="type_rekomendasi_iklan" value="<?= $r['type_rekomendasi_iklan']; ?>"></td>
-                <td><a href="<?= base_url('detailiklanahli/' . $r['id_iklan'] . '/' . $r['user_id'] . '/' . $r['id_rekomendasi_iklan'] . '  ') ?>">Detail</button></td>
+                <td><?php echo $r['nolayanan'];?></td>
+                <td><?php echo $r['nosublayanan']; ?></td>
+                <td><?= $r['id_iklan'];?></td>
+                <td><?= $r['type_rekomendasi_iklan']; ?></td>
+                <td><a href="<?= base_url('detailiklanbaru/' . $r['id_iklan'] . '/' . $r['user_id'] . '/' . $r['id_rekomendasi_iklan'] . '/' .$r['nolayanan'].'/'.$r['nosublayanan']) ?>">Detail</button></td>
               <?php }; ?>
             </tr>
           <?php endforeach; ?>

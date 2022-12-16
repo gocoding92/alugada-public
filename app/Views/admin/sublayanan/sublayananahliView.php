@@ -30,8 +30,8 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">
-                <a href="<?php echo base_url('tambahlayanan'); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah-layanan"><i class="fa fa-plus"></i> Tambah Layanan Test</a>
+              <h3 class="card-title">Edit Sub Layanan Tenaga Ahli
+                <!-- <a href="<?php //echo base_url('tambahlayanan'); ?>" class="btn btn-primary" data-toggle="modal" data-target="#modal-tambah-layanan"><i class="fa fa-plus"></i> Tambah Layanan Test</a> -->
 
 
                 <!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default" onclick="testcoba(100)">
@@ -47,9 +47,6 @@
                     <th>No Layanan</th>
                     <th>Layanan</th>
                     <th>Gambar</th>
-                    <th>Url</th>
-                    <th>Aktifasi</th>
-                    <th>Action</th>
 
                   </tr>
                 </thead>
@@ -58,26 +55,9 @@
                   <?php foreach ($layanan as $l) : ?>
                     <tr>
                       <td><?= $l['nolayanan']; ?></td>
-                      <td><a href="<?= "admin-sub-layanan".'/'.$l['nolayanan'];?>"><?= $l['layanan'];?></a></td>
+                      <td><a href="<?= "admin-".$l['url'];?>"><?= $l['layanan']; ?></a></td>
                       <td>
                         <img style="width:50px" src="<?= base_url('Image/Layanan/' . $l['gambar']); ?>" alt="">
-                      </td>
-                      <td><?= $l['url']; ?></td>
-                      <td><?= $l['is_active']; ?></td>
-                      <td>
-                        <!-- <a href="<?php //echo base_url('editlayanan' . '/' . $l['nolayanan']);
-                                      ?>">
-                                <span class="right badge badge-primary" ><i class="fa fa-edit"></i> Edit</span>
-                            </a> -->
-                        <a href="#" data-toggle="modal" data-target="#modal-edit-layanan" onclick="edit_layanan('<?= $l['layanan']; ?>','<?= $l['gambar']; ?>','<?= $l['url']; ?>','<?= $l['nolayanan']; ?>','<?= $l['detaillayanan']; ?>')">
-                          <span class="right badge badge-primary"><i class="fa fa-edit"></i> Edit</span>
-                        </a>
-
-                        <?php if ($l['is_active']) { ?>
-                          <a href="<?= base_url('aktifasilayanan' . '/' . $l['nolayanan']); ?>" class="right badge badge-danger"><i class="fa fa-trash"></i> Take Down</a>
-                        <?php } else { ?>
-                          <a href="<?= base_url('aktifasilayanan' . '/' . $l['nolayanan']); ?>" class="right badge badge-danger"><i class="fa fa-trash"></i> Aktifkan</a>
-                        <?php }; ?>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -121,10 +101,7 @@
           <div class="mb-3">
             <label for="tambahlayanan" class="form-label">Layanan</label>
             <input type="text" class="form-control" id="tambahlayanan" name="tambahlayanan" placeholder="Tulis layanan ...">
-          </div>
-          <div class="mb-3">
-            <label for="tambahdetaillayanan" class="form-label">Detail Layanan</label>
-            <input type="text" class="form-control" id="tambahdetaillayanan" name="tambahdetaillayanan" placeholder="Tulis Detail Layanan ...">
+            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
           </div>
           <div class="mb-3">
             <label for="tambahturl" class="form-label">Url</label>
