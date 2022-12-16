@@ -24,6 +24,9 @@
                     no_handphone: no_handphone
                 },
                 success: function(data) {
+                    $('#submit').html('Submit');
+                    $('#submit').prop('disabled', false);
+
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {

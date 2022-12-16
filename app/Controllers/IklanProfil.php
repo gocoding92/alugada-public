@@ -38,8 +38,8 @@ class IklanProfil extends BaseController
         $provinsi    = $this->request->getVar('provinsi');
         $deskripsi   = $this->request->getVar('deskripsi');
         $harga       = $this->request->getVar('harga');
-        $nolayanan       = $this->request->getVar('nolayanan');
-        $nosublayanan       = $this->request->getVar('nosublayanan');
+        $nolayanan   = $this->request->getVar('nolayanan');
+        $nosublayanan  = $this->request->getVar('nosublayanan');
 
         $imageFile  = $this->request->getFiles();
 
@@ -351,54 +351,62 @@ class IklanProfil extends BaseController
         $nosublayanan = $this->request->getVar('nosublayanan');
         $imageFile  = $this->request->getFiles();
 
-        // $imageFile1 = $imageFile['file1'];
-        // $imageName1 = '';
-        // if ($imageFile1->isValid()) {
-        //     $imageName1 = $imageFile1->getName();
-        //     $imageFile1->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName1);
-        // }
+        $image1 = $this->request->getVar('image_1');
+        $image2 = $this->request->getVar('image_2');
+        $image3 = $this->request->getVar('image_3');
+        $image4 = $this->request->getVar('image_4');
+        $image5 = $this->request->getVar('image_5');
+        $image6 = $this->request->getVar('image_6');
 
-        // $imageFile2 = $imageFile['file2'];
-        // $imageName2 = '';
-        // if ($imageFile2->isValid()) {
-        //     $imageName2 = $imageFile2->getName();
-        //     $imageFile2->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName2);
-        // }
+        $imageFile1 = $imageFile['file1'];
+        $imageName1 = $image1;
+        if ($imageFile1->isValid()) {
+            $imageName1 = $imageFile1->getName();
+            $imageFile1->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName1);
+        }
 
-        // $imageFile3 = $imageFile['file3'];
-        // $imageName3 = '';
-        // if ($imageFile3->isValid()) {
-        //     $imageName3 = $imageFile3->getName();
-        //     $imageFile3->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName3);
-        // }
+        $imageFile2 = $imageFile['file2'];
+        $imageName2 = $image2;
+        if ($imageFile2->isValid()) {
+            $imageName2 = $imageFile2->getName();
+            $imageFile2->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName2);
+        }
 
-        // $imageFile4 = $imageFile['file4'];
-        // $imageName4 = '';
-        // if ($imageFile4->isValid()) {
-        //     $imageName4 = $imageFile4->getName();
-        //     $imageFile4->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName4);
-        // }
+        $imageFile3 = $imageFile['file3'];
+        $imageName3 = $image3;
+        if ($imageFile3->isValid()) {
+            $imageName3 = $imageFile3->getName();
+            $imageFile3->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName3);
+        }
 
-        // $imageFile5 = $imageFile['file5'];
-        // $imageName5 = '';
-        // if ($imageFile5->isValid()) {
-        //     $imageName5 = $imageFile5->getName();
-        //     $imageFile5->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName5);
-        // }
+        $imageFile4 = $imageFile['file4'];
+        $imageName4 = $image4;
+        if ($imageFile4->isValid()) {
+            $imageName4 = $imageFile4->getName();
+            $imageFile4->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName4);
+        }
 
-        // $imageFile6 = $imageFile['file6'];
-        // $imageName6 = '';
-        // if ($imageFile6->isValid()) {
-        //     $imageName6 = $imageFile6->getName();
-        //     $imageFile6->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName6);
-        // }
+        $imageFile5 = $imageFile['file5'];
+        $imageName5 = $image5;
+        if ($imageFile5->isValid()) {
+            $imageName5 = $imageFile5->getName();
+            $imageFile5->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName5);
+        }
 
-        // $file1 = $imageFile['curiculum_vitae'];
-        // $fileName1 = '';
-        // if ($file1->isValid()) {
-        //     $fileName1 = $file1->getName();
-        //     $file1->move(ROOTPATH . 'public/Image/file', $fileName1);
-        // }
+        $imageFile6 = $imageFile['file6'];
+        $imageName6 = $image6;
+        if ($imageFile6->isValid()) {
+            $imageName6 = $imageFile6->getName();
+            $imageFile6->move(ROOTPATH . 'public/Image/iklan/tenaga_ahli', $imageName6);
+        }
+
+        // file bukan image, jadi tidak perlu di cpoy
+        $file1 = $imageFile['curiculum_vitae'];
+        $fileName1 = $this->request->getVar('curiculum_vitae_edit');
+        if ($file1->isValid()) {
+            $fileName1 = $file1->getName();
+            $file1->move(ROOTPATH . 'public/Image/file', $fileName1);
+        }
 
         $data = ([
             'bidang_profesi'   => $bidang_profesi,
@@ -413,17 +421,17 @@ class IklanProfil extends BaseController
             'provinsi'         => $provinsi,
             'deskripsi'        => $deskripsi,
             'gaji'             => $gaji,
-            // 'image_1'          => $imageName1,
-            // 'image_2'          => $imageName2,
-            // 'image_3'          => $imageName3,
-            // 'image_4'          => $imageName4,
-            // 'image_5'          => $imageName5,
-            // 'image_6'          => $imageName6,
+            'image_1'          => $imageName1,
+            'image_2'          => $imageName2,
+            'image_3'          => $imageName3,
+            'image_4'          => $imageName4,
+            'image_5'          => $imageName5,
+            'image_6'          => $imageName6,
             'nolayanan'        => $nolayanan,
             'nosublayanan'     => $nosublayanan,
             'idpengiklan'     => $this->session->get('id'),
             'path_folder'     => 'tenaga_ahli',
-            // 'curiculum_vitae' => $fileName1
+            'curiculum_vitae' => $fileName1
         ]);
 
         $this->iklan->saveTenagaAhli($data, $id_iklan_rekomendasi);
@@ -433,7 +441,7 @@ class IklanProfil extends BaseController
         $this->sendNotifWA($id_rekomendasi_iklan);
 
         // image belum di edit
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan_rekomendasi, $nama_lengkap, $description, $domisili, 'tbl_tenagaahli', $nolayanan, $nosublayanan, $id_rekomendasi_iklan);
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan_rekomendasi, $nama_lengkap, $description, $domisili, 'tbl_tenagaahli', $nolayanan, $nosublayanan, $id_rekomendasi_iklan, $imageName1);
     }
 
     public function saveTenagaTerampil()
@@ -1061,7 +1069,7 @@ class IklanProfil extends BaseController
 
 
     // image belum yah
-    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0, $id_rekomendasi_iklan = 0)
+    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0, $id_rekomendasi_iklan = 0, $imageName)
     {
         $user_id = $this->session->get('id');
         $data = ([
@@ -1070,7 +1078,7 @@ class IklanProfil extends BaseController
             'nama_iklan' => $nama_iklan,
             'description' => $description,
             'alamat' => $alamat,
-            // 'image' => $imageName,
+            'image' => $imageName,
             'table_iklan' => $table_iklan,
             'user_id' => $user_id,
             'nolayanan' => $nolayanan,

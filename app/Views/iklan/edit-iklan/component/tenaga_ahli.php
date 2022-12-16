@@ -32,6 +32,14 @@
 
         <?= $this->include("iklan/form/upload_img"); ?>
 
+        <!-- // image string hidden -->
+        <input type="hidden" name="image_1" value="<?= $data_iklan['image_1']; ?>">
+        <input type="hidden" name="image_2" value="<?= $data_iklan['image_2']; ?>">
+        <input type="hidden" name="image_3" value="<?= $data_iklan['image_3']; ?>">
+        <input type="hidden" name="image_4" value="<?= $data_iklan['image_4']; ?>">
+        <input type="hidden" name="image_5" value="<?= $data_iklan['image_5']; ?>">
+        <input type="hidden" name="image_6" value="<?= $data_iklan['image_6']; ?>">
+
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
         <input type="hidden" name="id_iklan" value="<?= $id_iklan; ?>">
@@ -110,6 +118,7 @@
         </div>
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Curiculum Vitae</label>
+            <input type="hidden" name="curiculum_vitae_edit" value="<?= $data_iklan['curiculum_vitae']; ?>">
             <input type="file" name="curiculum_vitae" class="form-control width-input margin-top-6">
         </div>
         <div class="margin-bottom-12 margin-top-20">

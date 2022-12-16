@@ -12,7 +12,7 @@ if ($session) {
 <header class="header display-flex justify-content-between margin-bottom-2">
     <div class="display-flex">
         <img class="img-logo" src="<?= base_url('Image/logo.jpg'); ?>" alt="semua">
-        <a class="text-decoration-none" href="<?= base_url('logout'); ?>">
+        <a class="text-decoration-none" href="<?= base_url('/beranda'); ?>">
             <p class="text-logo">Alugada</p>
         </a>
     </div>

@@ -27,6 +27,10 @@
                 },
                 success: function(data) {
                     var obj = JSON.parse(data);
+
+                    $('#submit').html('Submit');
+                    $('#submit').prop('disabled', false);
+
                     if (obj.data[1].status === 200) {
                         toastr.success(obj.data[0].message);
                     } else {
@@ -35,7 +39,7 @@
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url('/'); ?>";
+                            window.location.href = "<?php echo base_url('/beranda'); ?>";
                         }, 2000);
                     }
                 }

@@ -36,6 +36,8 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
+                    $('#submit').html('Submit');
+                    $('#submit').prop('disabled', false);
 
                     toastr.success('Data profil berhasil dilakukan');
 
