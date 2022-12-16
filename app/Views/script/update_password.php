@@ -38,6 +38,9 @@
                     no_handphone: no_handphone,
                 },
                 success: function(data) {
+                    $('#submit').html('Submit');
+                    $('#submit').prop('disabled', false);
+
                     var obj = JSON.parse(data);
 
                     toastr.success(obj.data[0].message);

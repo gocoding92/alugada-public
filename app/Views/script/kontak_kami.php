@@ -36,6 +36,9 @@
                     pesan: pesan,
                 },
                 success: function(data) {
+                    $('#submit').html('Submit');
+                    $('#submit').prop('disabled', false);
+
                     var obj = JSON.parse(data);
                     SnackBar({
                         message: obj.data[0].message,

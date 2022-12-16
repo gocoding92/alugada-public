@@ -17,7 +17,7 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function UpdatedTenagaTerampil($data = [], $id_rekomendasi_iklan = 0)
+    public function saveTenagaTerampil($data = [], $id_iklan_rekomendasi = 0)
     {
         $data = $this->db->table('tbl_tenagaterampil')->update(
             $data,
@@ -28,69 +28,94 @@ class ModelIklanProfil extends Model
 
         return $data;
     }
-    public function saveTenagaTerampil($data = [])
+    public function saveTanah($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_tenagaterampil')->insert($data);
+        $data = $this->db->table('tbl_tanah')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveTanah($data = [])
+    public function saveRuko($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_tanah')->insert($data);
+        $data = $this->db->table('tbl_ruko')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveRuko($data = [])
+    public function saveRumah($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_ruko')->insert($data);
+        $data = $this->db->table('tbl_rumah')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveRumah($data = [])
+    public function saveApartemen($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_rumah')->insert($data);
+        $data = $this->db->table('tbl_apartemen')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveApartemen($data = [])
+    public function saveBangunanKomersial($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_apartemen')->insert($data);
+        $data = $this->db->table('tbl_bangunankomersial')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
-    }
-    public function saveBangunanKomersial($data = [])
-    {
-        $db = $this->db;
-        $db->table('tbl_bangunankomersial')->insert($data);
-
-        return $db->insertID();
+        return $data;
     }
 
-    public function saveMobil($data = [])
+    public function saveMobil($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_mobil')->insert($data);
+        $data = $this->db->table('tbl_mobil')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveKostKontrakan($data = [])
+    public function saveKostKontrakan($data = [], $id_iklan_rekomendasi = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_kostkontrakan')->insert($data);
+        $data = $this->db->table('tbl_kostkontrakan')->update(
+            $data,
+            [
+                'id' => $id_iklan_rekomendasi
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
-    public function saveMotor($data = [])
+    public function saveMotor($data = [], $id_rekomendasi_iklan = 0)
     {
-        $db = $this->db;
-        $db->table('tbl_motor')->insert($data);
+        $data = $this->db->table('tbl_motor')->update(
+            $data,
+            [
+                'id' => $id_rekomendasi_iklan
+            ]
+        );
 
-        return $db->insertID();
+        return $data;
     }
 
     public function saveRekomendasiIklan($data = [], $id_rekomendasi_iklan = 0)

@@ -8,7 +8,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveKostkontrakan'); ?>',
+                url: '<?= base_url('edit-iklan/saveKostkontrakan'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,

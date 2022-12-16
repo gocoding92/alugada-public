@@ -40,7 +40,7 @@ $routes->set404Override();
 // $routes->get('/latihan1', 'belajar\Kontainer::index');
 
 // HOME
-$routes->get('/', 'Home::index');
+$routes->get('/beranda', 'Home::index');
 $routes->get('/home/detail/(:num)', 'Home::detail/$1');
 $routes->get('/home/detail/(:num)/(:num)', 'Home::detail/$1/$2');
 
@@ -58,6 +58,9 @@ $routes->get('/lupa-password', 'Auth::forget_password');
 $routes->post('/auth/submit-forget-password', 'Auth::submit_forget_password');
 $routes->get('/otp-forget-pasword', 'Auth::otp_forget_password');
 $routes->post('/auth/submit-otp-forget-password', 'Auth::submit_otp_forget_password');
+
+$routes->get('/', 'Auth::lockscreen');
+$routes->post('/auth/submit-lockscreen', 'Auth::submit_lockscreen');
 
 // PROFILE
 $routes->get('/profil', 'Profil::index');

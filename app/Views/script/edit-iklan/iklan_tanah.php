@@ -8,7 +8,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveTanah'); ?>',
+                url: '<?= base_url('edit-iklan/saveTanah'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
@@ -57,7 +57,7 @@
 
         //             // if (obj.data[1].status === 200) {
         //             //     window.setTimeout(function() {
-        //             //         window.location.href = "<?php echo base_url('profil'); ?>";
+        //             //         window.location.href = "";
         //             //     }, 4000);
         //             // }
 

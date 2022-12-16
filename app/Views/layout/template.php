@@ -65,58 +65,6 @@
     </main>
 
     <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
-    <?php
-    $alert = false;
-    if ($_GET) {
-        if ($_GET['success_iklan']) {
-            $alert = true;
-        }
-    }
-    ?>
-    <script>
-        $(document).ready(function() {
-            <?php if ($alert) : ?>
-                swal({
-                    icon: "success",
-                    title: "Sukses",
-                    text: "Pasang Iklan di Alugada..",
-                });
-
-                setTimeout(() => {
-                    window.location.href = window.location.pathname;
-                }, 2800);
-            <?php endif; ?>
-        });
-    </script>
-
-    <script>
-        $(function() {
-
-            $(this).parent('.inputTag').hide();
-
-            // Multiple images preview in browser
-            var imagesPreview = function(input, placeToInsertImagePreview) {
-
-                $(".gallery").html("");
-
-                if (input.files) {
-                    var filesAmount = input.files.length;
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-                        reader.onload = function(event) {
-                            $($.parseHTML('<img class="upload-img-iklan">')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
-                        }
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-            };
-
-            $('#inputTag').on('change', function() {
-                imagesPreview(this, 'div.gallery');
-            });
-        });
-    </script>
-
 
 </body>
 

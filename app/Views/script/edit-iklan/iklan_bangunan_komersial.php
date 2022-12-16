@@ -8,7 +8,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveBangunanKomersial'); ?>',
+                url: '<?= base_url('edit-iklan/saveBangunanKomersial'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
@@ -36,7 +36,7 @@
         // ---- 1. Submit Register (21/Oktober/2022) ----
         // $("#submit").click(function() {
         //     $.ajax({
-        //         url: "<?= base_url('profil/update-profil'); ?>",
+        //         url: "",
         //         type: 'POST',
         //         headers: {
         //             'X-Requested-With': 'XMLHttpRequest'
@@ -57,7 +57,7 @@
 
         //             // if (obj.data[1].status === 200) {
         //             //     window.setTimeout(function() {
-        //             //         window.location.href = "<?php echo base_url('profil'); ?>";
+        //             //         window.location.href = "";
         //             //     }, 4000);
         //             // }
 

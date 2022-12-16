@@ -7,50 +7,41 @@
             $('#submit').html('Loading...');
             $('#submit').prop('disabled', true);
 
-            var name = $("#name").val();
             var password = $("#password").val();
-            var email = '';
-            var alamat = '';
-            var deskripsi = '';
-            var no_handphone = localStorage.getItem('no_handphone');
-
-            if (!name) {
-                toastr.error('Name harus diisi!');
-                return;
-            }
 
             if (!password) {
                 toastr.error('Password harus diisi!');
                 return;
             }
 
+
             $.ajax({
-                url: "<?= base_url('auth/submit-data'); ?>",
+                url: "<?= base_url('auth/submit-lockscreen'); ?>",
                 type: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'
                 },
                 data: {
-                    name: name,
                     password: password,
-                    no_handphone: no_handphone,
+
                 },
                 success: function(data) {
+                    var obj = JSON.parse(data);
+
                     $('#submit').html('Submit');
                     $('#submit').prop('disabled', false);
 
-                    toastr.success('Data profil berhasil dilakukan');
-
-                    var obj = JSON.parse(data);
+                    if (obj.data[1].status === 200) {
+                        toastr.success(obj.data[0].message);
+                    } else {
+                        toastr.error(obj.data[0].message);
+                    }
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url(); ?>";
-                        }, 4000);
-
-                        localStorage.removeItem('no_handphone');
+                            window.location.href = "<?php echo base_url('/beranda'); ?>";
+                        }, 2000);
                     }
-
                 }
             });
         });

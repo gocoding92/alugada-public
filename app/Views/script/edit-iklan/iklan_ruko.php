@@ -8,7 +8,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '<?= base_url('iklan/saveRuko'); ?>',
+                url: '<?= base_url('edit-iklan/saveRuko'); ?>',
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
