@@ -14,6 +14,7 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
+    
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {
