@@ -162,4 +162,27 @@ class ModelIklanProfil extends Model
 
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere($where_sub_layanan)->getResultArray();;
     }
+
+    public function deleteRekomendasiIklan($id_rekomendasi_iklan, $id_iklan, $table_iklan)
+    {
+        $this->db->table('tbl_rekomendasi_iklan')->update(
+            [
+                'is_active' => 1,
+            ],
+            [
+                'id_rekomendasi_iklan' => $id_rekomendasi_iklan
+            ]
+        );
+
+        $this->db->table($table_iklan)->update(
+            [
+                'is_active' => 1,
+            ],
+            [
+                'id' => $id_iklan
+            ]
+        );
+        
+
+    }
 }

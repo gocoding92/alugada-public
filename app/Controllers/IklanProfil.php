@@ -1118,4 +1118,15 @@ class IklanProfil extends BaseController
         $response = curl_exec($curl);
         curl_close($curl);
     }
+
+    public function deleteIklan()
+    {
+        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');        
+        $id_iklan = $this->request->getVar('id_iklan');        
+        $table_iklan = $this->request->getVar('table_iklan');
+        
+        $this->iklan->deleteRekomendasiIklan($id_rekomendasi_iklan, $id_iklan, $table_iklan);
+
+
+    }
 }

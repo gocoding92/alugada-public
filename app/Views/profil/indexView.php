@@ -36,6 +36,10 @@
 
         $url_detail = $tbl_rekomendasi_iklan['nama_iklan'] . '/' . $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] . '/' . $tbl_rekomendasi_iklan['id_iklan'] . '/' . $tbl_rekomendasi_iklan['type_rekomendasi_iklan'] . '/' . $tbl_rekomendasi_iklan['table_iklan'];
       ?>
+        <!-- form hidden id_rekomendasi_iklan id_iklan table_iklan  -->
+        <input type="hidden" id="id_rekomendasi_iklan<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] ?>" value="<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] ?>">
+        <input type="hidden" id="id_iklan_rekomendasi<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] ?>" value="<?= $tbl_rekomendasi_iklan['id_iklan'] ?>">
+        <input type="hidden" id="table_iklan<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] ?>" value="<?= $tbl_rekomendasi_iklan['table_iklan'] ?>">
 
         <!-- 1 = active iklan -->
         <?php if ($tbl_rekomendasi_iklan['is_active'] == 1) : ?>
@@ -51,7 +55,7 @@
                 <div class="text-align-right">
                   <i onclick="detailIklan('<?= $url_detail; ?>');" style="font-size: 18px" class="fa fa-eye cursor-pointer margin-right-10"></i>
                   <i onclick="editIklan('<?= $url_detail; ?>');" style="font-size: 18px" class="fa fa-edit cursor-pointer margin-right-10"></i>
-                  <i onclick="deleteIklan();" style="font-size: 18px" class="fa fa-trash cursor-pointer margin-right-10"></i>
+                  <i onclick="deleteIklan('<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan'] ?>')" style="font-size: 18px" class="fa fa-trash cursor-pointer margin-right-10"></i>
                 </div>
               </div>
             </div>
@@ -70,9 +74,50 @@
       window.location.href = `<?php echo base_url('iklan/edit-iklan'); ?>/${url_detail}`;
     }
 
-    function deleteIklan() {
-      console.log('delete iklan');
+    function deleteIklan(id = 0){
+      
+      // $('#submit').html('Loading...');
+      // $('#submit').prop('disabled', true);
+      
+      var id_rekomendasi_iklan = $('#id_rekomendasi_iklan'+id+' ').val();
+      var id_iklan_rekomendasi = $('#id_iklan_rekomendasi'+id+' ').val();
+      var table_iklan = $('#table_iklan'+id+' ').val();
+  
+      $.ajax({
+          url: "<?= base_url('delete-iklan'); ?>",
+          type: 'POST',
+          headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+          data: {
+            id_rekomendasi_iklan : id_rekomendasi_iklan,
+            id_iklan : id_iklan_rekomendasi,
+            table_iklan : table_iklan,
+          },
+          success: function(data) {
+              console.log(data);
+              return;
+              var obj = JSON.parse(data);
+      
+              if (obj.data[1].status === 200) {
+                  toastr.success(obj.data[0].message);
+              } else {
+                  toastr.error(obj.data[0].message);
+              }
+      
+              if (obj.data[1].status === 200) {
+                  window.setTimeout(function() {
+                      window.location.href = "<?php echo base_url('/profil'); ?>";
+                  }, 2500);
+              }
+          }
+      });
     }
+
   </script>
 
+
+
   <?= $this->endSection(); ?>
+
+  
