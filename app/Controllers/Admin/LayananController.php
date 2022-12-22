@@ -17,74 +17,91 @@ class LayananController extends BaseController
 
     public function index()
     {
-        //var_dump("Benar");die;
         $layanan = $this->alugada->layanan();
-        $data =[
+        $data = [
             'layanan'   => $layanan,
         ];
-        return view('admin/layanan/layananView',$data);
+        return view('admin/layanan/layananView', $data);
     }
 
-    public function aktifasilayanan($nolayanan){
-        // var_dump($nolayanan);die;
+    public function aktifasilayanan($nolayanan)
+    {
         $layanan = $this->alugada->layananbynolayanan($nolayanan);
-        if ($layanan['is_active']){
-            // var_dump("Satu");die;
+        if ($layanan['is_active']) {
             $data = [
                 'is_active' => 0,
             ];
-            $this->alugada->updatelayananbynolayanan($nolayanan,$data);
-
-        }else{
-            // var_dump("Nol");die;
+        } else {
             $data = [
                 'is_active' => 1,
             ];
-            $this->alugada->updatelayananbynolayanan($nolayanan,$data);
-
         }
-        return redirect()->to('administrator-area/layanan');
+        $this->alugada->updatelayananbynolayanan($nolayanan, $data);
+        return redirect()->to('admin-layanan');
     }
 
-    public function tambahlayanan(){
-        $layanan = $this->alugada->layanan();
-        foreach($layanan as $l){
-            $l['nolayanan'];
-        };
-        $nolayananbaru = $l['nolayanan'] + 100;
-        // var_dump($nolayananbaru);die;
-        $data=[
-            'layanan'   => $layanan,
-            'nolayananbaru' =>$nolayananbaru,
-        ];
-        return view('admin/layanan/tambahlayananView',$data);
-    }
+    public function tambahlayanan()
+    {
 
-    public function simpantambahlayanan(){
-        // var_dump("Benar");die;
-        $filegambar = $this->request->getFile('gambar');
-        if($filegambar == "" or $filegambar == NULL){
+        $filegambar = $this->request->getFile('gambartambah');
+        if ($filegambar == "" or $filegambar == NULL) {
             $namagambar = "default.png";
-        }else{
+        } else {
             $filegambar->move('Image/Layanan');
             $namagambar = $filegambar->getName();
         }
 
-        // var_dump($namagambar);die;
-        $aktifasi = $this->request->getVar('aktifasi');
-        // var_dump($aktifasi);die;
         $data = [
-            'nolayanan'     => $this->request->getVar('nolayanan'),
-            'layanan'       => $this->request->getVar('layanan'),
-            'detaillayanan'       => "",
+            'nolayanan'     => $this->request->getVar('tambahnolayanan'),
+            'layanan'       => $this->request->getVar('tambahlayanan'),
+            'detaillayanan' => $this->request->getVar('tambahdetaillayanan'),
             'gambar'        => $namagambar,
-            'url'           => $this->request->getVar('url'),
-            'is_active'     => $aktifasi,
+            'url'           => $this->request->getVar('tambahurl'),
+            'is_active'     => 1,
         ];
-        // var_dump($data);die;
-        $this->alugada->tambahlayanan($data);
-        return redirect()->to('administrator-area/layanan');
+        $this->alugada->tambahlayanan($data); //Tambah data layanan
+
+        $datasub=[
+            'nolayanan'     => $this->request->getVar('tambahnolayanan'),
+            'nosublayanan'  => $this->request->getVar('tambahnolayanan') + 1,
+            'sublayanan'    => "",
+            'gambar'        => "default.png",
+            'url'           => "",
+            'is_active'     => 1,
+
+        ];
+        $this->alugada->tambahsublayanan($datasub); //Tambah sub data layanan
+
+        return redirect()->to('admin-layanan');
     }
 
+    public function editlayanan()
+    {
+        $noLayanan = $this->request->getVar('editnolayanan');
+        $layananEdit = $this->request->getVar('editlayanan');
+        $detailLayananEdit = $this->request->getVar('editdetaillayanan');
+        $urlEdit = $this->request->getVar('editurl');
 
+        $filegambar = $this->request->getFile('gambar');
+        $layanan = $this->alugada->layananbynolayanan($noLayanan);
+        $gambarlama = $layanan['gambar'];
+
+        if ($filegambar == NULL or $filegambar == "") {
+            $namagambar = $gambarlama;
+        } else {
+            $filegambar->move('Image/Layanan/');
+            $namagambar = $filegambar->getName();
+        }
+
+        $dataedit = [
+            'nolayanan'         => $noLayanan,
+            'layanan'           => $layananEdit,
+            'detaillayanan'     => $detailLayananEdit,
+            'url'               => $urlEdit,
+            'gambar'            => $namagambar,
+        ];
+
+        $this->alugada->updatelayananbynolayanan($noLayanan, $dataedit);
+        return redirect()->to('admin-layanan');
+    }
 }

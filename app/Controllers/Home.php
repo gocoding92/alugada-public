@@ -23,7 +23,7 @@ class Home extends BaseController
             $nohppengunjung = 123;
         }
         $query = $this->modelhome->findAll();
-        $querySlider = $this->modelhome->slider(); 
+        $querySlider = $this->modelhome->slider();
         $data = [
             // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),

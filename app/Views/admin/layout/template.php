@@ -6,6 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Dashboard</title>
 
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
+  <!-- <script
+        src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+        crossorigin="anonymous">
+    </script> -->
+
+
+
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -105,6 +116,11 @@
   <!-- AdminLTE for demo purposes -->
   <script src="<?= base_url(); ?>/admin/dist/js/demo.js"></script>
   <!-- Page specific script -->
+
+  <!-- <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.js"></script> -->
+
+
   <script>
     $(function() {
       $("#example1").DataTable({
@@ -124,7 +140,7 @@
       });
     });
 
-    function previewgambar() {
+    function previewgambartambahlayanan() {
       const gambar = document.querySelector('#gambar');
       const labelgambar = document.querySelector('.lbl-gambar');
       const imgpreview = document.querySelector('.img-preview');
@@ -136,6 +152,47 @@
         imgpreview.src = e.target.result;
       }
     }
+
+    function previewgambareditlayanan() {
+      const gambar = document.querySelector('#gambar');
+      const labelgambar = document.querySelector('.lbl-gambar');
+      const imgpreview = document.querySelector('.img-preview');
+
+      const filegambar = new FileReader();
+      filegambar.readAsDataURL(gambar.files[0])
+
+      filegambar.onload = function(e) {
+        imgpreview.src = e.target.result;
+      }
+    }
+
+    function previewgambartambahlayanan() {
+      console.log("Benar");
+      const gambar = document.querySelector('#gambartambah');
+      const labelgambar = document.querySelector('.lbl-gambar');
+      const imgpreview = document.querySelector('.img-preview-tambah');
+
+      const filegambar = new FileReader();
+      filegambar.readAsDataURL(gambar.files[0])
+
+      filegambar.onload = function(e) {
+        imgpreview.src = e.target.result;
+      }
+    }
+
+    function edit_layanan(layanan, gambar, url, nolayanan, detaillayanan) {
+      $('#editnolayanan').val(nolayanan);
+      $('#editlayanan').val(layanan);
+      $('#editdetaillayanan').val(detaillayanan);
+      $('#editurl').val(url);
+      $("#img-preview").attr("src", `<?php echo base_url('Image/Layanan'); ?>/${gambar} `);
+    }
+
+    // function editsublayanan(sublayanan){
+    //   alert("Klik untuk edit sub layanan " +sublayanan);
+    // }
+
+
   </script>
 </body>
 

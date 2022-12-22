@@ -341,3 +341,15 @@ Edit Profile
 9. Validasi jika alamat belum diisi '-' dan sudah disi keluarkan alamatnya (Done)
 10. Keluarkan Image jika sudah belum ada keluarkan yang image default. jika ada keluarkan (Done)
 11. Update Profil Data. Deskripsi di hapus (Done)
+
+
+
+Kesepakatan Public dan Admin
+is_active
+0 = iklan baru
+1 = iklan aktif
+2 = iklan tidak aktif pengiklan (user aksi)
+
+suspend
+0 = aktif iklan
+1 = iklan suspend
