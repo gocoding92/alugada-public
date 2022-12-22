@@ -7,8 +7,8 @@ if (!empty($_SESSION['nohp'])) {
 
 <div class="footer">
   <div class="row-footer">
-    <a href="<?= base_url('/'); ?>" class="text-footer-menu">
-      <img alt="Beranda" src="<?= base_url(''); ?>/Image/beranda.png" class="img-footer-menu"> <br />
+    <a href="<?= base_url('/beranda'); ?>" class="text-footer-menu">
+      <img alt="Beranda" src="<?= base_url('/'); ?>/Image/beranda.png" class="img-footer-menu"> <br />
       BERANDA
     </a>
   </div>

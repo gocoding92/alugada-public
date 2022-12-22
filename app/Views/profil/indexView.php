@@ -43,11 +43,12 @@
 
         <!-- 1 = active iklan -->
         <?php if ($tbl_rekomendasi_iklan['is_active'] == 1) : ?>
-          <div class="card-layanan-list" style="height: 442px;">
+          <div class="card-layanan-list" style="height: 490px;">
             <div class="card-layanan">
               <figure class="card-figure-layanan">
                 <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
               </figure>
+              <button style="width: 110px;" class="btn btn-danger textcolor-white margin-top-7 cursor-pointer"> Suspend </button>
               <div class="row-title-layanan">
                 <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
                 <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />

@@ -51,7 +51,6 @@
                 <div style="position: relative; top: -10px;">
                   <p class="title-alamat"> <i class="fa fa-map"></i> <?= $alamat . $alamat_str; ?></p>
                   <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at']; ?></span> <br />
-                  <button style="width: 100px;" class="btn btn-danger textcolor-white margin-top-7 cursor-pointer"> Suspend </button>
                   <button id="submit" style="width: 100px;" class="btn btn-primary textcolor-white margin-top-7 cursor-pointer"> Detail </button>
                 </div>
               </div>
