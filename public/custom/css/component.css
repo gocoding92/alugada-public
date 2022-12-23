@@ -47,6 +47,11 @@
   border-color: #2a960c;
 }
 
+.btn-warning {
+  background-color: #ff5c29;
+  border-color: #ff5c29;
+}
+
 .btn-danger {
   background-color: red;
   border-color: red;

@@ -162,4 +162,76 @@ class ModelIklanProfil extends Model
 
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere($where_sub_layanan)->getResultArray();;
     }
+
+    public function deleteRekomendasiIklan($id_rekomendasi_iklan, $id_iklan, $table_iklan)
+    {
+        // 3 = iklan di delete user
+        $this->db->table('tbl_rekomendasi_iklan')->update(
+            [
+                'is_active' => 3,
+            ],
+            [
+                'id_rekomendasi_iklan' => $id_rekomendasi_iklan
+            ]
+        );
+
+        // 3 = iklan di delete user
+        $rekomendasi_iklan = $this->db->table($table_iklan)->update(
+            [
+                'is_active' => 3,
+            ],
+            [
+                'id' => $id_iklan
+            ]
+        );
+
+        $message = "Gagal delete iklan!";
+        $status = 404;
+        if ($rekomendasi_iklan) {
+            $message = "Berhasil delete iklan";
+            $status = 200;
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
+    }
+
+    public function editIklanProfil($id_rekomendasi_iklan, $id_iklan, $table_iklan, $is_active)
+    {
+        $this->db->table('tbl_rekomendasi_iklan')->update(
+            [
+                'is_active' => $is_active,
+            ],
+            [
+                'id_rekomendasi_iklan' => $id_rekomendasi_iklan
+            ]
+        );
+
+        $rekomendasi_iklan = $this->db->table($table_iklan)->update(
+            [
+                'is_active' => $is_active,
+            ],
+            [
+                'id' => $id_iklan
+            ]
+        );
+
+        $message = "Gagal edit status iklan!";
+        $status = 404;
+        if ($rekomendasi_iklan) {
+            $message = "Berhasil edit status iklan";
+            $status = 200;
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
+    }
 }

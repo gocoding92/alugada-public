@@ -11,7 +11,7 @@
                 <?php if ($data_iklan['image_1']) : ?>
                     <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_1']; ?>" /></div>
                 <?php endif; ?>
-                <?php if ($data_iklan['image_2']) : ?>
+                <!-- <?php if ($data_iklan['image_2']) : ?>
                     <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_2']; ?>" /></div>
                 <?php endif; ?>
                 <?php if ($data_iklan['image_3']) : ?>
@@ -25,7 +25,7 @@
                 <?php endif; ?>
                 <?php if ($data_iklan['image_6']) : ?>
                     <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_6']; ?>" /></div>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </div>
         </div>
 
