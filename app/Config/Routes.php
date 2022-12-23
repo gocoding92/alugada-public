@@ -81,7 +81,8 @@ $routes->post('kontakkami/submit-kontakkami', 'KontakKami::submit_kontakkami');
 $routes->get('/iklan/detail-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::detailIklan/$1/$2/$3/$4/$5/');
 $routes->get('/iklan/detail-iklan-layanan/(:any)/(:num)/(:num)', 'Iklan::detailIklanLayanan/$1/$2/$3/');
 $routes->get('/iklan/edit-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::editIklan/$1/$2/$3/$4/$5/');
-$routes->post('delete-iklan', 'IklanProfil::deleteIklan');
+$routes->post('profil/delete-iklan', 'IklanProfil::deleteIklan');
+$routes->post('profil/edit-iklan', 'IklanProfil::editIklanProfil');
 
 // ---------------------------------------------------------------------------------
 
@@ -154,19 +155,19 @@ $routes->post('/edit-iklan/saveBangunanKomersial', 'IklanProfil::saveBangunanKom
 // Administrator
 // $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
 $routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
-$routes->get('/admin-layanan', 'Admin\LayananController::index');// <--------- Ok
-$routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1');// <--------- Ok
+$routes->get('/admin-layanan', 'Admin\LayananController::index'); // <--------- Ok
+$routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1'); // <--------- Ok
 $routes->post('/admin-tambah-layanan', 'Admin\LayananController::tambahlayanan'); // <--------- Ok
 $routes->post('/admin-edit-layanan', 'Admin\LayananController::editlayanan'); // <--------- Ok
 
 // $routes->get('/admin-sub-layanan', 'Admin\SubLayananController::index');// <--------- Ok
 
-$routes->get('/admin-sub-layanan/(:any)', 'Admin\SubLayananController::sublayanan/$1');// <--------- Ok
-$routes->post('/admin-tambah-sub-layanan', 'Admin\SubLayananController::tambahsublayanan');// <--------- Ok
-$routes->post('/admin-edit-sub-layanan/(:any)', 'Admin\SubLayananController::editsublayanan/$1');// <--------- Ok
-$routes->get('/aktifasisublayanan/(:any)/(:any)', 'Admin\SubLayananController::aktifasisublayanan/$1/$2');// <--------- Ok
+$routes->get('/admin-sub-layanan/(:any)', 'Admin\SubLayananController::sublayanan/$1'); // <--------- Ok
+$routes->post('/admin-tambah-sub-layanan', 'Admin\SubLayananController::tambahsublayanan'); // <--------- Ok
+$routes->post('/admin-edit-sub-layanan/(:any)', 'Admin\SubLayananController::editsublayanan/$1'); // <--------- Ok
+$routes->get('/aktifasisublayanan/(:any)/(:any)', 'Admin\SubLayananController::aktifasisublayanan/$1/$2'); // <--------- Ok
 
-$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');// <--------- Ok
+$routes->get('/administrator-area/iklan', 'Admin\Iklan::index'); // <--------- Ok
 // $routes->get('/detailiklanbaru', 'Admin\iklan::detailiklanbaru'); // <--------- Ok
 $routes->get('/detailiklanbaru/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklanbaru/$1/$2/$3/$4/$5'); // <--------- Ok
 

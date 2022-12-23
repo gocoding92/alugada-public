@@ -90,8 +90,5 @@ class ModelProfil extends Model
         ));
 
         return json_encode($response);
-
-        var_dump($data);
-        exit;
     }
 }

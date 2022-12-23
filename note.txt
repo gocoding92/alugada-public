@@ -353,3 +353,9 @@ is_active
 suspend
 0 = aktif iklan
 1 = iklan suspend
+
+
+1. 0 = iklan baru (Proses Pengecekan)
+2. 1 = iklan aktif
+3. 2 = di non aktifkan
+3. 3 = di delete user dari profil

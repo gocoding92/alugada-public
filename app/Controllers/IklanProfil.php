@@ -537,7 +537,6 @@ class IklanProfil extends BaseController
         $this->sendNotifWA($id_rekomendasi_iklan);
 
         return $this->saveRekomendasiIklan('tenaga_terampil', $id_iklan_rekomendasi, $nama_lengkap, $description, $domisili, 'tbl_tenagaterampil', $nolayanan, $nosublayanan, $id_rekomendasi_iklan, $imageName1);
-
     }
 
     public function saveRumah()
@@ -1121,12 +1120,20 @@ class IklanProfil extends BaseController
 
     public function deleteIklan()
     {
-        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');        
-        $id_iklan = $this->request->getVar('id_iklan');        
+        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');
+        $id_iklan = $this->request->getVar('id_iklan');
         $table_iklan = $this->request->getVar('table_iklan');
-        
-        $this->iklan->deleteRekomendasiIklan($id_rekomendasi_iklan, $id_iklan, $table_iklan);
 
+        return $this->iklan->deleteRekomendasiIklan($id_rekomendasi_iklan, $id_iklan, $table_iklan);
+    }
 
+    public function editIklanProfil()
+    {
+        $id_rekomendasi_iklan = $this->request->getVar('id_rekomendasi_iklan');
+        $id_iklan = $this->request->getVar('id_iklan');
+        $table_iklan = $this->request->getVar('table_iklan');
+        $is_active = $this->request->getVar('is_active');
+
+        return $this->iklan->editIklanProfil($id_rekomendasi_iklan, $id_iklan, $table_iklan, $is_active);
     }
 }
