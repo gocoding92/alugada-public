@@ -136,15 +136,25 @@
                 </div>
 
                 <div class="card-footer p-0">
-                  <?php foreach ($l['sublayanan'] as $sl) : ?>
+                  <?php foreach ($sublayanan as $sl) : ?>
                     <?php if (($l['nolayanan'] == $sl['nolayanan']) && $sl['is_active'] == 1) { ?>
                       <ul class="nav flex-column">
                         <li class="nav-item">
 
                           <a href="<?= base_url(); ?>/<?= $sl['url']; ?>/<?= $l['layanan']; ?>/<?= $l['nolayanan']; ?>/<?= $sl['sublayanan']; ?>/<?= $sl['nosublayanan']; ?>" class="nav-link">
                             <?= $sl['sublayanan']; ?>
-                            <span class="float-right badge bg-primary cobaisi">
-                              <?= $sl['count']; ?>
+                            <span class="float-right badge bg-primary cobaisi" >
+                                  <?= $sl['nosublayanan'];?>
+                                <?php 
+
+
+
+
+                                  // echo count($this->ModelAlugada->ahlisublayanan($sl['nosublayanan']));
+
+                                  // echo count($this->db->table('tbl_tenagaahli')->getwhere(['nosublayanan'=>$sl['tbl_tenagaahli']])->getResultArray())
+                                ;?>
+
                             </span>
                           </a>
 

@@ -40,12 +40,6 @@ class ModelAlugada extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-
-
-
-
-    
-
     public function user()
     {
         return $this->db->table('tbl_user')->get()->getResultArray();
@@ -126,5 +120,4 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_slider')->getWhere(['id_slider' => $id])->getRowArray();
     }
-    
 }

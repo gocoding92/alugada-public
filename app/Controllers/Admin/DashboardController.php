@@ -20,6 +20,7 @@ class DashboardController extends BaseController
     {
         // var_dump($nohppengunjung);die; risky
         $query = $this->modelalugada->readSlider();
+
         // var_dump($this->modelalugada->readSlider());
         // exit;
         // $user = $this->modelalugada->user();
@@ -45,14 +46,13 @@ class DashboardController extends BaseController
         ];
 
         return view('admin/dashboard/indexView', $data);
-        
     }
 
     public function delete($id)
     {
         $id = $this->request->getVar('id');
         $delete = $this->modelalugada->deleteSlider($id);
-       
+
         // redirect()->to('/administrator-area/dashboard/');
         return redirect()->back();
     }
@@ -75,7 +75,6 @@ class DashboardController extends BaseController
 
         $this->modelalugada->insertSlider($data);
         return redirect()->to('/administrator-area/dashboard');
-        
     }
 
     public function edit($id)
@@ -86,7 +85,4 @@ class DashboardController extends BaseController
         ]);
         return view("/administrator-area/dashboard/edit", $data);
     }
-
-
-
 }

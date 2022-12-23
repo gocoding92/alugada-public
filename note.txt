@@ -343,19 +343,29 @@ Edit Profile
 11. Update Profil Data. Deskripsi di hapus (Done)
 
 
-
-Kesepakatan Public dan Admin
-is_active
-0 = iklan baru
-1 = iklan aktif
-2 = iklan tidak aktif pengiklan (user aksi)
-
-suspend
-0 = aktif iklan
-1 = iklan suspend
+#TAMBAHAN
+1. Jika status suspend, cek submit iklan edit cek , nanti ditambahkan field count_suspend
+2. Dihalaman profil tambahkan validasi if count_suspend === 3 terhapus datanya
+3. Register, jika belum menyelesaikan sampai selesai, is_active = 0
+4. Order By Home & Profil List Data Iklan Desc create_at
 
 
-1. 0 = iklan baru (Proses Pengecekan)
-2. 1 = iklan aktif
-3. 2 = di non aktifkan
-3. 3 = di delete user dari profil
+Kesepakatan Public dan Admin Bedasarkan Status
+#--------------------------------------------#
+
+#Rekomendasi Iklan (field : "suspend")
+1. => 0 = aktif iklan
+2. => 1 = iklan suspend
+
+#Rekomendasi Iklan (field : "is_active")
+1. => 0 = iklan baru (Proses Pengecekan)
+2. => 1 = iklan aktif
+3. => 2 = di non aktifkan oleh user
+4. => 3 = di delete user dari profil
+
+#Users (field : "is_active")
+2. => 0 = Belum Verified
+3. => 1 = Verified
+4. => 2 = Suspend
+
+#--------------------------------------------#

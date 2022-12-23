@@ -41,7 +41,8 @@ class ModelAlugada extends Model
     protected $afterDelete    = [];
 
 
-    public function pesan(){
+    public function pesan()
+    {
         return $this->db->table('tbl_pesan')->get()->getResultArray();
     }
     // public function pesanvsuser(){
@@ -54,11 +55,11 @@ class ModelAlugada extends Model
 
     public function sliderbyid($id)
     {
-        return $this->db->table('tbl_slider')->getwhere(['id'=>$id])->getRowArray();
+        return $this->db->table('tbl_slider')->getwhere(['id' => $id])->getRowArray();
     }
-    public function updateslider($id,$data)
+    public function updateslider($id, $data)
     {
-        return $this->db->table('tbl_slider')->update($data,['id'=>$id]);
+        return $this->db->table('tbl_slider')->update($data, ['id' => $id]);
     }
 
     public function slider()
@@ -73,7 +74,7 @@ class ModelAlugada extends Model
 
     public function rekomendasiiklan()
     {
-        return $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
+        return $this->db->table('tbl_rekomendasi_iklan')->orderBy('create_at', 'DESC')->get()->getResultArray();
     }
     public function updaterekom($id, $data)
     {
@@ -115,7 +116,42 @@ class ModelAlugada extends Model
     // Layanan
     public function layanan()
     {
-        return $this->db->table('tbl_layanan')->get()->getResultArray();
+
+        $layanan = $this->db->table('tbl_layanan')->get()->getResultArray();
+        $sublayanan = $this->db->table('tbl_sublayanan')->get()->getResultArray();
+        $rekomendasi_iklan = $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
+
+        $data_counting_layanan = array();
+
+        for ($i = 0; $i < count($layanan); $i++) {
+            $layanan[$i]['sublayanan'] = array();
+
+            $dataSubLayanan = array();
+            $countRekomendasiIklan = array();
+
+            for ($x = 0; $x < count($sublayanan); $x++) {
+
+                $countRekomendasiIklan = array();
+
+                for ($y = 0; $y < count($rekomendasi_iklan); $y++) {
+                    if ($sublayanan[$x]['nosublayanan'] == $rekomendasi_iklan[$y]['nosublayanan']) {
+                        array_push($countRekomendasiIklan, $rekomendasi_iklan[$y]);
+                    }
+                }
+
+                $sublayanan[$x]['count'] = count($countRekomendasiIklan);
+
+                if ($layanan[$i]['nolayanan'] == $sublayanan[$x]['nolayanan']) {
+                    array_push($dataSubLayanan, $sublayanan[$x]);
+                }
+
+                $layanan[$i]['sublayanan'] = $dataSubLayanan;
+            }
+
+            array_push($data_counting_layanan, $layanan[$i]);
+        }
+
+        return $data_counting_layanan;
     }
     public function layananbyid($id)
     {
@@ -307,15 +343,15 @@ class ModelAlugada extends Model
     }
     public function apartemenbaru()
     {
-        return $this->db->table('tbl_apartemen')->getwhere(['checked'=>0])->getResultArray();
+        return $this->db->table('tbl_apartemen')->getwhere(['checked' => 0])->getResultArray();
     }
     public function apartemenaktif()
     {
-        return $this->db->table('tbl_apartemen')->getwhere(['is_active'=>1])->getResultArray();
+        return $this->db->table('tbl_apartemen')->getwhere(['is_active' => 1])->getResultArray();
     }
     public function apartemensuspend()
     {
-        return $this->db->table('tbl_apartemen')->getwhere(['suspend'=>1])->getResultArray();
+        return $this->db->table('tbl_apartemen')->getwhere(['suspend' => 1])->getResultArray();
     }
     public function apartemenbyid($id)
     {
@@ -337,15 +373,15 @@ class ModelAlugada extends Model
     }
     public function rukobaru()
     {
-        return $this->db->table('tbl_ruko')->getwhere(['checked'=>0])->getResultArray();
+        return $this->db->table('tbl_ruko')->getwhere(['checked' => 0])->getResultArray();
     }
     public function rukoaktif()
     {
-        return $this->db->table('tbl_ruko')->getwhere(['is_active'=>1])->getResultArray();
+        return $this->db->table('tbl_ruko')->getwhere(['is_active' => 1])->getResultArray();
     }
     public function rukosuspend()
     {
-        return $this->db->table('tbl_ruko')->getwhere(['suspend'=>1])->getResultArray();
+        return $this->db->table('tbl_ruko')->getwhere(['suspend' => 1])->getResultArray();
     }
     public function rukobyid($id)
     {
@@ -367,15 +403,15 @@ class ModelAlugada extends Model
     }
     public function komersialbaru()
     {
-        return $this->db->table('tbl_bangunankomersial')->getwhere(['checked'=>0])->getResultArray();
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['checked' => 0])->getResultArray();
     }
     public function komersialaktif()
     {
-        return $this->db->table('tbl_bangunankomersial')->getwhere(['is_active'=>1])->getResultArray();
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['is_active' => 1])->getResultArray();
     }
     public function komersialsuspend()
     {
-        return $this->db->table('tbl_bangunankomersial')->getwhere(['suspend'=>0])->getResultArray();
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['suspend' => 0])->getResultArray();
     }
     public function komersialbyid($id)
     {
@@ -397,15 +433,15 @@ class ModelAlugada extends Model
     }
     public function mobilbaru()
     {
-        return $this->db->table('tbl_mobil')->getwhere(['checked'=>0])->getResultArray();
+        return $this->db->table('tbl_mobil')->getwhere(['checked' => 0])->getResultArray();
     }
     public function mobilaktif()
     {
-        return $this->db->table('tbl_mobil')->getwhere(['is_active'=>1])->getResultArray();
+        return $this->db->table('tbl_mobil')->getwhere(['is_active' => 1])->getResultArray();
     }
     public function mobilsuspend()
     {
-        return $this->db->table('tbl_mobil')->getwhere(['suspend'=>1])->getResultArray();
+        return $this->db->table('tbl_mobil')->getwhere(['suspend' => 1])->getResultArray();
     }
     public function mobilbyid($id)
     {
@@ -427,15 +463,15 @@ class ModelAlugada extends Model
     }
     public function motorbaru()
     {
-        return $this->db->table('tbl_motor')->getwhere(['checked'=>0])->getResultArray();
+        return $this->db->table('tbl_motor')->getwhere(['checked' => 0])->getResultArray();
     }
     public function motoraktif()
     {
-        return $this->db->table('tbl_motor')->getwhere(['is_active'=>1])->getResultArray();
+        return $this->db->table('tbl_motor')->getwhere(['is_active' => 1])->getResultArray();
     }
     public function motorsuspend()
     {
-        return $this->db->table('tbl_motor')->getwhere(['suspend'=>1])->getResultArray();
+        return $this->db->table('tbl_motor')->getwhere(['suspend' => 1])->getResultArray();
     }
     public function motorbyid($id)
     {
