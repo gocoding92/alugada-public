@@ -282,27 +282,39 @@ class ModelAuth extends Model
     public function lockscreen($password)
     {
         $data_user_where = $this->db->table('tbl_user')->getWhere(['password' => $password])->getRowArray();
-        $data_user = $this->db->table('tbl_user')->getWhere(['password' => $password])->getResultArray();
+        // $data_user = $this->db->table('tbl_user')->getWhere(['password' => $password])->getResultArray();
+        $data_iklan_baru = $this->db->table('tbl_user')->getWhere(['is_active' => 0, 'checked' => 0,])->getResultArray();
+        $user_suspend = $this->db->table('tbl_user')->getWhere(['suspend' => 1])->getResultArray();
+        $user_active = $this->db->table('tbl_user')->getWhere(['is_active' => 1])->getResultArray();
 
-        $message = "Password tidak cocok, pastikan dengan benar!";
-        $status = 404;
+        $data = [
+            'data_iklan_baru' => $data_iklan_baru,
+            'user_suspend' => $user_suspend,
+            'user_active' => $user_active,
+        ];
 
-        if ($data_user_where) {
-            if (count($data_user) == 1) {
-                $message = "Password cocok, Anda berhasil masuk ke halaman home";
-                $status = 200;
-            }
-        }
+        return $data;
 
-        $response = array("data" => array(
-            array('message' => $message),
-            array('status' => $status),
-        ));
 
-        return array(
-            array('data' => $data_user_where),
-            array('status' => $status),
-            array('response' => json_encode($response)),
-        );
+        // $message = "Password tidak cocok, pastikan dengan benar!";
+        // $status = 404;
+
+        // if ($data_user_where) {
+        //     if (count($data_user) == 1) {
+        //         $message = "Password cocok, Anda berhasil masuk ke halaman home";
+        //         $status = 200;
+        //     }
+        // }
+
+        // $response = array("data" => array(
+        //     array('message' => $message),
+        //     array('status' => $status),
+        // ));
+
+        // return array(
+        //     array('data' => $data_user_where),
+        //     array('status' => $status),
+        //     array('response' => json_encode($response)),
+        // );
     }
 }

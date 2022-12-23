@@ -8,12 +8,10 @@
 
   <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
-  <!-- <script
-        src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
-        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
-        crossorigin="anonymous">
-    </script> -->
 
+
+  <!-- Jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
 
 
 
@@ -152,6 +150,57 @@
         imgpreview.src = e.target.result;
       }
     }
+    // function previewgambartambahlayanan() {
+    //   console.log("Benar");
+    //   const gambar = document.querySelector('#gambartambah');
+    //   const labelgambar = document.querySelector('.lbl-gambar');
+    //   const imgpreview = document.querySelector('.img-preview-tambah');
+
+    //   const filegambar = new FileReader();
+    //   filegambar.readAsDataURL(gambar.files[0])
+
+    //   filegambar.onload = function(e) {
+    //     imgpreview.src = e.target.result;
+    //   }
+    // }
+
+    function previewgambareditslider1() {
+      const gambar = document.querySelector('#gambar1');
+      const labelgambar = document.querySelector('.lbl-gambar');
+      const imgpreview = document.querySelector('.img-preview1');
+
+      const filegambar = new FileReader();
+      filegambar.readAsDataURL(gambar.files[0])
+
+      filegambar.onload = function(e) {
+        imgpreview.src = e.target.result;
+      }
+    }
+    function previewgambareditslider2() {
+      const gambar = document.querySelector('#gambar2');
+      const labelgambar = document.querySelector('.lbl-gambar');
+      const imgpreview = document.querySelector('.img-preview2');
+
+      const filegambar = new FileReader();
+      filegambar.readAsDataURL(gambar.files[0])
+
+      filegambar.onload = function(e) {
+        imgpreview.src = e.target.result;
+      }
+    }
+    function previewgambareditslider3() {
+      const gambar = document.querySelector('#gambar3');
+      const labelgambar = document.querySelector('.lbl-gambar');
+      const imgpreview = document.querySelector('.img-preview3');
+
+      const filegambar = new FileReader();
+      filegambar.readAsDataURL(gambar.files[0])
+
+      filegambar.onload = function(e) {
+        imgpreview.src = e.target.result;
+      }
+    }
+
 
     function previewgambareditlayanan() {
       const gambar = document.querySelector('#gambar');
@@ -166,19 +215,6 @@
       }
     }
 
-    function previewgambartambahlayanan() {
-      console.log("Benar");
-      const gambar = document.querySelector('#gambartambah');
-      const labelgambar = document.querySelector('.lbl-gambar');
-      const imgpreview = document.querySelector('.img-preview-tambah');
-
-      const filegambar = new FileReader();
-      filegambar.readAsDataURL(gambar.files[0])
-
-      filegambar.onload = function(e) {
-        imgpreview.src = e.target.result;
-      }
-    }
 
     function edit_layanan(layanan, gambar, url, nolayanan, detaillayanan) {
       $('#editnolayanan').val(nolayanan);
@@ -191,8 +227,6 @@
     // function editsublayanan(sublayanan){
     //   alert("Klik untuk edit sub layanan " +sublayanan);
     // }
-
-
   </script>
 </body>
 

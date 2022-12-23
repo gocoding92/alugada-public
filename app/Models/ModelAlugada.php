@@ -41,13 +41,38 @@ class ModelAlugada extends Model
     protected $afterDelete    = [];
 
 
+    public function pesan(){
+        return $this->db->table('tbl_pesan')->get()->getResultArray();
+    }
+    // public function pesanvsuser(){
+    //     $pesanjoinuser = "SELECT tbl_user.id,tbl_user.name,tbl_user.nohp JOIN tbl_pesan.*
+    //     FROM tbl_user JOIN tbl_pesan
+    //     ON  tbl_user.id = tbl_pesan.id_pesan
+    //     ";
+    //     return $this->db->query($pesanjoinuser)->getResultArray();
+    // }
+
+    public function sliderbyid($id)
+    {
+        return $this->db->table('tbl_slider')->getwhere(['id'=>$id])->getRowArray();
+    }
+    public function updateslider($id,$data)
+    {
+        return $this->db->table('tbl_slider')->update($data,['id'=>$id]);
+    }
 
     public function slider()
     {
         return $this->db->table('tbl_slider')->get()->getResultArray();
     }
+    public function readSlider()
+    {
+        return $this->db->table('tbl_slider')->get()->getResultArray();
+    }
 
-    public function rekomendasiiklan(){
+
+    public function rekomendasiiklan()
+    {
         return $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
     }
     public function updaterekom($id, $data)
@@ -62,6 +87,11 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_user')->get()->getResultArray();
     }
+    public function pengiklan()
+    {
+        return $this->db->table('tbl_user')->getwhere(['role' => 20])->getResultArray();
+    }
+
     public function userbynohp($nohp)
     {
         return $this->db->table('tbl_user')->getWhere(['nohp' => $nohp])->getRowArray();
@@ -137,9 +167,27 @@ class ModelAlugada extends Model
 
 
     //IKLAN
-    public function ahli(){
+    public function ahli()
+    {
         return $this->db->table('tbl_tenagaahli')->get()->getResultArray();
     }
+    public function ahlibaru()
+    {
+        return $this->db->table('tbl_tenagaahli')->getwhere(['checked' => 0])->getResultArray();
+    }
+    public function ahliaktif()
+    {
+        return $this->db->table('tbl_tenagaahli')->getwhere(['is_active' => 1])->getResultArray();
+    }
+    public function ahlisuspend()
+    {
+        return $this->db->table('tbl_tenagaahli')->getwhere(['suspend' => 1])->getResultArray();
+    }
+    public function ahlisublayanan($nosublayanan)
+    {
+        return $this->db->table('tbl_tenagaahli')->getwhere(['nosublayanan' => $nosublayanan])->getResultArray();
+    }
+
     public function ahlibyid($id)
     {
         return $this->db->table('tbl_tenagaahli')->getWhere(['id' => $id])->getRowArray();
@@ -149,9 +197,23 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_tenagaahli')->update($data, ['id' => $id]);
     }
 
-    public function terampil(){
+    public function terampil()
+    {
         return $this->db->table('tbl_tenagaterampil')->get()->getResultArray();
     }
+    public function terampilbaru()
+    {
+        return $this->db->table('tbl_tenagaterampil')->getwhere(['checked' => 0])->getResultArray();
+    }
+    public function terampilaktif()
+    {
+        return $this->db->table('tbl_tenagaterampil')->getwhere(['is_active' => 1])->getResultArray();
+    }
+    public function terampilsuspend()
+    {
+        return $this->db->table('tbl_tenagaterampil')->getwhere(['suspend' => 1])->getResultArray();
+    }
+
     public function updateterampil($id, $data)
     {
         return $this->db->table('tbl_tenagaterampil')->update($data, ['id' => $id]);
@@ -161,10 +223,12 @@ class ModelAlugada extends Model
         return $this->db->table('tbl_tenagaterampil')->getWhere(['id' => $id])->getRowArray();
     }
 
-    public function kost(){
+    public function kost()
+    {
         return $this->db->table('tbl_kostkontrakan')->get()->getResultArray();
     }
-    public function updatekost($id,$data){
+    public function updatekost($id, $data)
+    {
         return $this->db->table('tbl_kostkontrakan')->update($data, ['id' => $id]);
     }
     public function kostbyid($id)
@@ -173,17 +237,33 @@ class ModelAlugada extends Model
     }
 
     // Iklan Rumah
-    public function rumah(){
+    public function rumah()
+    {
         return $this->db->table('tbl_rumah')->get()->getResultArray();
     }
-    public function rumahbyid($id){
+    public function rumahbaru()
+    {
+        return $this->db->table('tbl_rumah')->getwhere(['checked' => 0])->getResultArray();
+    }
+    public function rumahaktif()
+    {
+        return $this->db->table('tbl_rumah')->getwhere(['is_active' => 1])->getResultArray();
+    }
+    public function rumahsuspend()
+    {
+        return $this->db->table('tbl_rumah')->getwhere(['suspend' => 1])->getResultArray();
+    }
+
+
+
+    public function rumahbyid($id)
+    {
         return $this->db->table('tbl_rumah')->getWhere(['id' => $id])->getRowArray();
     }
 
     public function simpanrumah($data)
     {
         return $this->table('tbl_rumah')->insert($data);
-        
     }
     public function updaterumah($id, $data)
     {
@@ -191,16 +271,29 @@ class ModelAlugada extends Model
     }
 
     // Iklan Tanah
-    public function tanah(){
+    public function tanah()
+    {
         return $this->db->table('tbl_tanah')->get()->getResultArray();
     }
-    public function tanahbyid($id){
+    public function tanahbaru()
+    {
+        return $this->db->table('tbl_tanah')->getWhere(['checked' => 0])->getResultArray();
+    }
+    public function tanahaktif()
+    {
+        return $this->db->table('tbl_tanah')->getWhere(['is_active' => 1])->getResultArray();
+    }
+    public function tanahsuspend()
+    {
+        return $this->db->table('tbl_tanah')->getWhere(['suspend' => 1])->getResultArray();
+    }
+    public function tanahbyid($id)
+    {
         return $this->db->table('tbl_tanah')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpantanah($data)
     {
         return $this->table('tbl_tanah')->insert($data);
-        
     }
     public function updatetanah($id, $data)
     {
@@ -208,16 +301,29 @@ class ModelAlugada extends Model
     }
 
     // Iklan apartemen
-    public function apartemen(){
+    public function apartemen()
+    {
         return $this->db->table('tbl_apartemen')->get()->getResultArray();
     }
-    public function apartemenbyid($id){
+    public function apartemenbaru()
+    {
+        return $this->db->table('tbl_apartemen')->getwhere(['checked'=>0])->getResultArray();
+    }
+    public function apartemenaktif()
+    {
+        return $this->db->table('tbl_apartemen')->getwhere(['is_active'=>1])->getResultArray();
+    }
+    public function apartemensuspend()
+    {
+        return $this->db->table('tbl_apartemen')->getwhere(['suspend'=>1])->getResultArray();
+    }
+    public function apartemenbyid($id)
+    {
         return $this->db->table('tbl_apartemen')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpanapartemen($data)
     {
         return $this->table('tbl_apartemen')->insert($data);
-        
     }
     public function updateapartemen($id, $data)
     {
@@ -225,16 +331,29 @@ class ModelAlugada extends Model
     }
 
     // Iklan ruko
-    public function ruko(){
+    public function ruko()
+    {
         return $this->db->table('tbl_ruko')->get()->getResultArray();
     }
-    public function rukobyid($id){
+    public function rukobaru()
+    {
+        return $this->db->table('tbl_ruko')->getwhere(['checked'=>0])->getResultArray();
+    }
+    public function rukoaktif()
+    {
+        return $this->db->table('tbl_ruko')->getwhere(['is_active'=>1])->getResultArray();
+    }
+    public function rukosuspend()
+    {
+        return $this->db->table('tbl_ruko')->getwhere(['suspend'=>1])->getResultArray();
+    }
+    public function rukobyid($id)
+    {
         return $this->db->table('tbl_ruko')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpanruko($data)
     {
         return $this->table('tbl_ruko')->insert($data);
-        
     }
     public function updateruko($id, $data)
     {
@@ -242,10 +361,24 @@ class ModelAlugada extends Model
     }
 
     // Iklan komersial
-    public function komersial(){
+    public function komersial()
+    {
         return $this->db->table('tbl_bangunankomersial')->get()->getResultArray();
     }
-    public function komersialbyid($id){
+    public function komersialbaru()
+    {
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['checked'=>0])->getResultArray();
+    }
+    public function komersialaktif()
+    {
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['is_active'=>1])->getResultArray();
+    }
+    public function komersialsuspend()
+    {
+        return $this->db->table('tbl_bangunankomersial')->getwhere(['suspend'=>0])->getResultArray();
+    }
+    public function komersialbyid($id)
+    {
         return $this->db->table('tbl_bangunankomersial')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpankomersial($data)
@@ -258,10 +391,24 @@ class ModelAlugada extends Model
     }
 
     // Iklan mobil
-    public function mobil(){
+    public function mobil()
+    {
         return $this->db->table('tbl_mobil')->get()->getResultArray();
     }
-    public function mobilbyid($id){
+    public function mobilbaru()
+    {
+        return $this->db->table('tbl_mobil')->getwhere(['checked'=>0])->getResultArray();
+    }
+    public function mobilaktif()
+    {
+        return $this->db->table('tbl_mobil')->getwhere(['is_active'=>1])->getResultArray();
+    }
+    public function mobilsuspend()
+    {
+        return $this->db->table('tbl_mobil')->getwhere(['suspend'=>1])->getResultArray();
+    }
+    public function mobilbyid($id)
+    {
         return $this->db->table('tbl_mobil')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpanmobil($data)
@@ -274,10 +421,24 @@ class ModelAlugada extends Model
     }
 
     // Iklan motor
-    public function motor(){
+    public function motor()
+    {
         return $this->db->table('tbl_motor')->get()->getResultArray();
     }
-    public function motorbyid($id){
+    public function motorbaru()
+    {
+        return $this->db->table('tbl_motor')->getwhere(['checked'=>0])->getResultArray();
+    }
+    public function motoraktif()
+    {
+        return $this->db->table('tbl_motor')->getwhere(['is_active'=>1])->getResultArray();
+    }
+    public function motorsuspend()
+    {
+        return $this->db->table('tbl_motor')->getwhere(['suspend'=>1])->getResultArray();
+    }
+    public function motorbyid($id)
+    {
         return $this->db->table('tbl_motor')->getWhere(['id' => $id])->getRowArray();
     }
     public function simpanmotor($data)
@@ -337,8 +498,4 @@ class ModelAlugada extends Model
     {
         return $this->db->table($table)->getWhere([$primarykey => $id_iklan])->getRowArray();
     }
-
-    
-
-    
 }

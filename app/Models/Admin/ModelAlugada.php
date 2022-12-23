@@ -41,6 +41,11 @@ class ModelAlugada extends Model
     protected $afterDelete    = [];
 
 
+
+
+
+    
+
     public function user()
     {
         return $this->db->table('tbl_user')->get()->getResultArray();

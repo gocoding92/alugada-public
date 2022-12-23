@@ -2,7 +2,6 @@
 
 <?php echo $this->section('content-admin'); ?>
 
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -31,13 +30,13 @@
         <div class="col-md-3">
           <div class="form-group">
             <label for="startdate">Start Date Test</label>
-            <input type="date" class="form-control" id="startdate" name="startdate">
+            <input type="date" class="form-control" id="startdate" name="startdate" >
           </div>
         </div>
         <div class="col-md-3">
           <div class="form-group">
-            <label for="enddate">End Date Test</label>
-            <input type="date" class="form-control" id="enddate" name="enddate">
+          <label for="enddate">End Date Test</label>
+            <input type="date" class="form-control" id="enddate" name="enddate" >
           </div>
         </div>
         <div class="col-md-2">
@@ -58,7 +57,7 @@
               <a href="<?php echo base_url('/users') ?>">
                 <span class="info-box-text text-dark">Users / Pengguna</span>
                 <span class="info-box-number">
-                  <?= count($user); ?>
+                  <?= $user; ?>
                 </span>
               </a>
             </div>
@@ -70,21 +69,20 @@
             <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
             <div class="info-box-content">
               <a href="<?php echo base_url('/iklan') ?>">
-                <span class="info-box-text text-dark">Jumlah Iklan</span>
+                <span class="info-box-text text-dark">Pasang Iklan</span>
                 <span class="info-box-number">
-                  <?= count($ahli) + count($terampil)
-                    // $x = 0;
-                    // foreach ($iklanproperty as $ip) {
-                    //   $x = $x + 1;
-                    // }
-                    // foreach ($iklancarikerja as $ik) {
-                    //   $x = $x + 1;
-                    // }
-                    // foreach ($iklanmobilmotor as $im) {
-                    //   $x = $x + 1;
-                    // }
-                    // echo $x
-                  ; ?>
+                  <?php
+                  $x = 0;
+                  foreach ($iklanproperty as $ip) {
+                    $x = $x + 1;
+                  }
+                  foreach ($iklancarikerja as $ik) {
+                    $x = $x + 1;
+                  }
+                  foreach ($iklanmobilmotor as $im) {
+                    $x = $x + 1;
+                  }
+                  echo $x; ?>
                 </span>
               </a>
             </div>
@@ -110,7 +108,14 @@
               <a href="<?php echo base_url('/layanan') ?>">
                 <span class="info-box-text text-dark">Kategori Layanan </span>
                 <span class="info-box-number">
-                  <?= count($layanan); ?>
+                  <?php
+                  $y = 0;
+                  foreach ($layanan as $l) {
+                    if ($l['is_active'] == 1) {
+                      $y = $y + 1;
+                    }
+                  }
+                  echo $y;; ?>
                 </span>
               </a>
             </div>
@@ -142,18 +147,40 @@
                         <li class="nav-item">
 
                           <a href="<?= base_url(); ?>/<?= $sl['url']; ?>/<?= $l['layanan']; ?>/<?= $l['nolayanan']; ?>/<?= $sl['sublayanan']; ?>/<?= $sl['nosublayanan']; ?>" class="nav-link">
-                            <?= $sl['sublayanan']; ?>
-                            <span class="float-right badge bg-primary cobaisi" >
-                                  <?= $sl['nosublayanan'];?>
-                                <?php 
+                            <?= $sl['sublayanan']; ?> <span class="float-right badge bg-primary">
 
+                              <?php
+                              $iklan = 0;
+                              foreach ($iklanproperty as $ip) {
+                                if ($ip['nosublayanan'] == $sl['nosublayanan'] && $ip['is_active'] == 1) {
+                                  $iklan = $iklan + 1;
+                                }
+                              }
+                              if ($iklan > 0) {
+                                echo $iklan;
+                              }
 
+                              $iklan = 0;
+                              foreach ($iklancarikerja as $ik) {
+                                if ($ik['nosublayanan'] == $sl['nosublayanan'] && $ik['is_active'] == 1) {
+                                  $iklan = $iklan + 1;
+                                }
+                              }
+                              if ($iklan > 0) {
+                                echo $iklan;
+                              }
 
+                              $iklan = 0;
+                              foreach ($iklanmobilmotor as $im) {
+                                if ($im['nosublayanan'] == $sl['nosublayanan'] && $im['is_active'] == 1) {
+                                  $iklan = $iklan + 1;
+                                }
+                              }
+                              if ($iklan > 0) {
+                                echo $iklan;
+                              }
+                              ?>
 
-                                  // echo count($this->ModelAlugada->ahlisublayanan($sl['nosublayanan']));
-
-                                  // echo count($this->db->table('tbl_tenagaahli')->getwhere(['nosublayanan'=>$sl['tbl_tenagaahli']])->getResultArray())
-                                ;?>
 
                             </span>
                           </a>
@@ -163,14 +190,61 @@
                     <?php }; ?>
                   <?php endforeach; ?>
                 </div>
-
-
               </div>
             </div>
           <?php }; ?>
 
         <?php endforeach; ?>
       </div>
+
+
+      <a href=" <?php base_url() ?>/administrator-area/dashboard/create">
+        <button class="btn btn-primary">Tambah Data</button>
+      </a>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <table class="table-bordered">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Title</th>
+                  <th>Description</th>
+                  <th>Image</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php $no = 1; ?>
+                <?php foreach ($slider as $slide) : ?>
+                  <tr>
+                    <td><?= $no++; ?></td>
+                    <td> <?= $slide['title'] ?></td>
+                    <td> <?= $slide['description'] ?></td>
+                    <!-- <td> <?php //echo $slide['image'] 
+                              ?></td> -->
+                    <td>
+                      <!-- <a href="<?php //echo base_url(''); 
+                                    ?>/administrator-area/edit/<?php //echo $slide['id_slider']; 
+                                                                                          ?>">
+                        <button class="btn btn-primary">Update</button>
+                      </a> -->
+                      <!-- <form action="<?php //echo base_url(''); ?>/administrator-area/delete/<?php //echo $slide['id_slider']; ?>" method="post">
+                        <input type="hidden" name="id" value=" <?php //echo $slide['id_slider'] ?>">
+                        <a href=" <?php  ?>">
+                          <button class="btn btn-danger">Hapus</button>
+                        </a>
+                      </form> -->
+                    </td>
+                  </tr>
+              </tbody>
+            <?php endforeach; ?>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
 
 
 
@@ -181,6 +255,5 @@
 
 </div>
 <!-- /.content-wrapper -->
-
 
 <?php echo $this->endSection(); ?>

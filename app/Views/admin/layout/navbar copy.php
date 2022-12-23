@@ -1,4 +1,21 @@
 <!-- Preloader -->
+  <!-- CSS  -->
+  <link rel="stylesheet" href="Admin/css/style.css">
+
+
+<div class="preloader flex-column justify-content-center align-items-center">
+  <img class="animation__shake" src="<?= base_url(); ?>/admin/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+</div>
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Navbar -->
@@ -154,7 +171,7 @@
           </ul>
         </li> -->
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/pesan'); ?>" class="nav-link" onclick="sideaktif()">
+          <a href="<?php echo base_url('/administrator-area/pesan');?>" class="nav-link" onclick="sideaktif()">
             <i class="nav-icon fas fa-inbox"></i>
             <p class="pesansaran">
               Pesan / Saran Masuk
@@ -162,7 +179,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area-tentangkami'); ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area-tentangkami');?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p class="tentangkami">
               Tentang kami
@@ -170,7 +187,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area-hubungikami'); ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-area-hubungikami');?>" class="nav-link" >
             <i class="nav-icon fas fa-user"></i>
             <p class="hubungikami">
               Hubungi kami
@@ -178,8 +195,7 @@
           </a>
         </li>
         <!-- <li class="nav-item">
-          <a href="<?php //echo base_url('/administrator-area-hubungikami');
-                    ?>" class="nav-link">
+          <a href="<?php //echo base_url('/administrator-area-hubungikami');?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p>
               Hubungi kami
@@ -231,12 +247,12 @@
 </aside>
 
 <script>
-  function sideaktif() {
-    // alert("Klik benar");
+  function sideaktif(){
+// alert("Klik benar");
     // $('.pesansaran').css('color','red');
   }
 
-  function tandaaktif() {
+  function tandaaktif(){
     // alert("Benar");
     // $('p').css('color','red');
   }

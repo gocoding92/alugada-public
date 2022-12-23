@@ -3,7 +3,8 @@
 namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
-use App\Models\Admin\ModelAlugada;
+// use App\Models\Admin\ModelAlugada;
+use App\Models\ModelAlugada;
 
 class DashboardController extends BaseController
 {
@@ -21,14 +22,19 @@ class DashboardController extends BaseController
         $query = $this->modelalugada->readSlider();
         // var_dump($this->modelalugada->readSlider());
         // exit;
-
+        // $user = $this->modelalugada->user();
         $data = [
             'user'              => $this->modelalugada->user(),
             'layanan'           => $this->modelalugada->layanan(),
             'sublayanan'        => $this->modelalugada->sublayanan(),
+            'ahli'        => $this->modelalugada->ahli(),
+            'terampil'        => $this->modelalugada->terampil(),
+            // 'engineering'   => $this->modelalugada->ahlisublayanan(105),
+
             // 'iklancarikerja'    => array(),
             // 'iklancarikerja'    => $this->modelalugada->iklancarikerja(),
             // 'iklanproperty'    => $this->modelalugada->iklanproperty(),
+            // 'iklanproperty'    => $this->modelalugada->slider(),
             'iklancarikerja'    => array(),
             'iklanproperty'    => array(),
             // 'iklanproperty'    => array(),

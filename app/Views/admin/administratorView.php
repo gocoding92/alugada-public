@@ -2,77 +2,62 @@
 
 <?php echo $this->section('content-admin'); ?>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <!-- Content Header (Page header) -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-6">
-          <h1 class="m-0">Dashboard</h1>
-        </div><!-- /.col -->
-        <div class="col-sm-6">
-          <ol class="breadcrumb float-sm-right">
-            <li class="breadcrumb-item"><a href="#">Home test</a></li>
-            <li class="breadcrumb-item active">Dashboard v1 test</li>
-          </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
-
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card">
-            <!-- <div class="card-header">
-              <h3 class="card-title">
-                <a href="<?php //echo base_url(); 
-                          ?>/iklan/create" class="btn btn-primary"><i class="fa fa-plus"></i> Add Iklan</a>
-              </h3>
-            </div> -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th><a href="#">User</a></th>
-                    <th><a href="#">Pengiklan</a></th>
-                    <th><a href="#">Total iklan</a></th>
-                    <th><a href="#">Iklan Baru</a></th>
-                    <th><a href="#">Iklan Aktif</a></th>
-                    <th><a href="#">Iklan Tdk Aktif</a></th>
-                    <th><a href="#">Iklan Suspend</a></th>
-
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><?= $jmluser; ?></td>
-                    <td><?= $jmlpengiklan; ?></td>
-                    <td><?= $jmliklan; ?></td>
-                    <td><?= $jmliklanbaru; ?></td>
-                    <td><?= $jmliklanaktif; ?></td>
-                    <td><?= $jmliklantdkaktif; ?></td>
-                    <td><?= $jmliklansuspend; ?></td>
-                  </tr>
-
-
-                </tbody>
-              </table>
+<div class="container">
+    <div class="row">
+        
+        <div class="col-9 col-md-6 rounded-3 mx-auto bg-info mt-5">
+            <div class="text-primary">
+                <?php if(session()->getFlashdata('register')){?>
+                    <?= session()->getFlashdata('register');?>
+                <?php }else{?>
+                    <h3>LOGIN</h3>
+                <?php };?>
             </div>
-          </div>
+            <form method="POST" action="<?= base_url('admin-verifikasilogin'); ?>" enctype="multipart/form-data">
+
+                <div class="row mb-3 mt-3">
+                    <label for="nohp" class="col-4 col-form-label">No HP</label>
+                    <div class="col-8">
+                        <input type="text" class="form-control <?= ($validation->hasError('nohp')) ? 'is-invalid' : '';?>" id="nohp" name="nohp" placeholder="+6281234xxxx  atau  081234xxxx" value="<?= old('nohp');?>" >
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('nohp');?>
+                        </div>
+                        <div class="text-danger">
+                            <?= session()->getFlashdata('belumterdaftar');?>
+                        </div>
+
+                    </div>
+                </div>
+                <div class=" row mb-3">
+                    <label for="password" class="col-4 col-form-label">Password</label>
+                    <div class="col-8">
+                        <input type="password" class="form-control <?= ($validation->hasError('password')) ? 'is-invalid' : '';?>" id="password" name="password" value="<?= old('password');?>" placeholder="Masukkan password anda">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('password');?>
+                        </div>
+                        <div class="text-danger">
+                            <?= session()->getFlashdata('passwordsalah');?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-8">
+                        <label><small>Belum Punya Account ? <a class="text-decoration-none" href="register">Register</small></a></label>
+                    </div>
+                    <div class="col-4 text-end">
+                        <label><small><a class="text-decoration-none" href="lupapassword">Lupa Password ?</small></a></label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">Login</button>
+            </form>
+
         </div>
-      </div>
 
-
-    </div><!-- /.container-fluid -->
-  </section>
-  <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
 
-<?php echo $this->endSection(); ?>
+<?php //echo $this->include("script/login"); ?>
+
+<?= $this->endSection(); ?>

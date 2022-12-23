@@ -4,7 +4,7 @@
 
 
 <?php
-var_dump($slider);
+// var_dump($slider);
 ?>
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -40,32 +40,30 @@ var_dump($slider);
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>image</th>
+                    <th>id</th>
+                    <th>Pengirim</th>
+                    <!-- <th>Nama</th> -->
+                    <th>Pesan</th>
+                    <th>Tanggal</th>
                     <th>Aksi</th>
-                    <!-- <th>Pesan</th> -->
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Abdul Rahman</td>
-                    <td>085809052137</td>
-                    <td>abdulrahman251201@gmailcom</td>
-                    <td>Komplek Inkopad Blok 05 No 17</td>
-                    <td>
-                    <td>
-                      <form action="">
-                        <a href="<?= base_url(''); ?>/mobil/detail/<?= $mobill['id']; ?>">
-                          <span class="right badge badge-danger"><i class="fa fa-edit"></i> Delete</span>
-                          <input type="text" name="id">
-                        </a>
-                      </form>
-                    </td>
-                    </td>
-                  </tr>
+                  <?php $no=0;?>
+                  <?php foreach($pesan as $pesan):?>
+                      <tr>
+                        <td><?= $pesan['id_pesan'];?></td>
+                        <td><?= $pesan['id_pemilik'];?></td>
+                        <!-- <td><?php //echo $pesan['nama'];?></td> -->
+                        <td><?= $pesan['pesan'];?></td>
+                        <td><?= $pesan['created_at'];?></td>
+                        <td>
+                            <a class="btn btn-primary" href="<?= base_url('admin-balas-pesan/'.$pesan['id_pesan'].'/'.$pesan['id_pemilik']);?>">Balas</a> 
+                            <a class="btn btn-warning" href="<?= base_url('admin-warning-pesan');?>">Warning</a>  
+                            <a class="btn btn-danger" href="<?= base_url('admin-block-pesan');?>">Block</a>
+                        </td>
+                      </tr>
+                    <?php endforeach;?>
                 </tbody>
               </table>
             </div>
