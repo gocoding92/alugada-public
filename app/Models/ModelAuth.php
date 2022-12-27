@@ -17,14 +17,14 @@ class ModelAuth extends Model
 
         if ($data_user_where) {
             $is_active = $data_user_where['is_active'];
-            // 2 = is_active verified
-            if (count($data_user) == 1 && $is_active == 2) {
+            // 1 = is_active verified
+            if (count($data_user) == 1 && $is_active == 1) {
                 $message = "No. Handphone & Password cocok, Anda berhasil login";
                 $status = 200;
             }
 
             // 1 = is_active belum verified
-            if ($is_active == 1) {
+            if ($is_active == 0) {
                 $message = "Akun anda belum diverifikasi!";
             }
         }
@@ -46,14 +46,14 @@ class ModelAuth extends Model
         $this->db->table('tbl_user')->delete(
             [
                 'nohp' => $no_handphone,
-                'is_active' => 1
+                'is_active' => 0
             ]
         );
 
         $data_user = $this->db->table('tbl_user')->getWhere(
             [
                 'nohp' => $no_handphone,
-                'is_active' => 2
+                'is_active' => 1
             ]
         )->getResultArray();
 
@@ -70,7 +70,7 @@ class ModelAuth extends Model
             $data_register = ([
                 'nohp' => $no_handphone,
                 'generate_code_verifikasi' => $otp,
-                'is_active' => 1,
+                'is_active' => 0,
             ]);
             $register = $this->db->table('tbl_user')->insert($data_register);
             $message = "Register tidak berhasil, Coba submit kembali!";
@@ -150,7 +150,7 @@ class ModelAuth extends Model
                 'password' => $password,
                 'alamat' => $alamat,
                 'deskripsi' => $deskripsi,
-                'is_active' => 2
+                'is_active' => 1
             ],
             [
                 'nohp' => $no_handphone
@@ -185,7 +185,7 @@ class ModelAuth extends Model
         $data_user = $this->db->table('tbl_user')->getWhere(
             [
                 'nohp' => $no_handphone,
-                'is_active' => 2
+                'is_active' => 1
             ]
         )->getResultArray();
 

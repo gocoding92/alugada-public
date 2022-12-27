@@ -156,6 +156,6 @@ class Auth extends BaseController
     public function logout()
     {
         session_destroy();
-        return redirect()->to('/');
+        return redirect()->to('/beranda');
     }
 }
