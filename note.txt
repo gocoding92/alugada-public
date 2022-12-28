@@ -369,3 +369,9 @@ Kesepakatan Public dan Admin Bedasarkan Status
 4. => 2 = Suspend
 
 #--------------------------------------------#
+
+
+TAMBAHAN
+
+1. User is_active menjadi 0 belum verified | 1 verified
+2. 
