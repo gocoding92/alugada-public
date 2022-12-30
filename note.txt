@@ -378,3 +378,9 @@ Kesepakatan Public dan Admin Bedasarkan Status
 4. => 3 = Block Permanen
 
 #--------------------------------------------#
+
+
+TAMBAHAN
+
+1. User is_active menjadi 0 belum verified | 1 verified
+2. 

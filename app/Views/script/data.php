@@ -45,7 +45,7 @@
 
                     if (obj.data[1].status === 200) {
                         window.setTimeout(function() {
-                            window.location.href = "<?php echo base_url(); ?>";
+                            window.location.href = "<?php echo base_url('/beranda'); ?>";
                         }, 4000);
 
                         localStorage.removeItem('no_handphone');

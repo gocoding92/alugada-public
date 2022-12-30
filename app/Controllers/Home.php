@@ -23,26 +23,15 @@ class Home extends BaseController
             $nohppengunjung = 123;
         }
 
-        $query = $this->modelhome->findAll();
-
-        $newDataQuery = array();
-        for ($i=0; $i < count($query); $i++) {
-            // 1 = is_active active user
-            // 0 = suspend active user
-            if ($query[$i]['is_active'] == 1 && $query[$i]['suspend'] == 0) {
-                array_push($newDataQuery, $query[$i]);
-            }
-        }
-
+        $rekomendasiIklan = $this->modelhome->rekomendasiIklan();
         $querySlider = $this->modelhome->slider();
+
         $data = [
-            // 'admin'         => $this->admin,
             'pengunjung'    => $this->modelalugada->userbynohp($nohppengunjung),
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
-            'rekomendasi_iklan' => $newDataQuery,
+            'rekomendasi_iklan' => $rekomendasiIklan,
             'slider' => $querySlider
-            // 'jenisiklan'    => $this->modelalugada->jenisiklan(),
         ];
         return view('home/indexView', $data);
     }
