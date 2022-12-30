@@ -358,14 +358,23 @@ Kesepakatan Public dan Admin Bedasarkan Status
 2. => 1 = iklan suspend
 
 #Rekomendasi Iklan (field : "is_active")
-1. => 0 = iklan baru (Proses Pengecekan)
+1. => 0 = iklan baru (Proses Pengecekan)----> iklan tidak aktif (oleh Admin)
 2. => 1 = iklan aktif
 3. => 2 = di non aktifkan oleh user
 4. => 3 = di delete user dari profil
 
+#Rekomendasi Iklan (field : "checked")
+1. => 0 = iklan baru (Proses Pengecekan)
+2. => 1 = iklan sudah di check
+
 #Users (field : "is_active")
-2. => 0 = Belum Verified
-3. => 1 = Verified
-4. => 2 = Suspend
+1. => 0 = Belum Verified
+2. => 1 = Verified
+
+#Users (field : "suspend")
+1. => 0 = Aktif
+2. => 1 = Suspend
+3. => 2 = Suspend
+4. => 3 = Block Permanen
 
 #--------------------------------------------#
