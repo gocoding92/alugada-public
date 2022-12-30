@@ -16,7 +16,15 @@ class Iklan extends BaseController
     }
     public function index()
     {
+        $nohplogin = $this->session->get('nohplogin');
+        if($nohplogin==Null or $nohplogin=""){
+            $nohplogin = 12341234;
+        }else{
+            $nohplogin=$nohplogin;
+        }
+
         $data = [
+            'nohplogin' => $nohplogin,
             'iklanbaru' => $this->alugada->rekomendasiiklan(),
         ];
         // var_dump("Test");die;
@@ -24,34 +32,16 @@ class Iklan extends BaseController
     }
 
 
-    // public function detailiklanbaru1(){
-    //     var_dump(11);
-    // }
-
-
-    // public function detailiklanbaru()
-    // {
-    //     $id_rekom_iklan = $this->request->getVar('id_rekomendasi_iklan');
-    //     // var_dump($id_rekom_iklan);die;
-
-    //     $type_rekomendasi_iklan = $this->request->getVar('type_rekomendasi_iklan');
-    //     $id_iklan = $this->request->getVar('id_iklan');
-    //     $user_id = $this->request->getVar('user_id');
-
-    //     if($type_rekomendasi_iklan == "tenaga_ahli"){
-    //         // var_dump($iklantenagaahli);die;
-    //         return redirect()->to('detailiklanahli'.'/'.$id_iklan.'/'.$user_id.'/'.$id_rekom_iklan);
-    //     }else{
-
-    //     } 
-
-
-    // }
 
     public function detailiklanbaru($id_iklan, $user_id, $id_rekom, $nolayanan, $nosublayanan)
     {
         // var_dump("Id Iklan : ".$id_iklan.' / '."User Id : ".$user_id.' / '."Id Rekom : ".$id_rekom.' / '."No Layanan : ".$nolayanan.' / '."No Sub Layanan : ".$nosublayanan. ' ');die;
-
+        $nohplogin=$this->session->get('nohplogin');
+        if($nohplogin==Null or $nohplogin=""){
+            $nohplogin=12341234;
+        }else{
+            $nohplogin=$nohplogin;
+        }
 
         switch ($nolayanan) {
             case 100: //Tenaga Ahli
@@ -59,6 +49,7 @@ class Iklan extends BaseController
 
                 $iklantenagaahli = $this->alugada->ahlibyid($id_iklan);
                 $data = [
+                    'nohplogin' =>$nohplogin,
                     'detailahli' => $iklantenagaahli,
                     'user_id'      => $user_id,
                     'id_rekom'      => $id_rekom,
@@ -74,6 +65,8 @@ class Iklan extends BaseController
                 // var_dump($profesi);die;
                 $iklantenagaterampil = $this->alugada->terampilbyid($id_iklan);
                 $data = [
+
+                    'nohplogin' =>$nohplogin,
                     'detailterampil' => $iklantenagaterampil,
                     'user_id'      => $user_id,
                     'id_rekom'      => $id_rekom,
@@ -84,6 +77,7 @@ class Iklan extends BaseController
             case 300: //Kost & Kontrakan
                 $iklankost = $this->alugada->kostbyid($id_iklan);
                 $data = [
+                    'nohplogin' =>$nohplogin,
                     'detailkost' => $iklankost,
                     'user_id'      => $user_id,
                     'id_rekom'      => $id_rekom,
@@ -96,6 +90,8 @@ class Iklan extends BaseController
                     // var_dump("Benar Rumah");die;
                     $iklanrumah = $this->alugada->rumahbyid($id_iklan);
                     $data = [
+
+                        'nohplogin' =>$nohplogin,
                         'detailrumah' => $iklanrumah,
                         'user_id'      => $user_id,
                         'id_rekom'      => $id_rekom,
@@ -105,6 +101,8 @@ class Iklan extends BaseController
                     // var_dump("Benar Tanah");die;
                     $iklantanah = $this->alugada->tanahbyid($id_iklan);
                     $data = [
+
+                        'nohplogin' =>$nohplogin,
                         'detailtanah' => $iklantanah,
                         'user_id'      => $user_id,
                         'id_rekom'      => $id_rekom,
@@ -113,6 +111,8 @@ class Iklan extends BaseController
                 } elseif ($nosublayanan == 403) {  // Apartemen
                     $iklanapartemen = $this->alugada->apartemenbyid($id_iklan);
                     $data = [
+
+                        'nohplogin' =>$nohplogin,
                         'detailapartemen' => $iklanapartemen,
                         'user_id'      => $user_id,
                         'id_rekom'      => $id_rekom,
@@ -121,6 +121,8 @@ class Iklan extends BaseController
                 } elseif ($nosublayanan == 404) {  // Ruko
                     $iklanruko = $this->alugada->rukobyid($id_iklan);
                     $data = [
+
+                        'nohplogin' =>$nohplogin,
                         'detailruko' => $iklanruko,
                         'user_id'      => $user_id,
                         'id_rekom'      => $id_rekom,
@@ -129,6 +131,8 @@ class Iklan extends BaseController
                 } elseif ($nosublayanan == 405) {  // Bangunan Komersial
                     $iklankomersial = $this->alugada->komersialbyid($id_iklan);
                     $data = [
+
+                        'nohplogin' =>$nohplogin,
                         'detailkomersial' => $iklankomersial,
                         'user_id'      => $user_id,
                         'id_rekom'      => $id_rekom,
@@ -142,6 +146,8 @@ class Iklan extends BaseController
             case 500: //Mobil
                 $iklanmobil = $this->alugada->mobilbyid($id_iklan);
                 $data = [
+
+                    'nohplogin' =>$nohplogin,
                     'detailmobil' => $iklanmobil,
                     'user_id'      => $user_id,
                     'id_rekom'      => $id_rekom,
@@ -152,6 +158,8 @@ class Iklan extends BaseController
             case 600: //Motor
                 $iklanmotor = $this->alugada->motorbyid($id_iklan);
                 $data = [
+
+                    'nohplogin' =>$nohplogin,
                     'detailmotor' => $iklanmotor,
                     'user_id'      => $user_id,
                     'id_rekom'      => $id_rekom,
@@ -314,8 +322,8 @@ class Iklan extends BaseController
         $response = curl_exec($curl);
         curl_close($curl);
 
-        $message = "Register berhasil dilakukan";
-        $status = 200;
+        // $message = "Register berhasil dilakukan";
+        // $status = 200;
         // Batas Fonnte 
 
 

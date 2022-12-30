@@ -111,6 +111,17 @@ class ModelAlugada extends Model
     }
     // Batas Tabel User 
 
+    // Tentang kami
+    public function tentangkami(){
+        return $this->db->table('tbl_tentangkami')->get()->getResultArray();
+    }
+    public function updatetentangkami($id,$data){
+        return $this->db->table('tbl_tentangkami')->update($data,['id'=>$id]);
+    }
+    public function tentangkamibyid($id){
+        return $this->db->table('tbl_tentangkami')->getwhere(['id'=>$id])->getRowArray();
+    }
+
 
 
     // Layanan
@@ -153,6 +164,28 @@ class ModelAlugada extends Model
 
         return $data_counting_layanan;
     }
+
+    // public function layanan(){
+    //     // $layanan = $this->db->table('tbl_layanan')->get()->getResultArray();
+    //     $sublayanan = $this->db->table('tbl_sublayanan')->get()->getResultArray();
+    //     $rekomendasi_iklan = $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
+        
+
+    //     for($i=0;$i<count($sublayanan);$i++){
+    //         for($j=0;$j<count($rekomendasi_iklan);$j++){
+    //             if($sublayanan[$i]['nosublayanan']==$rekomendasi_iklan[$j]['nosublayanan']){
+                    
+                    
+    //                 echo $rekomendasi_iklan[$j]['nosublayanan'];
+    //             }
+
+    //         }
+    //     }
+    //     die;
+    // }
+
+
+
     public function layananbyid($id)
     {
         return $this->db->table('tbl_layanan')->getWhere(['id' => $id])->getRowArray();

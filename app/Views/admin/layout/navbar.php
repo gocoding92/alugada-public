@@ -162,7 +162,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area-tentangkami'); ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-tentangkami'); ?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p class="tentangkami">
               Tentang kami
@@ -186,20 +186,28 @@
             </p>
           </a>
         </li> -->
-        <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/dashboard')
+        <!-- <li class="nav-item">
+          <a href="<?php //echo base_url('/administrator-area/dashboard')
                     ?>" class="nav-link">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p class="laporkanpengguna">
               Laporan Pengguna
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="<?php echo base_url('/administrator-area/iklan') ?>" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p class="iklanbaru">
               Iklan Baru
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?php echo base_url('/administrator-area/user') ?>" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p class="iklanbaru">
+              User Baru
             </p>
           </a>
         </li>
@@ -221,6 +229,16 @@
             </p>
           </a>
         </li>
+        <?php if($nohplogin != 12341234){?>
+          <li class="nav-item">
+            <a href="#" class="nav-link" data-toggle="modal" data-target="#logout">
+              <i class="nav-icon fas fa-list"></i>
+              <p class="layanan">
+                Logout
+              </p>
+            </a>
+          </li>
+        <?php };?>
 
 
       </ul>
@@ -241,3 +259,44 @@
     // $('p').css('color','red');
   }
 </script>
+
+
+<!-- Modal Logout -->
+<div class="modal fade" id="logout" tabindex="-1" aria-labelledby="logoutLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:375px">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h3 class="modal-title fs-5 text-danger mx-auto" id="logoutLabel">Warning !</h3>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h5 class="text-danger">Benar ingin Logout ?</h5>
+      </div>
+      <div class="modal-footer bg-info">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="<?= base_url('logout');?>" type="button" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal tentang kami -->
+<div class="modal fade" id="tentangkami" tabindex="-1" aria-labelledby="tentangkamiLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:375px">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title fs-5 text-danger mx-auto" id="tentangkamiLabel">Tentang kami</h5>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <!-- <h5 class="text-danger">Benar ingin Logout ?</h5> -->
+
+      </div>
+      <div class="modal-footer bg-info">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <a href="<?= base_url('tentang-kami');?>" type="button" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -30,9 +30,9 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">
-                <a href="<?= base_url(); ?>/users/create" class="btn btn-primary"><i class="fa fa-plus"></i> Add Users</a>
-              </h3>
+              <!-- <h3 class="card-title">
+                <a href="<?php //echo base_url(); ?>/users/create" class="btn btn-primary"><i class="fa fa-plus"></i> Add Users</a>
+              </h3> -->
             </div>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
@@ -40,44 +40,53 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Jenis Kelamin</th>
-                    <th>No Handphone</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Role</th>
-                    <th>No Rek</th>
-                    <th>Gopay</th>
-                    <th>Ovo</th>
+                    <th>No Hp</th>
+                    <!-- <th>Jenis Kelamin</th> -->
+                    <!-- <th>No Handphone</th> -->
+                    <!-- <th>Email</th> -->
+                    <!-- <th>Password</th> -->
+                    <th>Checked</th>
+                    <!-- <th>No Rek</th> -->
+                    <!-- <th>Gopay</th> -->
+                    <!-- <th>Ovo</th> -->
                     <th>Suspend</th>
                     <th>Is Active</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Pakde Harto</td>
-                    <td>2022-07-02</td>
-                    <td>Laki-Laki</td>
-                    <td>08811501574</td>
-                    <td>aman@gmail.com</td>
-                    <td>123</td>
-                    <td>10</td>
-                    <td>.</td>
-                    <td>.</td>
-                    <td>.</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>
-                      <a href="<?= base_url(''); ?>/users/update">
-                        <span class="right badge badge-primary"><i class="fa fa-edit"></i> Update</span>
-                      </a>
-                      <a href="">
-                        <span class="right badge badge-danger"><i class="fa fa-trash"></i> Delete</span>
-                      </a>
-                    </td>
-                  </tr>
+                  <?php $no=0;?>
+                    <?php foreach($user as $user):?>
+                        <?php if($user['checked']==0){?>
+                          <tr>
+                            <?php $no=$no+1;?>
+                            <td><?= $no;?></td>
+                            <td><?= $user['nama'];?></td>
+                            <td><?= $user['nohp'];?></td>
+                            <!-- <td>Laki-Laki</td> -->
+                            <!-- <td>08811501574</td> -->
+                            <!-- <td>aman@gmail.com</td> -->
+                            <td><?= $user['checked'];?></td>
+                            <td><?= $user['suspend'];?></td>
+                            <td><?= $user['is_active'];?></td>
+                            <!-- <td>.</td>
+                            <td>.</td>
+                            <td>0</td>
+                            <td>1</td> -->
+                            <td>
+                              <a href="<?= base_url('admin-user-check').'/'."0".'/'.$user['id'];?>">
+                                <span class="right badge badge-primary"><i class="fa fa-edit"></i> Ok</span>
+                              </a>
+                              <a href="<?= base_url('admin-user-check').'/'."1".'/'.$user['id'];?>">
+                                <span class="right badge badge-warning"><i class="fa fa-trash"></i> Warning</span>
+                              </a>
+                              <a href="<?= base_url('admin-user-check').'/'."2".'/'.$user['id'];?>">
+                                <span class="right badge badge-danger"><i class="fa fa-trash"></i> Block</span>
+                              </a>
+                            </td>
+                          </tr>
+                        <?php };?>
+                    <?php endforeach;?>
                 </tbody>
               </table>
             </div>

@@ -25,6 +25,9 @@ class DashboardController extends BaseController
         // exit;
         // $user = $this->modelalugada->user();
         $data = [
+
+            'tentangkami'       => $this->modelalugada->tentangkami(),
+            'nohplogin'         => $this->session->get('nohplogin'),
             'user'              => $this->modelalugada->user(),
             'layanan'           => $this->modelalugada->layanan(),
             'sublayanan'        => $this->modelalugada->sublayanan(),

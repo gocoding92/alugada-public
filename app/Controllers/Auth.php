@@ -14,6 +14,11 @@ class Auth extends BaseController
         $this->ModelAuth = new ModelAuth();
         $this->session = \Config\Services::session();
     }
+    public function logout()
+    {
+        session_destroy();
+        return redirect()->to('beranda');
+    }
 
     public function index()
     {
@@ -153,9 +158,4 @@ class Auth extends BaseController
     }
 
 
-    public function logout()
-    {
-        session_destroy();
-        return redirect()->to('/');
-    }
 }

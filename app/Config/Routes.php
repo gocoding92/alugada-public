@@ -153,7 +153,13 @@ $routes->post('/edit-iklan/saveBangunanKomersial', 'IklanProfil::saveBangunanKom
 
 
 // Administrator
-// $routes->get('/administrator-area', 'Admin\AuthController::index'); // <--------- Ok
+$routes->get('/administrator-tentangkami', 'Admin\About::index'); // <--------- Ok
+$routes->get('/aktifasi-tentangkami/(:any)/(:any)', 'Admin\About::aktifasi/$1/$2'); // <--------- Ok
+$routes->get('/edit-tentang-kami/(:any)', 'Admin\About::edittentangkami/$1'); // <--------- Ok
+$routes->post('/update-tentang-kami', 'Admin\About::updatetentangkami'); // <--------- Ok
+$routes->post('/tambah-tentang-kami', 'Admin\About::tambahtentangkami'); // <--------- Ok
+
+
 $routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
 $routes->post('/admin-verifikasilogin', 'Admin\Administrator::verifikasilogin'); // <--------- Ok
 $routes->get('/admin-register', 'Admin\Administrator::register'); // <--------- Ok
@@ -169,6 +175,8 @@ $routes->get('/admin-slider', 'Admin\Slider::editSlider'); // <--------- Ok
 $routes->post('/admin-edit-slider', 'Admin\Slider::updateSlider'); // <--------- Ok
 
 $routes->get('/administrator-area/dashboard/', 'Admin\DashboardController::index');   // <--------- Ok
+$routes->get('/administrator-area/user/', 'Admin\Users::index');   // <--------- Ok
+$routes->get('/admin-user-check/(:any)', 'Admin\Users::usercheck/$1');   // <--------- Ok
 
 $routes->get('/admin-sub-layanan/(:any)', 'Admin\SubLayananController::sublayanan/$1'); // <--------- Ok
 $routes->post('/admin-tambah-sub-layanan', 'Admin\SubLayananController::tambahsublayanan'); // <--------- Ok

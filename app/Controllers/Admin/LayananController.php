@@ -17,9 +17,18 @@ class LayananController extends BaseController
 
     public function index()
     {
+
+        $nohplogin = $this->session->get('nohplogin');
+        if ($nohplogin == NULL or $nohplogin == "") {
+            $nohplogin = 12341234;
+        } else {
+            $nohplogin = $nohplogin;
+        }
+
         $layanan = $this->alugada->layanan();
         $data = [
             'layanan'   => $layanan,
+            'nohplogin'      => $nohplogin,
         ];
         return view('admin/layanan/layananView', $data);
     }
@@ -61,7 +70,7 @@ class LayananController extends BaseController
         ];
         $this->alugada->tambahlayanan($data); //Tambah data layanan
 
-        $datasub=[
+        $datasub = [
             'nolayanan'     => $this->request->getVar('tambahnolayanan'),
             'nosublayanan'  => $this->request->getVar('tambahnolayanan') + 1,
             'sublayanan'    => "",
