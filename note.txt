@@ -384,3 +384,15 @@ TAMBAHAN
 
 1. User is_active menjadi 0 belum verified | 1 verified
 2. 
+
+Note 30/12/2022
+
+#Rizky
+1. User dibawah 18 tahun tidak boleh register
+2. Dengan ini saya menyatakan data yang disampaikan adalah benar (After Submit)
+3. Iklan di home ditambahkan Rupiah
+4. WA Detail Iklan 
+
+#Pak Harto
+1. Count Suspend Rekomendasi Iklan dan User
+2. Tambah List data Iklan All bedasarkan is_active, suspend, checked & id_checker

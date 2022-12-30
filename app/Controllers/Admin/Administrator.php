@@ -22,9 +22,19 @@ class Administrator extends BaseController
         
         // dd($nohplogin);
         if ($nohplogin == NULL or $nohplogin == "") {
-            // dd("Belum ada Login");
+            // var_dump("Belum ada Login");die;
             $nohplogin = 12341234;
             $userlogin = $this->alugada->userbynohp($nohplogin);
+
+            $data = [
+                'namauser'      => $userlogin['nama'],
+                'nohplogin'      => $nohplogin,
+                'validation' => \config\services::validation(),
+            ];
+            // var_dump($data);die;
+            return view('admin/administratorView', $data);
+    
+
         } else {
             // dd("Sudah ada Login");
             $nohplogin = $nohplogin;
@@ -37,13 +47,6 @@ class Administrator extends BaseController
             return redirect()->to('administrator-area/dashboard');;
         }
 
-        $data = [
-            'namauser'      => $userlogin['nama'],
-            'nohplogin'      => $nohplogin,
-            'validation' => \config\services::validation(),
-        ];
-        // var_dump($data);die;
-        return view('admin/administratorView', $data);
     }
 
     public function verifikasilogin()

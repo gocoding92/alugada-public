@@ -77,7 +77,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Pendidikan : <?php echo $detailahli['pendidikan']; ?></li>
                             <li class="list-group-item">Jurusan : <?php echo $detailahli['jurusan']; ?></li>
-                            <li class="list-group-item">Universitas : <?php echo $detailahli['universitas']; ?></li>
+                            <!-- <li class="list-group-item">Universitas : <?php //echo $detailahli['universitas']; ?></li> -->
                             <li class="list-group-item">Keahlian : <?php echo $bidang; ?></li>
                             <li class="list-group-item">Pengalaman : <?php echo $detailahli['pengalaman_kerja']; ?></li>
                         </ul>

@@ -74,7 +74,7 @@
         <div class="col-3">
           <div class="card" style="width: 100%;">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Dapur : <?= $detailrumah['dapur']; ?></li>
+              <!-- <li class="list-group-item">Dapur : <?php //echo $detailrumah['dapur']; ?></li> -->
               <li class="list-group-item">Ruang tamu : <?= $detailrumah['ruangtamu']; ?></li>
               <li class="list-group-item">Ruang keluarga : <?= $detailrumah['ruangkeluarga']; ?></li>
               <li class="list-group-item">Teras : <?= $detailrumah['teras']; ?></li>
