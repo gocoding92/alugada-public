@@ -41,6 +41,7 @@
             </figure>
             <div class="row-title-layanan">
               <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
+              <span class="title-layanan">Rp. <?= number_format($tbl_rekomendasi_iklan['harga']); ?></span>
               <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
               <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
               <div style="position: absolute; bottom: 0;">

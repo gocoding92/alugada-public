@@ -81,6 +81,7 @@ class ModelHome extends Model
             a.table_iklan,
             a.create_at AS create_at_iklan,
             a.keterangan_suspend,
+            a.harga,
             a.count_suspend,
             b.count_suspend AS count_suspend_user
 
