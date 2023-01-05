@@ -1113,7 +1113,7 @@ class Iklan extends BaseController
     }
 
 
-    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0, $harga= '', $gaji = '')
+    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0, $harga= '')
     {
         $user_id = $this->session->get('id');
         $data = ([
@@ -1128,7 +1128,6 @@ class Iklan extends BaseController
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
             'harga' => $harga,
-            'gaji' => $gaji
         ]);
 
         $rekomendasi_iklan = $this->iklan->saveRekomendasiIklan($data);
