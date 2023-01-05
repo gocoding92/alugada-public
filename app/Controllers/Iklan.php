@@ -195,7 +195,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('mobil', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_mobil', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('mobil', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_mobil', $nolayanan, $nosublayanan, $harga);
     }
 
     public function savemtr()
@@ -293,7 +293,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('motor', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_motor', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('motor', $id_iklan, $judul_iklan, $description, $lokasi, $imageName1, 'tbl_motor', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveKostkontrakan()
@@ -397,7 +397,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('kost&kontrakan', $id_iklan, $judul_iklan = '', $description, $alamat_lokasi, $imageName1, 'tbl_kostkontrakan', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('kost&kontrakan', $id_iklan, $judul_iklan = '', $description, $alamat_lokasi, $imageName1, 'tbl_kostkontrakan', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveTenagaAhli()
@@ -499,7 +499,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaahli', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('tenaga_ahli', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaahli', $nolayanan, $nosublayanan, $gaji);
     }
 
     public function saveTenagaTerampil()
@@ -592,7 +592,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tenaga_terampil', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaterampil', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('tenaga_terampil', $id_iklan, $nama_lengkap, $description, $domisili, $imageName1, 'tbl_tenagaterampil', $nolayanan, $nosublayanan, $gaji);
     }
 
     public function saveRumah()
@@ -708,7 +708,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('rumah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_rumah', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('rumah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_rumah', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveTanah()
@@ -800,7 +800,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_tanah', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_tanah', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveApartemen()
@@ -895,7 +895,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('apartemen', $id_iklan, $juduliklan, $description, $alamatlokasi, $imageName1, 'tbl_apartemen', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('apartemen', $id_iklan, $juduliklan, $description, $alamatlokasi, $imageName1, 'tbl_apartemen', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveRuko()
@@ -994,7 +994,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('ruko', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_ruko', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('ruko', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_ruko', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveBangunanKomersial()
@@ -1095,7 +1095,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('bangunan_komersial', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_bangunankomersial', $nolayanan, $nosublayanan);
+        return $this->saveRekomendasiIklan('bangunan_komersial', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_bangunankomersial', $nolayanan, $nosublayanan, $harga);
     }
 
     public function uploadImage($imageFile = [], $path = '')
@@ -1113,7 +1113,7 @@ class Iklan extends BaseController
     }
 
 
-    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0)
+    public function saveRekomendasiIklan($type_rekomendasi_iklan = '', $id_iklan = 0, $nama_iklan = '', $description = '', $alamat = '', $imageName = '', $table_iklan = '', $nolayanan = 0, $nosublayanan = 0, $harga= '', $gaji = '')
     {
         $user_id = $this->session->get('id');
         $data = ([
@@ -1127,6 +1127,8 @@ class Iklan extends BaseController
             'user_id' => $user_id,
             'nolayanan' => $nolayanan,
             'nosublayanan' => $nosublayanan,
+            'harga' => $harga,
+            'gaji' => $gaji
         ]);
 
         $rekomendasi_iklan = $this->iklan->saveRekomendasiIklan($data);
