@@ -51,5 +51,28 @@ abstract class BaseController extends Controller
 
         // db connect
         $this->connect = db_connect();
+
+
+
+        //tambahan
+        // date_default_timezone_set('Asia/Jakarta');
+        // $this->session = \Config\Services::session();
+
+        // $this->nohplogin = $this->session->get('nohplogin');
+        
+        // if($this->nohplogin==Null or $this->nohplogin==""){
+        //     $this->nohplogin = 12341234;
+        //     var_dump($this->nohplogin);die;
+        // }
+        // $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        // if($role != 1){
+        //     var_dump($this->nohplogin);die;
+        //     return redirect()->to('administrator');
+        // }
     }
+    
+
+
+
+
 }

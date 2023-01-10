@@ -153,16 +153,23 @@ $routes->post('/edit-iklan/saveBangunanKomersial', 'IklanProfil::saveBangunanKom
 
 
 // Administrator
+$routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
+$routes->post('/admin-verifikasilogin', 'Admin\Administrator::verifikasilogin'); // <--------- Ok
+$routes->get('/admin-register', 'Admin\Administrator::register'); // <--------- Ok
+
+$routes->get('/administrator-hubungikami', 'Admin\About::hubungikami'); // <--------- Ok
+$routes->post('/tambah-hubungi-kami', 'Admin\About::tambahhubungikami'); // <--------- Ok
+$routes->get('/edit-hubungi-kami/(:any)', 'Admin\About::edithubungikami/$1'); // <--------- Ok
+$routes->post('/update-hubungi-kami', 'Admin\About::updatehubungikami'); // <--------- Ok
+$routes->get('/aktifasi-hubungikami/(:any)/(:any)', 'Admin\About::aktifasihubungikami/$1/$2'); // <--------- Ok
+
 $routes->get('/administrator-tentangkami', 'Admin\About::index'); // <--------- Ok
-$routes->get('/aktifasi-tentangkami/(:any)/(:any)', 'Admin\About::aktifasi/$1/$2'); // <--------- Ok
+$routes->get('/aktifasi-tentangkami/(:any)/(:any)', 'Admin\About::aktifasitentangkami/$1/$2'); // <--------- Ok
 $routes->get('/edit-tentang-kami/(:any)', 'Admin\About::edittentangkami/$1'); // <--------- Ok
 $routes->post('/update-tentang-kami', 'Admin\About::updatetentangkami'); // <--------- Ok
 $routes->post('/tambah-tentang-kami', 'Admin\About::tambahtentangkami'); // <--------- Ok
 
 
-$routes->get('/administrator', 'Admin\Administrator::index'); // <--------- Ok
-$routes->post('/admin-verifikasilogin', 'Admin\Administrator::verifikasilogin'); // <--------- Ok
-$routes->get('/admin-register', 'Admin\Administrator::register'); // <--------- Ok
 
 $routes->get('/admin-layanan', 'Admin\LayananController::index'); // <--------- Ok
 $routes->get('/aktifasilayanan/(:any)', 'Admin\LayananController::aktifasilayanan/$1'); // <--------- Ok
@@ -175,17 +182,41 @@ $routes->get('/admin-slider', 'Admin\Slider::editSlider'); // <--------- Ok
 $routes->post('/admin-edit-slider', 'Admin\Slider::updateSlider'); // <--------- Ok
 
 $routes->get('/administrator-area/dashboard/', 'Admin\DashboardController::index');   // <--------- Ok
-$routes->get('/administrator-area/user/', 'Admin\Users::index');   // <--------- Ok
-$routes->get('/admin-user-check/(:any)', 'Admin\Users::usercheck/$1');   // <--------- Ok
+
+// $routes->get('/administrator-area/iklan', 'Admin\Iklan::index'); // <--------- Ok
+$routes->get('admin-iklan-baru/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
+$routes->get('admin-iklan-aktif/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
+$routes->get('admin-iklan-tidak-aktif/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
+$routes->get('admin-iklan-suspend/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
+$routes->get('admin-iklan-block/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
+
+
+// $routes->get('admin-user/(:any)', 'Admin\Users::index/$1');   // <--------- Ok
+$routes->get('admin-user-baru/(:any)', 'Admin\Users::index/$1'); // <--------- Ok
+$routes->get('admin-user-aktif/(:any)', 'Admin\Users::index/$1'); // <--------- Ok
+$routes->get('admin-user-tidak-aktif/(:any)', 'Admin\Users::index/$1'); // <--------- Ok
+$routes->get('admin-user-suspend/(:any)', 'Admin\Users::index/$1'); // <--------- Ok
+$routes->get('admin-user-block/(:any)', 'Admin\Users::index/$1'); // <--------- Ok
+
+
+
+$routes->get('/administrator-area/pesan', 'Admin\Pesan::index');
+$routes->get('/administrator-area/slider/(:num)', 'Admin\Slider::delete/$1');
+$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
+
+$routes->get('/admin-user-check/(:any)/(:any)', 'Admin\Users::usercheck/$1/$2');   // <--------- Ok
 
 $routes->get('/admin-sub-layanan/(:any)', 'Admin\SubLayananController::sublayanan/$1'); // <--------- Ok
 $routes->post('/admin-tambah-sub-layanan', 'Admin\SubLayananController::tambahsublayanan'); // <--------- Ok
 $routes->post('/admin-edit-sub-layanan/(:any)', 'Admin\SubLayananController::editsublayanan/$1'); // <--------- Ok
 $routes->get('/aktifasisublayanan/(:any)/(:any)', 'Admin\SubLayananController::aktifasisublayanan/$1/$2'); // <--------- Ok
 
-$routes->get('/administrator-area/iklan', 'Admin\Iklan::index'); // <--------- Ok
 // $routes->get('/detailiklanbaru', 'Admin\iklan::detailiklanbaru'); // <--------- Ok
-$routes->get('/detailiklanbaru/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklanbaru/$1/$2/$3/$4/$5'); // <--------- Ok
+// $routes->get('/detailiklanbaru/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklanbaru/$1/$2/$3/$4/$5'); // <--------- Ok
+
+$routes->get('/admin-detail-iklan/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklan/$1/$2/$3/$4/$5'); // <--------- Ok
+
+
 
 $routes->get('/acceptiklan/(:any)/(:any)/(:any)/(:any)/(:any)', 'Admin\iklan::acceptiklan/$1/$2/$3/$4/$5'); // <--------- Ok
 // $routes->get('/rejectiklan/(:any)/(:any)/(:any)/(:any)', 'Admin\iklan::rejectiklan/$1/$2/$3/$4'); // <--------- Ok
@@ -207,7 +238,6 @@ $routes->get('/acceptiklan/(:any)/(:any)/(:any)/(:any)/(:any)', 'Admin\iklan::ac
 // $routes->get('/administrator-area/iklan/create', 'Admin\Iklan::create');
 // $routes->get('/administrator-area/iklan/update', 'Admin\Iklan::update');
 
-$routes->get('/administrator-area/pesan', 'Admin\Pesan::index');
 
 $routes->get('/admin-balas-pesan/(:any)/(:any)', 'Admin\Pesan::balaspesan/$1/$2');
 $routes->get('/admin-warning-pesan', 'Admin\Pesan::warningpesan');
@@ -216,8 +246,6 @@ $routes->get('/admin-block-pesan', 'Admin\Pesan::blockpesan');
 // $routes->get('/administrator-area/pesan/update', 'Admin\Pesan::update');
 
 // $routes->get('/administrator-area/slider/(:', 'Admin\Slider::index');
-$routes->get('/administrator-area/slider/(:num)', 'Admin\Slider::delete/$1');
-$routes->get('/administrator-area/iklan', 'Admin\Iklan::index');
 
 
 $routes->get('logout', 'AuthController::logout');

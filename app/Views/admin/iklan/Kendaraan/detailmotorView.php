@@ -67,8 +67,11 @@
               </div>
 
         </div>
-            <a href="<?= base_url('acceptiklan' . '/' . $detailmotor['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmotor['nolayanan'] . '/' . $detailmotor['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
-            <a href="<?= base_url('acceptiklan' . '/' . $detailmotor['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmotor['nolayanan'] . '/' . $detailmotor['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+        <?php if($detailmotor['checked'] == 0){?>
+          <a href="<?= base_url('acceptiklan' . '/' . $detailmotor['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmotor['nolayanan'] . '/' . $detailmotor['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
+          <a href="<?= base_url('acceptiklan' . '/' . $detailmotor['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmotor['nolayanan'] . '/' . $detailmotor['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+        <?php };?>
+
 
     </div><!-- /.container-fluid -->
   </section>

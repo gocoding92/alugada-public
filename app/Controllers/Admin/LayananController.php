@@ -9,26 +9,39 @@ class LayananController extends BaseController
 {
     public function __construct()
     {
-        date_default_timezone_set('Asia/Jakarta');
         $this->alugada = new ModelAlugada();
+        date_default_timezone_set('Asia/Jakarta');
         $this->session = \Config\Services::session();
+        $this->nohplogin = session()->get('nohplogin');
+
+        if($this->nohplogin==Null or $this->nohplogin==""){
+            $this->nohplogin = 12341234;
+        }
+
+        // $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        // if($role != 1){
+        //     // var_dump($this->nohplogin);die;
+        //     return redirect()->to('administrator');
+        // }
+
     }
 
 
     public function index()
     {
-
-        $nohplogin = $this->session->get('nohplogin');
-        if ($nohplogin == NULL or $nohplogin == "") {
-            $nohplogin = 12341234;
-        } else {
-            $nohplogin = $nohplogin;
+        $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        if($role != 1){
+            session()->setFlashdata('belumterdaftar','Masukkan nomor yang terdaftar sebagai Admin');
+            return redirect()->to('administrator');
         }
 
+        
         $layanan = $this->alugada->layanan();
         $data = [
+            'photouser' => $this->alugada->userbynohp($this->nohplogin)['gambar'],
+            'namauser' => $this->alugada->userbynohp($this->nohplogin)['nama'],
             'layanan'   => $layanan,
-            'nohplogin'      => $nohplogin,
+            'nohplogin'      => $this->nohplogin,
         ];
         return view('admin/layanan/layananView', $data);
     }

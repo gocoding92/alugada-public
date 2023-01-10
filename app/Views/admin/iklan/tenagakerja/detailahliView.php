@@ -67,8 +67,10 @@
                                                                 ?></li> -->
                         </ul>
                         <div class="card-body">
-                            <a href="<?php echo base_url('acceptiklan' . '/' . $detailahli['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailahli['nolayanan']. '/' . $detailahli['nosublayanan'].'/'."0"); ?>" class="card-link">Accept</a>
-                            <a href="<?php echo base_url('acceptiklan' . '/' . $detailahli['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailahli['nolayanan']. '/' . $detailahli['nosublayanan'].'/'."1"); ?>" class="card-link">Reject</a>
+                            <?php if($detailahli['checked'] == 0){?>
+                                <a href="<?php echo base_url('acceptiklan' . '/' . $detailahli['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailahli['nolayanan']. '/' . $detailahli['nosublayanan'].'/'."0"); ?>" class="card-link">Accept</a>
+                                <a href="<?php echo base_url('acceptiklan' . '/' . $detailahli['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailahli['nolayanan']. '/' . $detailahli['nosublayanan'].'/'."1"); ?>" class="card-link">Reject</a>
+                            <?php };?>
                         </div>
                     </div>
                 </div>
@@ -94,10 +96,6 @@
                 </div>
 
             </div>
-            <!-- <a href="<?php //echo base_url('acceptiklan').'/'.$detailahli['idpengiklan'];
-                            ?>" class="card-link">Accept</a>
-            <a href="<?php //echo base_url('rejectiklan').'/'.$detailahli['idpengiklan'];
-                        ?>" class="card-link">Reject</a> -->
 
         </div>
     </section>

@@ -63,8 +63,10 @@
                             <li class="list-group-item">Tanggal lahir : <?php echo $detailterampil['tanggal_lahir']; ?></li>
                         </ul>
                         <div class="card-body">
-                            <a href="<?= base_url('acceptiklan' . '/' . $detailterampil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailterampil['nolayanan'] . '/' . $detailterampil['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
-                            <a href="<?= base_url('acceptiklan' . '/' . $detailterampil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailterampil['nolayanan'] . '/' . $detailterampil['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+                            <?php if($detailterampil['checked'] == 0){?>
+                                <a href="<?= base_url('acceptiklan' . '/' . $detailterampil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailterampil['nolayanan'] . '/' . $detailterampil['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
+                                <a href="<?= base_url('acceptiklan' . '/' . $detailterampil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailterampil['nolayanan'] . '/' . $detailterampil['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+                            <?php };?>
                         </div>
                     </div>
                 </div>

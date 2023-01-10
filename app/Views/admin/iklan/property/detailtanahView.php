@@ -69,8 +69,11 @@
           </div>
         </div>
       </div>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailtanah['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailtanah['nolayanan'] . '/' . $detailtanah['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailtanah['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailtanah['nolayanan'] . '/' . $detailtanah['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+      <?php if($detailtanah['checked'] == 0){?>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailtanah['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailtanah['nolayanan'] . '/' . $detailtanah['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailtanah['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailtanah['nolayanan'] . '/' . $detailtanah['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+      <?php };?>
+
 
     </div><!-- /.container-fluid -->
   </section>

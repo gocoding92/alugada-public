@@ -92,8 +92,11 @@
           </div>
         </div>
       </div>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailrumah['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailrumah['nolayanan']. '/' . $detailrumah['nosublayanan'].'/'."0"); ?>" class="card-link">Accept</a>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailrumah['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailrumah['nolayanan']. '/' . $detailrumah['nosublayanan'].'/'."1"); ?>" class="card-link">Reject</a>
+      <?php if($detailrumah['checked'] == 0){?>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailrumah['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailrumah['nolayanan']. '/' . $detailrumah['nosublayanan'].'/'."0"); ?>" class="card-link">Accept</a>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailrumah['id'] . '/' . $user_id . '/' . $id_rekom. '/' . $detailrumah['nolayanan']. '/' . $detailrumah['nosublayanan'].'/'."1"); ?>" class="card-link">Reject</a>
+      <?php };?>
+
 
     </div><!-- /.container-fluid -->
   </section>

@@ -59,8 +59,8 @@
                         <td><?= $pesan['created_at'];?></td>
                         <td>
                             <a class="btn btn-primary" href="<?= base_url('admin-balas-pesan/'.$pesan['id_pesan'].'/'.$pesan['id_pemilik']);?>">Balas</a> 
-                            <a class="btn btn-warning" href="<?= base_url('admin-warning-pesan');?>">Warning</a>  
-                            <a class="btn btn-danger" href="<?= base_url('admin-block-pesan');?>">Block</a>
+                            <!-- <a class="btn btn-warning" href="<?php //echo base_url('admin-warning-pesan');?>">Warning</a>   -->
+                            <!-- <a class="btn btn-danger" href="<?php //echo base_url('admin-block-pesan');?>">Block</a> -->
                         </td>
                       </tr>
                     <?php endforeach;?>

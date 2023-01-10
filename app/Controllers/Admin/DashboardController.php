@@ -14,18 +14,29 @@ class DashboardController extends BaseController
         $this->modelalugada = new ModelAlugada();
         // $this->modelslider = new ModelSlider();
         $this->session = \Config\Services::session();
+
+        $this->nohplogin = session()->get('nohplogin');
+        if($this->nohplogin==Null or $this->nohplogin==""){
+            $this->nohplogin = 12341234;
+        }
+
     }
 
     public function index()
     {
-        // var_dump($nohppengunjung);die; risky
+        if($this->nohplogin == 12341234){
+            session()->setFlashdata('belumterdaftar', 'Masukkan nomor yang terdaftar sebagai Admin');
+            return redirect()->to('administrator');
+        }
+        // var_dump($this->modelalugada->userbynohp($this->nohplogin)['gambar']);die;
         $query = $this->modelalugada->readSlider();
 
         // var_dump($this->modelalugada->readSlider());
         // exit;
         // $user = $this->modelalugada->user();
         $data = [
-
+            'namauser'          => $this->modelalugada->userbynohp($this->nohplogin)['nama'],
+            'photouser'         => $this->modelalugada->userbynohp($this->nohplogin)['gambar'],
             'tentangkami'       => $this->modelalugada->tentangkami(),
             'nohplogin'         => $this->session->get('nohplogin'),
             'user'              => $this->modelalugada->user(),

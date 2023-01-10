@@ -76,6 +76,10 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_rekomendasi_iklan')->orderBy('create_at', 'DESC')->get()->getResultArray();
     }
+    public function rekomendasiiklanbyid($id)
+    {
+        return $this->db->table('tbl_rekomendasi_iklan')->getwhere(['id_rekomendasi_iklam'=>$id])->getRowArray();
+    }
     public function updaterekom($id, $data)
     {
         // var_dump($id);die;
@@ -95,6 +99,7 @@ class ModelAlugada extends Model
 
     public function userbynohp($nohp)
     {
+        // var_dump($nohp);die;
         return $this->db->table('tbl_user')->getWhere(['nohp' => $nohp])->getRowArray();
     }
     public function userbyid($id)
@@ -109,18 +114,61 @@ class ModelAlugada extends Model
     {
         return $this->db->table('tbl_user')->update($data, ['id' => $id]);
     }
+    public function userbaru($checked)
+    {
+        return $this->db->table('tbl_user')->getwhere(['checked'=>$checked])->getResultArray();
+    }
+    public function useraktif($is_active)
+    {
+        return $this->db->table('tbl_user')->getwhere(['is_active'=>$is_active])->getResultArray();
+    }
+    public function usersuspend($suspend)
+    {
+        return $this->db->table('tbl_user')->getwhere(['suspend'=>$suspend])->getResultArray();
+    }
+
+
+
+
+
     // Batas Tabel User 
 
     // Tentang kami
-    public function tentangkami(){
+    public function tentangkami()
+    {
         return $this->db->table('tbl_tentangkami')->get()->getResultArray();
     }
-    public function updatetentangkami($id,$data){
-        return $this->db->table('tbl_tentangkami')->update($data,['id'=>$id]);
+    public function simpantentangkami($data)
+    {
+        return $this->db->table('tbl_tentangkami')->insert($data);
     }
-    public function tentangkamibyid($id){
-        return $this->db->table('tbl_tentangkami')->getwhere(['id'=>$id])->getRowArray();
+    public function updatetentangkami($id, $data)
+    {
+        return $this->db->table('tbl_tentangkami')->update($data, ['id' => $id]);
     }
+    public function tentangkamibyid($id)
+    {
+        return $this->db->table('tbl_tentangkami')->getwhere(['id' => $id])->getRowArray();
+    }
+
+    // Hubungi kami
+    public function hubungikami()
+    {
+        return $this->db->table('tbl_hubungikami')->get()->getResultArray();
+    }
+    public function simpanhubungikami($data)
+    {
+        return $this->db->table('tbl_hubungikami')->insert($data);
+    }
+    public function hubungikamibyid($id)
+    {
+        return $this->db->table('tbl_hubungikami')->getwhere(['id' => $id])->getRowArray();
+    }
+    public function updatehubungikami($id,$data)
+    {
+        return $this->db->table('tbl_hubungikami')->update($data,['id'=>$id]);
+    }
+
 
 
 
@@ -169,13 +217,13 @@ class ModelAlugada extends Model
     //     // $layanan = $this->db->table('tbl_layanan')->get()->getResultArray();
     //     $sublayanan = $this->db->table('tbl_sublayanan')->get()->getResultArray();
     //     $rekomendasi_iklan = $this->db->table('tbl_rekomendasi_iklan')->get()->getResultArray();
-        
+
 
     //     for($i=0;$i<count($sublayanan);$i++){
     //         for($j=0;$j<count($rekomendasi_iklan);$j++){
     //             if($sublayanan[$i]['nosublayanan']==$rekomendasi_iklan[$j]['nosublayanan']){
-                    
-                    
+
+
     //                 echo $rekomendasi_iklan[$j]['nosublayanan'];
     //             }
 
@@ -567,4 +615,25 @@ class ModelAlugada extends Model
     {
         return $this->db->table($table)->getWhere([$primarykey => $id_iklan])->getRowArray();
     }
+
+
+    public function iklanbaru($checked){
+        // var_dump($checked);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->getwhere(['checked'=>$checked])->getResultArray();
+    }
+    public function iklansuspend($suspend){
+        // var_dump($checked);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->getwhere(['suspend'=>$suspend])->getResultArray();
+    }
+    public function iklanblock($suspend){
+        // var_dump($block);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->getwhere(['suspend'=>$suspend])->getResultArray();
+    }
+    public function iklanaktif($is_active){
+        // var_dump($is_active);die;
+        return $this->db->table('tbl_rekomendasi_iklan')->getwhere(['is_active'=>$is_active])->getResultArray();
+    }
+
+
+
 }

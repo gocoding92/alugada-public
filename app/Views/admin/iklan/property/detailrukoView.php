@@ -85,8 +85,11 @@
         </div>
 
       </div>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailruko['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailruko['nolayanan'] . '/' . $detailruko['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
-      <a href="<?= base_url('acceptiklan' . '/' . $detailruko['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailruko['nolayanan'] . '/' . $detailruko['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+      <?php if($detailruko['checked'] == 0){?>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailruko['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailruko['nolayanan'] . '/' . $detailruko['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
+        <a href="<?= base_url('acceptiklan' . '/' . $detailruko['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailruko['nolayanan'] . '/' . $detailruko['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+      <?php };?>
+
 
     </div><!-- /.container-fluid -->
   </section>

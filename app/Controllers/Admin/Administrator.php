@@ -13,37 +13,36 @@ class Administrator extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $this->alugada = new ModelAlugada();
         $this->session = \Config\Services::session();
+        $this->validation  = \config\services::validation();
+
+        $this->nohplogin = session()->get('nohplogin');
+        if($this->nohplogin==Null or $this->nohplogin==""){
+            $this->nohplogin = 12341234;
+        }
+
     }
 
     public function index($nohp = "")
     {
-        $nohplogin = $this->session->get('nohplogin');
-        // var_dump($nohplogin);die;
+        // $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        // if($role != 1){
+        //     session()->setFlashdata('belumterdaftar','Silahkan login dengan Nomor Admin');
+        //     return redirect()->to('administrator');
+        // }
+
+        $userlogin = $this->alugada->userbynohp($this->nohplogin);
         
-        // dd($nohplogin);
-        if ($nohplogin == NULL or $nohplogin == "") {
-            // var_dump("Belum ada Login");die;
-            $nohplogin = 12341234;
-            $userlogin = $this->alugada->userbynohp($nohplogin);
+        $data = [
+            'namauser'      => $userlogin['nama'],
+            'nohplogin'      => $this->nohplogin,
+            'photouser'     => $userlogin['gambar'],
+            // 'validation'    => \config\services::validation(),
+            'validation'    => $this->validation,
+        ];
 
-            $data = [
-                'namauser'      => $userlogin['nama'],
-                'nohplogin'      => $nohplogin,
-                'validation' => \config\services::validation(),
-            ];
-            // var_dump($data);die;
+        if ($userlogin['role'] != 1 ) {
             return view('admin/administratorView', $data);
-    
-
-        } else {
-            // dd("Sudah ada Login");
-            $nohplogin = $nohplogin;
-            $userlogin = $this->alugada->userbynohp($nohplogin);
-            $data = [
-                'namauser'      => $userlogin['nama'],
-                'nohplogin'      => $nohplogin,
-                'validation' => \config\services::validation(),
-            ];
+        } else {    
             return redirect()->to('administrator-area/dashboard');;
         }
 
@@ -51,11 +50,13 @@ class Administrator extends BaseController
 
     public function verifikasilogin()
     {
-        // dd("Benar login");
+        // var_dump("Baner");die;
         $nohplogin = $this->request->getvar('nohp');
         $passwordlogin = $this->request->getvar('password');
 
+
         $terdaftar = $this->alugada->userbynohp($nohplogin);
+        // var_dump($terdaftar);die;
 
         // Validasi
         if (!$this->validate(
@@ -74,20 +75,19 @@ class Administrator extends BaseController
                 ]
             ]
         )) {
-            $validation = \config\services::validation();
-            return redirect()->to('/login')->withInput();
+            $validation = $this->validation;
+            return redirect()->to('/administrator')->withInput();
         }
 
-
-        // cek No HP terdaftar belum
-
+        // cek No HP terdaftar belum        
         if ($terdaftar) {     //Jika Nomor sudah terdaftar
-            // var_dump("Terdaftar");die;
+            // var_dump("Ya ".$terdaftar['nama']);die;
             if ($passwordlogin == $terdaftar['password']) {
                 $data = [
                     'nohplogin' => $nohplogin,
                     'namauser'  => $terdaftar['nama'],
-                    'validation' => \config\services::validation(),
+                    // 'validation' => \config\services::validation(),
+                    'validation'    => $this->validation,
                 ];
                 $this->session->set($data);
                 // return redirect()->to('/');
@@ -95,8 +95,9 @@ class Administrator extends BaseController
                 if ($terdaftar['role'] == 1) {
                     return redirect()->to('administrator-area/dashboard')->withInput();
                 } elseif ($terdaftar['role'] != 1) {
-                    // return view('homeView', $data);
-                    return redirect()->to('administrator');
+                    // var_dump("Bukan admin");die;
+                    session()->setFlashdata('belumterdaftar','Masukkan Nomor yang terdaftar sebagai Admin');
+                    return redirect()->to('administrator')->withInput();
                 }
                 // return view('homeView', $data);
 

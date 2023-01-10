@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\ModelAuth;
+use App\Models\ModelAlugada;
 use CodeIgniter\I18n\Time;
 
 class Auth extends BaseController
@@ -12,7 +13,17 @@ class Auth extends BaseController
     {
         date_default_timezone_set('Asia/Jakarta');
         $this->ModelAuth = new ModelAuth();
+        $this->alugada = new ModelAlugada();
+
         $this->session = \Config\Services::session();
+
+        $this->nohplogin = session()->get('nohplogin');
+        if($this->nohplogin==Null or $this->nohplogin==""){
+            $this->nohplogin = 12341234;
+            // return redirect()->to('administrator');
+
+        }
+
     }
 
     public function index()
@@ -154,7 +165,12 @@ class Auth extends BaseController
 
 
     public function logout()
-    {
+    {   
+        if($this->alugada->userbynohp($this->nohplogin)['role']==1){
+            session_destroy();
+            return redirect()->to('/administrator');
+            }
+        // var_dump($this->nohplogin);die;
         session_destroy();
         return redirect()->to('/beranda');
     }

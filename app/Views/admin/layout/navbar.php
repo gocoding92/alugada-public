@@ -124,12 +124,12 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="image">
-        <img src="<?php echo base_url(); ?>/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <img src="<?php echo base_url('Image/User/'.$photouser);?>" class="img-circle elevation-2" style="width:30px" alt="User Image">
         <!-- <img src="<?php //echo base_url('Image/User/'.$user['gambar']); 
                         ?>" class="img-circle elevation-2" alt="User Image"> -->
       </div>
       <div class="info">
-        <a href="#" class="d-block">Namaku</a>
+        <a href="#" class="d-block"><?= $namauser;?></a>
       </div>
     </div>
 
@@ -154,6 +154,15 @@
           </ul>
         </li> -->
         <li class="nav-item">
+          <a href="<?php echo base_url('/administrator-area/dashboard'); ?>" class="nav-link" onclick="sideaktif()">
+            <i class="nav-icon fas fa-inbox"></i>
+            <p class="pesansaran">
+              Dashboard
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="<?php echo base_url('/administrator-area/pesan'); ?>" class="nav-link" onclick="sideaktif()">
             <i class="nav-icon fas fa-inbox"></i>
             <p class="pesansaran">
@@ -170,7 +179,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area-hubungikami'); ?>" class="nav-link">
+          <a href="<?php echo base_url('/administrator-hubungikami'); ?>" class="nav-link">
             <i class="nav-icon fas fa-user"></i>
             <p class="hubungikami">
               Hubungi kami
@@ -196,18 +205,19 @@
           </a>
         </li> -->
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/iklan') ?>" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
+          <!-- <a href="<?php //echo base_url('/administrator-area/iklan') ?>" class="nav-link"> -->
+          <a href="<?php $x='admin-iklan-baru';?><?php echo base_url($x).'/'.$x;?>" class="nav-link">
+          <i class="nav-icon fas fa-copy"></i>
             <p class="iklanbaru">
-              Iklan Baru
+              Iklan
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url('/administrator-area/user') ?>" class="nav-link">
+          <a href="<?php $x='admin-user-baru';?><?php echo base_url('admin-user-baru'.'/'.$x) ?>" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
             <p class="iklanbaru">
-              User Baru
+              User
             </p>
           </a>
         </li>

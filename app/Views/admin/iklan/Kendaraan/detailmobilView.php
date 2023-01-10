@@ -67,8 +67,11 @@
               </div>
 
         </div>
+        <?php if($detailmobil['checked'] == 0){?>
           <a href="<?= base_url('acceptiklan' . '/' . $detailmobil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmobil['nolayanan'] . '/' . $detailmobil['nosublayanan'] . '/' . "0"); ?>" class="card-link">Accept</a>
           <a href="<?= base_url('acceptiklan' . '/' . $detailmobil['id'] . '/' . $user_id . '/' . $id_rekom . '/' . $detailmobil['nolayanan'] . '/' . $detailmobil['nosublayanan'] . '/' . "1"); ?>" class="card-link">Reject</a>
+        <?php };?>
+
 
     </div><!-- /.container-fluid -->
   </section>

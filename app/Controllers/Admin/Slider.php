@@ -13,13 +13,22 @@ class Slider extends BaseController
         date_default_timezone_set('Asia/Jakarta');
         $this->alugada = new ModelAlugada();
         $this->session = \Config\Services::session();
+
+        $this->nohplogin = session()->get('nohplogin');
+        if($this->nohplogin==Null or $this->nohplogin==""){
+            $this->nohplogin = 12341234;
+
+        }
     }
     public function index()
     {
-        //
+
+        // var_dump($this->nohplogin);die;
         $slider = $this->alugada->slider();
 
         $data = [
+            // 'namauser'  => $this->alugada->userbynohp($this->nohplogin)['nama'],
+            // 'photouser'  => $this->alugada->userbynohp($this->nohplogin)['gambar'],
             'slider'    => $this->alugada->slider(),
         ];
         return view('admin/slider/index', $data);
@@ -27,7 +36,16 @@ class Slider extends BaseController
     public function editSlider()
     {
 
+        $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        if($role != 1){
+            session()->setFlashdata('belumterdaftar','Silahkan login dengan Nomor Admin');
+            return redirect()->to('administrator');
+        }
+
         $data = [
+            'namauser'=> $this->alugada->userbynohp($this->nohplogin)['nama'],
+            'photouser'     => $this->alugada->userbynohp($this->nohplogin)['gambar'],
+            'nohplogin'     => $this->nohplogin,
             'slider1'    => $this->alugada->sliderbyid(1),
             'slider2'    => $this->alugada->sliderbyid(2),
             'slider3'    => $this->alugada->sliderbyid(3),

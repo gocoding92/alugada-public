@@ -15,47 +15,21 @@ class Iklan extends BaseController
         $this->session = \Config\Services::session();
 
         $this->nohplogin = session()->get('nohplogin');
-        if ($this->nohplogin == Null or $this->nohplogin == "") {
+        if($this->nohplogin==Null or $this->nohplogin==""){
             $this->nohplogin = 12341234;
             // return redirect()->to('administrator');
             // var_dump(123456);
-        }
+        }     
+
     }
     public function index($x)
     {
         // $y='$r'.$sortir;
-        // var_dump($x);die;
-        switch ($x) {
-            case 'admin-iklan-baru':
-                // var_dump("case 'admin-iklan-baru':");die;
-                $checked = 0;
-                $iklan = $this->alugada->iklanbaru($checked);
-                break;
-            case 'admin-iklan-suspend':
-                // var_dump("case 'admin-iklan-suspend':");die;
-                $suspend = 1;
-                $iklan = $this->alugada->iklansuspend($suspend);
-                break;
-            case 'admin-iklan-block':
-                // var_dump("case 'admin-iklan-block':");die;
-                $suspend = 3;
-                $iklan = $this->alugada->iklanblock($suspend);
-                break;
-            case 'admin-iklan-aktif':
-                // var_dump("case 'admin-iklan-aktif':");die;
-                $is_active = 1;
-                $iklan = $this->alugada->iklanaktif($is_active);
-                break;
-            case 'admin-iklan-tidak-aktif':
-                // var_dump("case 'admin-iklan-tidak-aktif':");die;
-                $is_active = 0;
-                $iklan = $this->alugada->iklanaktif($is_active);
-                break;
-        }
-
-        $role = $this->alugada->userbynohp($this->nohplogin)['role'];
-        if ($role != 1) {
-            session()->setFlashdata('belumterdaftar', 'Masukkan nomor yang terdaftar sebagai Admin');
+        var_dump($x);die;
+        
+        $role=$this->alugada->userbynohp($this->nohplogin)['role'];
+        if($role != 1){
+            session()->setFlashdata('belumterdaftar','Masukkan nomor yang terdaftar sebagai Admin');
             return redirect()->to('administrator');
         }
 
@@ -65,103 +39,154 @@ class Iklan extends BaseController
         // }else{
         //     $nohplogin=$nohplogin;
         // }
-        // $data = [
-        //     'namauser' => $this->alugada->userbynohp($this->nohplogin)['nama'],
-        //     'photouser' => $this->alugada->userbynohp($this->nohplogin)['gambar'],
-        //     'nohplogin' => $this->nohplogin,
-        //     'iklanbaru' => $this->alugada->rekomendasiiklan(),
-        // ];
+        $data = [
+            'namauser' => $this->alugada->userbynohp($this->nohplogin)['nama'],
+            'photouser' => $this->alugada->userbynohp($this->nohplogin)['gambar'],
+            'nohplogin' => $this->nohplogin,
+            'iklanbaru' => $this->alugada->rekomendasiiklan(),
+        ];
         // var_dump("Test");die;
-
-        $data['namauser'] = $this->alugada->userbynohp($this->nohplogin)['nama'];
-        $data['photouser'] = $this->alugada->userbynohp($this->nohplogin)['gambar'];
-        $data['nohplogin'] = $this->nohplogin;
-        $data['iklan']  = $iklan;
-        // $data['x']      = $x;
-        // $namaView = $x . "View";
+        $namaView = $x."View";
         // var_dump($namaView);die;
-        // return view('admin/iklan/' . $namaView, $data);
-        return view('admin/iklan/admin-iklanView', $data);
+        return view('admin/iklan/'.$namaView, $data);
     }
 
-    public function detailiklan($id_iklan, $user_id, $id_rekom, $nolayanan, $nosublayanan)
-    {
-        // var_dump($nolayanan);die;
-        // var_dump("Id Iklan : ".$id_iklan.' / '."User Id : ".$user_id.' / '."Id Rekom : ".$id_rekom.' / '."No Layanan : ".$nolayanan.' / '."No Sub Layanan : ".$nosublayanan. ' ');die;
-        // $nohplogin = $this->session->get('nohplogin');
-        // if ($nohplogin == Null or $nohplogin = "") {
-        //     $nohplogin = 12341234;
-        // } else {
-        //     $nohplogin = $nohplogin;
-        // }
 
-        
-        $data['nohplogin'] = $this->nohplogin;
-        $data['user_id']   = $user_id;
-        $data['id_rekom']  = $id_rekom;
-        $data['namauser']    = $this->alugada->userbynohp($this->nohplogin)['nama'];
-        $data['photouser']    = $this->alugada->userbynohp($this->nohplogin)['gambar'];
-        
+
+    public function detailiklanbaru($id_iklan, $user_id, $id_rekom, $nolayanan, $nosublayanan)
+    {
+        // var_dump("Id Iklan : ".$id_iklan.' / '."User Id : ".$user_id.' / '."Id Rekom : ".$id_rekom.' / '."No Layanan : ".$nolayanan.' / '."No Sub Layanan : ".$nosublayanan. ' ');die;
+        $nohplogin=$this->session->get('nohplogin');
+        if($nohplogin==Null or $nohplogin=""){
+            $nohplogin=12341234;
+        }else{
+            $nohplogin=$nohplogin;
+        }
+
         switch ($nolayanan) {
             case 100: //Tenaga Ahli
                 $profesi = $this->alugada->sublayananbynosublayanan($nosublayanan)['sublayanan'];
-                $data['bidang']    = $profesi;
+
                 $iklantenagaahli = $this->alugada->ahlibyid($id_iklan);
-                $data['detailahli'] = $iklantenagaahli;
+                $data = [
+                    'nohplogin' =>$nohplogin,
+                    'detailahli' => $iklantenagaahli,
+                    'user_id'      => $user_id,
+                    'id_rekom'      => $id_rekom,
+                    'bidang'        => $profesi,
+                ];
                 return view('admin/iklan/tenagakerja/detailahliView', $data);
-                break;
-                
-            case 200: //Tenaga Terampil
-                $profesi = $this->alugada->sublayananbynosublayanan($nosublayanan)['sublayanan'];
-                $iklantenagaterampil = $this->alugada->terampilbyid($id_iklan);
-                $data['bidang']    = $profesi;
-                $data['detailterampil'] = $iklantenagaterampil;
-                return view('admin/iklan/tenagakerja/detailterampilView', $data);
+
                 break;
 
+            case 200: //Tenaga Terampil
+
+                $profesi = $this->alugada->sublayananbynosublayanan($nosublayanan)['sublayanan'];
+                // var_dump($profesi);die;
+                $iklantenagaterampil = $this->alugada->terampilbyid($id_iklan);
+                $data = [
+
+                    'nohplogin' =>$nohplogin,
+                    'detailterampil' => $iklantenagaterampil,
+                    'user_id'      => $user_id,
+                    'id_rekom'      => $id_rekom,
+                    'bidang'        => $profesi,
+                ];
+                return view('admin/iklan/tenagakerja/detailterampilView', $data);
+                break;
             case 300: //Kost & Kontrakan
                 $iklankost = $this->alugada->kostbyid($id_iklan);
-                $data['detailkost'] = $iklankost;
+                $data = [
+                    'nohplogin' =>$nohplogin,
+                    'detailkost' => $iklankost,
+                    'user_id'      => $user_id,
+                    'id_rekom'      => $id_rekom,
+                ];
                 return view('admin/iklan/property/detailkostView', $data);
+
                 break;
             case 400: //Property
                 if ($nosublayanan == 401) {   //Rumah
                     // var_dump("Benar Rumah");die;
                     $iklanrumah = $this->alugada->rumahbyid($id_iklan);
-                    $data['detailrumah'] = $iklanrumah;
+                    $data = [
+
+                        'nohplogin' =>$nohplogin,
+                        'detailrumah' => $iklanrumah,
+                        'user_id'      => $user_id,
+                        'id_rekom'      => $id_rekom,
+                    ];
                     return view('admin/iklan/property/detailrumahView', $data);
                 } elseif ($nosublayanan == 402) {  // Tanah
                     // var_dump("Benar Tanah");die;
                     $iklantanah = $this->alugada->tanahbyid($id_iklan);
-                    $data['detailtanah'] = $iklantanah;
+                    $data = [
+
+                        'nohplogin' =>$nohplogin,
+                        'detailtanah' => $iklantanah,
+                        'user_id'      => $user_id,
+                        'id_rekom'      => $id_rekom,
+                    ];
                     return view('admin/iklan/property/detailtanahView', $data);
                 } elseif ($nosublayanan == 403) {  // Apartemen
                     $iklanapartemen = $this->alugada->apartemenbyid($id_iklan);
-                    $data['detailapartemen'] = $iklanapartemen;
+                    $data = [
+
+                        'nohplogin' =>$nohplogin,
+                        'detailapartemen' => $iklanapartemen,
+                        'user_id'      => $user_id,
+                        'id_rekom'      => $id_rekom,
+                    ];
                     return view('admin/iklan/property/detailapartemenView', $data);
                 } elseif ($nosublayanan == 404) {  // Ruko
                     $iklanruko = $this->alugada->rukobyid($id_iklan);
-                    $data['detailruko'] = $iklanruko;
+                    $data = [
+
+                        'nohplogin' =>$nohplogin,
+                        'detailruko' => $iklanruko,
+                        'user_id'      => $user_id,
+                        'id_rekom'      => $id_rekom,
+                    ];
                     return view('admin/iklan/property/detailrukoView', $data);
                 } elseif ($nosublayanan == 405) {  // Bangunan Komersial
                     $iklankomersial = $this->alugada->komersialbyid($id_iklan);
-                    $data['detailkomersial'] = $iklankomersial;
+                    $data = [
+
+                        'nohplogin' =>$nohplogin,
+                        'detailkomersial' => $iklankomersial,
+                        'user_id'      => $user_id,
+                        'id_rekom'      => $id_rekom,
+                    ];
                     return view('admin/iklan/property/detailkomersialView', $data);
                 } elseif ($nosublayanan == 406) {
                 } elseif ($nosublayanan == 407) {
                 }
+
                 break;
             case 500: //Mobil
                 $iklanmobil = $this->alugada->mobilbyid($id_iklan);
-                $data['detailmobil'] = $iklanmobil;
+                $data = [
+
+                    'nohplogin' =>$nohplogin,
+                    'detailmobil' => $iklanmobil,
+                    'user_id'      => $user_id,
+                    'id_rekom'      => $id_rekom,
+                ];
                 return view('admin/iklan/kendaraan/detailmobilView', $data);
+
                 break;
             case 600: //Motor
                 $iklanmotor = $this->alugada->motorbyid($id_iklan);
-                $data['detailmotor'] = $iklanmotor;
-                return view('admin/iklan/kendaraan/detailmotorView', $data);
-                break;
+                $data = [
 
+                    'nohplogin' =>$nohplogin,
+                    'detailmotor' => $iklanmotor,
+                    'user_id'      => $user_id,
+                    'id_rekom'      => $id_rekom,
+                ];
+                return view('admin/iklan/kendaraan/detailmotorView', $data);
+
+                break;
             case 700:
 
                 break;
@@ -182,24 +207,31 @@ class Iklan extends BaseController
         //Update Tabel data
         if ($okno == "0") {
             // var_dump("Accept");die;
-            $data['is_active']  =1;
-            $data['checked']    =1;
-
+            $data = [
+                'is_active' => 1,
+                'checked'   => 1,
+                'suspend'   => 0,
+            ];
+            $datarekom = [
+                'is_active' => 1,
+                'checked'   => 1,
+                'suspend'   => 0,
+            ];
         } elseif ($okno == "1") {
             // var_dump("Reject");die;
-
-            $data['is_active']  =0;
-            if($this->alugada->rekomendasibyid($id_rekom)['checked']==0){
-                $data['checked'] =1;
-            }elseif($this->alugada->rekomendasibyid($id_rekom)['checked']==1){
-                $data['checked'] =2;
-            }elseif($this->alugada->rekomendasibyid($id_rekom)['checked']==2){
-                $data['checked'] =3;
-            }
-
+            $data = [
+                'is_active' => 0,
+                'checked'   => 1,
+                'suspend'   => 1,
+            ];
+            $datarekom = [
+                'is_active' => 0,
+                'checked'   => 1,
+                'suspend'   => 1,
+            ];
         }
 
-        $this->alugada->updaterekom($id_rekom, $data);
+        $this->alugada->updaterekom($id_rekom, $datarekom);
         switch ($nolayanan) {
             case 100:
                 $this->alugada->updateahli($id_iklan, $data);
