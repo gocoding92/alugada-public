@@ -18,12 +18,11 @@ class Auth extends BaseController
         $this->session = \Config\Services::session();
 
         $this->nohplogin = session()->get('nohplogin');
-        if($this->nohplogin==Null or $this->nohplogin==""){
+        if ($this->nohplogin == Null or $this->nohplogin == "") {
             $this->nohplogin = 12341234;
             // return redirect()->to('administrator');
 
         }
-
     }
 
     public function index()
@@ -165,12 +164,7 @@ class Auth extends BaseController
 
 
     public function logout()
-    {   
-        if($this->alugada->userbynohp($this->nohplogin)['role']==1){
-            session_destroy();
-            return redirect()->to('/administrator');
-            }
-        // var_dump($this->nohplogin);die;
+    {
         session_destroy();
         return redirect()->to('/beranda');
     }
