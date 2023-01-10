@@ -43,8 +43,8 @@
 
         <!-- 3 = selain 3 iklan tampil -->
         <?php if ($tbl_rekomendasi_iklan['is_active'] != 3) : ?>
-          <div class="card-layanan-list" style="height: 440px;">
-            <div class="card-layanan" style="height: 440px;">
+          <div class="card-layanan-list" style="height: 470px;">
+            <div class="card-layanan" style="height: 470px;">
               <figure class="card-figure-layanan">
                 <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
               </figure>
@@ -68,6 +68,7 @@
               </div>
               <div class="row-title-layanan">
                 <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
+                <span class="title-layanan">Rp. <?= number_format($tbl_rekomendasi_iklan['harga']); ?></span>
                 <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
                 <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
                 <div class="text-align-right">

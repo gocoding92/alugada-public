@@ -83,6 +83,9 @@ $routes->get('/iklan/detail-iklan-layanan/(:any)/(:num)/(:num)', 'Iklan::detailI
 $routes->get('/iklan/edit-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::editIklan/$1/$2/$3/$4/$5/');
 $routes->post('profil/delete-iklan', 'IklanProfil::deleteIklan');
 $routes->post('profil/edit-iklan', 'IklanProfil::editIklanProfil');
+$routes->post('iklan/detail/whatshapp', 'Iklan::detailIklanWa');
+
+
 
 // ---------------------------------------------------------------------------------
 
