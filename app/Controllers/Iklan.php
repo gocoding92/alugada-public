@@ -16,7 +16,7 @@ class Iklan extends BaseController
         $this->iklan = new ModelIklan();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
-        $this->noWAAdmin = '085894222865';
+        $this->noWAAdmin = '08111041381';
     }
     public function index($param = '')
     {

@@ -7,7 +7,8 @@
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nohp" class="font-size-13">Nomor Handphone</label>
-      <input type="text" id="no_handphone" class="form-control margin-top-6" value="08xxx" disabled>
+      <!-- <input type="text" id="no_handphone" class="form-control margin-top-6" value="08xxx" disabled> -->
+      <p>085809052137</p>
     </div>
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nohp" class="font-size-13">Masukkan Nama <span class="textcolor-red"> *</span></label>
@@ -16,6 +17,10 @@
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="nohp" class="font-size-13">Masukkan Password <span class="textcolor-red"> *</span>
         <input type="password" id="password" placeholder="Password" class="form-control margin-top-6">
+        <p>
+          Tampilkan sandi <br>
+          Sembuyikan sandi
+        </p>
     </div>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
       <button id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
