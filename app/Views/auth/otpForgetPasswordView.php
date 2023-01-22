@@ -7,6 +7,7 @@
   <div class="row">
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <input type="text" id="otp" placeholder="Masukkan Kode Verifikasi" class="form-control margin-top-6">
+      <p>01:00 Kirim Ulang otp</p>
     </div>
     <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">
       <button id="submit" class="btn btn-primary width-100-percent textcolor-white"> Kirim OTP </button>

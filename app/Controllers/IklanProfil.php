@@ -16,7 +16,7 @@ class IklanProfil extends BaseController
         $this->iklan = new ModelIklanProfil();
         $this->session = \Config\Services::session();
         $this->admin = 0;   //Bukan Admin
-        $this->noWAAdmin = '085894222865';
+        $this->noWAAdmin = '08111041381';
     }
 
     public function save()

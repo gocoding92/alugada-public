@@ -31,6 +31,12 @@ if (!empty($_SESSION['nohp'])) {
     </a>
   </div>
   <!-- <div class="row-footer">
+    <a href="<?= base_url('/beranda'); ?>" class="text-footer-menu">
+      <img alt="Kontak Kami" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
+      Iklan Ku
+    </a>
+  </div> -->
+  <!-- <div class="row-footer">
     <a href="<?= base_url('/pesan'); ?>" class="text-footer-menu">
       <img alt="Pesan" src="<?= base_url(''); ?>/Image/pesan.png" class="img-footer-menu"> <br />
       PESAN

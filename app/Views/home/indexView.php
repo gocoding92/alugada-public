@@ -22,7 +22,18 @@
       </a>
     <?php endforeach; ?>
   </div>
-
+    <div class="card" style="width: 18rem;">
+      <img style="width: 210px;" class="card-img-top" src="https://images.bisnis.com/posts/2018/11/11/858649/130610_tenagakerjaasing.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Tenaga Ahli</h5>
+        <p class="card-text">
+          Nama : Abdul Rahman <br>
+          Keahlian : Driver <br>
+          Umur : 18 Tahun
+        </p>
+        <a href="#" style="text-decoration: none;" class="btn btn-primary">Detail</a>
+      </div>
+    </div>
   <div class="row-card-layanan">
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) :
       $image = $tbl_rekomendasi_iklan['image'];
