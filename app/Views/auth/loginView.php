@@ -12,11 +12,10 @@
     <div class="margin-bottom-12 padding-right-46 padding-left-16">
       <label for="password" class="font-size-13">Masukkan Password <span class="textcolor-red"> *</span></label>
       <input type="password" id="password" class="form-control margin-top-6" placeholder="***">
-      <p style="font-size:11px;">
-        Tampilkan Sandi <br>
-        Sembuyikan Sandi
-      </p>
     </div>
+    <p id="show-password" class="show-password cursor-pointer">
+      <i class="fa fa-eye" id="icon-show"></i> <span id="text-show"> Tampilkan Password </span>
+    </p>
     <p class=" margin-left-16 margin-right-18 text-align-right">
       <a class="textcolor-303235 font-size-14 text-decoration-none" href="<?php echo base_url('lupa-password'); ?>">Lupa Password ?</a>
     </p>
@@ -35,5 +34,24 @@
 </div>
 
 <?= $this->include("script/login"); ?>
+
+
+<script>
+  $("#show-password").click(function() {
+    var password = $('#password').attr('type');
+    $("#icon-show").removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+    var textShow = 'Tampilkan Password';
+
+    var type = 'password';
+    if (password === 'password') {
+      type = 'text';
+      textShow = 'Sembunyikan Password';
+      $("#icon-show").removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+    }
+
+    $('#password').attr('type', type);
+    $('#text-show').text(textShow);
+  });
+</script>
 
 <?= $this->endSection(); ?>

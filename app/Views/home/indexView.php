@@ -1,5 +1,12 @@
 <?= $this->extend('layout/template'); ?>
 
+<?php
+$url = '/login';
+if (! empty($_SESSION['nohp'])) {
+  $url = '/pasang-iklan';
+}
+?>
+
 <?= $this->section('content'); ?>
 <div id="home-page" class="row-sm">
   <div class="position-relative top10">
@@ -9,7 +16,6 @@
       <?php endforeach; ?>
     </div>
   </div>
-
   <div class="row-categories">
     <?php foreach ($layanan as $l) : ?>
       <a href="<?= base_url('iklan/detail-iklan-layanan/' . $l['layanan'] . '/' . $l['nolayanan'] . '/0'); ?>" class="categories-button text-decoration-none" variant="light">
@@ -22,18 +28,6 @@
       </a>
     <?php endforeach; ?>
   </div>
-    <div class="card" style="width: 18rem;">
-      <img style="width: 210px;" class="card-img-top" src="https://images.bisnis.com/posts/2018/11/11/858649/130610_tenagakerjaasing.jpg" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Tenaga Ahli</h5>
-        <p class="card-text">
-          Nama : Abdul Rahman <br>
-          Keahlian : Driver <br>
-          Umur : 18 Tahun
-        </p>
-        <a href="#" style="text-decoration: none;" class="btn btn-primary">Detail</a>
-      </div>
-    </div>
   <div class="row-card-layanan">
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) :
       $image = $tbl_rekomendasi_iklan['image'];
@@ -68,6 +62,12 @@
       </a>
     <?php endforeach; ?>
   </div>
-</div>
+  <?php if (count($rekomendasi_iklan) == 0): ?>
+    <div class="empty-state-iklan">
+      <img style="max-width: 90px;" src="<?= base_url('Image/emptystate.png') ?>" />
+      <p class="text-empty-state-iklan"> Iklan Belum Tersedia, Pasang Iklan Gratis! </p>
+      <a href="<?= base_url($url); ?>" class="btn btn-primary width-100-percent text-decoration-none textcolor-white"> Yuk, Pasang Iklan Sekarang </a>
+    </div>
+  <?php endif; ?>
 </div>
 <?= $this->endSection(); ?>

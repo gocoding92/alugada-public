@@ -7,7 +7,7 @@
 <div id="home-page" class="container-profil padding-bottom-90">
   <div class="row-profil display-flex">
     <div class="position-img-profil">
-      <img class="img-profil" src="<?= $gambar ? base_url('Image/user/' . $gambar) : base_url('Image/user/img-default.png') ?>" alt="">
+      <img class="img-profil" src="<?= $gambar ? base_url('Image/User/' . $gambar) : base_url('Image/User/img-default.png') ?>" alt="">
       <p class="font-size-10">
         Verified
       </p>
@@ -23,8 +23,11 @@
   </div>
 
   <div class="row-profil-iklan">
-    <h4> Iklan Anda </h4>
-    <div class="row-card-layanan">
+    <?php if (count($data_iklan) != 0): ?>
+      <h4> Iklan Anda </h4>
+    <?php endif; ?>
+
+    <div class="row-card-layanan-profil">
       <?php foreach ($data_iklan as $tbl_rekomendasi_iklan) :
         $image = $tbl_rekomendasi_iklan['image'];
         $nama_iklan = substr($tbl_rekomendasi_iklan['nama_iklan'], 0, 16);
@@ -43,7 +46,7 @@
 
         <!-- 3 = selain 3 iklan tampil -->
         <?php if ($tbl_rekomendasi_iklan['is_active'] != 3) : ?>
-          <div class="card-layanan-list" style="height: 470px;">
+          <div class="card-layanan-list margin-bottom-10" style="height: 470px;">
             <div class="card-layanan" style="height: 470px;">
               <figure class="card-figure-layanan">
                 <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
@@ -83,6 +86,14 @@
       <?php endforeach; ?>
     </div>
   </div>
+
+  <?php if (count($data_iklan) == 0): ?>
+    <div class="empty-state-iklan" style="margin-top: 70px;">
+      <img style="max-width: 90px;" src="<?= base_url('Image/emptystate.png') ?>" />
+      <p class="text-empty-state-iklan"> Iklan Belum Tersedia, Pasang Iklan Gratis! </p>
+      <a href="<?= base_url('pasang-iklan'); ?>" class="btn btn-primary width-100-percent text-decoration-none textcolor-white"> Yuk, Pasang Iklan Sekarang </a>
+    </div>
+  <?php endif; ?>
 
   <script>
     function detailIklan(url_detail) {

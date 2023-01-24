@@ -1,7 +1,9 @@
 <?php
 $url = '/login';
-if (!empty($_SESSION['nohp'])) {
+$session = false;
+if (! empty($_SESSION['nohp'])) {
   $url = '/pasang-iklan';
+  $session = true;
 }
 ?>
 
@@ -18,7 +20,7 @@ if (!empty($_SESSION['nohp'])) {
       LAYANAN KAMI
     </a>
   </div>
-  <div class="row-footer">
+  <div class="row-footer menu-botton-pasang-iklan">
     <a href="<?= base_url($url); ?>" class="text-footer-menu">
       <img alt="Pasang Iklan" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
       PASANG IKLAN
@@ -30,16 +32,10 @@ if (!empty($_SESSION['nohp'])) {
       KONTAK KAMI
     </a>
   </div>
-  <!-- <div class="row-footer">
-    <a href="<?= base_url('/beranda'); ?>" class="text-footer-menu">
-      <img alt="Kontak Kami" src="<?= base_url(''); ?>/Image/pasangiklan.png" class="img-footer-menu"> <br />
-      Iklan Ku
+  <div class="row-footer">
+    <a href="<?= base_url($session ? 'profil' : '/login'); ?>" class="text-footer-menu">
+      <img alt="Kontak Kami" src="<?= base_url(''); ?>/Image/kontakkami.png" class="img-footer-menu"> <br />
+      IKLAN SAYA
     </a>
-  </div> -->
-  <!-- <div class="row-footer">
-    <a href="<?= base_url('/pesan'); ?>" class="text-footer-menu">
-      <img alt="Pesan" src="<?= base_url(''); ?>/Image/pesan.png" class="img-footer-menu"> <br />
-      PESAN
-    </a>
-  </div> -->
+  </div>
 </div>

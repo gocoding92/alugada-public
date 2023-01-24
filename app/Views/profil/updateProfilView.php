@@ -22,6 +22,9 @@
       </div>
       <div class="margin-bottom-12 padding-right-46 padding-left-16">
         <label for="alamat" class="font-size-13">Avatar</label>
+        <!-- // hidden gambar -->
+        <input type="hidden" name="image-default" value="<?= $gambar; ?>">
+
         <input type="file" name="avatar" class="form-control margin-top-6">
       </div>
       <div class="margin-bottom-12 padding-right-20 padding-left-16 margin-top-20">

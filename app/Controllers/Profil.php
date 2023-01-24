@@ -40,8 +40,7 @@ class Profil extends BaseController
         $result['email'] = $data_user['email'];
         $result['alamat'] = $data_user['alamat'];
         $result['deskripsi'] = $data_user['deskripsi'];
-
-
+        $result['gambar'] = $data_user['gambar'];
 
         return view('profil/updateProfilView', $result);
     }
@@ -56,12 +55,13 @@ class Profil extends BaseController
         $nama = $this->request->getVar('nama');
         $email = $this->request->getVar('email');
         $alamat = $this->request->getVar('alamat');
+
         $deskripsi = '';
         $id_user = $this->session->get('id');
         $imageFile  = $this->request->getFiles();
        
         $imageFile1 = $imageFile['avatar'];
-        $imageName1 = '';
+        $imageName1 = $this->request->getVar('image-default');
         if ($imageFile1->isValid()) {
             $imageName1 = $imageFile1->getName();
             $imageFile1->move(ROOTPATH . 'public/Image/user', $imageName1);
