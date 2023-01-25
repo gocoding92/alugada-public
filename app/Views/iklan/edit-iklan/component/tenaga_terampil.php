@@ -6,30 +6,7 @@
 
         <?= $this->include('iklan/css/styles'); ?>
 
-        <div>
-            <div class="fade">
-                <?php if ($data_iklan['image_1']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_1']; ?>" /></div>
-                <?php endif; ?>
-                <!-- <?php if ($data_iklan['image_2']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_2']; ?>" /></div>
-                <?php endif; ?>
-                <?php if ($data_iklan['image_3']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_3']; ?>" /></div>
-                <?php endif; ?>
-                <?php if ($data_iklan['image_4']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_4']; ?>" /></div>
-                <?php endif; ?>
-                <?php if ($data_iklan['image_5']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_5']; ?>" /></div>
-                <?php endif; ?>
-                <?php if ($data_iklan['image_6']) : ?>
-                    <div><img class="img-slider-detail" src="<?= base_url('Image/iklan') ?>/<?= $path_folder; ?>/<?= $data_iklan['image_6']; ?>" /></div>
-                <?php endif; ?> -->
-            </div>
-        </div>
-
-        <?= $this->include("iklan/form/upload_img"); ?>
+        <?= $this->include("iklan/edit-iklan/component/upload_img"); ?>
 
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">

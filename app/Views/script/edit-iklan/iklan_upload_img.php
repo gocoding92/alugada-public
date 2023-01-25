@@ -19,6 +19,10 @@
         document.getElementById("img1").style.display = 'none';
         document.getElementById("deleteImg1").style.display = 'none';
         document.getElementById("imgInp1").value = "";
+
+        document.getElementById("img-edit-1").value = "";
+        document.getElementById("imgInpView1").style.display = 'block';
+
     }
 
     // gambar action 2
@@ -41,6 +45,9 @@
         document.getElementById("img2").style.display = 'none';
         document.getElementById("deleteImg2").style.display = 'none';
         document.getElementById("imgInp2").value = "";
+
+        document.getElementById("img-edit-2").value = "";
+        document.getElementById("imgInpView2").style.display = 'block';
     }
 
     // gambar action 3
@@ -63,6 +70,9 @@
         document.getElementById("img3").style.display = 'none';
         document.getElementById("deleteImg3").style.display = 'none';
         document.getElementById("imgInp3").value = "";
+
+        document.getElementById("img-edit-3").value = "";
+        document.getElementById("imgInpView3").style.display = 'block';
     }
 
     // gambar action 4
@@ -85,6 +95,9 @@
         document.getElementById("img4").style.display = 'none';
         document.getElementById("deleteImg4").style.display = 'none';
         document.getElementById("imgInp4").value = "";
+
+        document.getElementById("img-edit-4").value = "";
+        document.getElementById("imgInpView4").style.display = 'block';
     }
 
     // gambar action 5
@@ -107,6 +120,9 @@
         document.getElementById("img5").style.display = 'none';
         document.getElementById("deleteImg5").style.display = 'none';
         document.getElementById("imgInp5").value = "";
+
+        document.getElementById("img-edit-5").value = "";
+        document.getElementById("imgInpView5").style.display = 'block';
     }
 
     // gambar action 6
@@ -129,5 +145,8 @@
         document.getElementById("img6").style.display = 'none';
         document.getElementById("deleteImg6").style.display = 'none';
         document.getElementById("imgInp6").value = "";
+
+        document.getElementById("img-edit-6").value = "";
+        document.getElementById("imgInpView6").style.display = 'block';
     }
 </script>
