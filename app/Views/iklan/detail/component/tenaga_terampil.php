@@ -1,6 +1,6 @@
 <div>
     <div class="margin-bottom-12">
-        <h2><i class="fa fa-user"></i> <?= $data_iklan['nama_lengkap'] ?></h2>
+        <h2><br /><i class="fa fa-user"></i> <?= $data_iklan['nama_lengkap'] ?></h2>
         <p style="font-size: 12px; margin-top: -17px; color: #a1a1a1;"><i class="fa fa-edit"></i> <?= $data_iklan['deskripsi']; ?></p>
     </div>
     <h3> <i class="fa fa-info"></i> Tentang Kami </h3>

@@ -28,6 +28,7 @@ class LayananKami extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'active'        => 'layanan_kami',
 
         ];
 

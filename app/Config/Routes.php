@@ -83,7 +83,8 @@ $routes->get('/iklan/detail-iklan-layanan/(:any)/(:num)/(:num)', 'Iklan::detailI
 $routes->get('/iklan/edit-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::editIklan/$1/$2/$3/$4/$5/');
 $routes->post('profil/delete-iklan', 'IklanProfil::deleteIklan');
 $routes->post('profil/edit-iklan', 'IklanProfil::editIklanProfil');
-$routes->post('iklan/detail/whatshapp', 'Iklan::detailIklanWa');
+$routes->get('iklan/detail/chat', 'Iklan::detailIklanViewChat');
+$routes->post('iklan/detail/submit/chat', 'Iklan::submitIklanChat');
 
 
 
@@ -186,7 +187,7 @@ $routes->post('/admin-edit-slider', 'Admin\Slider::updateSlider'); // <---------
 
 $routes->get('/administrator-area/dashboard/', 'Admin\DashboardController::index');   // <--------- Ok
 
-// $routes->get('/administrator-area/iklan', 'Admin\Iklan::index'); // <--------- Ok
+// $routes->get('/administrator-area/iklan', 'Admin\Iklan::index'); // <--------- Okk
 $routes->get('admin-iklan-baru/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
 $routes->get('admin-iklan-aktif/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
 $routes->get('admin-iklan-tidak-aktif/(:any)', 'Admin\Iklan::index/$1'); // <--------- Ok
@@ -217,11 +218,11 @@ $routes->get('/aktifasisublayanan/(:any)/(:any)', 'Admin\SubLayananController::a
 // $routes->get('/detailiklanbaru', 'Admin\iklan::detailiklanbaru'); // <--------- Ok
 // $routes->get('/detailiklanbaru/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklanbaru/$1/$2/$3/$4/$5'); // <--------- Ok
 
-$routes->get('/admin-detail-iklan/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\iklan::detailiklan/$1/$2/$3/$4/$5'); // <--------- Ok
+$routes->get('/admin-detail-iklan/(:num)/(:num)/(:num)/(:num)/(:num)', 'Admin\Iklan::detailiklan/$1/$2/$3/$4/$5'); // <--------- Ok
 
 
 
-$routes->get('/acceptiklan/(:any)/(:any)/(:any)/(:any)/(:any)', 'Admin\iklan::acceptiklan/$1/$2/$3/$4/$5'); // <--------- Ok
+$routes->get('/acceptiklan/(:any)/(:any)/(:any)/(:any)/(:any)', 'Admin\Iklan::acceptiklan/$1/$2/$3/$4/$5'); // <--------- Ok
 // $routes->get('/rejectiklan/(:any)/(:any)/(:any)/(:any)', 'Admin\iklan::rejectiklan/$1/$2/$3/$4'); // <--------- Ok
 // $routes->get('/administrator-area/slider', 'Admin\Slider::index');   // <--------- Ok
 

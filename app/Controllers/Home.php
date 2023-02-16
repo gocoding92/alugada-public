@@ -31,7 +31,8 @@ class Home extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'rekomendasi_iklan' => $rekomendasiIklan,
-            'slider' => $querySlider
+            'slider' => $querySlider,
+            'active' => 'home'
         ];
         return view('home/indexView', $data);
     }

@@ -85,7 +85,7 @@ class ModelHome extends Model
             a.count_suspend,
             b.count_suspend AS count_suspend_user
 
-        FROM tbl_rekomendasi_iklan AS a INNER JOIN tbl_user AS b ON a.user_id = b.id");
+        FROM tbl_rekomendasi_iklan AS a INNER JOIN tbl_user AS b ON a.user_id = b.id ORDER BY a.created_at DESC ");
         $results = $query->getResultArray();
 
         $data = array();

@@ -36,31 +36,10 @@
 
 <script>
   function redirecWhatshap() {
-    var session = <?= $_SESSION['nohp']; ?>
+    var session = <?php (! empty($_SESSION['nohp']) ? $_SESSION['nohp'] : '0' ); ?>
 
     if (!session) {
       window.location.href = "<?php echo base_url('/login'); ?>";
-    }
-
-    if (session) {
-        if (confirm("Apakah anda yakin untuk menghubungi via whatshapp ?") == true) {
-          $.ajax({
-                url: "<?= base_url('iklan/detail/whatshapp'); ?>",
-                type: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                data: {nohp: session},
-                success: function(data) {
-
-                  console.log('data', data);
-                  // toastr.success('Anda berhasil menghubungi pemilik iklan, tunggu balasan dari pemilik iklan!');
-
-                  return;
-                }
-            });
-
-        }
     }
   }
 </script>

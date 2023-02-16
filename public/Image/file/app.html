@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+    <input type="file" name="lampiran" id="lampiran">
+    <button onclick="testing()">SUBMIT</button>
+<body>
+    <script>
+        function testing() {
+            var dataFile = document.getElementById('lampiran');
+            var myHeaders = new Headers();
+            myHeaders.append("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhcHByZXN0c2VydmljZSIsImF1ZCI6ImFkbWluIiwiaWF0IjoxNjczMzcwMTAyLCJuYmYiOjE2NzMzNzAxMTIsImV4cCI6MTY3MzQ1NjUwMiwiZGF0YSI6eyJ1c2VybmFtZSI6InN1cGVyYWRtaW5AZGVtby5jb20iLCJwYXNzd29yZCI6IjE3YzQ1MjBmNmNmZDFhYjUzZDg3NDVlODQ2ODFlYjQ5In19.Ky_2y-6U-kGdlsQ5W2tjkUEbcDTIrJWcHSb0khPSKo8");
+    
+            var formdata = new FormData();
+            formdata.append("lampiran", dataFile.files[0]);
+    
+            var requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: formdata,
+                redirect: 'follow'
+            };
+    
+            fetch("http://localhost/WORKSPACE/pnbp_api/jasa_siaran/lampiran/upload_lampiran", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+        }
+    </script>
+</body>
+
+</html>

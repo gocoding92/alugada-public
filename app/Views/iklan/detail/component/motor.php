@@ -1,6 +1,6 @@
 <div>
     <div class="margin-bottom-12">
-        <h2><i class="fa fa-user"></i> <?= $data_iklan['judul_iklan'] ?></h2>
+        <h2><br /><i class="fa fa-user"></i> <?= $data_iklan['judul_iklan'] ?></h2>
         <p class="deskripsi-detail-iklan"><i class="fa fa-edit"></i> <?= $data_iklan['deskripsi']; ?></p>
     </div>
     <h3> <i class="fa fa-info"></i> Info Kami </h3>

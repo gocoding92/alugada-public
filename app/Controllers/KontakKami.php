@@ -31,6 +31,7 @@ class KontakKami extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'active'        => 'kontak_kami',
 
         ];
 

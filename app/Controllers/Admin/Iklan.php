@@ -94,7 +94,6 @@ class Iklan extends BaseController
         // } else {
         //     $nohplogin = $nohplogin;
         // }
-
         
         $data['nohplogin'] = $this->nohplogin;
         $data['user_id']   = $user_id;

@@ -2,6 +2,29 @@
 
 <?= $this->section('content'); ?>
 
+<?php
+$url = '/login';
+if (! empty($_SESSION['nohp'])) {
+  $url = '/pasang-iklan';
+}
+
+// var_dump(current_url());
+// exit;
+
+$current_url = current_url();
+
+
+
+?>
+
+<style>
+    .active-menu {
+        color: #489fe4;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+
 <div id="home-page" class="row-sm">
   <div class="row-categories">
     <?php foreach ($data_sub_layanan as $l) :
@@ -52,6 +75,14 @@
       </a>
     <?php endforeach; ?>
   </div>
+  
+  <?php if (count($data_iklan) == 0): ?>
+    <div class="empty-state-iklan">
+      <img style="max-width: 90px;" src="<?= base_url('Image/emptystate.png') ?>" />
+      <p class="text-empty-state-iklan"> Iklan Belum Tersedia, Pasang Iklan Gratis! </p>
+      <a href="<?= base_url($url); ?>" class="btn btn-primary width-100-percent text-decoration-none textcolor-white"> Yuk, Pasang Iklan Sekarang </a>
+    </div>
+  <?php endif; ?>
 </div>
 
 <script>

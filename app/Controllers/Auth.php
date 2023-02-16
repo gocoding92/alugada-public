@@ -27,7 +27,9 @@ class Auth extends BaseController
 
     public function index()
     {
-        return view('auth/loginView');
+        $result['active'] = 'auth';
+    
+        return view('auth/loginView', $result);
     }
 
     public function submit_login()
@@ -52,7 +54,11 @@ class Auth extends BaseController
 
     public function register()
     {
-        return view('auth/registerView');
+        
+        $result['active'] = 'auth';
+    
+        return view('auth/registerView', $result);
+        
     }
 
     public function submit_register()
@@ -67,7 +73,10 @@ class Auth extends BaseController
 
     public function otp()
     {
-        return view('auth/otpView');
+        $result['active'] = 'auth';
+    
+        return view('auth/otpView', $result);
+        
     }
 
     public function submit_otp()
@@ -83,7 +92,9 @@ class Auth extends BaseController
 
     public function data()
     {
-        return view('auth/dataView');
+        $result['active'] = 'auth';
+    
+        return view('auth/dataView', $result);
     }
 
     public function submit_data()
@@ -110,7 +121,10 @@ class Auth extends BaseController
 
     public function forget_password()
     {
-        return view('auth/forgetPasswordView');
+        
+        $result['active'] = 'auth';
+    
+        return view('auth/forgetPasswordView', $result);
     }
 
     public function submit_forget_password()
@@ -125,7 +139,9 @@ class Auth extends BaseController
 
     public function otp_forget_password()
     {
-        return view('auth/otpForgetPasswordView');
+        $result['active'] = 'auth';
+    
+        return view('auth/otpForgetPasswordView', $result);
     }
 
     public function submit_otp_forget_password()
@@ -141,7 +157,9 @@ class Auth extends BaseController
 
     public function lockscreen()
     {
-        return view('lockscreen/lockScreenView');
+        $result['active'] = 'auth';
+    
+        return view('lockscreen/lockScreenView', $result);
     }
 
     public function submit_lockscreen()

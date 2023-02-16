@@ -117,4 +117,24 @@ class ModelIklan extends Model
 
         return $this->db->table('tbl_rekomendasi_iklan')->getWhere($where_sub_layanan)->getResultArray();;
     }
+    public function saveChatUser($data = [])
+    {
+        $db = $this->db;
+        $insert = $db->table('tbl_chat_user')->insert($data);
+
+        $message = "Chat anda tidak berhasil dikirim!";
+        $status = 404;
+
+        if ($insert) {
+            $message = "Chat anda berhasil dikirim, tunggu 1x24 jam!";
+            $status = 200;
+        }
+
+        $response = array("data" => array(
+            array('message' => $message),
+            array('status' => $status),
+        ));
+
+        return json_encode($response);
+    }
 }

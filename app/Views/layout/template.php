@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
-    <link rel="stylesheet" href="<?= base_url(); ?>/home/css/styles.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/iklan/css/styles.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/global.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/component.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>/home/css/styles.css?v=<?=rand(1,1000)?>">
+    <link rel="stylesheet" href="<?= base_url(); ?>/iklan/css/styles.css?v=<?=rand(1,1000)?>">
+    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/global.css?v=<?=rand(1,1000)?>">
+    <link rel="stylesheet" href="<?= base_url(); ?>/custom/css/component.css?v=<?=rand(1,1000)?>">
     <link rel="stylesheet" href="<?= base_url(); ?>/custom/colors/colors.css">
 
     <!-- Slick style -->
@@ -64,7 +64,7 @@
         <?php echo $this->include('layout/navbar'); ?>
     </main>
 
-    <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>/home/js/custom.js?v=<?=rand(1,1000)?>"></script>
 
 </body>
 

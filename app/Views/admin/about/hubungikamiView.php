@@ -55,21 +55,21 @@
 
                   <?php foreach ($hubungikami as $l) : ?>
                     <tr>
-                      <td><?= $l['versi'];?></a></td>
+                      <td><?= $l['versi']; ?></a></td>
                       <td><?= $l['isi']; ?></td>
                       <td><?= $l['is_active']; ?></td>
                       <td>
-                          <a href="<?= base_url('edit-hubungi-kami'.'/'.$l['id']);?>">
-                            <span class="right badge badge-primary"><i class="fa fa-edit"></i> Edit</span>
-                          </a>
+                        <a href="<?= base_url('edit-hubungi-kami' . '/' . $l['id']); ?>">
+                          <span class="right badge badge-primary"><i class="fa fa-edit"></i> Edit</span>
+                        </a>
 
-                          <a href="<?= base_url('aktifasi-hubungikami/'.$l['id'].'/'.$l['is_active']);?>">
-                              <?php if($l['is_active']==0){?>
-                                  <span class="right badge badge-danger"><i class="fa fa-edit"></i> Aktifkan</span>
-                              <?php }elseif ($l['is_active']==1){?>
-                                  <span class="right badge badge-danger"><i class="fa fa-edit"></i> Takedown</span>
-                              <?php };?>
-                          </a>
+                        <a href="<?= base_url('aktifasi-hubungikami/' . $l['id'] . '/' . $l['is_active']); ?>">
+                          <?php if ($l['is_active'] == 0) { ?>
+                            <span class="right badge badge-danger"><i class="fa fa-edit"></i> Aktifkan</span>
+                          <?php } elseif ($l['is_active'] == 1) { ?>
+                            <span class="right badge badge-danger"><i class="fa fa-edit"></i> Takedown</span>
+                          <?php }; ?>
+                        </a>
 
                       </td>
                     </tr>
@@ -99,27 +99,27 @@
       </div>
       <div class="modal-body">
 
-          <form action="<?= base_url('tambah-hubungi-kami');?>" method="post">
+        <form action="<?= base_url('tambah-hubungi-kami'); ?>" method="post">
 
-            <div class="row mb-1 mt-1">
-                  <label for="versi" class="col-4 col-sm-3 col-form-label">Versi</label>
-                  <div class="col-8 col-sm-10">
-                      <input readonly name="versi" id="versi" value="<?= $l['versi']+1;?>">
-                  </div>
-              </div>
-          
-              <div class="row mb-1 mt-1">
-                  <label for="isi" class="col-4 col-sm-3 col-form-label">Hubungi Kami</label>
-                  <div class="col-8 col-sm-10">
-                      <textarea name="isi" id="isi" cols="50" rows="5" placeholder="Tulis isi hubungi kami ............"></textarea>
-                  </div>
-              </div>
-              <!-- <button type="submit" class="btn btn-primary">Tambah</button> -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
-              </div>
-          </form>        
+          <div class="row mb-1 mt-1">
+            <label for="versi" class="col-4 col-sm-3 col-form-label">Versi</label>
+            <div class="col-8 col-sm-10">
+              <input readonly name="versi" id="versi" value="<?php echo $l['versi'] + 1; ?>">
+            </div>
+          </div>
+
+          <div class="row mb-1 mt-1">
+            <label for="isi" class="col-4 col-sm-3 col-form-label">Hubungi Kami</label>
+            <div class="col-8 col-sm-10">
+              <textarea name="isi" id="isi" cols="50" rows="5" placeholder="Tulis isi hubungi kami ............"></textarea>
+            </div>
+          </div>
+          <!-- <button type="submit" class="btn btn-primary">Tambah</button> -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
 
       </div>
     </div>

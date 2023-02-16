@@ -26,6 +26,8 @@ class Profil extends BaseController
         $result['deskripsi'] = $this->session->get('deskripsi');
         $result['alamat'] = $this->session->get('alamat');
         $result['gambar'] = $this->session->get('gambar');
+        $result['active'] = 'profil';
+       
 
         return view('profil/indexView', $result);
     }
@@ -41,13 +43,16 @@ class Profil extends BaseController
         $result['alamat'] = $data_user['alamat'];
         $result['deskripsi'] = $data_user['deskripsi'];
         $result['gambar'] = $data_user['gambar'];
+        $result['active'] = 'profil';
 
         return view('profil/updateProfilView', $result);
     }
 
     public function updatePassword($param = '')
     {
-        return view('profil/updatePasswordView');
+         $result['active'] = 'profil';
+         
+        return view('profil/updatePasswordView', $result);
     }
 
     public function update_profil()

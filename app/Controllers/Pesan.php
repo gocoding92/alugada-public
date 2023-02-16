@@ -28,6 +28,8 @@ class Pesan extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'active'        => 'pesan',
+
 
         ];
 
@@ -48,6 +50,7 @@ class Pesan extends BaseController
             'title'         => "Layanan",
             'layanan'       => $this->modelalugada->layanan(),
             'jenisiklan'    => $this->modelalugada->jenisiklan(),
+            'active'        => 'pesan',
 
         ];
 

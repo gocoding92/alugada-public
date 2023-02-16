@@ -5,6 +5,9 @@ $url = '/login';
 if (! empty($_SESSION['nohp'])) {
   $url = '/pasang-iklan';
 }
+
+// color: #489fe4;
+//     font-weight: bold;
 ?>
 
 <?= $this->section('content'); ?>
@@ -53,7 +56,7 @@ if (! empty($_SESSION['nohp'])) {
                 <div style="position: relative; top: -10px;">
                   <p class="title-alamat"> <i class="fa fa-map"></i> <?= $alamat . $alamat_str; ?></p>
                   <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at_iklan']; ?></span> <br />
-                  <button id="submit" style="width: 100px;" class="btn btn-primary textcolor-white margin-top-7 cursor-pointer"> Detail </button>
+                  <button id="submit" style="width: 77px;" class="btn btn-primary textcolor-white margin-top-7 cursor-pointer"> Detail </button>
                 </div>
               </div>
             </div>

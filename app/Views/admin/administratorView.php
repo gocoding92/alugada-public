@@ -4,26 +4,26 @@
 
 <div class="container">
     <div class="row">
-        
+
         <div class="col-9 col-md-6 rounded-3 mx-auto bg-info mt-5">
             <div class="text-primary">
-                <?php if(session()->getFlashdata('register')){?>
-                    <?= session()->getFlashdata('register');?>
-                <?php }else{?>
-                    <h3>LOGIN</h3>
-                <?php };?>
+                <?php if (session()->getFlashdata('register')) { ?>
+                    <?= session()->getFlashdata('register'); ?>
+                <?php } else { ?>
+                    <h3>Login Admin</h3>
+                <?php }; ?>
             </div>
             <form method="POST" action="<?= base_url('admin-verifikasilogin'); ?>" enctype="multipart/form-data">
 
                 <div class="row mb-3 mt-3">
                     <label for="nohp" class="col-4 col-form-label">No HP</label>
                     <div class="col-8">
-                        <input type="text" class="form-control <?php echo ($validation->hasError('nohp')) ? 'is-invalid' : '';?>" id="nohp" name="nohp" placeholder="+6281234xxxx  atau  081234xxxx" value="<?= old('nohp');?>" >
+                        <input type="text" class="form-control <?php echo ($validation->hasError('nohp')) ? 'is-invalid' : ''; ?>" id="nohp" name="nohp" placeholder="+6281234xxxx  atau  081234xxxx" value="<?= old('nohp'); ?>">
                         <div class="invalid-feedback">
-                            <?php echo $validation->getError('nohp');?>
+                            <?php echo $validation->getError('nohp'); ?>
                         </div>
                         <div class="text-danger">
-                            <?= session()->getFlashdata('belumterdaftar');?>
+                            <?= session()->getFlashdata('belumterdaftar'); ?>
                         </div>
 
                     </div>
@@ -31,12 +31,12 @@
                 <div class=" row mb-3">
                     <label for="password" class="col-4 col-form-label">Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control <?php echo ($validation->hasError('password')) ? 'is-invalid' : '';?>" id="password" name="password" value="<?= old('password');?>" placeholder="Masukkan password anda">
+                        <input type="password" class="form-control <?php echo ($validation->hasError('password')) ? 'is-invalid' : ''; ?>" id="password" name="password" value="<?= old('password'); ?>" placeholder="Masukkan password anda">
                         <div class="invalid-feedback">
-                            <?php echo $validation->getError('password');?>
+                            <?php echo $validation->getError('password'); ?>
                         </div>
                         <div class="text-danger">
-                            <?= session()->getFlashdata('passwordsalah');?>
+                            <?= session()->getFlashdata('passwordsalah'); ?>
                         </div>
                     </div>
                 </div>
@@ -58,6 +58,7 @@
     </div>
 </div>
 
-<?php //echo $this->include("script/login"); ?>
+<?php //echo $this->include("script/login"); 
+?>
 
 <?= $this->endSection(); ?>
