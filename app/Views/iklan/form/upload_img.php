@@ -6,7 +6,7 @@
                 <div id="imgInpView1">
                     <i class="fa fa-2x fa-camera" id="iconCamera1"></i>
                 </div>
-                <input id="imgInp1" type="file" name="file1" class="display-none" />
+                <input id="imgInp1" accept=".jpg, .jpeg, .png" type="file" name="file1" class="display-none" onchange="uploadImage()" />
                 <img id="img1" class="img-upload-iklan" src="#" alt="your image" style="display: none;" />
                 <p id="deleteImg1" class="deleteImg" style="display: none;"> Delete </p>
             </label>

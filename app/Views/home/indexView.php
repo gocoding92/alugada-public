@@ -45,7 +45,7 @@ if (! empty($_SESSION['nohp'])) {
         <div class="card-layanan-list">
           <div class="card-layanan">
             <figure class="card-figure-layanan">
-              <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
+              <img src="<?= $image; ?>" class="card-img-layanan">
             </figure>
             <div class="row-title-layanan">
               <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>

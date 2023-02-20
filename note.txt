@@ -397,3 +397,18 @@ Note 30/12/2022
 1. Count Suspend Rekomendasi Iklan dan User
 2. Tambah List data Iklan All bedasarkan is_active, suspend, checked & id_checker
 3. Tampilkan dashboard dimenu sidebar
+
+
+
+
+#ALUGADA
+1. Clone dari hosting ke local (DONE)
+2. Bikin function var_dump dan hub WA
+3. Bikin Validasi, kalau belum login redirect ke login, kalau sudah ke halaman baru note (OPEN)
+4. Buat Tampilan Formnya
+5. Submit form pesan
+6. Get Tampilan
+7. Get Detail Tampilan
+8. Bikin Github Untuk Go Coding (DONE)
+9. Connect DBeaver Alugada (DONE)
+

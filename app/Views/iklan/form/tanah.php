@@ -1,21 +1,54 @@
-<form method="post" enctype="multipart/form-data" action="<?= base_url('iklan/saveTanah'); ?>">
+<form method="post" enctype="multipart/form-data">
     <div class="row">
         <h2 class="margin-top-3 margin-bottom-min3"> <i class=" fa fa-edit"></i> Informasi Data <br />
             <span class="font-size-10 position-relative bottom-16 left-30"> Property - Tanah </span>
         </h2>
 
-        <?php //$this->include("iklan/form/upload_img"); ?>
+        <?php // $this->include("iklan/form/upload_img"); ?>
         
-        
-        <!--<input id="imgInp1" type="file" name="file1" accept="image/*" style="display:block" />-->
+        <!-- <input id="imgInp1" type="file" name="file1" accept=".jpg, .jpeg, .png" style="display:block" /> -->
         <!--<input id="imgInp2" type="file" name="file2" accept="image/*" style="display:block" />-->
         <!--<input id="imgInp3" type="file" name="file3" accept="image/*" style="display:block" />-->
         <!--<input id="imgInp4" type="file" name="file4" accept="image/*" style="display:block" />-->
         <!--<input id="imgInp5" type="file" name="file5" accept="image/*" style="display:block" />-->
         <!--<input id="imgInp6" type="file" name="file6" accept="image/*" style="display:block" />-->
         
-        <input type="file" name="file[]" accept="image/*" style="display:block" multiple />
-        
+        <!-- <input type="file" name="file" accept="image/*" style="display:block" onchange /> -->
+
+        <!-- <input type="file" id="imgInp1" accept=".jpg, .jpeg, .png" onchange="uploadImage()" /> -->
+
+        <!-- <p> Ori </p>
+        <img id="input" /> <br />
+
+        <p> Compress </p>
+        <img id="output" /> -->
+
+        <input
+          type="file"
+          id="upload1"
+          accept=".jpg, .jpeg, .png"
+          onchange="uploadImage('im1')"
+        />
+        <input type="text" name="uploadForm1" id="uploadForm1" />
+        <img id="img1" class="img-upload-iklan" src="#" alt="your image" />
+
+        <input
+          type="file"
+          id="upload2"
+          accept=".jpg, .jpeg, .png"
+          onchange="uploadImage('im2')"
+        />
+        <input type="text" name="uploadForm2" id="uploadForm2" />
+        <img id="img2" class="img-upload-iklan" src="#" alt="your image" />
+
+        <input
+          type="file"
+          id="upload3"
+          accept=".jpg, .jpeg, .png"
+          onchange="uploadImage('im3')"
+        />
+        <input type="text" name="uploadForm3" id="uploadForm3" />
+        <img id="img3" class="img-upload-iklan" src="#" alt="your image" />
 
         <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
         <input type="hidden" name="nosublayanan" value="<?= $no_sublayanan; ?>">
@@ -79,82 +112,74 @@
 </form>
 
 <script>
-    
-    const MAX_WIDTH = 350;
-    const MAX_HEIGHT = 200;
-    const MIME_TYPE = "image/jpeg";
-    const QUALITY = 0.9;
-    
-    const input = document.getElementById("img1");
-    input.onchange = function (ev) {
-      const file = ev.target.files[0]; // get the file
-      
-      console.log('file', file)
-      return;
-      
-      const blobURL = URL.createObjectURL(file);
-      const img = new Image();
-      img.src = blobURL;
-      img.onerror = function () {
-        URL.revokeObjectURL(this.src);
-        // Handle the failure properly
-        console.log("Cannot load image");
-      };
-      img.onload = function () {
-        URL.revokeObjectURL(this.src);
-        const [newWidth, newHeight] = calculateSize(img, MAX_WIDTH, MAX_HEIGHT);
-        const canvas = document.createElement("canvas");
-        canvas.width = newWidth;
-        canvas.height = newHeight;
-        const ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0, newWidth, newHeight);
-        canvas.toBlob(
-          (blob) => {
-            // Handle the compressed image. es. upload or save in local state
-            displayInfo('Original file', file);
-            displayInfo('Compressed file', blob);
-          },
-          MIME_TYPE,
-          QUALITY
-        );
-        document.getElementById("root").append(canvas);
-      };
-    };
-    
-    function calculateSize(img, maxWidth, maxHeight) {
-      let width = img.width;
-      let height = img.height;
-    
-      // calculate the width and height, constraining the proportions
-      if (width > height) {
-        if (width > maxWidth) {
-          height = Math.round((height * maxWidth) / width);
-          width = maxWidth;
-        }
-      } else {
-        if (height > maxHeight) {
-          width = Math.round((width * maxHeight) / height);
-          height = maxHeight;
-        }
-      }
-      return [width, height];
-    }
-    
-    // Utility functions for demo purpose
-    
-    function displayInfo(label, file) {
-      const p = document.createElement('p');
-      p.innerText = `${label} - ${readableBytes(file.size)}`;
-      document.getElementById('root').append(p);
-    }
-    
-    function readableBytes(bytes) {
-      const i = Math.floor(Math.log(bytes) / Math.log(1024)),
-        sizes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
-    
-      return (bytes / Math.pow(1024, i)).toFixed(2) + ' ' + sizes[i];
-    }
-</script>
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
-<?php // $this->include("script/iklan/iklan_tanah"); ?>
+function uploadImage(valImg) {
+
+  let file = false;
+  let idFile = "";
+  if (valImg === "im1") {
+    idFile = "#upload1";
+  }
+
+  if (valImg === "im2") {
+    idFile = "#upload2";
+  }
+
+  if (valImg === "im3") {
+    idFile = "#upload3";
+  }
+
+  file = document.querySelector(idFile).files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.readAsDataURL(file);
+
+  reader.onload = function (event) {
+    const imgElement = document.createElement("img");
+    imgElement.src = event.target.result;
+
+    imgElement.onload = function (e) {
+      const canvas = document.createElement("canvas");
+      const MAX_WIDTH = 400;
+
+      const scaleSize = MAX_WIDTH / e.target.width;
+      canvas.width = MAX_WIDTH;
+      canvas.height = e.target.height * scaleSize;
+
+      const ctx = canvas.getContext("2d");
+
+      ctx.drawImage(e.target, 0, 0, canvas.width, canvas.height);
+
+      const srcEncoded = ctx.canvas.toDataURL(e.target, "image/jpeg");
+
+      let idFormFile = "";
+      let imgEncode = "";
+      if (valImg === "im1") {
+        idFormFile = "#uploadForm1";
+        imgEncode = "#img1";
+      }
+
+      if (valImg === "im2") {
+        idFormFile = "#uploadForm2";
+        imgEncode = "#img2";
+      }
+
+      if (valImg === "im3") {
+        idFormFile = "#uploadForm3";
+        imgEncode = "#img3";
+      }
+
+      document.querySelector(imgEncode).src = srcEncoded;
+      $(idFormFile).val(srcEncoded);
+    };
+  };
+  
+}
+
+</script>
+<?php //$this->include("script/iklan/iklan_upload_img"); ?>
+
+<?php echo $this->include("script/iklan/iklan_tanah"); ?>

@@ -1201,145 +1201,9 @@ class Iklan extends BaseController
         $nolayanan = $this->request->getVar('nolayanan');
         $nosublayanan = $this->request->getVar('nosublayanan');
 
-        $imageFile  = $this->request->getFiles();
-        
-        $files = $this->request->getFileMultiple('file');
-        
-        foreach ($files as $file) {
-            
-            $filesUploaded = 0;
- 
-            if ($file->isValid() && ! $file->hasMoved())
-            {
-                $newName = $file->getRandomName();
-                $file->move(ROOTPATH . 'public/Image/iklan/tanah', $newName);
-                
-                $filesUploaded++;
-                
-                // $file->move(WRITEPATH.'uploads', $newName);
-            }
-                 
-        }
-        
-      
-        
-        // echo "<pre>";
-        // var_dump($aa);
-        exit;
-
-        // $imageFile1 = $imageFile['file1'];
-        // $imageName1 = '';
-        // if ($imageFile1->isValid()) {
-        //     $imageName1 = $imageFile1->getName();
-        //     $imageFile1->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName1);
-        // }
-
-        // $imageFile2 = $imageFile['file2'];
-        // $imageName2 = '';
-        // if ($imageFile2->isValid()) {
-        //     $imageName2 = $imageFile2->getName();
-        //     $imageFile2->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName2);
-        // }
-
-        // $imageFile3 = $imageFile['file3'];
-        // $imageName3 = '';
-        // if ($imageFile3->isValid()) {
-        //     $imageName3 = $imageFile3->getName();
-        //     $imageFile3->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName3);
-        // }
-
-        // $imageFile4 = $imageFile['file4'];
-        // $imageName4 = '';
-        // if ($imageFile4->isValid()) {
-        //     $imageName4 = $imageFile4->getName();
-        //     $imageFile4->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName4);
-        // }
-
-        // $imageFile5 = $imageFile['file5'];
-        // $imageName5 = '';
-        // if ($imageFile5->isValid()) {
-        //     $imageName5 = $imageFile5->getName();
-        //     $imageFile5->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName5);
-        // }
-
-        // $imageFile6 = $imageFile['file6'];
-        // $imageName6 = '';
-        // if ($imageFile6->isValid()) {
-        //     $imageName6 = $imageFile6->getName();
-        //     $imageFile6->move(ROOTPATH . 'public/Image/iklan/tanah', $imageName6);
-        // }
-        
-        $imageFile1 = $imageFile['file1'];
-        $imageName1 = '';
-        if ($imageFile1->isValid()) {
-            $imgFile1 = $this->request->getFile('file1');
-            $imageName1 = $imgFile1->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile1)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName1);
-        }
-
-        $imageFile2 = $imageFile['file2'];
-        $imageName2 = '';
-        if ($imageFile2->isValid()) {
-            $imgFile2 = $this->request->getFile('file2');
-            $imageName2 = $imgFile2->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile2)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName2);
-        }
-
-        $imageFile3 = $imageFile['file3'];
-        $imageName3 = '';
-        if ($imageFile3->isValid()) {
-            $imgFile3 = $this->request->getFile('file3');
-            $imageName3 = $imgFile3->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile3)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName3);
-        }
-
-        $imageFile4 = $imageFile['file4'];
-        $imageName4 = '';
-        if ($imageFile4->isValid()) {
-            $imgFile4 = $this->request->getFile('file4');
-            $imageName4 = $imgFile4->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile4)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName4);
-        }
-
-        $imageFile5 = $imageFile['file5'];
-        $imageName5 = '';
-        if ($imageFile5->isValid()) {
-            $imgFile5 = $this->request->getFile('file5');
-            $imageName5 = $imgFile5->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile5)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName5);
-        }
-
-        $imageFile6 = $imageFile['file6'];
-        $imageName6 = '';
-        if ($imageFile6->isValid()) {
-            $imgFile6 = $this->request->getFile('file6');
-            $imageName6 = $imgFile6->getName();
-
-            \Config\Services::image()
-            ->withFile($imgFile6)
-            ->resize(300, 300, true, 'height')
-            ->save(FCPATH .'/Image/iklan/tanah/'. $imageName6);
-        }
+        $uploadForm1 = $this->request->getVar('uploadForm1');
+        $uploadForm2 = $this->request->getVar('uploadForm2');
+        $uploadForm3 = $this->request->getVar('uploadForm3');
 
         $data = ([
             'juduliklan'    => $juduliklan,
@@ -1354,12 +1218,12 @@ class Iklan extends BaseController
             'harga'         => $harga,
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
-            'image_1'       => $imageName1,
-            'image_2'       => $imageName2,
-            'image_3'       => $imageName3,
-            'image_4'       => $imageName4,
-            'image_5'       => $imageName5,
-            'image_6'       => $imageName6,
+            'image_1'       => $uploadForm1,
+            'image_2'       => $uploadForm2,
+            'image_3'       => $uploadForm3,
+            'image_4'       => $uploadForm1,
+            'image_5'       => $uploadForm1,
+            'image_6'       => $uploadForm1,
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'tanah',
         ]);
@@ -1371,7 +1235,7 @@ class Iklan extends BaseController
 
         $this->sendNotifWA();
 
-        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $lokasi, $imageName1, 'tbl_tanah', $nolayanan, $nosublayanan, $harga);
+        return $this->saveRekomendasiIklan('tanah', $id_iklan, $juduliklan, $description, $lokasi, $uploadForm1, 'tbl_tanah', $nolayanan, $nosublayanan, $harga);
     }
 
     public function saveApartemen()
