@@ -49,7 +49,7 @@
           <div class="card-layanan-list margin-bottom-10" style="height: 470px;">
             <div class="card-layanan" style="height: 470px;">
               <figure class="card-figure-layanan">
-                <img src="<?= base_url(); ?>/Image/iklan/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $image; ?>" class="card-img-layanan">
+                <img src="<?= $image; ?>" class="card-img-layanan">
               </figure>
               <div style="position: absolute; top: 0;">
                 <!-- 1 = di suspend -->

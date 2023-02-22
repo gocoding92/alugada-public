@@ -1,5 +1,7 @@
 <script>
     $(document).ready(function() {
+        $("#overlay").fadeIn(300);
+
         $('form').on('submit', function(e) {
             e.preventDefault();
 
@@ -15,6 +17,8 @@
                 processData: false,
                 success: function(data) {
                     var obj = JSON.parse(data);
+
+                    $("#overlay").fadeOut(300);
 
                     if (obj.data[1].status === 200) {
                         toastr.success(obj.data[0].message);

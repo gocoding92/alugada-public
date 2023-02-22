@@ -1204,7 +1204,7 @@ class Iklan extends BaseController
         $uploadForm1 = $this->request->getVar('uploadForm1');
         $uploadForm2 = $this->request->getVar('uploadForm2');
         $uploadForm3 = $this->request->getVar('uploadForm3');
-
+        
         $data = ([
             'juduliklan'    => $juduliklan,
             'luastanah'     => $luastanah,
@@ -1218,12 +1218,9 @@ class Iklan extends BaseController
             'harga'         => $harga,
             'nolayanan'     => $nolayanan,
             'nosublayanan'  => $nosublayanan,
-            'image_1'       => $uploadForm1,
-            'image_2'       => $uploadForm2,
-            'image_3'       => $uploadForm3,
-            'image_4'       => $uploadForm1,
-            'image_5'       => $uploadForm1,
-            'image_6'       => $uploadForm1,
+            'image_1'       => $uploadForm1 ? $uploadForm1 : '',
+            'image_2'       => $uploadForm2 ? $uploadForm2 : '',
+            'image_3'       => $uploadForm3 ? $uploadForm3 : '',
             'idpengiklan'   => $this->session->get('id'),
             'path_folder'   => 'tanah',
         ]);
