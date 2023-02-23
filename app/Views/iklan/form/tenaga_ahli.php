@@ -5,7 +5,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Tenaga Ahli - Engineering </span>
         </h2>
 
-        <?= $this->include("iklan/form/upload_img"); ?>
+        <?= $this->include("iklan/form/upload_img_iklan"); ?>
 
         <div class="margin-bottom-12">
             <label for="" class="font-size-14">Bidang Profesi <span class="textcolor-red"> * </span></label>
@@ -90,7 +90,5 @@
 
     </div>
 </form>
-
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/iklan/iklan_tenaga_ahli"); ?>

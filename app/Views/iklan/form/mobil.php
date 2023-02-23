@@ -4,7 +4,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Mobil </span>
         </h2>
 
-        <?= $this->include("iklan/form/upload_img"); ?>
+        <?= $this->include("iklan/form/upload_img_iklan"); ?>
 
         <div class="margin-bottom-12 margin-right-25">
             <label for="" class="font-size-14">Judul Iklan</label>
@@ -72,7 +72,5 @@
 
     </div>
 </form>
-
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/iklan/iklan_mobil"); ?>

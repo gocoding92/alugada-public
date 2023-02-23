@@ -4,7 +4,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Property - Apartemen</span>
         </h2>
 
-        <?= $this->include("iklan/form/upload_img"); ?>
+        <?= $this->include("iklan/form/upload_img_iklan"); ?>
 
 
         <input type="hidden" name="nolayanan" value="<?= $no_layanan; ?>">
@@ -73,7 +73,5 @@
 
     </div>
 </form>
-
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/iklan/iklan_apartemen"); ?>

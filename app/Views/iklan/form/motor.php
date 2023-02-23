@@ -4,7 +4,7 @@
             <span class="font-size-10 position-relative bottom-16 left-30"> Motor </span>
         </h2>
 
-        <?= $this->include("iklan/form/upload_img"); ?>
+        <?= $this->include("iklan/form/upload_img_iklan"); ?>
 
         <div class="row">
             <div class="margin-bottom-12 margin-right-25">
@@ -71,7 +71,5 @@
             </div>
         </div>
 </form>
-
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/iklan/iklan_motor"); ?>
