@@ -800,7 +800,6 @@ class Iklan extends BaseController
 
     public function editIklan($nama_iklan = 0, $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '')
     {
-
         $result['component_iklan'] = '';
 
         if ($type_iklan == 'tenaga_ahli') {

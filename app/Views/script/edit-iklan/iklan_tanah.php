@@ -6,6 +6,8 @@
             $('#submit').html('Loading...');
             $('#submit').prop('disabled', true);
 
+            $("#overlay").fadeIn(300);
+
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('edit-iklan/saveTanah'); ?>',
@@ -14,6 +16,8 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
+
+                    $("#overlay").fadeOut(300);
                   
                     var obj = JSON.parse(data);
 
@@ -32,39 +36,5 @@
             });
 
         });
-
-
-        // ---- 1. Submit Register (21/Oktober/2022) ----
-        // $("#submit").click(function() {
-        //     $.ajax({
-        //         url: "<?= base_url('profil/update-profil'); ?>",
-        //         type: 'POST',
-        //         headers: {
-        //             'X-Requested-With': 'XMLHttpRequest'
-        //         },
-        //         data: {
-        //             nama: nama,
-        //             email: email,
-        //             alamat: alamat,
-        //             deskripsi: deskripsi,
-        //         },
-        //         success: function(data) {
-
-        //             console.log(data);
-        //             return;
-        //             // var obj = JSON.parse(data);
-
-        //             // alert(obj.data[0].message);
-
-        //             // if (obj.data[1].status === 200) {
-        //             //     window.setTimeout(function() {
-        //             //         window.location.href = "";
-        //             //     }, 4000);
-        //             // }
-
-        //         }
-        //     });
-        // });
-
     });
 </script>
