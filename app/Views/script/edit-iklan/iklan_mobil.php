@@ -6,6 +6,8 @@
             $('#submit').html('Loading...');
             $('#submit').prop('disabled', true);
 
+            $("#overlay").fadeIn(300);
+            
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('edit-iklan/save'); ?>',
@@ -14,7 +16,8 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
-                
+                    
+                    $("#overlay").fadeOut(300);
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {

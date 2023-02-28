@@ -7,7 +7,7 @@
 
         <?= $this->include('iklan/css/styles'); ?>
 
-        <?= $this->include("iklan/edit-iklan/component/upload_img"); ?>
+        <?= $this->include("iklan/edit-iklan/component/upload_img_iklan"); ?>
 
         <!-- // image string hidden -->
         <input type="hidden" name="image_1" value="<?= $data_iklan['image_1']; ?>">
@@ -104,7 +104,5 @@
 
     </div>
 </form>
-
-<?= $this->include("script/edit-iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/edit-iklan/iklan_tenaga_ahli"); ?>

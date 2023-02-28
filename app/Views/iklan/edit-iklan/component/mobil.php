@@ -6,7 +6,7 @@
 
         <?= $this->include('iklan/css/styles'); ?>
 
-        <?= $this->include("iklan/edit-iklan/component/upload_img"); ?>
+        <?= $this->include("iklan/edit-iklan/component/upload_img_iklan"); ?>
 
         <!-- // hidden type form -->
         <input type="hidden" name="id_rekomendasi_iklan" value="<?= $id_rekomendasi_iklan; ?>">
@@ -75,7 +75,5 @@
             <button type="submit" id="submit" class="btn btn-primary width-100-percent textcolor-white"> Submit </button>
         </div>
 </form>
-
-<?= $this->include("script/iklan/iklan_upload_img"); ?>
 
 <?= $this->include("script/edit-iklan/iklan_mobil"); ?>

@@ -14,6 +14,9 @@
                 cache: false,
                 processData: false,
                 success: function(data) {
+
+                    $("#overlay").fadeOut(300);
+                    
                     var obj = JSON.parse(data);
 
                     if (obj.data[1].status === 200) {
