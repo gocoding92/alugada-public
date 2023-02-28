@@ -6,6 +6,8 @@
             $('#submit').html('Loading...');
             $('#submit').prop('disabled', true);
 
+            $("#overlay").fadeIn(300);
+            
             $.ajax({
                 type: 'POST',
                 url: '<?= base_url('edit-iklan/saveTenagaAhli'); ?>',
