@@ -18,29 +18,27 @@
     <?php if ($data_iklan['image_4']) : ?>
       <div><img class="img-slider-detail" src="<?= $data_iklan['image_4']; ?>" /></div>
     <?php endif; ?>
-    <!-- <?php //if ($data_iklan['image_5']) : ?>
-      <div><img class="img-slider-detail" src="<?= $data_iklan['image_5']; ?>" /></div>
-    <?php //endif; ?>
-    <?php //if ($data_iklan['image_6']) : ?>
-      <div><img class="img-slider-detail" src="<?= $data_iklan['image_6']; ?>" /></div>
-    <?php //endif; ?> -->
   </div>
 </div>
 
 <div id="home-page" class="row-sm">
   <?= $component_iklan ? $this->include($component_iklan) : null; ?>
   <div onclick="redirecWhatshap()">
-    <img class="icon-wa-detail-iklan" src="<?= base_url('Image/wa.png') ?>" />
+    <img class="icon-wa-detail-iklan" src="<?= base_url('Image/pesan.png') ?>" />
   </div>
 </div>
 
 <script>
   function redirecWhatshap() {
-    var session = <?php (! empty($_SESSION['nohp']) ? $_SESSION['nohp'] : '0' ); ?>
+    var session = "<?= (! empty($_SESSION['nohp']) ? $_SESSION['nohp'] : '0' ); ?>";
 
     if (!session) {
       window.location.href = "<?php echo base_url('/login'); ?>";
+
+      return;
     }
+
+    window.location.href = "<?php echo base_url('/iklan/detail-chat/'.$nama_iklan.'/'.$id_rekomendasi_iklan.'/'.$id_iklan.'/'.$type_iklan.'/'.$table.'/'.$data_pengiklan['nohp'].'/'.$data_pengiklan['nama'].' '); ?>";
   }
 </script>
 

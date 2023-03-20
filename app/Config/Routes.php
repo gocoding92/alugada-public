@@ -83,7 +83,7 @@ $routes->get('/iklan/detail-iklan-layanan/(:any)/(:num)/(:num)', 'Iklan::detailI
 $routes->get('/iklan/edit-iklan/(:any)/(:num)/(:num)/(:any)/(:any)', 'Iklan::editIklan/$1/$2/$3/$4/$5/');
 $routes->post('profil/delete-iklan', 'IklanProfil::deleteIklan');
 $routes->post('profil/edit-iklan', 'IklanProfil::editIklanProfil');
-$routes->get('iklan/detail/chat', 'Iklan::detailIklanViewChat');
+$routes->get('iklan/detail-chat/(:any)/(:num)/(:num)/(:any)/(:any)/(:any)/(:any)', 'Iklan::detailIklanViewChat/$1/$2/$3/$4/$5/$6/$7/');
 $routes->post('iklan/detail/submit/chat', 'Iklan::submitIklanChat');
 
 

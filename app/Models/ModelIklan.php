@@ -107,6 +107,11 @@ class ModelIklan extends Model
         return $this->db->table($table)->getWhere(['id' => $id_iklan])->getRowArray();
     }
 
+    public function detailPengiklanIklan($id_pengiklan)
+    {
+        return $this->db->table('tbl_user')->getWhere(['id' => $id_pengiklan])->getRowArray();
+    }
+
     public function getDataIklanLayanan($id_layanan = 0, $id_sub_layanan = 0)
     {
         $where_sub_layanan = ['nolayanan' => $id_layanan, 'is_active' => 1];

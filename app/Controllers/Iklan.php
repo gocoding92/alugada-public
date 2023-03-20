@@ -748,10 +748,15 @@ class Iklan extends BaseController
             $result['component_iklan'] = 'iklan/detail/component/tenaga_terampil';
         }
 
+        $result['nama_iklan'] = $nama_iklan;
+        $result['id_rekomendasi_iklan'] = $id_rekomendasi_iklan;
+        $result['id_iklan'] = $id_iklan;
+        $result['type_iklan'] = $type_iklan;
+        $result['table'] = $table;
         $result['data_iklan'] = $this->iklan->detailIklan($id_iklan, $table);
         $result['path_folder'] = $type_iklan;
+        $result['data_pengiklan'] = $this->iklan->detailPengiklanIklan($result['data_iklan']['idpengiklan']);
         $result['active'] = 'iklan';
-
 
         return view('iklan/detail/index', $result);
     }
@@ -837,12 +842,19 @@ class Iklan extends BaseController
         return view('iklan/edit-iklan/index', $result);
     }
 
-    public function detailIklanViewChat() {
+    public function detailIklanViewChat($nama_iklan = '', $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '', $nohp = '', $nama_pengiklan = '') {
 
         $result['active'] = 'iklan';
-        
+
+        $result['nama_iklan'] = $nama_iklan;
+        $result['id_rekomendasi_iklan'] = $id_rekomendasi_iklan;
+        $result['id_iklan'] = $id_iklan;
+        $result['type_iklan'] = $type_iklan;
+        $result['table'] = $table;
+        $result['nohp'] = $nohp;
+        $result['nama_pengiklan'] = $nama_pengiklan;
+
         return view('iklan/detail/chat', $result);
-        
     }
 
 
@@ -850,10 +862,19 @@ class Iklan extends BaseController
 
         if ($this->request->isAJAX()) {
             // no tlp yang dihubungi pengiklan
-            $nohpPengiklan = "08111041381";
+            $nohpPengiklan = $this->request->getPost('nohp');
             // no tlp user aktif login
             $nohpUserActive = $this->session->get('nohp');
+
+            $nama_iklan = $this->request->getPost('nama_iklan');
+            $id_rekomendasi_iklan = $this->request->getPost('id_rekomendasi_iklan');
+            $id_iklan = $this->request->getPost('id_iklan');
+            $type_iklan = $this->request->getPost('type_iklan');
+            $table = $this->request->getPost('table');
+            $nama_pengiklan = $this->request->getPost('nama_pengiklan');
             $chat = $this->request->getPost('chat');
+
+            $nama_user_session = $this->session->get('nama'); 
 
             $charDetail = '';
 
@@ -870,7 +891,7 @@ class Iklan extends BaseController
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
                     'target' => $nohpPengiklan,
-                    'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Dihubungi* Oleh:\r\nNama : *Achmad Rizky*\r\nNo. Telepon : *".$nohpUserActive."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan Anda*:\r\nNama Iklan : *Kontrakan 2 Pintu Bintaro*\r\nTipe Iklan : *tenaga_ahli*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/mas%20fikri%201/35/13/tenaga_ahli/tbl_tenagaahli_\r\n\r\n_Jika iklan anda masih tersedia, maka harap balas via Whatsapp / Telepon / SMS_\r\n\r\n_Terima Kasih_",
+                    'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Dihubungi* Oleh:\r\nNama : *".$nama_user_session."*\r\nNo. Telepon : *".$nohpUserActive."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan Anda*:\r\nNama Iklan : *".$nama_iklan."*\r\nTipe Iklan : *".$type_iklan."*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/".$nama_iklan."/".$id_rekomendasi_iklan."/".$id_iklan."/".$type_iklan."/".$table."_\r\n\r\n_Jika iklan anda masih tersedia, maka harap balas via Whatsapp / Telepon / SMS_\r\n\r\n_Terima Kasih_",
                     'url' => 'https://md.fonnte.com/images/wa-logo.png',
                     'filename' => 'filename',
                     'schedule' => '0',
@@ -897,7 +918,7 @@ class Iklan extends BaseController
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
                     'target' => $nohpUserActive,
-                    'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Menghubungi*:\r\nNama : *Harto*\r\nNo. Telepon : *".$nohpPengiklan."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan*:\r\nNama Iklan : *Kontrakan 2 Pintu Bintaro*\r\nTipe Iklan : *tenaga_ahli*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/mas%20fikri%201/35/13/tenaga_ahli/tbl_tenagaahli_\r\n\r\n_Pesan yang disampaikan oleh pengiklan Achmad Rizky - 085894222865_\r\n\r\n_Terima Kasih_",
+                    'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Menghubungi*:\r\nNama : *".$nama_pengiklan."*\r\nNo. Telepon : *".$nohpPengiklan."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan*:\r\nNama Iklan : *".$nama_iklan."*\r\nTipe Iklan : *".$type_iklan."*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/".$nama_iklan."/".$id_rekomendasi_iklan."/".$id_iklan."/".$type_iklan."/".$table."_\r\n\r\n_Pesan yang disampaikan oleh pengiklan ".$nama_user_session." - ".$nohpUserActive."_\r\n\r\n_Terima Kasih_",
                     'url' => 'https://md.fonnte.com/images/wa-logo.png',
                     'filename' => 'filename',
                     'schedule' => '0',
@@ -913,6 +934,22 @@ class Iklan extends BaseController
             curl_close($curl);
 
         }
+
+        // // no tlp yang dihubungi pengiklan
+        // $nohpPengiklan = $this->request->getPost('nohp');
+        // // no tlp user aktif login
+        // $nohpUserActive = $this->session->get('nohp');
+        // $nama_iklan = $this->request->getPost('nama_iklan');
+        // $id_rekomendasi_iklan = $this->request->getPost('id_rekomendasi_iklan');
+        // $id_iklan = $this->request->getPost('id_iklan');
+        // $type_iklan = $this->request->getPost('type_iklan');
+        // $table = $this->request->getPost('table');
+        // $nama_pengiklan = $this->request->getPost('nama_pengiklan');
+        // $chat = $this->request->getPost('chat');
+
+        // $nama_user_session = $this->session->get('nama'); 
+
+        // tinggal ditambahkan field di chat lainnya
 
         $data = ([
             'chat' => $chat,

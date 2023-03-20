@@ -6,7 +6,7 @@
     }
 
     .icon-wa-detail-iklan {
-        width: 120px;
+        width: 50px;
         position: absolute;
         bottom: 0px;
         right: 9px;
