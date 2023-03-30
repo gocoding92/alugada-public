@@ -878,9 +878,9 @@ class Iklan extends BaseController
 
             $charDetail = '';
 
-            $curl = curl_init();
+            $curl_1 = curl_init();
             // user menghubungi pengiklan
-            curl_setopt_array($curl, array(
+            curl_setopt_array($curl_1, array(
                 CURLOPT_URL => 'https://api.fonnte.com/send',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
@@ -890,7 +890,7 @@ class Iklan extends BaseController
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
-                    'target' => $nohpPengiklan,
+                    'target' => ".$nohpPengiklan.",
                     'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Dihubungi* Oleh:\r\nNama : *".$nama_user_session."*\r\nNo. Telepon : *".$nohpUserActive."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan Anda*:\r\nNama Iklan : *".$nama_iklan."*\r\nTipe Iklan : *".$type_iklan."*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/".$nama_iklan."/".$id_rekomendasi_iklan."/".$id_iklan."/".$type_iklan."/".$table."_\r\n\r\n_Jika iklan anda masih tersedia, maka harap balas via Whatsapp / Telepon / SMS_\r\n\r\n_Terima Kasih_",
                     'url' => 'https://md.fonnte.com/images/wa-logo.png',
                     'filename' => 'filename',
@@ -903,11 +903,12 @@ class Iklan extends BaseController
                 ),
             ));
 
-            $response = curl_exec($curl);
-            curl_close($curl);
-
+            $response_1 = curl_exec($curl_1);
+            curl_close($curl_1);
+            
+            $curl_2 = curl_init();
             // laporan chat user ke pengiklan
-            curl_setopt_array($curl, array(
+            curl_setopt_array($curl_2, array(
                 CURLOPT_URL => 'https://api.fonnte.com/send',
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => '',
@@ -917,7 +918,7 @@ class Iklan extends BaseController
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => 'POST',
                 CURLOPT_POSTFIELDS => array(
-                    'target' => $nohpUserActive,
+                    'target' => ".$nohpUserActive.",
                     'message' => "*Selamat Datang di Aplikasi Alugada!*\r\n\r\nAnda Telah *Menghubungi*:\r\nNama : *".$nama_pengiklan."*\r\nNo. Telepon : *".$nohpPengiklan."*\r\nPesan : _".$chat."_\r\n\r\nDetail *Iklan*:\r\nNama Iklan : *".$nama_iklan."*\r\nTipe Iklan : *".$type_iklan."*\r\nLink Iklan : _https://dev-public.alugada.co.id/public/iklan/detail-iklan/".$nama_iklan."/".$id_rekomendasi_iklan."/".$id_iklan."/".$type_iklan."/".$table."_\r\n\r\n_Pesan yang disampaikan oleh pengiklan ".$nama_user_session." - ".$nohpUserActive."_\r\n\r\n_Terima Kasih_",
                     'url' => 'https://md.fonnte.com/images/wa-logo.png',
                     'filename' => 'filename',
@@ -930,8 +931,8 @@ class Iklan extends BaseController
                 ),
             ));
 
-            $response = curl_exec($curl);
-            curl_close($curl);
+            $response_2 = curl_exec($curl_2);
+            curl_close($curl_2);
 
         }
 
