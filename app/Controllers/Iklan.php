@@ -842,7 +842,7 @@ class Iklan extends BaseController
         return view('iklan/edit-iklan/index', $result);
     }
 
-    public function detailIklanViewChat($nama_iklan = '', $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '', $nohp = '', $nama_pengiklan = '') {
+    public function detailIklanViewChat($nama_iklan = '', $id_rekomendasi_iklan = '', $id_iklan = 0, $type_iklan = '', $table = '', $nohp = '', $nama_pengiklan = '', $id_pengiklan = '') {
 
         $result['active'] = 'iklan';
 
@@ -853,6 +853,7 @@ class Iklan extends BaseController
         $result['table'] = $table;
         $result['nohp'] = $nohp;
         $result['nama_pengiklan'] = $nama_pengiklan;
+        $result['id_pengiklan'] = $id_pengiklan;
 
         return view('iklan/detail/chat', $result);
     }
@@ -873,6 +874,7 @@ class Iklan extends BaseController
             $table = $this->request->getPost('table');
             $nama_pengiklan = $this->request->getPost('nama_pengiklan');
             $chat = $this->request->getPost('chat');
+            $id_pengiklan = $this->request->getPost('id_pengiklan');
 
             $nama_user_session = $this->session->get('nama'); 
 
@@ -936,23 +938,11 @@ class Iklan extends BaseController
 
         }
 
-        // // no tlp yang dihubungi pengiklan
-        // $nohpPengiklan = $this->request->getPost('nohp');
-        // // no tlp user aktif login
-        // $nohpUserActive = $this->session->get('nohp');
-        // $nama_iklan = $this->request->getPost('nama_iklan');
-        // $id_rekomendasi_iklan = $this->request->getPost('id_rekomendasi_iklan');
-        // $id_iklan = $this->request->getPost('id_iklan');
-        // $type_iklan = $this->request->getPost('type_iklan');
-        // $table = $this->request->getPost('table');
-        // $nama_pengiklan = $this->request->getPost('nama_pengiklan');
-        // $chat = $this->request->getPost('chat');
-
-        // $nama_user_session = $this->session->get('nama'); 
-
-        // tinggal ditambahkan field di chat lainnya
-
         $data = ([
+            'id_users' => $this->session->get('id'),
+            'id_users_pengiklan' => $id_pengiklan,
+            'id_iklan' => $id_iklan,
+            'id_rekomendasi_iklan' => $id_rekomendasi_iklan,
             'chat' => $chat,
         ]);
 

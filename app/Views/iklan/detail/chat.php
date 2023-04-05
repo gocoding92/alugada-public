@@ -17,6 +17,7 @@
         <input type="hidden" id="table" value="<?php echo $table; ?>">
         <input type="hidden" id="nohp" value="<?php echo $nohp; ?>">
         <input type="hidden" id="nama_pengiklan" value="<?php echo $nama_pengiklan; ?>">
+        <input type="hidden" id="id_pengiklan" value="<?php echo $id_pengiklan; ?>">
 
         <textarea id="chat" class="form-control" placeholder="Contoh: Kontrakan masih tersedia ?" style="height: 100px;"></textarea>
     </div>
@@ -35,6 +36,7 @@
       var nohp = $("#nohp").val();
       var nama_pengiklan = $("#nama_pengiklan").val();
       var chat = $("#chat").val();
+      var id_pengiklan = $("#id_pengiklan").val();
 
       $('#submit').html('Loading...');
       $('#submit').prop('disabled', true);
@@ -53,7 +55,8 @@
               table: table,
               nohp: nohp,
               nama_pengiklan: nama_pengiklan,
-              chat: chat
+              chat: chat,
+              id_pengiklan: id_pengiklan
             },
           success: function(data) {
             var obj = JSON.parse(data);

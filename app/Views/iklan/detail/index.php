@@ -38,7 +38,7 @@
       return;
     }
 
-    window.location.href = "<?php echo base_url('/iklan/detail-chat/'.$nama_iklan.'/'.$id_rekomendasi_iklan.'/'.$id_iklan.'/'.$type_iklan.'/'.$table.'/'.$data_pengiklan['nohp'].'/'.$data_pengiklan['nama'].' '); ?>";
+    window.location.href = "<?php echo base_url('/iklan/detail-chat/'.$nama_iklan.'/'.$id_rekomendasi_iklan.'/'.$id_iklan.'/'.$type_iklan.'/'.$table.'/'.$data_pengiklan['nohp'].'/'.$data_pengiklan['nama'].'/'.$data_pengiklan['id'].' '); ?>";
   }
 </script>
 
