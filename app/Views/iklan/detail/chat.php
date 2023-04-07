@@ -68,7 +68,7 @@
 
               if (obj.data[1].status === 200) {
                   window.setTimeout(function() {
-                      window.location.href = "<?php echo base_url('/beranda'); ?>";
+                      window.location.href = "<?php echo base_url('/pesan'); ?>";
                   }, 2000);
               }
           }

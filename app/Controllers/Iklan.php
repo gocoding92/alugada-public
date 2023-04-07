@@ -944,6 +944,8 @@ class Iklan extends BaseController
             'id_iklan' => $id_iklan,
             'id_rekomendasi_iklan' => $id_rekomendasi_iklan,
             'chat' => $chat,
+            'created_time' => date('d-m-Y H:i:s'),
+            'updated_time' => date('d-m-Y H:i:s')
         ]);
 
         $saveChatUser = $this->iklan->saveChatUser($data);
