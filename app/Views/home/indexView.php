@@ -31,7 +31,8 @@ if (! empty($_SESSION['nohp'])) {
       </a>
     <?php endforeach; ?>
   </div>
-  <div class="row-card-layanan">
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-gap: 15px;gap: 15px;">
+
     <?php foreach ($rekomendasi_iklan as $tbl_rekomendasi_iklan) :
       $image = $tbl_rekomendasi_iklan['image'];
       $nama_iklan = substr($tbl_rekomendasi_iklan['nama_iklan'], 0, 16);
@@ -41,30 +42,79 @@ if (! empty($_SESSION['nohp'])) {
       $alamat = substr($tbl_rekomendasi_iklan['alamat'], 0, 15);
       $alamat_str = strlen($tbl_rekomendasi_iklan['alamat']) > 15 ? '...' : '';
     ?>
-      <a href="<?= base_url('iklan/detail-iklan'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['table_iklan']; ?>" class="cursor-pointer text-decoration-none">
-        <div class="card-layanan-list">
-          <div class="card-layanan">
-            <figure class="card-figure-layanan">
-              <img src="<?= $image; ?>" class="card-img-layanan">
-            </figure>
-            <div class="row-title-layanan">
-              <span class="title-layanan"><?= $nama_iklan . $nama_iklan_str; ?></span>
-              <span class="title-layanan">Rp. <?= number_format($tbl_rekomendasi_iklan['harga']); ?></span>
-              <span class="title-type-layanan-border"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span> <br /> <br />
-              <span class="title-type-desc"><?= $description . $description_str; ?></span> <br /> <br />
-              <div style="position: absolute; bottom: 0;">
-                <div style="position: relative; top: -10px;">
-                  <p class="title-alamat"> <i class="fa fa-map"></i> <?= $alamat . $alamat_str; ?></p>
-                  <span class="title-type-layanan"><?= $tbl_rekomendasi_iklan['create_at_iklan']; ?></span> <br />
-                  <button id="submit" style="width: 77px;" class="btn btn-primary textcolor-white margin-top-7 cursor-pointer"> Detail </button>
-                </div>
-              </div>
+      
+      <div style="width: 168px;
+                  height: 240px;
+                  box-shadow: 0 1px 4px 0 var(--blackDividers);
+                  position: relative;
+                  box-sizing: border-box;
+                  margin: 8px;
+                  padding: 0;
+                  text-align: left;
+                  background-color: #fafafa;
+                  border-radius: 4px;">
+        <div>
+         <img style="width: 100%;
+          object-fit: cover;
+          height: 120px;
+          border-radius: 4px 4px 0 0;
+          " src="<?= $image; ?>" alt="" />
+          <div style="margin: 12px 0 0;">
+            <div style="margin: 0; padding: 0 8px;">
+              <span style="font-size: 16px; line-height: normal;">Rp. <?= number_format($tbl_rekomendasi_iklan['harga']); ?></span>
             </div>
+            <h3 style="font-size: 12px;
+              line-height: 18px;
+              line-height: 20px;
+              margin: 8px 0 0;
+              display: inline-block;
+              max-width: 100%;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              padding: 0 8px;
+              margin-bottom: 6px;
+              ">
+              <?= $nama_iklan . $nama_iklan_str; ?>
+            </h3>
+            <span class="title-type-layanan-border" style="position: absolute; top: 0; left: 0px;"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span>
+            <div style="text-transform: capitalize;
+              margin: 0;
+              display: inline-block;
+              max-width: auto;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              font-size: 10px;
+              line-height: 16px;
+              max-width: 140px;
+              padding: 0 8px;">
+              <?= $description . $description_str; ?>
+            </div>
+            <a href="<?= base_url('iklan/detail-iklan'); ?>/<?= $tbl_rekomendasi_iklan['nama_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['id_iklan']; ?>/<?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?>/<?= $tbl_rekomendasi_iklan['table_iklan']; ?>" class="cursor-pointer text-decoration-none">
+            <div style="
+                  margin: auto 1px 1px;
+                  font-size: 12px;
+                  background-color: #009688;
+                  text-align: center;
+                  color: #fff;
+                  border-radius: 0px;
+                  margin-top: 0px;
+                  padding: -3px;
+                  height: 18px;
+              ">
+              Detail
+            </div>
+          </a>
           </div>
         </div>
-      </a>
+      </div>
+
     <?php endforeach; ?>
-  </div>
+
+    </div>
+
+
   <?php if (count($rekomendasi_iklan) == 0): ?>
     <div class="empty-state-iklan">
       <img style="max-width: 90px;" src="<?= base_url('Image/emptystate.png') ?>" />
