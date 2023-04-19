@@ -10,7 +10,8 @@
     <a href="<?= base_url('iklan/detail-iklan'); ?>/<?= $value['nama_iklan']; ?>/<?= $value['id_rekomendasi_iklan']; ?>/<?= $value['id_iklan']; ?>/<?= $value['type_rekomendasi_iklan']; ?>/<?= $value['table_iklan']; ?>" class="text-decoration-none color-black">
       <div style="background-color: #fafafa; border-radius: 12px;" class="margin-left-16 margin-right-16 display-flex border-solid-ebe9e9 margin-bottom-10">
         <div style="width: 14%; margin-left: 12px;" class="margin-top-20">
-          <img class="width-30-px height-30-px border-radius-30" src="<?= $value['gambar'] ? base_url('Image/User/' . $value['gambar']) : base_url('Image/User/img-default.png') ?>" />
+          <img class="width-30-px height-30-px border-radius-30" src="<?=base_url('Image/User/img-default.png'); ?>" />
+          <!-- <img class="width-30-px height-30-px border-radius-30" src="<?php // echo //$value['gambar'] ? base_url('Image/User/' . $value['gambar']) : base_url('Image/User/img-default.png') ?>" /> -->
         </div>
         <div style="width: 85%; padding: 12px;">
           <span class="font-size-18"> <?php echo $value['nama']; ?> </span> <br />
