@@ -77,7 +77,12 @@ if (! empty($_SESSION['nohp'])) {
               ">
               <?= $nama_iklan . $nama_iklan_str; ?>
             </h3>
-            <span class="title-type-layanan-border" style="position: absolute; top: 0; left: 0px;"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span>
+            <span style="background-color: <?= $tbl_rekomendasi_iklan['color']; ?>;
+    color: white;
+    padding: 4px;
+    border-radius: 2px;
+    font-size: 7px;
+    position: absolute; top: 0; left: 0px;"><?= $tbl_rekomendasi_iklan['type_rekomendasi_iklan']; ?></span>
             <div style="text-transform: capitalize;
               margin: 0;
               display: inline-block;

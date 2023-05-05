@@ -31,8 +31,8 @@
 <script>
   function redirecWhatshap() {
     var session = "<?= (! empty($_SESSION['nohp']) ? $_SESSION['nohp'] : '0' ); ?>";
-
-    if (!session) {
+    
+    if (parseInt(session) === 0) {
       window.location.href = "<?php echo base_url('/login'); ?>";
 
       return;

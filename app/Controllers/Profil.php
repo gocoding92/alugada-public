@@ -66,10 +66,18 @@ class Profil extends BaseController
         $imageFile  = $this->request->getFiles();
        
         $imageFile1 = $imageFile['avatar'];
+        
+        // var_dump(ROOTPATH);
+        // exit;
+        
         $imageName1 = $this->request->getVar('image-default');
         if ($imageFile1->isValid()) {
             $imageName1 = $imageFile1->getName();
-            $imageFile1->move(ROOTPATH . 'public/Image/user', $imageName1);
+            $imageFile1->move(WRITEPATH . 'public/Image/user', $imageName1);
+            
+            // $imageFile1->move(ROOTPATH . 'public/Image/user', $imageName1);
+            
+            
         }
 
         $update_profil = $this->modelProfil->update_profil($nama, $email, $alamat, $deskripsi, $id_user, $imageName1);
